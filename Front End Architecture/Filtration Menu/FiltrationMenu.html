@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en-US">
+    <title>Title</title>
+</head>
+
+<body>
+    <div>
+
+        <form>
+            <!--Pick Shown Files Division-->
+            <div>
+                <p>Choose what to show in the results</p>
+                <div>
+                    <input type="checkbox" name="ShowAll">
+                    <label for="ShowAll">All</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowID">
+                    <label for="ShowID">ID</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowSource">
+                    <label for="ShowSource">Source</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowTMC">
+                    <label for="ShowTMC">TMC</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowSeverity">
+                    <label for="ShowSeverity">Severity</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStartTime">
+                    <label for="ShowStartTime">Start Time</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowEndTime">
+                    <label for="ShowEndTime">End Time</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStartLatitude">
+                    <label for="ShowStartLatitude">Start Latitude</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowEndLatitude">
+                    <label for="ShowEndLatitude">End Latitude</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStartLongitude">
+                    <label for="ShowStartLongitude">Start Longitude</label>
+
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowEndLongitude">
+                    <label for="ShowEndLongitude">End Longitude</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowDistance">
+                    <label for="ShowDistance">Distance (miles)</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowDescription">
+                    <label for="ShowDescription">Description</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStreetNumber">
+                    <label for="ShowStreetNumber">Street Number</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStreetName">
+                    <label for="ShowStreetName">Street Name</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStreetSide">
+                    <label for="ShowStreetSide">Street Side</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowCity">
+                    <label for="ShowCity">City</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowCounty">
+                    <label for="ShowCounty">County</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowState">
+                    <label for="ShowState">State</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowZipcode">
+                    <label for="ShowZipcode">Zipcode</label>
+
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowCountry">
+                    <label for="ShowCountry">Country</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowTimeZone">
+                    <label for="ShowTimeZone">Time Zone</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowAirportCode">
+                    <label for="ShowAirportCode">Airport Code</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowWeatherTimestamp">
+                    <label for="ShowWeatherTimestamp">Weather Timestamp</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowTemperature">
+                    <label for="ShowTemperature">Temperature (F)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowWindChill">
+                    <label for="ShowWindChill">Wind Chill</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowHumidity">
+                    <label for="ShowHumidity">Humidity (%)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowPressure">
+                    <label for="ShowPressure">Pressure (inches)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowVisibility">
+                    <label for="ShowVisibility">Visibility (miles)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowWindDirection">
+                    <label for="ShowWindDirection">Wind Direction</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowWindSpeed">
+                    <label for="ShowWindSpeed">Wind Speed (mph)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowPrecipitation">
+                    <label for="ShowPrecipitation">Precipitation</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowWeatherCondition">
+                    <label for="ShowWeatherCondition">Weather Condition</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowAmenity">
+                    <label for="ShowAmenity">Amenity</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowBump">
+                    <label for="ShowBump">Bump</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowCrossing">
+                    <label for="ShowCrossing">Crossing</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowGiveWay">
+                    <label for="ShowGiveWay">Give Way</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowJunction">
+                    <label for="ShowJunction">Junction</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowNoExit">
+                    <label for="ShowNoExit">No Exit</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowRailway">
+                    <label for="ShowRailway">Railway</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowRoundabout">
+                    <label for="ShowRoundabout">Roundabout</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStation">
+                    <label for="ShowStation">Station</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowTrafficCalming">
+                    <label for="ShowTrafficCalming">Traffic Calming</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowStop">
+                    <label for="ShowStop">Stop</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowTurningLoop">
+                    <label for="ShowTurningLoop">Turning Loop</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowTrafficSignal">
+                    <label for="ShowTrafficSignal">Traffic Signal</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowSunriseSunset">
+                    <label for="ShowSunriseSunset">Sunrise-Sunset</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowNauticalTwilight">
+                    <label for="ShowNauticalTwilight">Nautical Twilight</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowCivilTwilight">
+                    <label for="ShowCivilTwilight">Civil Twilight</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="ShowAstronomicalTwilight">
+                    <label for="ShowAstronomicalTwilight">Astronomical Twilight</label>
+                </div>
+            </div>
+            <!--Pick Restrictions Division-->
+            <div>
+                <p>Restrict Values</p>
+                <div>
+                    <div>
+                        <label for="SearchMaxNumberOfEntries">Number of Entries (max):</label>
+                        <input type="number" name="SearchMaxNumberOfEntries">
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinID">ID (min):</label>
+                            <input type="text" name="SearchMinID">
+                        </div>
+                        <div>
+                            <label for="SearchMinID">ID (max):</label>
+                            <input type="text" name="SearchMaxID">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="SearchSource">Source:</label>
+                        <select name="SearchSource">
+                            <option value="MapQuest">MapQuest</option>
+                            <option value="Bing">Bing</option>
+                            <option value="Other">Other</option>
+                            <option value="Any">Any</option>
+                        </select>
+
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinTMC">TMC (min):</label>
+                            <input type="number" name="SearchMinTMC">
+                        </div>
+                        <div>
+                            <label for="SearchMaxTMC">TMC (min):</label>
+                            <input type="number" name="SearchMaxTMC">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinSeverity">Severity (min):</label>
+                            <input type="number" name="SearchMinSeverity">
+                        </div>
+                        <div>
+                            <label for="SearchMaxSeverity">Severity (max):</label>
+                            <input type="number" name="SearchMaxSeverity">
+                        </div>
+                    </div>
+                    <div>
+
+                        <label for="SearchDateStartTime">Started later than the Date:</label>
+                        <input type="date" name="SearchDateStartTime">
+
+                    </div>
+                    <div>
+                        <label for="SearchDateEndTime">Ended earlier than the Date:</label>
+                        <input type="date" name="SearchDateEndTime">
+
+                    </div>
+                    <div>
+
+                        <label for="SearchHourStartTime">Started later than the Hour:</label>
+                        <input type="time" name="SearchHourStartTime">
+
+                    </div>
+                    <div>
+
+                        <label for="SearchHourEndTime">Started earlier than the Hour:</label>
+                        <input type="time" name="SearchHourEndTime">
+
+                    </div>
+                    <div>
+                        <div>
+                            <label for="ShowStartMinLatitude">Started at minimum Latitude:</label>
+                            <input type="number" name="ShowStartMinLatitude">
+                        </div>
+                        <div>
+                            <label for="ShowStartMaxLatitude">Started at maximum Latitude:</label>
+                            <input type="number" name="ShowStartMaxLatitude">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="ShowStartMinLongitude">Started at minimum Longitude:</label>
+                            <input type="number" name="ShowStartMinLongitude">
+                        </div>
+                        <div>
+                            <label for="ShowStartMaxLongitude">Started at maximum Longitude:</label>
+                            <input type="number" name="ShowStartMaxLongitude">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="ShowEndMinLatitude">Ended at minimum Latitude:</label>
+                            <input type="number" name="ShowEndMinLatitude">
+                        </div>
+                        <div>
+                            <label for="ShowEndMaxLatitude">Ended at maximum Latitude:</label>
+                            <input type="number" name="ShowEndMaxLatitude">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="ShowEndMinLongitude">Ended at minimum Longitude:</label>
+                            <input type="number" name="ShowEndMinLongitude">
+                        </div>
+                        <div>
+                            <label for="ShowEndMaxLongitude">Ended at maximum Longitude:</label>
+                            <input type="number" name="ShowEndMaxLongitude">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinDistance">Minimum Distance(miles):</label>
+                            <input type="number" name="SearchMinDistance">
+                        </div>
+                        <div>
+                            <label for="SearchMaxDistance">Maximum Distance(miles):</label>
+                            <input type="number" name="SearchMaxDistance">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchInDescription">Keyword in Description:</label>
+                            <input type="text" name="SearchInDescription">
+                        </div>
+                        <div>
+                            <label for="SearchNotInDescription">Keyword not in Description:</label>
+                            <input type="text" name="SearchNotInDescription">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="SearchCountry">Country</label>
+                        <input type="text" name="SearchCountry">
+                    </div>
+                    <div>
+                        <label for="SearchState">State:</label>
+                        <input type="text" name="SearchState">
+                    </div>
+                    <div>
+                        <label for="SearchCity">City:</label>
+                        <input type="text" name="SearchCity">
+                    </div>
+                    <div>
+                        <label for="SearchCounty">County:</label>
+                        <input type="text" name="SearchCounty">
+                    </div>
+                    <div>
+                        <label for="SearchStreetName">Street Name:</label>
+                        <input type="text" name="SearchStreetName">
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinStreetNumber">Street Number (min):</label>
+                            <input type="number" name="SearchMinStreetNumber">
+                        </div>
+                        <div>
+                            <label for="SearchMaxStreetNumber">Street Number (max):</label>
+                            <input type="number" name="SearchMaxStreetNumber">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="SearchStreetSide">Street Side:</label>
+                        <select name="SearchStreetSide">
+                            <option value="Any">Any</option>
+                            <option value="Left">Left</option>
+                            <option value="Right">Right</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchTimezone">Timezone:</label>
+                        <input type="text" name="SearchTimezone">
+                    </div>
+                    <div>
+                        <label for="SearchAirportCode">Airport Code:</label>
+                        <input type="text" name="SearchAirportCode">
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinTemperature">Temperature F (min):</label>
+                            <input type="number" name="SearchMinTemperature">
+                        </div>
+                        <div>
+                            <label for="SearchMaxTemperature">Temperature F (max):</label>
+                            <input type="number" name="SearchMaxTemperature">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinWindChill">Wind Chill F (min):</label>
+                            <input type="number" name="SearchMinWindChill">
+                        </div>
+                        <div>
+                            <label for="SearchMaxWindChill">Wind Chill F (max):</label>
+                            <input type="number" name="SearchMaxWindChill">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinHumidity">Humidity % (min):</label>
+                            <input type="number" name="SearchMinHumidity">
+                        </div>
+                        <div>
+                            <label for="SearchMaxHumidity">Humidity % (max):</label>
+                            <input type="number" name="SearchMaxHumidity">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinPressure">Pressure inches (min):</label>
+                            <input type="number" name="SearchMinPressure">
+                        </div>
+                        <div>
+                            <label for="SearchMaxPressure">Pressure inches (max):</label>
+                            <input type="number" name="SearchMaxPressure">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinVisibility">Visibility miles (min):</label>
+                            <input type="number" name="SearchMinVisibility">
+                        </div>
+                        <div>
+                            <label for="SearchMaxVisibility">Visibility miles (max):</label>
+                            <input type="number" name="SearchMaxVisibility">
+                        </div>
+                    </div>
+                    <div>
+                            <label for="SearchWindDirection">Wind Direction:</label>
+                            <input type="text" name="SearchWindDirection">
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinWindSpeed">Wind Speed mph (min):</label>
+                            <input type="number" name="SearchMinWindSpeed">
+                        </div>
+                        <div>
+                            <label for="SearchMaxWindSpeed">Wind Speed mph (max):</label>
+                            <input type="number" name="SearchMaxWindSpeed">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="SearchMinPrecipitation">Precipitation inches (min):</label>
+                            <input type="number" name="SearchMinPrecipitation">
+                        </div>
+                        <div>
+                            <label for="SearchMaxPrecipitation">Precipitation inches (max):</label>
+                            <input type="number" name="SearchMaxPrecipitation">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="SearchWeatherCondition">Weather Condition:</label>
+                        <input type="text" name="SearchWeatherCondition">
+                    </div>
+                    <div>
+                        <label for="SearchAmenity">Amenity:</label>
+                        <select name="SearchAmenity">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchBump">Bump:</label>
+                        <select name="SearchBump">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchCrossing">Crossing:</label>
+                        <select name="SearchCrossing">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchGiveWay">Give Way:</label>
+                        <select name="SearchGiveWay">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchJunction">Junction:</label>
+                        <select name="SearchJunction">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchNoExit">No Exit:</label>
+                        <select name="SearchNoExit">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchRailway">Railway:</label>
+                        <select name="SearchRailway">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchRoundabout">Roundabout:</label>
+                        <select name="SearchRoundabout">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchStop">Stop:</label>
+                        <select name="SearchStop">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchStation">Station:</label>
+                        <select name="SearchStation">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchTrafficCalming">Traffic Calming:</label>
+                        <select name="SearchTrafficCalming">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchTrafficSignal">Traffic Signal:</label>
+                        <select name="SearchTrafficSignal">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchTurningLoop">Turning Loop:</label>
+                        <select name="SearchTurningLoop">
+                            <option value="Any">Any</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchSunriseSunset">Sunrise-Sunset:</label>
+                        <select name="SearchSunriseSunset">
+                            <option value="Any">Any</option>
+                            <option value="Day">Day</option>
+                            <option value="Night">Night</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchCivilTwilight">Civil Twilight:</label>
+                        <select name="SearchCivilTwilight">
+                            <option value="Any">Any</option>
+                            <option value="Day">Day</option>
+                            <option value="Night">Night</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchNauticalTwilight">Nautical Twilight:</label>
+                        <select name="SearchNauticalTwilight">
+                            <option value="Any">Any</option>
+                            <option value="Day">Day</option>
+                            <option value="Night">Night</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="SearchAstronomicalTwilight">Astronomical Twilight:</label>
+                        <select name="SearchAstronomicalTwilight">
+                            <option value="Any">Any</option>
+                            <option value="Day">Day</option>
+                            <option value="Night">Night</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--Sorting Division-->
+            <div>
+                <label for="SortBy">Sort By:</label>
+                <select name="SortBy">
+                    <option value="ID">ID</option>
+                    <option value="Source">Source</option>
+                    <option value="TMC">TMC</option>
+                    <option value="Severity">Severity</option>
+                    <option value="Start Date">Start Date</option>
+                    <option value="End Date">End Date</option>
+                    <option value="Start Latitude">Start Latitude</option>
+                    <option value="Start Longitude">Start Longitude</option>
+                    <option value="End Latitude">End Latitude</option>
+                    <option value="End Longitude">End Longitude</option>
+                    <option value="Distance">Distance</option>
+                    <option value="Street Number">Street Number</option>
+                    <option value="Street Name">Street Name</option>
+                    <option value="Street Side">Street Side</option>
+                    <option value="City">City</option>
+                    <option value="County">County</option>
+                    <option value="State">State</option>
+                    <option value="Zipcode">Zipcode</option>
+                    <option value="Country">Country</option>
+                    <option value="Timezone">Timezone</option>
+                    <option value="Airport Code">Airport Code</option>
+                    <option value="Temperature">Temperature (F)</option>
+                    <option value="Wind Chill">Wind Chill (F)</option>
+                    <option value="Humidity">Humidity (%)</option>
+                    <option value="Pressure">Pressure (inches)</option>
+                    <option value="Visibility">Visibility (miles)</option>
+                    <option value="Wind Direction">Wind Direction</option>
+                    <option value="Wind Speed">Wind Speed (mph)</option>
+                    <option value="Precipitation">Precipitation (inches)</option>
+                    <option value="Weather Condition">Weather Condition</option>
+                </select>
+            </div>
+            <!--Submit Button-->
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+
+</html>
