@@ -1,0 +1,54 @@
+ body {
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 100px 100px 100px 100px;
+  grid-gap: 10px;
+  padding: 10px;
+  background-color: blue;
+}
+
+
+nav{
+  grid-column-start: 10;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+  justify-self: center;
+  background-color: red;
+}
+
+header{
+  grid-column-start: 1;
+  grid-column-end: 10;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  justify-self: center;
+  background-color: red;
+}
+
+footer{
+  grid-column-start: 1;
+  grid-column-end: 10;
+  grid-row-start: 4;
+  grid-row-end: span 1;
+  justify-self: center;
+  background-color: red;
+}
+
+#filtration_menu{
+  grid-column-start: 1;
+  grid-column-end: 10;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  justify-self: center;
+  background-color: red;
+}
+
+#filtration_output{
+  grid-column-start: 1;
+  grid-column-end: 10;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  justify-self: center;
+  background-color: red;
+}
