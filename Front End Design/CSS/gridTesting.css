@@ -2,9 +2,9 @@
   display: grid;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: 100px 100px 100px 100px;
-  grid-gap: 10px;
-  padding: 10px;
   background-color: blue;
+  height: 100%;
+
 }
 
 
@@ -42,9 +42,10 @@ footer{
   grid-row-end: span 1;
   justify-self: center;
   background-color: red;
+  width: 100%;
 }
 
-#filtration_output{
+#output_render{
   grid-column-start: 1;
   grid-column-end: 10;
   grid-row-start: 3;
