@@ -1,0 +1,1 @@
+This directory will contain the final variant of the project modeled by the MVC design pattern.  
