@@ -1,0 +1,92 @@
+:root{
+    --primary-color:#000000;
+    --secondary-color:#fcffff;
+    --tertiary-color:#ffe5d8;
+    --aux-color:#96cecc;
+    --aux-color2:#5bb3b0;
+    --text-font-footer:Arial;
+    --footer-icon-width:16px;
+    --footer-icon-height:16px;
+    font-size: 16px;
+}
+
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 90px;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: grid;
+    grid-template-columns:  33% 33% 33%;
+    grid-template-rows: 50% 50%;
+    justify-content: space-around;
+    align-content: space-around;
+    
+}
+.footer-item1{
+    grid-row: 1/3 ;
+    grid-column: 1/1;
+
+}
+.footer-item2{
+    grid-row: 1/2 ;
+    grid-column: 2/2;
+
+}
+.footer-item3{
+    grid-row: 1/3;
+    grid-column: 3/3;   
+}
+
+footer p{
+    color: var(--tertiary-color);
+    font: 0.9rem bold Sans-Serif;
+    text-align: center;
+}
+
+.footer-icon1{
+    height: 30px;
+    flex-grow: 4;
+    padding: 2px;
+
+}
+.footer-icon2{
+    height: 30px;
+    flex-grow: 5;
+    padding: 2px;
+
+}
+.footer-icon-flex{
+    display: flex;
+    justify-content: center;
+}
+
+@media all and (min-width:960px) and (max-width: 1024px) {
+    /* put your css styles in here */
+  }
+  
+  @media all and (min-width:801px) and (max-width: 959px) {
+    /* put your css styles in here */
+  }
+  
+  @media all and (min-width:769px) and (max-width: 800px) {
+    /* put your css styles in here */
+  }
+  
+  @media all and (min-width:569px) and (max-width: 768px) {
+    /* put your css styles in here */
+  }
+  
+  @media all and (min-width:481px) and (max-width: 568px) {
+    /* put your css styles in here */
+  }
+  
+  @media all and (min-width:321px) and (max-width: 480px) {
+    /* put your css styles in here */
+  }
+  
+  @media all and (min-width:0px) and (max-width: 320px) {
+    /* put your css styles in here */
+  }
