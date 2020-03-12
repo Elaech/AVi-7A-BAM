@@ -10,7 +10,6 @@
     font-size: 16px;
 }
 
-
 footer{
     position: fixed;
     left: 0;
@@ -23,7 +22,7 @@ footer{
     grid-template-rows: 50% 50%;
     justify-content: space-around;
     align-content: space-around;
-    
+    box-sizing: border-box;
 }
 .footer-item1{
     grid-row: 1/3 ;
@@ -42,7 +41,8 @@ footer{
 
 footer p{
     color: var(--tertiary-color);
-    font: 0.9rem bold Sans-Serif;
+    font: 0.9rem bold;
+    font-family: Sans-Serif;
     text-align: center;
 }
 
@@ -50,43 +50,35 @@ footer p{
     height: 30px;
     flex-grow: 4;
     padding: 2px;
+    box-sizing: border-box;
 
 }
 .footer-icon2{
     height: 30px;
     flex-grow: 5;
     padding: 2px;
-
+    box-sizing: border-box;
 }
 .footer-icon-flex{
     display: flex;
     justify-content: center;
 }
 
-@media all and (min-width:960px) and (max-width: 1024px) {
-    /* put your css styles in here */
+
+@media screen and (max-width:600px){
+  footer p{
+    font: 0.3rem bold;
   }
-  
-  @media all and (min-width:801px) and (max-width: 959px) {
-    /* put your css styles in here */
+  footer{
+    height: 34px;
+
   }
-  
-  @media all and (min-width:769px) and (max-width: 800px) {
-    /* put your css styles in here */
+  .footer-icon1{
+    height: 14px;
+    padding: 2px;
   }
-  
-  @media all and (min-width:569px) and (max-width: 768px) {
-    /* put your css styles in here */
+  .footer-icon2{
+    height: 14px;
+    padding: 2px;
   }
-  
-  @media all and (min-width:481px) and (max-width: 568px) {
-    /* put your css styles in here */
-  }
-  
-  @media all and (min-width:321px) and (max-width: 480px) {
-    /* put your css styles in here */
-  }
-  
-  @media all and (min-width:0px) and (max-width: 320px) {
-    /* put your css styles in here */
-  }
+}
