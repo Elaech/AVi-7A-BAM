@@ -1,0 +1,117 @@
+:root{
+    --primary-color:#000000;
+    --secondary-color:#fcffff;
+    --tertiary-color:#ffe5d8;
+    --aux-color:#96cecc;
+    --aux-color2:#5bb3b0;
+    --text-font-footer:Arial;
+    --text-font-filtration-menu:Arial;
+    font-size: 16px;
+}
+.filtration-menu-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+
+}
+
+.pick-columns{
+    display: flex;
+    background-color: var(--aux-color);
+    padding: 10px;
+    border-radius: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
+}
+.pick-columns-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+.pick-columns-title{
+    display: inline-block;
+    border-radius: 30px;
+    background-color: var(--aux-color2);
+    width: 40%;
+    font-weight: bold;
+    line-height: 2px;
+    border-width: 4px;
+    border-color: var(--primary-color);
+    border-style: ridge;
+    align-self: center;
+}
+.pick-columns-item{
+    display: inline-block;
+    background-color: var(--aux-color);
+    margin: 4px;
+    padding: 3px;
+    border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:var(--secondary-color);
+    margin-left: 1px;
+    margin-right: 1px;
+    box-sizing: border-box;
+}
+.pick-columns-item:hover{
+    border-width: 1px;
+    border-style: solid;
+    border-color:var(--primary-color);
+}
+
+.pick-columns-list-title{
+    display: inline-block;
+    background-color: var(--aux-color);
+    margin: 4px;
+    padding-left: 4px;
+    padding-right:4px ;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 30px;
+    border-color: var(--primary-color);
+    border-width: 1px;
+    border-style: solid;
+    font-weight: bold;
+    line-height: 2px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.pick-columns-list{
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    background-color: var(--aux-color2);
+    margin: 5px;
+    padding: 6px;
+    padding-right: 4px;
+    padding-left: 4px; 
+    box-sizing: border-box;
+    border-color: var(--primary-color);
+    border-style: ridge;
+    border-width: 2px;
+}
+
+.pick-restrictions-container{
+    display: inline block;
+}
+.pick-order-container{
+    display: inline block;
+}
+
+p.filtration-menu-text{
+    font-size: 2rem;
+    font-family: var(--text-font-filtration-menu);
+    text-align: center;
+}
