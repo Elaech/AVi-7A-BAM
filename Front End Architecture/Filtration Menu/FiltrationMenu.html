@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Front End Design/FiltrationMenu/FiltrationMenu.css">
+    <script type="text/javascript" src="../../Front End Design/FiltrationMenu/FiltrationMenu.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -20,14 +21,14 @@
                 <div class="pick-columns-container">
                     <!--Entry-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showEntryItems()" class="pick-columns-list-title">
                             <p>Entries</p>
                         </div>
-                        <label class="pick-columns-item" for="ShowAll">
+                        <label class="pick-columns-item" for="ShowAll" name="showEntryItems">
                             <input type="checkbox" id="ShowAll">
                             <span>All</span>
                         </label>
-                        <label for="ShowID" class="pick-columns-item">
+                        <label for="ShowID" class="pick-columns-item" name="showEntryItems">
                             <input type="checkbox" id="ShowID">
                             <span>ID</span>
                         </label>
