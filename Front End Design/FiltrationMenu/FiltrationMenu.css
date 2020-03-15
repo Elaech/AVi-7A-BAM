@@ -37,7 +37,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 5px;
     align-content: flex-start;
     align-items: flex-start;
@@ -69,6 +68,7 @@
     box-sizing: border-box;
     text-align: center;
     display: none;
+    cursor: pointer;
 }
 .pick-columns-item:hover{
     border-width: 1.5px;
@@ -92,6 +92,7 @@
     line-height: 2px;
     text-align: center;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .pick-columns-list{
@@ -203,6 +204,7 @@ p.filtration-menu-text{
         .pick-columns-container{
             flex-direction: column;
             align-items: center;
+            padding:1px;
         }
     }
 

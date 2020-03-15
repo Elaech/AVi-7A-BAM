@@ -21,256 +21,256 @@
                 <div class="pick-columns-container">
                     <!--Entry-->
                     <div class="pick-columns-list">
-                        <div onclick="showEntryItems()" class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showEntryItems')" class="pick-columns-list-title">
                             <p>Entries</p>
                         </div>
-                        <label class="pick-columns-item" for="ShowAll" name="showEntryItems">
+                        <label onclick="pickUnpickAllShowItems()" class="pick-columns-item" for="ShowAll" name="showEntryItems">
                             <input type="checkbox" id="ShowAll">
                             <span>All</span>
                         </label>
                         <label for="ShowID" class="pick-columns-item" name="showEntryItems">
-                            <input type="checkbox" id="ShowID">
+                            <input type="checkbox" id="ShowID" name="showCheck">
                             <span>ID</span>
                         </label>
                     </div>
                     <!--Event-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showEventItems')" class="pick-columns-list-title">
                             <p>Event</p>
                         </div>
-                        <label for="ShowSource" class="pick-columns-item">                       
-                            <input type="checkbox" id="ShowSource">
+                        <label for="ShowSource" class="pick-columns-item" name="showEventItems">                       
+                            <input type="checkbox" id="ShowSource"  name="showCheck">
                             <span>Source</span>
                         </label>
-                        <label for="ShowTMC" class="pick-columns-item">
-                            <input type="checkbox" id="ShowTMC">
+                        <label for="ShowTMC" class="pick-columns-item" name="showEventItems">
+                            <input type="checkbox" id="ShowTMC"  name="showCheck">
                             <span>TMC</span>
                         </label>
-                        <label for="ShowSeverity" class="pick-columns-item">
-                            <input type="checkbox" id="ShowSeverity">
+                        <label for="ShowSeverity" class="pick-columns-item" name="showEventItems">
+                            <input type="checkbox" id="ShowSeverity"  name="showCheck">
                             <span>Severity</span>
                         </label>
-                        <label for="ShowDescription" class="pick-columns-item">
-                            <input type="checkbox" id="ShowDescription">
+                        <label for="ShowDescription" class="pick-columns-item" name="showEventItems">
+                            <input type="checkbox" id="ShowDescription"  name="showCheck">
                             <span>Description</span>
                         </label>
                     </div>
                     <!--Time-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showTimeItems')" class="pick-columns-list-title">
                             <p>Time</p>
                         </div>
-                        <label for="ShowStartTime" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStartTime">
+                        <label for="ShowStartTime" class="pick-columns-item" name="showTimeItems">
+                            <input type="checkbox" id="ShowStartTime"  name="showCheck">
                             <span>Start Time</span>
                         </label>
-                        <label for="ShowEndTime" class="pick-columns-item">
-                            <input type="checkbox" id="ShowEndTime">
+                        <label for="ShowEndTime" class="pick-columns-item" name="showTimeItems">
+                            <input type="checkbox" id="ShowEndTime"  name="showCheck">
                             <span>End Time</span>
                         </label>
-                        <label for="ShowSunriseSunset" class="pick-columns-item">
-                            <input type="checkbox" id="ShowSunriseSunset">
+                        <label for="ShowSunriseSunset" class="pick-columns-item" name="showTimeItems">
+                            <input type="checkbox" id="ShowSunriseSunset"  name="showCheck">
                             <span>Sunrise-Sunset</span>
                         </label>
-                        <label for="ShowTimeZone" class="pick-columns-item">
-                            <input type="checkbox" id="ShowTimeZone">
+                        <label for="ShowTimeZone" class="pick-columns-item" name="showTimeItems">
+                            <input type="checkbox" id="ShowTimeZone"  name="showCheck">
                             <span>Time Zone</span>
                         </label>
                     </div>
                     <!--Details Primary-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showDetailsPrimaryItems')" class="pick-columns-list-title">
                             <p>Details Primary</p>
                         </div>
-                        <label for="ShowTrafficCalming" class="pick-columns-item">
-                            <input type="checkbox" id="ShowTrafficCalming">
+                        <label for="ShowTrafficCalming" class="pick-columns-item" name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowTrafficCalming" name="showCheck">
                             <span>Traffic Calming</span>
                         </label>
-                        <label for="ShowRailway" class="pick-columns-item">
-                            <input type="checkbox" id="ShowRailway">
+                        <label for="ShowRailway" class="pick-columns-item"  name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowRailway" name="showCheck">
                             <span>Railway</span>
                         </label>
-                        <label for="ShowStation" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStation">
+                        <label for="ShowStation" class="pick-columns-item" name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowStation" name="showCheck">
                             <span>Station</span>
                         </label>
-                        <label for="ShowAmenity"class="pick-columns-item">
-                            <input type="checkbox" id="ShowAmenity">
+                        <label for="ShowAmenity" class="pick-columns-item" name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowAmenity" name="showCheck">
                             <span>Amenity</span>
                         </label>
-                        <label for="ShowCrossing" class="pick-columns-item">
-                            <input type="checkbox" id="ShowCrossing">
+                        <label for="ShowCrossing" class="pick-columns-item" name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowCrossing" name="showCheck">
                             <span>Crossing</span>
                         </label>
-                        <label for="ShowStop" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStop">
+                        <label for="ShowStop" class="pick-columns-item" name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowStop" name="showCheck">
                             <span>Stop</span>
                         </label>
-                        <label for="ShowNoExit" class="pick-columns-item">
-                            <input type="checkbox" id="ShowNoExit">
+                        <label for="ShowNoExit" class="pick-columns-item" name="showDetailsPrimaryItems">
+                            <input type="checkbox" id="ShowNoExit" name="showCheck">
                             <span>No Exit</span>
                         </label>
                     </div>
                     <!--Details Secondary-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showDetailsSecondaryItems')" class="pick-columns-list-title">
                             <p>Details Secondary</p>
                         </div>
-                        <label for="ShowBump" class="pick-columns-item">
-                            <input type="checkbox" id="ShowBump">
+                        <label for="ShowBump" class="pick-columns-item"  name="showDetailsSecondaryItems">
+                            <input type="checkbox" id="ShowBump" name="showCheck">
                             <span>Bump</span>
                         </label>
-                        <label for="ShowTurningLoop" class="pick-columns-item">
-                            <input type="checkbox" id="ShowTurningLoop">
-                            <span>Turning Loop<span>
+                        <label for="ShowTurningLoop" class="pick-columns-item" name="showDetailsSecondaryItems">
+                            <input type="checkbox" id="ShowTurningLoop" name="showCheck">
+                            <span>Turning Loop</span>
                         </label>
-                        <label for="ShowJunction" class="pick-columns-item">
-                            <input type="checkbox" id="ShowJunction">
+                        <label for="ShowJunction" class="pick-columns-item" name="showDetailsSecondaryItems">
+                            <input type="checkbox" id="ShowJunction" name="showCheck">
                             <span>Junction</span>
                         </label>
-                        <label for="ShowGiveWay"class="pick-columns-item">
-                            <input type="checkbox" id="ShowGiveWay">
+                        <label for="ShowGiveWay" class="pick-columns-item" name="showDetailsSecondaryItems">
+                            <input type="checkbox" id="ShowGiveWay" name="showCheck">
                            <span>Give Way</span>
                         </label>
-                        <label for="ShowRoundabout" class="pick-columns-item">
-                            <input type="checkbox" id="ShowRoundabout">
+                        <label for="ShowRoundabout" class="pick-columns-item" name="showDetailsSecondaryItems">
+                            <input type="checkbox" id="ShowRoundabout" name="showCheck">
                             <span>Roundabout</span>
                         </label>
-                        <label for="ShowTrafficSignal" class="pick-columns-item">
-                            <input type="checkbox" id="ShowTrafficSignal">
+                        <label for="ShowTrafficSignal" class="pick-columns-item" name="showDetailsSecondaryItems">
+                            <input type="checkbox" id="ShowTrafficSignal" name="showCheck">
                            <span>Traffic Signal</span>
                         </label>
                     </div>
                     <!--Location Primary-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showLocationPrimaryItems')" class="pick-columns-list-title">
                             <p>Location Primary</p>
                         </div>
-                        <label for="ShowCountry" class="pick-columns-item">
-                            <input type="checkbox" id="ShowCountry">
+                        <label for="ShowCountry" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowCountry"  name="showCheck">
                             <span>Country</span>
                         </label>
-                        <label for="ShowState" class="pick-columns-item">
-                            <input type="checkbox" id="ShowState">
+                        <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowState"  name="showCheck">
                             <span>State</span>
                         </label>
-                        <label for="ShowCounty" class="pick-columns-item">
-                            <input type="checkbox" id="ShowCounty">
+                        <label for="ShowCounty" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowCounty"  name="showCheck">
                             <span>County</span>
                         </label>
-                        <label for="ShowCity" class="pick-columns-item">
-                            <input type="checkbox" id="ShowCity">
+                        <label for="ShowCity" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowCity"  name="showCheck">
                             <span>City</span>
                         </label>
-                        <label for="ShowZipcode" class="pick-columns-item">
-                            <input type="checkbox" id="ShowZipcode">
+                        <label for="ShowZipcode" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowZipcode"  name="showCheck">
                             <span>Zipcode</span>
                         </label>
-                        <label for="ShowStreetNumber" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStreetNumber">
+                        <label for="ShowStreetNumber" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowStreetNumber"  name="showCheck">
                             <span>Street Number</span>
                         </label>
-                        <label for="ShowStreetName" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStreetName">
+                        <label for="ShowStreetName" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowStreetName"  name="showCheck">
                             <span>Street Name</span>
                         </label>
-                        <label for="ShowStreetSide" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStreetSide">
+                        <label for="ShowStreetSide" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowStreetSide"  name="showCheck">
                             <span>Street Side</span>
                         </label>
 
                     </div>
                     <!--Location secondary-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showLocationSecondaryItems')" class="pick-columns-list-title">
                             <p>Location Secondary</p>
                         </div>
-                        <label for="ShowStartLatitude" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStartLatitude">
+                        <label for="ShowStartLatitude" class="pick-columns-item"  name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowStartLatitude"  name="showCheck">
                             <span>Start Latitude</span>
                         </label>
-                        <label for="ShowEndLatitude" class="pick-columns-item">
-                            <input type="checkbox" id="ShowEndLatitude">
+                        <label for="ShowEndLatitude" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowEndLatitude"  name="showCheck">
                             <span>End Latitude</span>
                         </label>
-                        <label for="ShowStartLongitude" class="pick-columns-item">
-                            <input type="checkbox" id="ShowStartLongitude">
+                        <label for="ShowStartLongitude" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowStartLongitude" name="showCheck">
                             <span>Start Longitude</span>
                         </label>
-                        <label for="ShowEndLongitude" class="pick-columns-item">
-                            <input type="checkbox" id="ShowEndLongitude">
+                        <label for="ShowEndLongitude" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowEndLongitude" name="showCheck">
                             <span>End Longitude</span>
                         </label>
-                        <label for="ShowDistance" class="pick-columns-item">
-                            <input type="checkbox" id="ShowDistance">
+                        <label for="ShowDistance" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowDistance" name="showCheck">
                             <span>Distance (miles)</span>
                         </label>
-                        <label for="ShowAirportCode" class="pick-columns-item">
-                            <input type="checkbox" id="ShowAirportCode">
+                        <label for="ShowAirportCode" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowAirportCode" name="showCheck">
                             <span>Airport Code</span>
                         </label>
                     </div>
                     <!--Weather Primary-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showWeatherPrimaryItems')" class="pick-columns-list-title">
                             <p>Weather Primary</p>
                         </div>
-                        <label for="ShowTemperature" class="pick-columns-item">
-                            <input type="checkbox" id="ShowTemperature">
+                        <label for="ShowTemperature" class="pick-columns-item" name="showWeatherPrimaryItems">
+                            <input type="checkbox" id="ShowTemperature" name="showCheck">
                             <span>Temperature (F)</span>
                         </label>
-                        <label for="ShowHumidity" class="pick-columns-item">
-                            <input type="checkbox" id="ShowHumidity">
+                        <label for="ShowHumidity" class="pick-columns-item" name="showWeatherPrimaryItems">
+                            <input type="checkbox" id="ShowHumidity" name="showCheck">
                             <span>Humidity (%)</span>
                         </label>
-                        <label for="ShowPressure" class="pick-columns-item">
-                            <input type="checkbox" id="ShowPressure">
+                        <label for="ShowPressure" class="pick-columns-item" name="showWeatherPrimaryItems">
+                            <input type="checkbox" id="ShowPressure" name="showCheck">
                             <span>Pressure (inches)</span>
                         </label>
-                        <label for="ShowPrecipitation" class="pick-columns-item">
-                            <input type="checkbox" id="ShowPrecipitation">
+                        <label for="ShowPrecipitation" class="pick-columns-item" name="showWeatherPrimaryItems">
+                            <input type="checkbox" id="ShowPrecipitation" name="showCheck">
                             <span>Precipitation</span>
                         </label>
-                        <label for="ShowVisibility" class="pick-columns-item">
-                            <input type="checkbox" id="ShowVisibility">
+                        <label for="ShowVisibility" class="pick-columns-item" name="showWeatherPrimaryItems">
+                            <input type="checkbox" id="ShowVisibility" name="showCheck">
                             <span>Visibility (miles)</span>
                         </label>
-                        <label for="ShowWeatherCondition" class="pick-columns-item">
-                            <input type="checkbox" id="ShowWeatherCondition">
+                        <label for="ShowWeatherCondition" class="pick-columns-item" name="showWeatherPrimaryItems">
+                            <input type="checkbox" id="ShowWeatherCondition" name="showCheck">
                            <span>Weather Condition</span>
                         </label>
                     </div>
                     <!--Weather Secondary-->
                     <div class="pick-columns-list">
-                        <div class="pick-columns-list-title">
+                        <div onclick="showHideItems(this,'showWeatherSecondaryItems')" class="pick-columns-list-title">
                             <p>Weather Secondary</p>
                         </div>
-                        <label for="ShowWeatherTimestamp" class="pick-columns-item">
-                            <input type="checkbox" id="ShowWeatherTimestamp">
+                        <label for="ShowWeatherTimestamp" class="pick-columns-item"  name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowWeatherTimestamp" name="showCheck">
                             <span>Weather Timestamp</span>
                         </label>
-                        <label for="ShowWindChill" class="pick-columns-item">
-                            <input type="checkbox" id="ShowWindChill">
+                        <label for="ShowWindChill" class="pick-columns-item" name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowWindChill" name="showCheck">
                             <span>Wind Chill</span>
                         </label>
-                        <label for="ShowWindDirection" class="pick-columns-item">
-                            <input type="checkbox" id="ShowWindDirection">
+                        <label for="ShowWindDirection" class="pick-columns-item" name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowWindDirection" name="showCheck">
                             <span>Wind Direction</span>
                         </label>
-                        <label for="ShowWindSpeed" class="pick-columns-item">
-                            <input type="checkbox" id="ShowWindSpeed">
+                        <label for="ShowWindSpeed" class="pick-columns-item" name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowWindSpeed"  name="showCheck">
                             <span>Wind Speed (mph)</span>
                         </label>
-                        <label for="ShowNauticalTwilight" class="pick-columns-item">
-                            <input type="checkbox" id="ShowNauticalTwilight">
+                        <label for="ShowNauticalTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowNauticalTwilight" name="showCheck">
                             <span>Nautical Twilight</span>
                         </label>
-                        <label for="ShowCivilTwilight" class="pick-columns-item">
-                            <input type="checkbox" id="ShowCivilTwilight">
+                        <label for="ShowCivilTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowCivilTwilight" name="showCheck">
                             <span>Civil Twilight</span>
                         </label>
-                        <label for="ShowAstronomicalTwilight" class="pick-columns-item">
-                            <input type="checkbox" id="ShowAstronomicalTwilight">
+                        <label for="ShowAstronomicalTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowAstronomicalTwilight"  name="showCheck">
                             <span>Astronomical Twilight</span>
                         </label>
                     </div>
