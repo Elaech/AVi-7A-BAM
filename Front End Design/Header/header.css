@@ -1,0 +1,87 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #fcffff;
+  --tertiary-color: #ffe5d8;
+  --aux-color: #96cecc;
+  --aux-color2: #5bb3b0;
+  --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  --header-icon1-width: 50px;
+  --header-icon1-height: 50px;
+  font-size: 50px;
+}
+
+header {
+  position: fixed;
+  margin: 0;
+  left: 0;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  background-color: var(--aux-color);
+  display: block;
+}
+.header-item1 {
+  height: 100%;
+  display: table;
+  float: left;
+}
+.header-item1 h1 {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.logo-icon {
+  margin: 0;
+  display: grid;
+  margin-left: 15px;
+  vertical-align: middle;
+  top: 75%;
+  height: 100px;
+}
+
+.header-item2 {
+  margin: 0;
+  height: 100%;
+
+  display: block;
+
+  text-align: right;
+  margin-left: -90%;
+}
+
+.header-item2 h1 {
+  color: var(--primary-color);
+  height: 100%;
+  margin: 0;
+
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-family: var(--text-font-header);
+  font-size: 75px;
+  font-weight: 200;
+}
+
+.header-item2 h1 span {
+  font-weight: 900;
+}
+
+@media screen and (max-width: 650px) {
+  header {
+    height: 34px;
+  }
+  .logo-icon {
+    height: 30px;
+    margin-left: 2px;
+  }
+
+  .header-item2 h1 {
+    font-size: 25px;
+  }
+}
