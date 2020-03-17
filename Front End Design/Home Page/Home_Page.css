@@ -1,0 +1,341 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #fcffff;
+  --tertiary-color: #ffe5d8;
+  --aux-color: #96cecc;
+  --aux-color2: #5bb3b0;
+  --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  --header-icon1-width: 50px;
+  --header-icon1-height: 50px;
+  font-size: 50px;
+}
+
+html {
+  background: var(--secondary-color);
+}
+
+body {
+  height: 80vh;
+  width: 100%;
+  background: linear-gradient(
+    170deg,
+    var(--tertiary-color) 50%,
+    var(--secondary-color) 0%
+  );
+  background-size: 100%;
+  margin: 0;
+
+  display: block;
+
+  background-size: 100%;
+}
+
+.Home {
+  height: 500px;
+  display: table;
+}
+
+.Home h1 {
+  color: var(--primary-color);
+  height: 100%;
+  margin: 0;
+
+  display: block;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-family: var(--text-font-header);
+  font-size: 90px;
+  font-weight: 900;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.scope1 {
+  margin-right: 50px;
+  height: 100%;
+}
+.scope1 img {
+  vertical-align: middle;
+
+  margin: 0;
+  display: grid;
+  margin-left: 15px;
+  vertical-align: middle;
+  top: 75%;
+  width: 170px;
+
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scope1 h3 {
+  display: grid;
+  font-size: 60px;
+  margin-right: 15px;
+  font-family: var(--text-font-header);
+  font-weight: 900;
+  text-align: center;
+}
+
+.scope1 p {
+  display: grid;
+  font-size: 30px;
+  text-align: center;
+  margin-right: 30px;
+  font-family: var(--text-font-header);
+}
+
+.scope2 {
+  height: 100%;
+}
+
+.scope2 img {
+  vertical-align: middle;
+
+  margin: 0;
+  display: grid;
+  margin-left: 15px;
+  vertical-align: middle;
+  top: 75%;
+  width: 170px;
+
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scope2 h3 {
+  display: grid;
+  font-size: 60px;
+  font-family: var(--text-font-header);
+  font-weight: 900;
+  text-align: center;
+}
+
+.scope2 p {
+  display: grid;
+  font-size: 30px;
+  text-align: center;
+  margin-right: 30px;
+  font-family: var(--text-font-header);
+}
+
+.scope3 {
+  margin-left: 50px;
+  height: 100%;
+}
+
+.scope3 img {
+  vertical-align: middle;
+
+  margin: 0;
+  display: grid;
+  margin-left: 15px;
+  vertical-align: middle;
+  top: 75%;
+  width: 135px;
+
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scope3 h3 {
+  display: grid;
+  font-size: 60px;
+  margin-right: 10px;
+  font-family: var(--text-font-header);
+  font-weight: 900;
+  text-align: center;
+}
+
+.scope3 p {
+  display: grid;
+  font-size: 30px;
+  text-align: center;
+  margin-right: 30px;
+  font-family: var(--text-font-header);
+}
+
+@media screen and (min-width: 2200px) {
+  body {
+    height: 45vh;
+  }
+
+  .Home {
+    height: 450px;
+  }
+
+  .Home h1 {
+    margin-top: -1%;
+    font-size: 60px;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  body {
+    height: 35vh;
+  }
+
+  .Home {
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 3600px) {
+  .Home {
+    height: 800px;
+  }
+}
+
+@media screen and (min-width: 3600px) {
+  .Home {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 3800px) {
+  .Home {
+    height: 1050px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    height: 35vh;
+  }
+
+  .Home {
+    height: 170px;
+  }
+
+  .Home h1 {
+    margin-top: -5%;
+    font-size: 20px;
+  }
+
+  .scope1 {
+    margin-right: 15px;
+  }
+  .scope1 img {
+    width: 50px;
+  }
+
+  .scope1 h3 {
+    font-size: 18px;
+    margin-right: 7px;
+    font-weight: 900;
+  }
+
+  .scope1 p {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .scope2 img {
+    width: 51px;
+  }
+
+  .scope2 h3 {
+    font-size: 18px;
+    margin-right: 2px;
+    font-weight: 900;
+  }
+
+  .scope2 p {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .scope3 {
+    margin-left: 15px;
+  }
+  .scope3 img {
+    width: 40px;
+  }
+
+  .scope3 h3 {
+    font-size: 18px;
+    margin-right: 2px;
+    font-weight: 900;
+  }
+
+  .scope3 p {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1025px) {
+  body {
+    height: 35vh;
+  }
+
+  .Home {
+    height: 300px;
+  }
+
+  .Home h1 {
+    margin-top: -5%;
+    font-size: 45px;
+  }
+
+  .scope1 {
+    margin-right: 40px;
+  }
+  .scope1 img {
+    width: 120px;
+  }
+
+  .scope1 h3 {
+    font-size: 35px;
+    margin-right: 12px;
+    font-weight: 900;
+  }
+
+  .scope1 p {
+    font-size: 25px;
+    margin-right: 5px;
+  }
+
+  .scope2 img {
+    width: 123px;
+  }
+
+  .scope2 h3 {
+    font-size: 35px;
+    margin-right: 2px;
+    font-weight: 900;
+  }
+
+  .scope2 p {
+    font-size: 25px;
+    margin-right: 5px;
+  }
+
+  .scope3 {
+    margin-left: 40px;
+  }
+  .scope3 img {
+    width: 96px;
+  }
+
+  .scope3 h3 {
+    font-size: 35px;
+    margin-right: 2px;
+    font-weight: 900;
+  }
+
+  .scope3 p {
+    font-size: 25px;
+    margin-right: 5px;
+  }
+}
