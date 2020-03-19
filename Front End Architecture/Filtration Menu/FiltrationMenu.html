@@ -8,14 +8,15 @@
     <script type="text/javascript" src="../../Front End Design/FiltrationMenu/FiltrationMenu.js"></script>
     <title>Title</title>
 </head>
+
 <body>
     <!--<header>-->
     <!--<nav>-->
     <main>
         <form class="filtration-menu-container">
             <!--Pick Shown Files Division-->
-            <div class="pick-columns">
-                <div class="pick-columns-title">
+            <div class="pick">
+                <div class="pick-title">
                     <p class="filtration-menu-text">Choose what to show in the results</p>
                 </div>
                 <div class="pick-columns-container">
@@ -24,7 +25,8 @@
                         <div onclick="showHideItems(this,'showEntryItems')" class="pick-columns-list-title">
                             <p>Entries</p>
                         </div>
-                        <label onclick="pickUnpickAllShowItems()" class="pick-columns-item" for="ShowAll" name="showEntryItems">
+                        <label onclick="pickUnpickAllShowItems()" class="pick-columns-item" for="ShowAll"
+                            name="showEntryItems">
                             <input type="checkbox" id="ShowAll">
                             <span>All</span>
                         </label>
@@ -38,20 +40,20 @@
                         <div onclick="showHideItems(this,'showEventItems')" class="pick-columns-list-title">
                             <p>Event</p>
                         </div>
-                        <label for="ShowSource" class="pick-columns-item" name="showEventItems">                       
-                            <input type="checkbox" id="ShowSource"  name="showCheck">
+                        <label for="ShowSource" class="pick-columns-item" name="showEventItems">
+                            <input type="checkbox" id="ShowSource" name="showCheck">
                             <span>Source</span>
                         </label>
                         <label for="ShowTMC" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowTMC"  name="showCheck">
+                            <input type="checkbox" id="ShowTMC" name="showCheck">
                             <span>TMC</span>
                         </label>
                         <label for="ShowSeverity" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowSeverity"  name="showCheck">
+                            <input type="checkbox" id="ShowSeverity" name="showCheck">
                             <span>Severity</span>
                         </label>
                         <label for="ShowDescription" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowDescription"  name="showCheck">
+                            <input type="checkbox" id="ShowDescription" name="showCheck">
                             <span>Description</span>
                         </label>
                     </div>
@@ -61,19 +63,19 @@
                             <p>Time</p>
                         </div>
                         <label for="ShowStartTime" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowStartTime"  name="showCheck">
+                            <input type="checkbox" id="ShowStartTime" name="showCheck">
                             <span>Start Time</span>
                         </label>
                         <label for="ShowEndTime" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowEndTime"  name="showCheck">
+                            <input type="checkbox" id="ShowEndTime" name="showCheck">
                             <span>End Time</span>
                         </label>
                         <label for="ShowSunriseSunset" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowSunriseSunset"  name="showCheck">
+                            <input type="checkbox" id="ShowSunriseSunset" name="showCheck">
                             <span>Sunrise-Sunset</span>
                         </label>
                         <label for="ShowTimeZone" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowTimeZone"  name="showCheck">
+                            <input type="checkbox" id="ShowTimeZone" name="showCheck">
                             <span>Time Zone</span>
                         </label>
                     </div>
@@ -86,7 +88,7 @@
                             <input type="checkbox" id="ShowTrafficCalming" name="showCheck">
                             <span>Traffic Calming</span>
                         </label>
-                        <label for="ShowRailway" class="pick-columns-item"  name="showDetailsPrimaryItems">
+                        <label for="ShowRailway" class="pick-columns-item" name="showDetailsPrimaryItems">
                             <input type="checkbox" id="ShowRailway" name="showCheck">
                             <span>Railway</span>
                         </label>
@@ -116,7 +118,7 @@
                         <div onclick="showHideItems(this,'showDetailsSecondaryItems')" class="pick-columns-list-title">
                             <p>Details Secondary</p>
                         </div>
-                        <label for="ShowBump" class="pick-columns-item"  name="showDetailsSecondaryItems">
+                        <label for="ShowBump" class="pick-columns-item" name="showDetailsSecondaryItems">
                             <input type="checkbox" id="ShowBump" name="showCheck">
                             <span>Bump</span>
                         </label>
@@ -130,7 +132,7 @@
                         </label>
                         <label for="ShowGiveWay" class="pick-columns-item" name="showDetailsSecondaryItems">
                             <input type="checkbox" id="ShowGiveWay" name="showCheck">
-                           <span>Give Way</span>
+                            <span>Give Way</span>
                         </label>
                         <label for="ShowRoundabout" class="pick-columns-item" name="showDetailsSecondaryItems">
                             <input type="checkbox" id="ShowRoundabout" name="showCheck">
@@ -138,7 +140,7 @@
                         </label>
                         <label for="ShowTrafficSignal" class="pick-columns-item" name="showDetailsSecondaryItems">
                             <input type="checkbox" id="ShowTrafficSignal" name="showCheck">
-                           <span>Traffic Signal</span>
+                            <span>Traffic Signal</span>
                         </label>
                     </div>
                     <!--Location Primary-->
@@ -147,35 +149,35 @@
                             <p>Location Primary</p>
                         </div>
                         <label for="ShowCountry" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowCountry"  name="showCheck">
+                            <input type="checkbox" id="ShowCountry" name="showCheck">
                             <span>Country</span>
                         </label>
                         <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowState"  name="showCheck">
+                            <input type="checkbox" id="ShowState" name="showCheck">
                             <span>State</span>
                         </label>
                         <label for="ShowCounty" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowCounty"  name="showCheck">
+                            <input type="checkbox" id="ShowCounty" name="showCheck">
                             <span>County</span>
                         </label>
                         <label for="ShowCity" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowCity"  name="showCheck">
+                            <input type="checkbox" id="ShowCity" name="showCheck">
                             <span>City</span>
                         </label>
                         <label for="ShowZipcode" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowZipcode"  name="showCheck">
+                            <input type="checkbox" id="ShowZipcode" name="showCheck">
                             <span>Zipcode</span>
                         </label>
                         <label for="ShowStreetNumber" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowStreetNumber"  name="showCheck">
+                            <input type="checkbox" id="ShowStreetNumber" name="showCheck">
                             <span>Street Number</span>
                         </label>
                         <label for="ShowStreetName" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowStreetName"  name="showCheck">
+                            <input type="checkbox" id="ShowStreetName" name="showCheck">
                             <span>Street Name</span>
                         </label>
                         <label for="ShowStreetSide" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowStreetSide"  name="showCheck">
+                            <input type="checkbox" id="ShowStreetSide" name="showCheck">
                             <span>Street Side</span>
                         </label>
 
@@ -185,12 +187,12 @@
                         <div onclick="showHideItems(this,'showLocationSecondaryItems')" class="pick-columns-list-title">
                             <p>Location Secondary</p>
                         </div>
-                        <label for="ShowStartLatitude" class="pick-columns-item"  name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowStartLatitude"  name="showCheck">
+                        <label for="ShowStartLatitude" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowStartLatitude" name="showCheck">
                             <span>Start Latitude</span>
                         </label>
                         <label for="ShowEndLatitude" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowEndLatitude"  name="showCheck">
+                            <input type="checkbox" id="ShowEndLatitude" name="showCheck">
                             <span>End Latitude</span>
                         </label>
                         <label for="ShowStartLongitude" class="pick-columns-item" name="showLocationSecondaryItems">
@@ -237,7 +239,7 @@
                         </label>
                         <label for="ShowWeatherCondition" class="pick-columns-item" name="showWeatherPrimaryItems">
                             <input type="checkbox" id="ShowWeatherCondition" name="showCheck">
-                           <span>Weather Condition</span>
+                            <span>Weather Condition</span>
                         </label>
                     </div>
                     <!--Weather Secondary-->
@@ -245,7 +247,7 @@
                         <div onclick="showHideItems(this,'showWeatherSecondaryItems')" class="pick-columns-list-title">
                             <p>Weather Secondary</p>
                         </div>
-                        <label for="ShowWeatherTimestamp" class="pick-columns-item"  name="showWeatherSecondaryItems">
+                        <label for="ShowWeatherTimestamp" class="pick-columns-item" name="showWeatherSecondaryItems">
                             <input type="checkbox" id="ShowWeatherTimestamp" name="showCheck">
                             <span>Weather Timestamp</span>
                         </label>
@@ -258,7 +260,7 @@
                             <span>Wind Direction</span>
                         </label>
                         <label for="ShowWindSpeed" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowWindSpeed"  name="showCheck">
+                            <input type="checkbox" id="ShowWindSpeed" name="showCheck">
                             <span>Wind Speed (mph)</span>
                         </label>
                         <label for="ShowNauticalTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
@@ -269,16 +271,19 @@
                             <input type="checkbox" id="ShowCivilTwilight" name="showCheck">
                             <span>Civil Twilight</span>
                         </label>
-                        <label for="ShowAstronomicalTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowAstronomicalTwilight"  name="showCheck">
+                        <label for="ShowAstronomicalTwilight" class="pick-columns-item"
+                            name="showWeatherSecondaryItems">
+                            <input type="checkbox" id="ShowAstronomicalTwilight" name="showCheck">
                             <span>Astronomical Twilight</span>
                         </label>
                     </div>
                 </div>
             </div>
             <!--Pick Restrictions Division-->
-            <div class="pick-restrictions-container">
-                <p class="filtration-menu-text">Restrict Values</p>
+            <div class="pick">
+                <div class="pick-title">
+                    <p class="filtration-menu-text">Restrict Values</p>
+                </div>
                 <div>
                     <div>
                         <label for="SearchMaxNumberOfEntries">Number of Entries (max):</label>
@@ -670,9 +675,9 @@
                 </div>
             </div>
             <!--Sorting Division-->
-            <div class="pick-order-container">
-                <label for="SortBy">Sort By:</label>
-                <select id="SortBy">
+            <div class="pick-sort">
+                <label for="SortBy" class="sortby-title">Sort By</label>
+                <select id="SortBy" class="sort-select">
                     <option value="ID">ID</option>
                     <option value="Source">Source</option>
                     <option value="TMC">TMC</option>
@@ -706,7 +711,9 @@
                 </select>
             </div>
             <!--Submit Button-->
-            <input type="submit" value="Search">
+            <div class="pick-button">
+                <input type="submit" value="Search" class="filtration-submit-button">
+            </div>
         </form>
     </main>
     <!--<footer>-->
