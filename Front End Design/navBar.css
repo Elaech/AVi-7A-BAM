@@ -1,15 +1,16 @@
 :root {
     font-size: 16px;
-    --text-primary: gray;
-    --text-secondary: white;
-    --bg-primary: darkred;
-    --bg-secondary: lime;
+    --text-primary: #000000;
+    --text-secondary: #5bb3b0;
+    --bg-primary: #ffe5d8;
+    --bg-secondary: #fcffff;
+    --auxiliary: #96cecc;
     --transition-speed: 200ms;
 }
 
 body{
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
     margin: 0;
     padding: 0;
 }
@@ -36,12 +37,10 @@ body::-webkit-scrollbar-thumb{
 }
 
 .navbar{
-    width:5rem;
-    height:100vh;
     position: fixed;
-    right:0;
     background-color: var(--bg-primary);
     transition: width var(--transition-speed) ease;
+    
 }
 
 .navbar-ul{
@@ -84,13 +83,66 @@ body::-webkit-scrollbar-thumb{
     width: 2rem;
     min-width: 2rem;
     margin: 0 1.5rem;
-    color: blue;
+    color: var(--auxiliary);
 }
 
-.navbar:hover{
-    width: 16rem;
+
+
+#userImage{
+    width:4rem;
+    height:4rem;
+    margin: 0 0.5rem;
 }
 
-.navbar:hover .link-text{
-    display: block;
+@media only screen and (min-width: 600px){
+
+    .navbar{
+        top:0;
+        right:0;
+        width:5rem;
+        height:100vh;
+    }
+
+    .navbar:hover{
+        width: 16rem;
+    }
+
+    .navbar:hover .link-text{
+        display: block;
+    }
+    
+}
+
+@media only screen and (max-width: 600px){
+
+    .navbar{
+        bottom:0;
+        width:100vw;
+        height:5rem;
+    }
+
+    .navbar:hover{
+        width: 16rem;
+    }
+
+    .navbar:hover .link-text{
+        display: block;
+    }
+
+    #userButton{
+        display: none;
+    }
+
+    .navbar-ul{
+        flex-direction: row;
+    }
+
+    .nav-link {
+        justify-content: cneter;
+    }
+    
+    main{
+        margin 0;
+    }
+    
 }
