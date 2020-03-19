@@ -1,374 +1,325 @@
 :root {
-    --primary-color: #000000;
-    --secondary-color: #fcffff;
-    --tertiary-color: #ffe5d8;
-    --aux-color: #96cecc;
-    --aux-color2: #5bb3b0;
-    --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    --header-icon1-width: 50px;
-    --header-icon1-height: 50px;
-    font-size: 50px;
-  }
-  
+  --primary-color: #000000;
+  --secondary-color: #fcffff;
+  --tertiary-color: #ffe5d8;
+  --aux-color: #96cecc;
+  --aux-color2: #5bb3b0;
+  --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  --header-icon1-width: 50px;
+  --header-icon1-height: 50px;
+  font-size: 50px;
+}
 
-  html {
-    background: var(--secondary-color);
-  }
-  
-  body {
-    height: 86vh;
-    width: 100%;
-    background: linear-gradient(
-      170deg,
-      var(--tertiary-color) 50%,
-      var(--secondary-color) 0%
-    );
-    background-size: 100%;
-    margin: 0;
-  
-    display: block;
-  
-    background-size: 100%;
-  }
-  
+html {
+  background: var(--secondary-color);
+}
+
+body {
+  height: 86vh;
+  width: 100%;
+  background: linear-gradient(
+    170deg,
+    var(--tertiary-color) 50%,
+    var(--secondary-color) 0%
+  );
+  background-size: 100%;
+  margin: 0;
+
+  display: block;
+
+  background-size: 100%;
+}
+
+.Sign-in {
+  height: 450px;
+  display: table;
+}
+
+.Sign-in h1 {
+  color: var(--primary-color);
+  height: 100%;
+  margin: 0;
+
+  display: block;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-family: var(--text-font-header);
+  font-size: 90px;
+  font-style: italic;
+  font-weight: 200;
+}
+
+.Sign-in h1 span {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.login {
+  background-color: #ffffff;
+  width: 900px;
+  height: 900px;
+  margin: 3em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.un {
+  margin-top: 160px;
+  width: 90%;
+  height: 70px;
+
+  font-size: 35px;
+  letter-spacing: 1px;
+
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 20px;
+  box-sizing: border-box;
+
+  border: 2px solid rgba(0, 0, 0, 0.02);
+
+  margin-left: 46px;
+
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: var(--text-font-header);
+}
+
+form {
+  padding-top: 30px;
+}
+
+.pass {
+  width: 90%;
+  height: 70px;
+
+  margin-top: 50px;
+
+  font-size: 35px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: var(--text-font-header);
+}
+
+.keepme {
+  font-family: var(--text-font-header);
+  margin-top: 50px;
+  float: left;
+  line-height: 31px;
+  font-size: 30px;
+  margin-left: 46px;
+  color: #777;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+}
+
+.keepme input {
+  position: relative;
+  font-family: var(--text-font-header);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.submitlog {
+  cursor: pointer;
+  border-radius: 10em;
+  color: #fff;
+  background: linear-gradient(90deg, var(--aux-color), var(--aux-color2));
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  font-family: var(--text-font-header);
+  margin-top: 150px;
+  margin-left: 37%;
+  margin-right: 37%;
+  font-size: 50px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.04);
+}
+@media screen and (min-width: 2200px) {
   .Sign-in {
-    height: 450px;
-    display: table;
+    height: 650px;
   }
-  
+}
+@media screen and (min-width: 3000px) {
+  body {
+    height: 35vh;
+  }
+
+  .Sign-in {
+    height: 650px;
+  }
+}
+
+@media screen and (min-width: 3600px) {
+  .Sign-in {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 3800px) {
+  .Sign-in {
+    height: 900px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1025px) {
+  body {
+    height: 52vh;
+  }
+
+  .Sign-in {
+    height: 300px;
+  }
+
   .Sign-in h1 {
-    color: var(--primary-color);
-    height: 100%;
-    margin: 0;
-  
-    display: block;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  
-    font-family: var(--text-font-header);
-    font-size: 90px;
-    font-style: italic;
-    font-weight: 200;
+    font-size: 70px;
   }
-  
-  .Sign-in h1 span{
-      font-style: normal;
-      font-weight: bold;
+
+  .login {
+    width: 600px;
+    height: 600px;
+    margin: 3em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   }
-  
 
-    .login {
-        background-color: #FFFFFF;
-        width: 900px;
-        height: 900px;
-        margin: 3em auto;
-        border-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    }
-  
-
-    
-    .un {
-    margin-top:160px;
-    width: 90%;
-    height: 70px;
-    
-    font-size: 35px;
-    letter-spacing: 1px;
-    
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-
-    border: none;
-    outline: none;
-  
-    border-radius: 20px;
-    box-sizing: border-box;
-  
-    border: 2px solid rgba(0, 0, 0, 0.02);
-  
-    margin-left: 46px;
-   
-    
-    text-align: center;
-    margin-bottom:50px;
-    font-family: var(--text-font-header)
-    }
-    
-    form{
-        padding-top: 30px;
-    }
-    
-    .pass {
-      width: 90%;
-      height: 70px;
-   
-      margin-top: 50px;
-
-    font-size: 35px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
+  .un {
+    margin-top: 60px;
+    height: 60px;
+    width: 85%;
+    font-size: 30px;
+    padding: 5px 10px;
     margin-bottom: 50px;
+  }
+
+  .pass {
+    width: 85%;
+    height: 60px;
+
+    margin-top: 10px;
+
+    font-size: 30px;
+  }
+
+  .keepme {
+    margin-top: 25px;
+
+    line-height: 31px;
+    font-size: 25px;
     margin-left: 46px;
-    text-align: center;
-    margin-bottom: 50px;
-    font-family: var(--text-font-header)
-    }
-    
+  }
+  input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+  }
 
-       
-    .keepme {
-      font-family: var(--text-font-header);
-      margin-top: 50px;
-      float: left;
-      line-height: 31px;
-      font-size: 30px;
-      margin-left: 46px;
-      color: #777;
-      cursor: pointer;
-      margin-bottom: 40px;
- 
-    }
-    input[type=checkbox] {width:28px; height:28px;}
+  .keepme input {
+    bottom: -1px;
+    margin-right: 4px;
+    margin-bottom: 10px;
+  }
 
-    .keepme input {
-      position: relative;
-font-family: var(--text-font-header);
-      margin-right: 4px;
-      vertical-align: middle;
-    }
-   
- 
-    .submitlog {
-      
-      cursor: pointer;
-        border-radius: 10em;
-        color: #fff;
-        background: linear-gradient(90deg, var(--aux-color), var(--aux-color2));
-        border: 0;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 20px;
-        padding-top: 15px;
-        font-family: var(--text-font-header);
-        margin-top: 150px;
-        margin-left: 37%;
-        margin-right: 37%;
-        font-size: 50px;
-        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.04);
-       
-    }
-    @media screen and (min-width: 2200px) {
+  .submitlog {
+    padding-bottom: 12px;
+    padding-top: 10px;
+    margin-top: 120px;
+    margin-left: 33%;
+    margin-right: 33%;
+    font-size: 40px;
+  }
+}
 
-      .Sign-in{
-        height: 650px;
-      }
-    }
-    @media screen and (min-width: 3000px) {
-      body {
-        height: 35vh;
-      }
-    
-      .Sign-in{
-        height: 650px;
-      }
-    }
-    
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media screen and (max-width: 500px) {
+  body {
+    height: 64vh;
+  }
 
-    @media screen and (min-width: 3600px) {
-      .Sign-in {
-        height: 600px;
-      }
-    }
-    @media screen and (min-width: 3800px) {
-      .Sign-in {
-        height: 900px;
-      }
-    }
+  .Sign-in {
+    height: 120px;
+  }
 
+  .Sign-in h1 {
+    font-size: 40px;
+  }
 
-    @media screen and (min-width: 501px) and (max-width: 1025px) {
-      body {
-        height: 52vh;
-      }
-      
-      .Sign-in {
-        height: 300px;
+  .login {
+    width: 300px;
+    height: 300px;
+    margin: 3em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  }
 
-      }
-      
-      .Sign-in h1 {
-      
-        font-size: 70px;
-    
-      }
+  .un {
+    margin-top: 20px;
+    height: 40px;
+    width: 72%;
+    font-size: 19px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
 
-    
-    
-        .login {
-           
-            width: 600px;
-            height: 600px;
-            margin: 3em auto;
-            border-radius: 1.5em;
-            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-        }
-      
-    
-      
-        .un {
-        margin-top:60px;
-        height: 60px;
-        width:85%;
-        font-size: 30px;
-        padding: 5px 10px;
-        margin-bottom: 50px;
+  .pass {
+    width: 72%;
+    height: 40px;
 
-        }
-        
-   
-        .pass {
-          width: 85%;
-          height: 60px;
-       
-          margin-top: 10px;
-    
-        font-size: 30px;
-        
-      
-       
-        }
-        
-       
-        .keepme {
-          margin-top: 25px;
-          
-          line-height: 31px;
-          font-size: 25px;
-          margin-left: 46px;
-      
-        }
-        input[type=checkbox] {width:19px; height:19px;}
-    
-        .keepme input {
-     
-          bottom: -1px;
-          margin-right: 4px;
-          margin-bottom: 10px;
-        }
-      
-        .submitlog {
-  
-          
-          padding-bottom: 12px;
-          padding-top: 10px;
-          margin-top: 120px;
-          margin-left: 33%;
-          margin-right:33%;
-          font-size: 40px;
-        
-         
-        }
-        
-      }
+    margin-top: -10px;
 
-    /*////////////////////////////////////////////////////////////////////////////////////////////////*/
-    @media screen and (max-width: 500px) {
-      body {
-        height: 64vh;
-        }
-      
-      .Sign-in {
-        
-        height: 120px;
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
 
-      }
-      
-      .Sign-in h1 {
-     
-        font-size: 40px;
-    
-      }
+  .keepme {
+    margin-top: 0px;
 
-    
-    
-        .login {
-           
-            width: 300px;
-            height: 300px;
-            margin: 3em auto;
-            border-radius: 1.5em;
-            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-        }
-      
-    
-      
-        .un {
-        margin-top:20px;
-        height: 40px;
-        width:72%;
-        font-size: 19px;
-        padding: 5px 10px;
-        margin-bottom: 10px;
+    line-height: 31px;
+    font-size: 15px;
+    margin-left: 46px;
+    margin-bottom: 10px;
+  }
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+  }
 
-        }
-        
-   
-        .pass {
-          width: 72%;
-          height: 40px;
-       
-          margin-top: -10px;
-    
-        font-size: 19px;
-        margin-bottom: 15px;
-      
-       
-        }
-        
-       
-        .keepme {
-          margin-top: 0px;
-          
-          line-height: 31px;
-          font-size: 15px;
-          margin-left: 46px;
-          margin-bottom: 10px;
-        }
-        input[type=checkbox] {width:15px; height:15px;}
-    
-        .keepme input {
-     
-          bottom: -1px;
-          margin-right: 4px;
-          margin-bottom: 10px;
-        }
-      
-        .submitlog {
-  
-          
-          padding-bottom: 12px;
-          padding-top: 10px;
-      
-          margin-top: 50px;
-          margin-left: 27%;
-          margin-right: 27%;
-          font-size: 18px;
-        
-         
-        }
-        
-      }
-  
+  .keepme input {
+    bottom: -1px;
+    margin-right: 4px;
+    margin-bottom: 10px;
+  }
 
-     
+  .submitlog {
+    padding-bottom: 12px;
+    padding-top: 10px;
+
+    margin-top: 50px;
+    margin-left: 27%;
+    margin-right: 27%;
+    font-size: 18px;
+  }
+}
