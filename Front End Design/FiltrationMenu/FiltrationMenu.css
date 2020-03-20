@@ -9,17 +9,19 @@
     font-size: 16px;
 }
 
+
+/*Upper part of the filter*/
 .filtration-menu-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     box-sizing: border-box;
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     
 }
 
-.pick{
+.pick-show{
     display: flex;
     background-color: var(--aux-color);
     padding: 5px;
@@ -44,7 +46,7 @@
     box-sizing: border-box;
     font-family: Arial;
 }
-.pick-title{
+.pick-title-show{
     display: inline-block;
     border-radius: 30px;
     background-color: var(--aux-color2);
@@ -94,6 +96,11 @@
     text-align: center;
     box-sizing: border-box;
     cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 .pick-columns-list{
@@ -109,13 +116,6 @@
     border-color: var(--primary-color);
     border-style: ridge;
     border-width: 2px;
-}
-
-.pick-restrictions-container{
-    display: inline block;
-}
-.pick-order-container{
-    display: inline block;
 }
 
 p.filtration-menu-text{
@@ -135,14 +135,19 @@ p.filtration-menu-text{
     padding-right: 1.2px;
     padding-left: 1.2px;
 }
-  .pick-columns-item span {
+.pick-columns-item span {
     padding-right: 1.2px;
     padding-left: 1.2px;
 }
- 
+.showCheck{
+
+}
 @media screen and (max-width:600px){
-    .pick{
+    .pick-show{
         padding: 2px;
+    }
+    .pick-title-show{
+        border-width: 2px;
     }
     .pick-columns-item:hover{
         border-width: 0.75px;
@@ -167,7 +172,7 @@ p.filtration-menu-text{
         margin: 2px;
         padding-left: 2px;
         padding-right:2px ;
-        margin-left: 0,5px;
+        margin-left: 0.5px;
         margin-right: 0.5px;
         border-width: 0.5px;
     }
@@ -219,8 +224,153 @@ p.filtration-menu-text{
     font-weight: bolder;
 }
 
+/*middle part of the filter*/
 
+.pick-restrict-list{
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    background-color: var(--aux-color);
+    margin: 5px;
+    padding: 6px;
+    padding-right: 4px;
+    padding-left: 4px; 
+    box-sizing: border-box;
+    border-color: var(--primary-color);
+    border-style: ridge;
+    border-width: 2px;
+}
+.pick-restrict{
+    display: flex;
+    background-color: var(--aux-color2);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 1px;
+}
+.pick-title-restrict{
+    display: inline-block;
+    border-radius: 30px;
+    background-color: var(--aux-color);
+    width: 40%;
+    font-weight: bold;
+    border-width: 4px;
+    border-color: var(--primary-color);
+    border-style: ridge;
+    align-self: center;
+    margin: 5px;
+}
+.pick-restrict-list-title{
+    display: inline-block;
+    background-color: var(--aux-color2);
+    margin: 4px;
+    padding-left: 4px;
+    padding-right:4px ;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 30px;
+    border-color: var(--primary-color);
+    border-width: 1px;
+    border-style: solid;
+    font-weight: bold;
+    line-height: 2px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+.pick-restrict-item{
+    display: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: var(--aux-color2);
+    border-color: var(--primary-color);
+    border-width: 0.5px;
+    border-style: solid;
+    border-radius: 30px;
+    margin: 3px;
+    padding: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.restrictInput{
+    background-color: var(--aux-color);
+    color: var(--primary-color);
+    border-radius: 30px;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: var(--primary-color);
+    border-right-color: var(--aux-color2);
+    border-bottom-color: var(--aux-color2);
+    padding-left: 4px;
+    padding-right: 4px;
+    font-weight: bold;
+    -moz-appearance:none; 
+    -webkit-appearance:none; 
+    appearance:none;
+    outline: none;
+}
+@media screen and (max-width:600px){
+    .pick-restrict{
+        padding:2px;
+    }
+    .pick-title-restrict{
+        border-width: 2px;
+    }
+    .pick-restrict-list{
+        display: flex;
+        border-radius: 15px;
+        flex-direction: column;
+        margin: 2px;
+        padding: 3px;
+        padding-right: 2px;
+        padding-left: 2px; 
+        border-width: 1px;
+    }
+    .pick-restrict-list-title{
+        font-size: 0.5rem;
+        margin: 2px;
+        padding-left: 2px;
+        padding-right:2px ;
+        margin-left: 0.5px;
+        margin-right: 0.5px;
+        border-width: 0.5px;
+    }
+    .pick-restrict-item{
+        font-size: 0.5rem;
+        margin: 1.5px;
+        padding: 1px;
+        border-radius: 30px;
+        border-width: 0.5px;
+        margin-left:1px;
+        margin-right: 1px;
+        padding-right: 2px;
+        padding-left: 2px;
+        display: none;
+    }
+    .restrictInput{
+        margin: 0.7px;
+        font-size: 0.5rem;
+        padding-left: 2px;
+        padding-right: 2px;
+        border-width: 1px;
+    }
+}
 
+@media screen and (max-width:300px){
+
+}
+/*bottom part of the filter*/
 .pick-sort{
     display: flex;
     background-color: var(--aux-color);
@@ -248,10 +398,12 @@ p.filtration-menu-text{
     margin-bottom: 10px;
 }
 .sort-select{
-    color: var(--aux-color2);
-    background-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--aux-color2);
+    font-weight: bold;
     border-style: solid;
-    border-width: 1px;
+    border-color: var(--primary-color);
+    border-width: 2px;
     border-radius: 50px;
     -moz-appearance:none; 
     -webkit-appearance:none; 
@@ -263,7 +415,6 @@ p.filtration-menu-text{
     font-size: 1rem;
     outline: none;
 }
-
 .pick-button{
     display: flex;
     background-color: var(--aux-color);
@@ -314,6 +465,7 @@ p.filtration-menu-text{
     .sort-select{
         font-size: 0.5rem;
         padding: 2px;
+        border-width: 1px;
     }
     .pick-sort{
         padding: 5px;
