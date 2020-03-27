@@ -5,7 +5,7 @@
     --bg-primary: #ffe5d8;
     --bg-secondary: #fcffff;
     --auxiliary: #96cecc;
-    --transition-speed: 800ms;
+    --transition-speed: 200ms;
 }
 
 body{
@@ -36,6 +36,12 @@ body::-webkit-scrollbar-thumb{
     background: var(--bg-primary);
 }
 
+.navbar{
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width var(--transition-speed) ease;
+    
+}
 
 .navbar-ul{
     list-style: none;
@@ -95,9 +101,6 @@ body::-webkit-scrollbar-thumb{
         right:0;
         width:5rem;
         height:100vh;
-        position: fixed;
-        background-color: var(--bg-primary);
-        transition: width var(--transition-speed) ease;
     }
 
     .navbar:hover{
@@ -116,9 +119,6 @@ body::-webkit-scrollbar-thumb{
         bottom:0;
         width:100vw;
         height:5rem;
-        position: fixed;
-        background-color: var(--bg-primary);
-        transition: width var(--transition-speed) ease;
     }
 
     .navbar:hover{
@@ -148,14 +148,11 @@ body::-webkit-scrollbar-thumb{
 
 
     .nav-link {
-        justify-content: center;
-        
+        justify-content: cneter;
     }
-
-
     
     main{
-        margin: 0;
+        margin 0;
     }
     
 }
