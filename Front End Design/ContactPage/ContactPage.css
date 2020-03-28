@@ -104,8 +104,9 @@ body::-webkit-scrollbar-thumb{
     .navbar:hover .link-text{
         display: block;
     }
-    
-}
+
+ 
+} 
 
 @media only screen and (max-width: 600px){
 
@@ -232,6 +233,7 @@ header {
   /*Finished Section Done By Ionita Andra*/
 
 /* Done by Minut Mihai Dimitrie */
+/* Footer Start */
 footer{
     position: absolute;
     margin-bottom: 0;
@@ -290,7 +292,25 @@ footer p{
     justify-content: center;
 }
 
-
+@media screen and (max-width:1000px){
+    footer p{
+      font: 0.5rem bold;
+    }
+    footer{
+      bottom: 0;
+      margin-bottom: 0;
+      height: 50px;
+  
+    }
+    .footer-icon1{
+      height: 16px;
+      padding: 2px;
+    }
+    .footer-icon2{
+      height: 16px;
+      padding: 2px;
+    }
+}
 @media screen and (max-width:600px){
   footer p{
     font: 0.3rem bold;
@@ -310,7 +330,8 @@ footer p{
     padding: 2px;
   }
 }
-
+/* Footer Finish */
+/* Main Start */
 
 body{
     background-color: var(--aux-color);
@@ -324,8 +345,8 @@ body{
     /* margin-bottom: 20px; */
 }
 
-main {
-    background-color: var(--secondary-color);
+main.main-class{
+    background-color: var(--tertiary-color);
     height: 100%;
     margin: 1rem;
     margin-top: 75px;
@@ -336,24 +357,341 @@ main {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-items: center;
     align-content: center;
     justify-content: center;
 }
 
-.contact-item{
+.contact-logo-image{
+    width: 10rem;
+    height: 10rem;
+}
+.contact-page-title-text{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.contact-title{
+    background-color: var(--aux-color2);
     margin: 1rem;
-    border: 2px solid var(--aux-color2);
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.contact-title-item{
+    background-color: var(--aux-color);
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 30px;
 }
 .contact-item-title{
     font-size: 2rem;
+    font-weight: bold;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
     text-align: center;
-}
-.location-image{
+    background-color: var(--aux-color);
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
     margin: 1rem;
-    width: 100%;
-    height: 400px;
+    padding: 1rem;
+    border-radius: 30px;
+}
+.contact-content-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.contact-item-content-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--aux-color);
+    text-align: center;
+    background-color: var(--aux-color);
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 30px;
+    align-items: center;
+}
+.contact-item-content-title{
+    font-size: 1.2 rem;
 }
 
+.contact-item-content-piece{
+    background-color: var(--tertiary-color);
+    border: 2px solid var(--aux-color2);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-right: 3px;
+    padding-left: 3px;
+    width: auto;
+}
+.contact-item-content-piece-title{
+    background-color: var(--tertiary-color);
+    border: 2px solid var(--aux-color2);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+.content-input{
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    width: 75%;
+    border:2px solid var(--aux-color2);
+    border-radius: 10px; 
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 1px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    font-size: 0.8rem;
+}
+.message-input{
+    font-weight: bold;
+    background-color: var(--secondary-color);
+    border:2px solid var(--aux-color2);
+    border-radius: 10px; 
+    resize: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 0.8rem;
+}
+.contact-item{
+    background-color: var(--aux-color2);
+    margin: 1rem;
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.location-image{
+    margin: 1rem;
+    width: 80%;
+    border: 3px solid var(--primary-color);
+    border-radius: 30px;
+    height: 400px;
+    width: 700px;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+.send-button{
+    height:40px;
+    background-color: var(--tertiary-color);
+    border: 2px solid var(--aux-color2);
+    border-radius: 13px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.send-button:hover{
+    background-color: var(--secondary-color);
+    border-color: var(--tertiary-color);
+}
+@media screen and (max-width:900px){
+    .send-button{
+        height:30px;
+        background-color: var(--tertiary-color);
+        border: 1.3px solid var(--aux-color2);
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+    .location-image{
+        height: 280px;
+        width: 520px;
+        border-width: 1.3px;
+    }
+    .contact-item{
+        padding:1rem;
+        margin: 0.6rem;
+    }
+    .message-input{
+        border-width: 1.3px;
+        font-size: 0.6rem;
+    }
+    .content-input{
+        border-width: 1.3px;
+        font-size: 0.6rem;
+    }
+    .contact-item-title{
+        font-size: 1.2rem;
+        background-color: var(--aux-color);
+        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+        margin: 0.8rem;
+        padding: 0.8rem;
+    }
+    .contact-item-content-piece-title{
+        border-width: 1.3px;
+        font-size: 0.8rem;
+        margin-top: 0.8px;
+        margin-bottom: 0.8px;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .contact-item-content-piece{
+        border-width: 1.3px;
+        font-size: 0.8rem;
+    }
+    .contact-item-content-title{
+        font-size: 1rem;
+    }
+    .contact-item-content-container{
+        padding:0.5rem;
+    }
+    .contact-logo-image{
+        width: 8rem;
+        height: 8rem;
+    }
+    .contact-title{
+        background-color: var(--aux-color2);
+        margin: 0.8rem;
+        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+        padding: 1.4rem;
+    }
+    .contact-title-item{
+        margin: 0.6rem;
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+        border-radius: 30px;
+    }
+    .contact-page-title-text{
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width:730px){
+    .location-image{
+        height: 210px;
+        width: 390px;
+        border-width: 1.3px;
+    }
+}
+@media screen and (max-width:600px){
+    
+    .main.main-class{
+        margin: .5rem;
+        margin-top: 55px;
+        margin-right: 2rem; 
+        margin-bottom: 20px;
+    }
+    .send-button{
+        height:18px;
+        background-color: var(--tertiary-color);
+        border: 1px solid var(--aux-color2);
+        border-radius: 10px;
+        font-size: 0.6rem;
+    }
+    .location-image{
+        height: 130px;
+        width: 260px;
+        border-width: 1px;
+        margin: 0;
+    }
+    .contact-item{
+        padding:0.3rem;
+        margin: 0.2rem;
+    }
+    .message-input{
+        border-width: 1px;
+        font-size: 0.5rem;
+    }
+    .content-input{
+        border-width: 1px;
+        font-size: 0.5rem;
+    }
+    .contact-item-title{
+        font-size: 0.6rem;
+        background-color: var(--aux-color);
+        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+        margin: 0.2rem;
+        padding: 0.2rem;
+    }
+    .contact-item-content-piece-title{
+        border-width: 1px;
+        font-size: 0.5rem;
+        margin-top: 5px;
+        margin-bottom: 0.3px;
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+    .contact-item-content-piece{
+        border-width: 1px;
+        font-size: 0.5rem;
+    }
+    .contact-item-content-title{
+        font-size: 0.6rem;
+    }
+    .contact-item-content-container{
+        padding:0.4rem;
+        margin: 0.3rem;
+    }
+    .contact-logo-image{
+        width: 4rem;
+        height: 4rem;
+    }
+    .contact-title{
+        background-color: var(--aux-color2);
+        margin: 0.3rem;
+        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.2);
+        padding: 0.5rem;
+    }
+    .contact-title-item{
+        margin: 0.3rem;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        border-radius: 15px;
+    }
+    .contact-page-title-text{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width:400px){
+    .location-image{
+        height: 90px;
+        width: 190px;
+        border-width: 1px;
+    }
+}
+/* Main Finish */
 /*Finished Section Done By Minut Mihai Dimitrie*/

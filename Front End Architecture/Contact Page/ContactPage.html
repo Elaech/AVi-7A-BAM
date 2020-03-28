@@ -4,7 +4,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../Front End Design/ContactPage/ContactPage.css">
+    <meta lang="en-US">
+    <title>Contact Us!</title>
 </head>
 
 <body>
@@ -27,14 +31,16 @@
     <!-- Finished Section Done By Andra Ionita  -->
 
     <!-- Done by Minut Mihai Dimitrie -->
-    <main>
+    <main class="main-class">
         <!--Title And Logo-->
-        <div class="contact-item">
-            <p class="contact-item-title">
-                Contact Us!
-            </p>
+        <div class="contact-title">
             <!--Our Logo-->
-            <img src="../../Front End Design/Header/logo-icon.png">
+            <div class="contact-title-item">
+                <img class="contact-logo-image" src="../../Front End Design/Header/logo-icon.png">
+            </div>
+            <div class="contact-title-item">
+                <p class="contact-page-title-text">Contact Us!</p>
+            </div>
         </div>
         <!--Location-->
         <div class="contact-item">
@@ -43,53 +49,47 @@
             </p>
             <img class="location-image" src="../../Front End Design/ContactPage/location.png">
         </div>
-        <!--Distance Contact-->
-        <div class="contact-item">
-            <p class="contact-item-title">
-                Digital Adress
-            </p>
-            <div>
-                E-mail
+        <div class="contact-content-container">
+            <!--Distance Contact-->
+            <div class="contact-item">
+                <p class="contact-item-title">
+                    Digital Adress
+                </p>
+                <div class="contact-item-content-container">
+                    <div class="contact-item-content-piece">
+                        E-mail: our@actual.email
+                    </div>
+                    <div class="contact-item-content-piece">
+                        Phone: +40 0742 123 123
+                    </div>
+                    <div class="contact-item-content-piece">
+                        Fax: +40 0742 123 123
+                    </div>
+                    <div class="contact-item-content-piece">
+                        Documentation: doc link
+                    </div>
+                    <div class="contact-item-content-piece">
+                        Presentation: presentation link
+                    </div>
+                </div>
             </div>
-            <div>
-                our@actual.email
+            <!--Direct Mesage-->
+            <div class="contact-item">
+                <p class="contact-item-title">
+                    Write Us!
+                </p>
+                <form class="contact-item-content-container" method="POST">
+                    <label for="emailAdress"  class="contact-item-content-piece-title">Your E-mail </label>
+                    <input type="email" name="emailAdress" class="content-input" maxlength="30">
+                    <label for="title"  class="contact-item-content-piece-title">Title </label>
+                    <input type="text" name="title" class="content-input" maxlength="30">
+                    <label for="message" class="contact-item-content-piece-title">
+                        Message
+                    </label>
+                    <textarea class="message-input" name="message" maxlength="200" rows="5" cols="40"></textarea>
+                    <input type="submit" value="Send" class="send-button">
+                </form>
             </div>
-            <div>
-                E-mail
-            </div>
-            <div>
-                our@actual.email
-            </div>
-            <div>
-                Phone
-            </div>
-            <div>
-                +40 0742 123 123
-            </div>
-            <div>
-                Fax
-            </div>
-            <div>
-                fax numero
-            </div>
-        </div>
-<!--Direct Mesage-->
-        <div class="contact-item">
-            <p class="contact-item-title">
-                Write Us!
-            </p>
-            <form>
-                <label for="emailAdress">Your E-mail: </label>
-                <input type="email" name="emailAdress">
-                <br>
-                <label for="title">Title: </label>
-                <input type="text" name="title">
-                <br>
-                <textarea name="message" rows="6" cols="45"></textarea>
-                <label for="message">(Message) </label>
-                <br>
-                <input type="submit" value="Send">
-            </form>
         </div>
     </main>
     <!-- Finished Section Done By Minut Mihai Dimitrie -->
@@ -129,78 +129,79 @@
 
 
 </body>
-    <!-- Done by Cretu Bogdan Antonio -->
-    <nav class="navbar">
-        <!--https://fontawesome.com/icons?d=gallery&m=free    Folosit pentru SVG-uri -->
-        <ul class="navbar-ul">
-            <li class="navbar-item" id="userButton">
-                <a href="https://www.google.com/" class="nav-link">
-                    <img id="userImage"
-                        src="https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG"></img>
-                    <span class="link-text">LOG IN</span>
-                </a>
-            </li>
-            <li class="navbar-item">
-                <a href="https://www.google.com/" class="nav-link">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
-                        class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                            d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
-                        </path>
-                    </svg>
-                    <span class="link-text">Contact</span>
-                </a>
-            </li>
-            <li class="navbar-item">
-                <a href="https://www.google.com/" class="nav-link">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
-                        class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                            d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
-                        </path>
-                    </svg>
-                    <span class="link-text">Statistics</span>
-                </a>
-            </li>
-            <li class="navbar-item">
-                <a href="https://www.google.com/" class="nav-link">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
-                        class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                            d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
-                        </path>
-                    </svg>
-                    <span class="link-text">HOME</span>
-                </a>
-            </li>
-            <li class="navbar-item">
-                <a href="https://www.google.com/" class="nav-link">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
-                        class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                            d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
-                        </path>
-                    </svg>
-                    <span class="link-text">Create Account</span>
-                </a>
-            </li>
-            <li class="navbar-item">
-                <a href="https://www.google.com/" class="nav-link">
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
-                        class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                            d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
-                        </path>
-                    </svg>
-                    <span class="link-text">Model Text</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <!-- Finished Section Done By Cretu Bogdan Antonio -->
+<!-- Done by Cretu Bogdan Antonio -->
+<nav class="navbar">
+    <!--https://fontawesome.com/icons?d=gallery&m=free    Folosit pentru SVG-uri -->
+    <ul class="navbar-ul">
+        <li class="navbar-item" id="userButton">
+            <a href="https://www.google.com/" class="nav-link">
+                <img id="userImage"
+                    src="https://upload.wikimedia.org/wikipedia/commons/d/de/Windows_live_square.JPG"></img>
+                <span class="link-text">LOG IN</span>
+            </a>
+        </li>
+        <li class="navbar-item">
+            <a href="https://www.google.com/" class="nav-link">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
+                    class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
+                    </path>
+                </svg>
+                <span class="link-text">Contact</span>
+            </a>
+        </li>
+        <li class="navbar-item">
+            <a href="https://www.google.com/" class="nav-link">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
+                    class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
+                    </path>
+                </svg>
+                <span class="link-text">Statistics</span>
+            </a>
+        </li>
+        <li class="navbar-item">
+            <a href="https://www.google.com/" class="nav-link">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
+                    class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
+                    </path>
+                </svg>
+                <span class="link-text">HOME</span>
+            </a>
+        </li>
+        <li class="navbar-item">
+            <a href="https://www.google.com/" class="nav-link">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
+                    class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
+                    </path>
+                </svg>
+                <span class="link-text">Create Account</span>
+            </a>
+        </li>
+        <li class="navbar-item">
+            <a href="https://www.google.com/" class="nav-link">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
+                    class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                        d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z">
+                    </path>
+                </svg>
+                <span class="link-text">Model Text</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- Finished Section Done By Cretu Bogdan Antonio -->
+
 </html>
