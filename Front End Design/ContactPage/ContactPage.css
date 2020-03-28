@@ -111,6 +111,38 @@ body::-webkit-scrollbar-thumb{
 @media only screen and (max-width: 600px){
 
     .navbar{
+        top:0;
+        right:0;
+        width:4rem;
+        height:200vh;
+    }
+
+    .navbar:hover{
+        width: 10rem;
+    }
+
+    .navbar:hover .link-text{
+        display: block;
+    }
+
+    .nav-link svg{
+        width: 2rem;
+        min-width: 2rem;
+        margin: 0 1rem;
+        color: var(--aux-color);
+    }
+
+    #userImage{
+        width:3rem;
+        height:3rem;
+        margin: 0 0.5rem;
+    }
+ 
+} 
+
+@media only screen and (max-width: 1px){
+
+    .navbar{
         bottom:0;
         width:100vw;
         height:5rem;
@@ -143,7 +175,7 @@ body::-webkit-scrollbar-thumb{
 
 
     .nav-link {
-        justify-content: cneter;
+        justify-content: center;
     }
     
     
