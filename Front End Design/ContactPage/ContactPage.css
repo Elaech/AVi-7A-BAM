@@ -325,7 +325,7 @@ body{
 }
 
 main {
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     height: 100%;
     margin: 1rem;
     margin-top: 75px;
