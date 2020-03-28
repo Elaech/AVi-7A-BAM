@@ -4,53 +4,33 @@
   --tertiary-color: #ffe5d8;
   --aux-color: #96cecc;
   --aux-color2: #5bb3b0;
-  --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  --text-font-header: "Ubuntu", sans-serif;
   --header-icon1-width: 50px;
   --header-icon1-height: 50px;
   font-size: 50px;
 }
 
-html {
+body{
+  background: fixed;
   background: var(--secondary-color);
-}
-
-body {
-  height: 80vh;
-  width: 100%;
-  background: linear-gradient(
-    170deg,
-    var(--tertiary-color) 50%,
-    var(--secondary-color) 0%
-  );
-  background-size: 100%;
-  margin: 0;
-
-  display: block;
-
+  background-color: var(--secondary-color);
   background-size: 100%;
 }
-
 .Home {
-  height: 500px;
-  display: table;
+  position: relative;
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 70px;
 }
 
-.Home h1 {
-  color: var(--primary-color);
-  height: 100%;
-  margin: 0;
-
-  display: block;
+.introd {
   position: absolute;
-  top: 60%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-
+  font-size: 70px;
+  font-weight: 700;
   font-family: var(--text-font-header);
-  font-size: 90px;
-  font-weight: 900;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .list {
@@ -79,7 +59,7 @@ body {
 
 .scope1 h3 {
   display: grid;
-  font-size: 60px;
+  font-size: 50px;
   margin-right: 15px;
   font-family: var(--text-font-header);
   font-weight: 900;
@@ -88,7 +68,7 @@ body {
 
 .scope1 p {
   display: grid;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   margin-right: 30px;
   font-family: var(--text-font-header);
@@ -115,7 +95,7 @@ body {
 
 .scope2 h3 {
   display: grid;
-  font-size: 60px;
+  font-size: 50px;
   font-family: var(--text-font-header);
   font-weight: 900;
   text-align: center;
@@ -123,7 +103,7 @@ body {
 
 .scope2 p {
   display: grid;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   margin-right: 30px;
   font-family: var(--text-font-header);
@@ -151,7 +131,7 @@ body {
 
 .scope3 h3 {
   display: grid;
-  font-size: 60px;
+  font-size: 50px;
   margin-right: 10px;
   font-family: var(--text-font-header);
   font-weight: 900;
@@ -160,68 +140,23 @@ body {
 
 .scope3 p {
   display: grid;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   margin-right: 30px;
   font-family: var(--text-font-header);
 }
 
-@media screen and (min-width: 2200px) {
-  body {
-    height: 45vh;
-  }
-
-  .Home {
-    height: 450px;
-  }
-
-  .Home h1 {
-    margin-top: -1%;
-    font-size: 60px;
-  }
-}
-
-@media screen and (min-width: 3000px) {
-  body {
-    height: 35vh;
-  }
-
-  .Home {
-    height: 600px;
-  }
-}
-
-@media screen and (min-width: 3600px) {
-  .Home {
-    height: 800px;
-  }
-}
-
-@media screen and (min-width: 3600px) {
-  .Home {
-    height: 600px;
-  }
-}
-@media screen and (min-width: 3800px) {
-  .Home {
-    height: 1050px;
-  }
-}
-
 @media screen and (max-width: 500px) {
-  body {
-    height: 35vh;
-  }
-
   .Home {
-    height: 170px;
-  }
 
-  .Home h1 {
-    margin-top: -5%;
+    margin-bottom: 30px;
+  }
+  
+  .introd {
+
     font-size: 20px;
   }
-
+  
   .scope1 {
     margin-right: 15px;
   }
@@ -275,16 +210,13 @@ body {
 }
 
 @media screen and (min-width: 501px) and (max-width: 1025px) {
-  body {
-    height: 35vh;
-  }
-
   .Home {
-    height: 300px;
-  }
 
-  .Home h1 {
-    margin-top: -5%;
+    margin-bottom: 40px;
+  }
+  
+  .introd {
+
     font-size: 45px;
   }
 
