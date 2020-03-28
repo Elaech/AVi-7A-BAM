@@ -4,109 +4,69 @@
   --tertiary-color: #ffe5d8;
   --aux-color: #96cecc;
   --aux-color2: #5bb3b0;
-  --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  --text-font-header: "Ubuntu", sans-serif;
   --header-icon1-width: 50px;
   --header-icon1-height: 50px;
-  font-size: 50px;
-}
-
-html {
-  background: var(--secondary-color);
 }
 
 body {
-  height: 86vh;
-  width: 100%;
-  background: linear-gradient(
-    170deg,
-    var(--tertiary-color) 50%,
-    var(--secondary-color) 0%
-  );
-  background-size: 100%;
-  margin: 0;
-
-  display: block;
-
-  background-size: 100%;
-}
-
-.Sign-in {
-  height: 450px;
-  display: table;
-}
-
-.Sign-in h1 {
-  color: var(--primary-color);
-  height: 100%;
-  margin: 0;
-
-  display: block;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  background-color: var(--tertiary-color);
 
   font-family: var(--text-font-header);
-  font-size: 90px;
-  font-style: italic;
-  font-weight: 200;
 }
 
-.Sign-in h1 span {
-  font-style: normal;
-  font-weight: bold;
-}
-
-.login {
+.main {
   background-color: #ffffff;
-  width: 900px;
-  height: 900px;
-  margin: 3em auto;
+  width: 700px;
+  height: 700px;
+  margin: 7em auto;
   border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  box-shadow: 5px 15px 35px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sign {
+  text-align: center;
+  padding-top: 70px;
+  color: var(--aux-color2);
+  font-family: var(--text-font-header);
+  font-weight: bold;
+  font-size: 60px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
 }
 
 .un {
-  margin-top: 160px;
-  width: 90%;
-  height: 70px;
-
-  font-size: 35px;
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
   letter-spacing: 1px;
-
-  background: rgba(136, 126, 126, 0.04);
+  background: rgba(136, 126, 126, 0.08);
   padding: 10px 20px;
-
   border: none;
-  outline: none;
-
   border-radius: 20px;
+  outline: none;
   box-sizing: border-box;
-
   border: 2px solid rgba(0, 0, 0, 0.02);
-
-  margin-left: 46px;
-
-  text-align: center;
   margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 35px;
   font-family: var(--text-font-header);
 }
 
-form {
-  padding-top: 30px;
+form.form1 {
+  padding-top: 40px;
 }
 
 .pass {
-  width: 90%;
-  height: 70px;
-
-  margin-top: 50px;
-
-  font-size: 35px;
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background: rgba(136, 126, 126, 0.08);
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
@@ -116,210 +76,157 @@ form {
   margin-bottom: 50px;
   margin-left: 46px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 27px;
   font-family: var(--text-font-header);
 }
 
-.keepme {
-  font-family: var(--text-font-header);
-  margin-top: 50px;
-  float: left;
-  line-height: 31px;
-  font-size: 30px;
-  margin-left: 46px;
-  color: #777;
-  cursor: pointer;
-  margin-bottom: 40px;
+.un:focus,
+.pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
 }
+
+.submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, var(--aux-color), var(--aux-color2));
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  font-family: var(--text-font-header);
+  margin-left: 37%;
+  margin-top: 20px;
+  font-size: 30px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
 input[type="checkbox"] {
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  position: relative;
+  margin-left: 7%;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  margin-right: 1%;
+  height: 25px;
 }
 
 .keepme input {
   position: relative;
   font-family: var(--text-font-header);
-  margin-right: 4px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
   vertical-align: middle;
 }
+.keepme label {
+  font-size: 22px;
+}
 
-.submitlog {
-  cursor: pointer;
-  border-radius: 10em;
+input[type="submit"]:hover {
+  background: linear-gradient(90deg, var(--tertiary-color), var(--aux-color));
+
   color: #fff;
-  background: linear-gradient(90deg, var(--aux-color), var(--aux-color2));
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 20px;
+  border: none;
+  outline: none;
+  border: 1px solid #eee;
+  border-radius: 10em;
+  box-shadow: 5px 5px 5px #eee;
+  text-shadow: none;
+}
+.creacc {
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+
   padding-top: 15px;
-  font-family: var(--text-font-header);
-  margin-top: 150px;
-  margin-left: 37%;
-  margin-right: 37%;
-  font-size: 50px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.04);
-}
-@media screen and (min-width: 2200px) {
-  .Sign-in {
-    height: 650px;
-  }
-}
-@media screen and (min-width: 3000px) {
-  body {
-    height: 35vh;
-  }
-
-  .Sign-in {
-    height: 650px;
-  }
 }
 
-@media screen and (min-width: 3600px) {
-  .Sign-in {
-    height: 600px;
-  }
-}
-@media screen and (min-width: 3800px) {
-  .Sign-in {
-    height: 900px;
-  }
+a {
+  text-align: center;
+  font-size: 25px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  color: var(--aux-color);
+  text-decoration: none;
 }
 
-@media screen and (min-width: 501px) and (max-width: 1025px) {
-  body {
-    height: 52vh;
-  }
-
-  .Sign-in {
-    height: 300px;
-  }
-
-  .Sign-in h1 {
-    font-size: 70px;
-  }
-
-  .login {
-    width: 600px;
-    height: 600px;
-    margin: 3em auto;
-    border-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-  }
-
-  .un {
-    margin-top: 60px;
-    height: 60px;
-    width: 85%;
-    font-size: 30px;
-    padding: 5px 10px;
-    margin-bottom: 50px;
-  }
-
-  .pass {
-    width: 85%;
-    height: 60px;
-
-    margin-top: 10px;
-
-    font-size: 30px;
-  }
-
-  .keepme {
-    margin-top: 25px;
-
-    line-height: 31px;
-    font-size: 25px;
-    margin-left: 46px;
-  }
-  input[type="checkbox"] {
-    width: 19px;
-    height: 19px;
-  }
-
-  .keepme input {
-    bottom: -1px;
-    margin-right: 4px;
-    margin-bottom: 10px;
-  }
-
-  .submitlog {
-    padding-bottom: 12px;
-    padding-top: 10px;
-    margin-top: 120px;
-    margin-left: 33%;
-    margin-right: 33%;
-    font-size: 40px;
-  }
-}
-
-/*////////////////////////////////////////////////////////////////////////////////////////////////*/
 @media screen and (max-width: 500px) {
-  body {
-    height: 64vh;
+  .main {
+    width: 310px;
+    height: 400px;
+
+    box-shadow: 5px 15px 35px 15px rgba(0, 0, 0, 0.2);
   }
 
-  .Sign-in {
-    height: 140px;
-  }
-
-  .Sign-in h1 {
-    font-size: 40px;
-  }
-
-  .login {
-    width: 300px;
-    height: 300px;
-    margin: 3em auto;
-    border-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  .sign {
+    padding-top: 20px;
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 
   .un {
-    margin-top: 20px;
-    height: 40px;
-    width: 72%;
-    font-size: 19px;
-    padding: 5px 10px;
-    margin-bottom: 10px;
+    width: 70%;
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    padding: 10px 20px;
+
+    margin-left: 46px;
+
+    margin-bottom: 25px;
+  }
+
+  form.form1 {
+    padding-top: 40px;
   }
 
   .pass {
-    width: 72%;
-    height: 40px;
-
-    margin-top: -10px;
-
-    font-size: 19px;
-    margin-bottom: 15px;
-  }
-
-  .keepme {
-    margin-top: 0px;
-
-    line-height: 31px;
+    width: 70%;
     font-size: 15px;
+
+    padding: 10px 20px;
+
     margin-left: 46px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
+
+  .submit {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    margin-left: 25%;
+    margin-top: 10px;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  }
+
+  input[type="submit"]:hover {
+    border: none;
+    outline: none;
+  }
+
   input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+
+    margin-left: 12%;
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    margin-right: 1%;
+    height: 18px;
   }
 
   .keepme input {
-    bottom: -1px;
-    margin-right: 4px;
-    margin-bottom: 10px;
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
   }
 
-  .submitlog {
-    padding-bottom: 12px;
+  .keepme label {
+    font-size: 13px;
+  }
+  .creacc {
     padding-top: 10px;
+  }
 
-    margin-top: 50px;
-    margin-left: 27%;
-    margin-right: 27%;
-    font-size: 18px;
+  a {
+    font-size: 13px;
   }
 }
