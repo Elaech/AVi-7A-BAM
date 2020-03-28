@@ -32,7 +32,7 @@ body::-webkit-scrollbar-thumb{
 
 .navbar{
     position: fixed;
-    background-color: var(--primary-color);
+    background-color: var(--tertiary-color);
     transition: width var(--transition-speed) ease;
     border-left: 1px solid var(--primary-color);
 }
@@ -232,6 +232,7 @@ header {
   /*Finished Section Done By Ionita Andra*/
 
 /* Done by Minut Mihai Dimitrie */
+/*Footer*/
 footer{
     position: absolute;
     margin-bottom: 0;
@@ -312,7 +313,7 @@ footer p{
   }
 }
 
-
+/* End Footer */
 body{
     background-color: var(--aux-color);
     margin: 0;
@@ -327,7 +328,7 @@ body{
 
 main {
     background-color: var(--tertiary-color);
-    height: 100%;
+    height: 100vh;
     margin: 1rem;
     margin-top: 75px;
     margin-right: 6rem;
