@@ -1,4 +1,3 @@
-
 function showHideItems(list,itemsName) {
     var items = document.getElementsByName(itemsName);
     if (items[0].style.display == 'none' || items[0].style.display == "") {
@@ -34,7 +33,6 @@ function restrictHideItems(list,itemsName){
         }
     }
 }
-//MODIFY THE NAME THING WILL F UP THE PHP
 function pickUnpickAllShowItems(){
     var showItems = document.getElementsByClassName("showCheck");
         for(var index=0;index<showItems.length;index++){
