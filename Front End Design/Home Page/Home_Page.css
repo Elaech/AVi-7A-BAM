@@ -21,6 +21,11 @@ body{
   text-align: center;
   color: var(--secondary-color);
   margin-bottom: 70px;
+  
+}
+.Home .imagine{
+  width: 100%;
+  box-shadow: 5px 15px 35px 15px rgba(0, 0, 0, 0.2);
 }
 
 .introd {
@@ -31,11 +36,13 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
 }
 
 .list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
 }
 
 .scope1 {
