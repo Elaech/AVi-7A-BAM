@@ -134,7 +134,7 @@ input[type="submit"]:hover {
   box-shadow: 5px 5px 5px #eee;
   text-shadow: none;
 }
-.creacc {
+.enter {
   text-align: center;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
 
@@ -222,7 +222,7 @@ a {
   .keepme label {
     font-size: 13px;
   }
-  .creacc {
+  .enter {
     padding-top: 10px;
   }
 

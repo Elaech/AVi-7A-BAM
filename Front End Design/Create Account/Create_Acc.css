@@ -1,412 +1,261 @@
 :root {
-    --primary-color: #000000;
-    --secondary-color: #fcffff;
-    --tertiary-color: #ffe5d8;
-    --aux-color: #96cecc;
-    --aux-color2: #5bb3b0;
-    --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    --header-icon1-width: 50px;
-    --header-icon1-height: 50px;
-    font-size: 50px;
-  }
-  
+  --primary-color: #000000;
+  --secondary-color: #fcffff;
+  --tertiary-color: #ffe5d8;
+  --aux-color: #96cecc;
+  --aux-color2: #5bb3b0;
+  --text-font-header: "Ubuntu", sans-serif;
+  --header-icon1-width: 50px;
+  --header-icon1-height: 50px;
+}
 
-  html {
-    background: var(--secondary-color);
-  }
-  
-  body {
-    height: 86vh;
-    width: 100%;
-    background: linear-gradient(
-      170deg,
-      var(--tertiary-color) 50%,
-      var(--secondary-color) 0%
-    );
-    background-size: 100%;
-    margin: 0;
-  
-    display: block;
-  
-    background-size: 100%;
-  }
-  
-  .Create-Acc {
-    height: 450px;
-    display: table;
-  }
-  
-  .Create-Acc h1 {
-    color: var(--primary-color);
-    height: 100%;
-    margin: 0;
-  
-    display: block;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  
-    font-family: var(--text-font-header);
-    font-size: 90px;
-    font-style: italic;
-    font-weight: 200;
-  }
-  
-  .Create-Acc h1 span{
-      font-style: normal;
-      font-weight: bold;
-  }
-  
+body {
+  background-color: var(--tertiary-color);
 
-    .create {
-        background-color: #FFFFFF;
-        width: 900px;
-        height: 1000px;
-        margin: 3em auto;
-        border-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    }
-  
+  font-family: var(--text-font-header);
+}
 
-    
-    .user {
-    margin-top:140px;
-    width: 90%;
-    height: 70px;
-    
-    font-size: 35px;
+.main {
+  background-color: #ffffff;
+  width: 700px;
+  height: 750px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 5px 15px 35px 15px rgba(0, 0, 0, 0.2);
+}
+
+.create {
+  text-align: center;
+  padding-top: 70px;
+  color: var(--aux-color2);
+  font-family: var(--text-font-header);
+  font-weight: bold;
+  font-size: 60px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.user {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-family: var(--text-font-header);
+}
+
+form.form2 {
+  padding-top: 40px;
+}
+
+.passwd {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: var(--text-font-header);
+}
+
+.passwdag {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: var(--text-font-header);
+}
+
+.email {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: var(--text-font-header);
+}
+
+.user:focus,
+.passwd:focus, .passwdag:focus, .email:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+.submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, var(--aux-color), var(--aux-color2));
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  font-family: var(--text-font-header);
+  margin-left: 37%;
+  margin-top: 20px;
+  font-size: 30px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+
+input[type="submit"]:hover {
+  background: linear-gradient(90deg, var(--tertiary-color), var(--aux-color));
+
+  color: #fff;
+  border: none;
+  outline: none;
+  border: 1px solid #eee;
+  border-radius: 10em;
+  box-shadow: 5px 5px 5px #eee;
+  text-shadow: none;
+}
+
+.creacc {
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
+}
+
+a {
+  text-align: center;
+  font-size: 25px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  color: var(--aux-color);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    width: 310px;
+    height: 440px;
+
+    box-shadow: 5px 15px 35px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .create {
+    padding-top: 30px;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .user {
+    width: 70%;
+    font-size: 15px;
     letter-spacing: 1px;
-    
-    background: rgba(136, 126, 126, 0.04);
+
     padding: 10px 20px;
 
-    border: none;
-    outline: none;
-  
-    border-radius: 20px;
-    box-sizing: border-box;
-  
-    border: 2px solid rgba(0, 0, 0, 0.02);
-  
     margin-left: 46px;
-   
-    
-    text-align: center;
-    margin-bottom:50px;
-    font-family: var(--text-font-header)
-    }
-    
-    .form2{
-        padding-top: 10px;
-    }
-    
-    .password {
-      width: 90%;
-      height: 70px;
-   
-      margin-top: 30px;
 
-    font-size: 35px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
+    margin-bottom: 25px;
+  }
+
+  form.form2 {
+    padding-top: 40px;
+  }
+
+  .passwd {
+    width: 70%;
+    font-size: 15px;
+
     padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
+
     margin-left: 46px;
-    text-align: center;
-    margin-bottom: 50px;
-    font-family: var(--text-font-header)
-    }
-    
-    .passwordag {
-        width: 90%;
-        height: 70px;
-     
-        margin-top: 30px;
+    margin-bottom: 12px;
+  }
+
+  .passwdag {
+      width: 70%;
+      font-size: 15px;
   
-      font-size: 35px;
-      letter-spacing: 1px;
-      background: rgba(136, 126, 126, 0.04);
       padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      outline: none;
-      box-sizing: border-box;
-      border: 2px solid rgba(0, 0, 0, 0.02);
-      margin-bottom: 50px;
-      margin-left: 46px;
-      text-align: center;
-      margin-bottom: 50px;
-      font-family: var(--text-font-header)
-      }
-      
-
-      .email {
-        width: 90%;
-        height: 70px;
-     
-        margin-top: 30px;
   
-      font-size: 35px;
-      letter-spacing: 1px;
-      background: rgba(136, 126, 126, 0.04);
+      margin-left: 46px;
+      margin-bottom: 12px;
+    }
+
+    .email {
+      width: 70%;
+      font-size: 15px;
+  
       padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      outline: none;
-      box-sizing: border-box;
-      border: 2px solid rgba(0, 0, 0, 0.02);
-      margin-bottom: 50px;
+  
       margin-left: 46px;
-      text-align: center;
-      margin-bottom: 50px;
-      font-family: var(--text-font-header)
-      }
-      
- 
-    .submitcreate {
-      
-      cursor: pointer;
-        border-radius: 10em;
-        color: #fff;
-        background: linear-gradient(90deg, var(--aux-color), var(--aux-color2));
-        border: 0;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 20px;
-        padding-top: 15px;
-        font-family: var(--text-font-header);
-
-        margin-top: 50px;
-        margin-left: 27%;
-        margin-right: 27%;
-        font-size: 50px;
-        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.04);
-       
+      margin-bottom: 12px;
     }
-    @media screen and (min-width: 2200px) {
-
-      .Create-Acc{
-        height: 650px;
-      }
-    }
-    @media screen and (min-width: 3000px) {
-      body {
-        height: 45vh;
-      }
-    
-      .Create-Acc{
-        height: 650px;
-      }
-    }
-    
-
-    @media screen and (min-width: 3600px) {
-      .Create-Acc {
-        height: 600px;
-      }
-    }
-    @media screen and (min-width: 3800px) {
-      .Create-Acc {
-        height: 900px;
-      }
-    }
-
-
-    @media screen and (min-width: 501px) and (max-width: 1025px) {
-      body {
-        height: 52vh;
-      }
-      
-      .Create-Acc {
-        height: 300px;
-
-      }
-      
-      .Create-Acc h1 {
-      
-        font-size: 70px;
-    
-      }
-
-    
-    
-        .create {
-           
-            width: 600px;
-            height: 750px;
-            margin: 3em auto;
-            border-radius: 1.5em;
-            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-        }
-      
-    
-      
-        .user {
-        margin-top:60px;
-        height: 60px;
-        width:85%;
-        font-size: 30px;
-        padding: 5px 10px;
-        margin-bottom: 50px;
-
-        }
-        
-   
-        .password {
-          width: 85%;
-          height: 60px;
-       
-          margin-top: 10px;
-    
-        font-size: 30px;
-        
-      
-       
-        }
-        .passwordag {
-            width: 85%;
-            height: 60px;
-         
-            margin-top: 10px;
-      
-          font-size: 30px;
-          
-        
-         
-          }
-        
-          .email {
-            width: 85%;
-            height: 60px;
-         
-            margin-top: 10px;
-      
-          font-size: 30px;
-          
-        
-         
-          }
-          
-      
-      
-        .submitcreate {
   
-          text-align: center;
-          padding-bottom: 12px;
-          padding-top: 10px;
-          margin-top: 30px;
-          margin-left: 20%;
-          margin-right:20%;
-          font-size: 40px;
-        
-         
-        }
-        
-      }
+  .submit {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
-    /*////////////////////////////////////////////////////////////////////////////////////////////////*/
-    @media screen and (max-width: 500px) {
-      body {
-        height: 64vh;
-        }
-      
-      .Create-Acc {
-        
-        height: 140px;
+    margin-left: 25%;
+    margin-top: 10px;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  }
 
-      }
-      
-      .Create-Acc h1 {
-     
-        font-size: 40px;
-    
-      }
+  input[type="submit"]:hover {
+    border: none;
+    outline: none;
+  }
 
-    
-    
-        .create {
-           
-            width: 300px;
-            height: 500px;
-            margin: 3em auto;
-            border-radius: 1.5em;
-            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-        }
-      
-    
-      
-        .user {
-        margin-top:30px;
-        height: 40px;
-        width:72%;
-        font-size: 19px;
-        padding: 5px 10px;
-        margin-bottom: 10px;
+  .creacc {
+    padding-top: 10px;
+  }
 
-        }
-        
-   
-        .password {
-          width: 72%;
-          height: 40px;
-       
-          margin-top: -10px;
-    
-        font-size: 19px;
-        margin-bottom: 15px;
-      
-       
-        }
-        
-      
-        .passwordag {
-            width: 72%;
-            height: 40px;
-         
-            margin-top: -10px;
-      
-          font-size: 16px;
-          margin-bottom: 15px;
-        
-         
-          }
-        
-          .email {
-            width: 72%;
-            height: 40px;
-         
-            margin-top: -10px;
-      
-          font-size: 19px;
-          margin-bottom: 15px;
-        
-         
-          }
-            
-      
-        .submitcreate {
-  
-          
-          padding-bottom: 12px;
-          padding-top: 10px;
-          text-align: center;
-          margin-top: 30px;
-          margin-left: 27%;
-          margin-right: 27%;
-          font-size: 18px;
-        
-         
-        }
-        
-      }
-  
-
-     
+  a {
+    font-size: 13px;
+  }
+}
