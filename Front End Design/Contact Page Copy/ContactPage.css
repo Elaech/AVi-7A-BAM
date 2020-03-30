@@ -709,11 +709,30 @@ main.main-class{
         font-size: 2rem;
     }
 }
-@media screen and (max-width:730px){
+@media screen and (max-width:770px){
     .location-image{
         height: 210px;
         width: 390px;
         border-width: 1.3px;
+    }
+    .send-button{
+        cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, var(--primary-color), var(--aux-color2));
+        border: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 30px;
+        padding-top: 7px;
+        border: none;
+        outline: none;
+        font-family: var(--text-font-header);
+     
+        margin-top: 5px;
+        font-size: 20px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    
     }
 }
 @media screen and (max-width:600px){
