@@ -640,6 +640,10 @@ main.main-class{
   text-shadow: none;
 }
 @media screen and (max-width:900px){
+    main.main-class{
+       
+        margin-right: 3.2rem;
+    }
     .send-button{
         height:30px;
         background-color: var(--tertiary-color);
@@ -757,7 +761,7 @@ main.main-class{
         height: 100%;
         margin: 1rem;
         margin-top: 80px;
-        margin-right: 6rem;
+        margin-right: 3.2rem;
         border: 2px solid rgba(0, 0, 0, 0.02);
         margin-bottom: 30px;
         box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
