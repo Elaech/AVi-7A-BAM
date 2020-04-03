@@ -3,47 +3,50 @@
   --primary-color: #000000;
   --secondary-color: #fffaf1;
   --tertiary-color: #efe0bb;
-  --aux-color: #af734a;
-  --aux-color2: #3b271d;
+  --aux-color: #af734A;
+  --aux-color2: #3B271D;
+
+
 
   --transition-speed: 200ms;
   --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  --text-font: "Ubuntu", Sans-Serif;
+  --text-font:'Ubuntu', Sans-Serif;
   --header-icon1-width: 30px;
   --header-icon1-height: 30px;
   font-size: 16px;
 }
 
+
+
 /* Done by Cretu Bogdan Antonio */
-body::-webkit-scrollbar {
+body::-webkit-scrollbar{
   width: 0.5rem;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track{
   padding: 1rem;
 }
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track{
   background: black;
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb{
   background: var(--tertiary-color);
 }
 
-.navbar {
+.navbar{
   font-family: var(--text-font);
   position: fixed;
   background-color: var(--primary-color);
   transition: width var(--transition-speed) ease;
-
+  
   border: 2px solid rgba(116, 108, 108, 0.02);
 
   box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
 }
 
-.navbar-ul {
-  font-size: small;
+.navbar-ul{
   list-style: none;
   padding: 0;
   margin: 0;
@@ -53,11 +56,11 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
 }
 
-.navbar-item {
+.navbar-item{
   width: 100%;
 }
 
-.nav-link {
+.nav-link{
   display: flex;
   align-items: center;
   height: 5rem;
@@ -65,129 +68,133 @@ body::-webkit-scrollbar-thumb {
   text-decoration: none;
   filter: grayscale(100%) opacity(0.7);
   transition: var(--transition-speed);
-  font-size: small;
 }
 
-.nav-link:hover {
+.nav-link:hover{
   filter: grayscale(0%) opacity(1);
   background: var(--secondary-color);
   color: var(--aux-color2);
 }
 
-.link-text {
-  display: none;
+
+.link-text{
+  display:none;
   margin-left: 1rem;
 }
 
-.nav-link svg {
+.nav-link svg{
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem;
   color: var(--aux-color);
 }
 
-#userImage {
-  width: 4rem;
-  height: 4rem;
+
+
+#userImage{
+  width:4rem;
+  height:4rem;
   margin: 0 0.5rem;
 }
 
-@media only screen and (min-width: 800px) {
-  .navbar {
-    font-size: small;
-    top: 0;
-    right: 0;
-    width: 5rem;
-    height: 200vh;
+@media only screen and (min-width: 800px){
+
+  .navbar{
+      top:0;
+      right:0;
+      width:5rem;
+      height:200vh;
   }
 
-  .navbar:hover {
-    width: 16rem;
+  .navbar:hover{
+      width: 16rem;
   }
 
-  .navbar:hover .link-text {
-    display: block;
+  .navbar:hover .link-text{
+      display: block;
   }
-}
 
-@media only screen and (max-width: 800px) {
-  .navbar {
-    top: 0;
-    right: 0;
-    width: 2rem;
-    height: 200vh;
-    font-size: 12px;
+
+} 
+
+@media only screen and (max-width: 800px){
+
+  .navbar{
+      top:0;
+      right:0;
+      width:2rem;
+      height:200vh;
   }
+
+  .navbar:hover{
+      width: 10rem;
+  }
+
+  .navbar:hover .link-text{
+      display: block;
+  }
+
+  .nav-link svg{
+      width: 1rem;
+      min-width: 1rem;
+      margin: 0 0.5rem;
+      color: var(--aux-color);
+  }
+
+  #userImage{
+      width:2rem;
+      height:2rem;
+      margin: 0;
+  }
+
+} 
+
+@media only screen and (max-width: 1px){
+
+  .navbar{
+      bottom:0;
+      width:100vw;
+      height:5rem;
+  }
+
+  .navbar:hover{
+      width: 100vw;
+      height:80vh;
+  }
+
+  .navbar:hover .link-text{
+      display: block;
+  }
+
+  #userButton{
+      display: block;
+  }
+
+  #userButton:hover{
+      display: block;
+  }
+
+  .navbar-ul{
+      flex-direction: row;
+  }
+
+  .navbar-ul:hover{
+      flex-direction: column;
+  }
+
 
   .nav-link {
-    font-size: 12px;
+      justify-content: center;
   }
-
-  .navbar:hover {
-    width: 10rem;
-  }
-
-  .navbar:hover .link-text {
-    display: block;
-  }
-
-  .nav-link svg {
-    width: 1rem;
-    min-width: 1rem;
-    margin: 0 0.5rem;
-    color: var(--aux-color);
-  }
-
-  #userImage {
-    width: 2rem;
-    height: 2rem;
-    margin: 0;
-  }
+  
+  
 }
 
-@media only screen and (max-width: 1px) {
-  .navbar {
-    bottom: 0;
-    width: 100vw;
-    height: 5rem;
-  }
-
-  .navbar:hover {
-    width: 100vw;
-    height: 80vh;
-  }
-
-  .navbar:hover .link-text {
-    display: block;
-  }
-
-  #userButton {
-    display: block;
-  }
-
-  #userButton:hover {
-    display: block;
-  }
-
-  .navbar-ul {
-    flex-direction: row;
-  }
-
-  .navbar-ul:hover {
-    flex-direction: column;
-  }
-
-  .nav-link {
-    justify-content: center;
-  }
-}
-/*Finished Section Done By Cretu Bogdan Antonio*/
 
 /* Done by Minut Mihai Dimitrie */
 /* Footer Start */
-footer {
+footer{
   font-family: var(--text-font);
-  margin-top: 110px;
   position: absolute;
   margin-bottom: 0px;
   left: 0;
@@ -196,102 +203,104 @@ footer {
   width: 100%;
   background-color: var(--aux-color2);
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns:  33% 33% 33%;
   grid-template-rows: 50% 50%;
   justify-content: space-around;
   align-content: space-around;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.02);
-  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
- 
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.50);
+
 }
-.footer-item1 {
+.footer-item1{
   margin-left: -17px;
-  grid-row: 1/3;
+  grid-row: 1/3 ;
   grid-column: 1/1;
+
 }
-.footer-item2 {
+.footer-item2{
   margin-left: -20px;
-  grid-row: 1/2;
+  grid-row: 1/2 ;
   grid-column: 2/2;
+
 }
-.footer-item3 {
+.footer-item3{
   margin-left: -20px;
   grid-row: 1/3;
-  grid-column: 3/3;
+  grid-column: 3/3;   
 }
 
-footer p {
+footer p{
   font-family: var(--text-font);
-
+ 
   color: var(--secondary-color);
-  font: 0.9rem bold;
+ 
   text-align: center;
-  font-weight: 900;
+ 
   font-size: 17px;
 }
 
-.footer-icon1 {
+.footer-icon1{
   height: 30px;
   flex-grow: 4;
   padding: 2px;
   box-sizing: border-box;
+
 }
-.footer-icon2 {
+.footer-icon2{
   height: 32px;
   flex-grow: 5;
   padding: 2px;
   box-sizing: border-box;
 }
-.footer-icon-flex {
+.footer-icon-flex{
   display: flex;
   justify-content: center;
 }
 
-@media screen and (max-width: 1100px) {
-  footer p {
-    font: 1rem bold;
+@media screen and (max-width:1000px){
+  footer p{
+    font: 0.5rem bold;
   }
-  footer {
+  footer{
     bottom: -5px;
-    margin-top: 0;
     margin-bottom: 0px;
-    height: 80px;
+    height: 50px;
+
   }
-  .footer-icon1 {
-    height: 20px;
+  .footer-icon1{
+    height: 16px;
     padding: 2px;
   }
-  .footer-icon2 {
-    height: 20px;
+  .footer-icon2{
+    height: 16px;
     padding: 2px;
   }
 }
-@media screen and (max-width: 600px) {
-  footer p {
-    font-size: 0.15rem bold;
-  }
-  footer {
-    bottom: 0px;
-    margin-bottom: 0px;
-    margin-top: -30px;
-    padding-top: -20px;
-    height: 55px;
-    font: 0.15rem bold;
-  }
-  .footer-icon1 {
-    height: 14px;
-    padding: 2px;
-  }
-  .footer-icon2 {
-    height: 14px;
-    padding: 2px;
-  }
+@media screen and (max-width:600px){
+footer p{
+  font-size: 0.15rem bold;
+}
+footer{
+  bottom: 0px;
+  margin-bottom: 0px;
+  height: 55px;
+  font: 0.15rem bold;
+
+}
+.footer-icon1{
+  height: 14px;
+  padding: 2px;
+}
+.footer-icon2{
+  height: 14px;
+  padding: 2px;
+}
 }
 /* Footer Finish */
 /* Main Start */
 
-body {
+body{
   background-color: var(--aux-color);
   margin: 0;
   padding: 0;
@@ -300,25 +309,29 @@ body {
   margin-bottom: 0;
   padding-bottom: 60px;
   position: relative;
-
+  /* margin-bottom: 20px; */
 }
 
-main.main-class {
+main.main-class{
   background-color: var(--tertiary-color);
   height: 100%;
-  margin: 3rem;
-  margin-top: 100px;
-  margin-right: 8rem;
-  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin: 1rem;
+  margin-top: 6rem;
+  margin-right: 6rem;
+  
   margin-bottom: 30px;
-  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  background: fixed;
-  background-size: 100%;
-  background-color: var(--tertiary-color);
-  background: var(--tertiary-color);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  font-family: var(--text-font);
 }
-
 .Home {
   text-align: center;
   color: var(--tertiary-color);
@@ -380,7 +393,7 @@ main.main-class {
   display: grid;
   font-size: 50px;
 
-  font-family: var(--text-font-header);
+  font-family: var(--text-font);
   font-weight: 900;
   text-align: center;
 }
@@ -390,7 +403,7 @@ main.main-class {
   font-size: 30px;
   text-align: center;
 
-  font-family: var(--text-font-header);
+  font-family: var(--text-font);
 }
 
 .scope2 {
@@ -414,7 +427,7 @@ main.main-class {
 .scope2 h3 {
   display: grid;
   font-size: 50px;
-  font-family: var(--text-font-header);
+  font-family: var(--text-font);
   font-weight: 900;
   text-align: center;
 }
@@ -424,7 +437,7 @@ main.main-class {
   font-size: 30px;
   text-align: center;
 
-  font-family: var(--text-font-header);
+  font-family: var(--text-font);
 }
 
 .scope3 {
@@ -450,7 +463,7 @@ main.main-class {
   display: grid;
   font-size: 50px;
 
-  font-family: var(--text-font-header);
+  font-family: var(--text-font);
   font-weight: 900;
   text-align: center;
 }
@@ -460,7 +473,7 @@ main.main-class {
   font-size: 30px;
   text-align: center;
  
-  font-family: var(--text-font-header);
+  font-family: var(--text-font);
 }
 
 @media screen and (max-width: 400px) {
@@ -507,7 +520,7 @@ main.main-class {
   .introd {
     font-size: 20px;
     margin-top: -17%;
-    margin-bottom: 12%;
+    margin-bottom:7%;
   }
 
   .list{
@@ -864,6 +877,7 @@ main.main-class {
     }
   }
 
+/*Finished Section Done By Cretu Bogdan Antonio*/
 
 /* Done by Ionita Andra */
 header {
@@ -878,7 +892,7 @@ header {
 
   border: 2px solid rgba(0, 0, 0, 0.02);
 
-  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.50);
 }
 .header-item1 {
   height: 100%;
@@ -934,9 +948,8 @@ header {
 
 @media screen and (max-width: 650px) {
   header {
-    height: 30px;
+    height: 35px;
     padding-bottom: 15px;
-    margin-right: -3rem;
   }
   .logo-icon {
     height: 40px;
@@ -945,9 +958,9 @@ header {
   }
 
   .header-item2 h1 {
-    font-size: 20px;
+    font-size: 25px;
     margin-left: -5px;
-    margin-top: 2px;
+    margin-top:2px;
   }
 }
 /*Finished Section Done By Ionita Andra*/

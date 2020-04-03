@@ -8,7 +8,7 @@
 
   --transition-speed: 200ms;
   --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  --text-font: "Ubuntu", Sans-Serif;
+  --text-font: 'Ubuntu', Sans-Serif;
   --header-icon1-width: 30px;
   --header-icon1-height: 30px;
   font-size: 16px;
@@ -295,16 +295,19 @@ footer {
   margin-left: -17px;
   grid-row: 1/3;
   grid-column: 1/1;
+  font-family: var(--text-font);
 }
 .footer-item2 {
   margin-left: -20px;
   grid-row: 1/2;
   grid-column: 2/2;
+  font-family: var(--text-font);
 }
 .footer-item3 {
   margin-left: -20px;
   grid-row: 1/3;
   grid-column: 3/3;
+  font-family: var(--text-font);
 }
 
 footer p {
@@ -382,7 +385,7 @@ body {
   padding: 0;
   min-height: 100vh;
   bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   padding-bottom: 60px;
   position: relative;
   /* margin-bottom: 20px; */
@@ -502,6 +505,7 @@ input[type="checkbox"] {
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
   margin-right: 1%;
   height: 25px;
+  font-family: var(--text-font);
 }
 
 .keepme input {
@@ -509,9 +513,11 @@ input[type="checkbox"] {
   font-family: var(--text-font);
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
   vertical-align: middle;
+  font-family: var(--text-font);
 }
 .keepme label {
   font-size: 22px;
+  font-family: var(--text-font);
 }
 
 input[type="submit"]:hover {
@@ -528,7 +534,7 @@ input[type="submit"]:hover {
 .enter {
   text-align: center;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
-
+  font-family: var(--text-font);
   padding-top: 15px;
 }
 
@@ -538,9 +544,130 @@ a {
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
   color: var(--aux-color);
   text-decoration: none;
+  font-family: var(--text-font);
 }
 
-@media screen and (max-width: 400px) {
+
+@media screen and (min-width:300px) and (max-width: 400px) {
+    body {
+        background-color: var(--aux-color);
+        margin: 0;
+        padding: 0;
+    
+        min-height: 90vh;
+        bottom: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+      padding-bottom: 60px;
+        position: relative;
+      }
+    
+      main.main-class {
+        background-color: var(--tertiary-color);
+        max-width: 80vw;
+        margin-left: 0.9rem;
+        margin-top: 4rem;
+        margin-right: 0.2rem;
+        border: 2px solid rgba(0, 0, 0, 0.02);
+    
+        padding-bottom: 16%;
+        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+      }
+    
+      .main {
+        background-color: var(--secondary-color);
+        margin: 2rem;
+      
+        margin-bottom: 1rem;
+        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
+        border-radius: 40px;
+    
+        padding: 1rem;
+      }
+    
+      .sign {
+        text-align: center;
+        padding-top: 10px;
+        
+        color: var(--aux-color2);
+        font-family: var(--text-font);
+        font-weight: bold;
+        font-size: 35px;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+        margin-bottom: -1px;
+      }
+    
+      .un {
+        width: 73%;
+        font-size: 11px;
+        letter-spacing: 1px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+    
+        margin-bottom: 25px;
+      }
+    
+      form.form1 {
+        padding-top: 20px;
+      }
+    
+      .pass {
+        width: 73%;
+        font-size: 11px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+        margin-bottom: 12px;
+      }
+    
+      .submit {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    
+        margin-top: 10px;
+        font-size: 20px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+      }
+    
+      input[type="submit"]:hover {
+        border: none;
+        outline: none;
+      }
+    
+      input[type="checkbox"] {
+        width: 18px;
+    
+        margin-left: -19px;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+        margin-right: 1%;
+        height: 18px;
+      }
+    
+      .keepme input {
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+      }
+    
+      .keepme label {
+        font-size: 13px;
+      }
+      .enter {
+        padding-top: 10px;
+      }
+    
+      a {
+        font-size: 13px;
+      }
+}
+
+
+@media screen and (min-width:400px) and (max-width: 600px) {
   body {
     background-color: var(--aux-color);
     margin: 0;
@@ -559,7 +686,7 @@ a {
     background-color: var(--tertiary-color);
     max-width: 80vw;
     margin-left: 1.2rem;
-    margin-top: 80px;
+    margin-top: 5rem;
     margin-right: 0.2rem;
     border: 2px solid rgba(0, 0, 0, 0.02);
 
@@ -659,124 +786,6 @@ a {
 }
 
 
-@media screen and (min-width:400px) and (max-width: 500px) {
-    body {
-        background-color: var(--aux-color);
-        margin: 0;
-        padding: 0;
-    
-        min-height: 90vh;
-        bottom: 0;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding-top: 0px;
-    
-        position: relative;
-      }
-    
-      main.main-class {
-        background-color: var(--tertiary-color);
-        max-width: 80vw;
-        margin-left: 1.2rem;
-        margin-top: 80px;
-        margin-right: 0.2rem;
-        border: 2px solid rgba(0, 0, 0, 0.02);
-    
-        padding-bottom: 16%;
-        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
-        border-radius: 10px;
-      }
-    
-      .main {
-        background-color: var(--secondary-color);
-        margin: 2rem;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
-        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
-        border-radius: 40px;
-    
-        padding: 1rem;
-      }
-    
-      .sign {
-        text-align: center;
-        padding-top: 10px;
-        
-        color: var(--aux-color2);
-        font-family: var(--text-font);
-        font-weight: bold;
-        font-size: 35px;
-        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
-        margin-bottom: -1px;
-      }
-    
-      .un {
-        width: 73%;
-        font-size: 14px;
-        letter-spacing: 1px;
-    
-        padding: 10px 20px;
-    
-        margin-left: 0px;
-    
-        margin-bottom: 25px;
-      }
-    
-      form.form1 {
-        padding-top: 20px;
-      }
-    
-      .pass {
-        width: 73%;
-        font-size: 14px;
-    
-        padding: 10px 20px;
-    
-        margin-left: 0px;
-        margin-bottom: 12px;
-      }
-    
-      .submit {
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-    
-        margin-top: 10px;
-        font-size: 20px;
-        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-      }
-    
-      input[type="submit"]:hover {
-        border: none;
-        outline: none;
-      }
-    
-      input[type="checkbox"] {
-        width: 18px;
-    
-        margin-left: -19px;
-        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
-        margin-right: 1%;
-        height: 18px;
-      }
-    
-      .keepme input {
-        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
-      }
-    
-      .keepme label {
-        font-size: 13px;
-      }
-      .enter {
-        padding-top: 10px;
-      }
-    
-      a {
-        font-size: 13px;
-      }
-}
-
 @media screen and (min-width:500px) and (max-width: 1300px) {
     body {
         background-color: var(--aux-color);
@@ -788,7 +797,7 @@ a {
         margin-top: 0px;
         margin-bottom: 0px;
         padding-top: 0px;
-    
+       padding-bottom: 60px;
         position: relative;
       }
     
@@ -797,7 +806,7 @@ a {
         max-width: 80vw;
         max-height: 90vh;
         margin-left:3.5rem;
-        margin-top: 120px;
+        margin-top: 130px;
         margin-right: 0.2rem;
         border: 2px solid rgba(0, 0, 0, 0.02);
     

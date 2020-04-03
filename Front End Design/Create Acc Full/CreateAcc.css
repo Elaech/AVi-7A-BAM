@@ -564,7 +564,7 @@ a {
   text-decoration: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width:400px) and (max-width: 600px) {
   body {
     background-color: var(--aux-color);
     margin: 0;
@@ -582,8 +582,8 @@ a {
   main.main-class {
     background-color: var(--tertiary-color);
     max-width: 80vw;
-    margin-left: 1rem;
-    margin-top: 60px;
+    margin-left: 1.2rem;
+    margin-top: 5rem;
     margin-right: 0.2rem;
     border: 2px solid rgba(0, 0, 0, 0.02);
 
@@ -594,7 +594,7 @@ a {
 
   .main {
     background-color: var(--secondary-color);
-    margin: 1rem;
+    margin: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
@@ -688,45 +688,46 @@ a {
 }
 
 
-@media screen and (min-width:400px) and (max-width: 500px) {
-    body {
-        background-color: var(--aux-color);
-        margin: 0;
-        padding: 0;
-    
-        min-height: 90vh;
-        bottom: 0;
-        margin-top: 80px;
-        margin-bottom: 0px;
-        padding-top: 0px;
-    
-        position: relative;
-      }
-    
-      main.main-class {
-        background-color: var(--tertiary-color);
-        max-width: 80vw;
-        margin-left: 1.2rem;
-        margin-top: 80px;
-        margin-right: 0.2rem;
-        border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 0px;
-        padding-bottom: 6%;
-        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
-        border-radius: 10px;
+@media screen and (min-width:300px) and (max-width: 400px) {
+  body {
+    background-color: var(--aux-color);
+    margin: 0;
+    padding: 0;
 
-      }
-    
-      .main {
-        background-color: var(--secondary-color);
-        margin: 1rem;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
-        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
-        border-radius: 40px;
-       
-        padding: 1rem;
-      }
+    min-height: 90vh;
+    bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+  padding-bottom: 60px;
+    position: relative;
+  }
+
+  main.main-class {
+    background-color: var(--tertiary-color);
+    max-width: 80vw;
+    margin-left: 0.9rem;
+    margin-top: 4rem;
+    margin-right: 0.2rem;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+
+    padding-bottom: 16%;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
+
+  .main {
+    background-color: var(--secondary-color);
+    margin: 2rem;
+  
+    margin-bottom: 1rem;
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+
+    padding: 1rem;
+  }
+
+
     
       .create {
         text-align: center;
@@ -742,7 +743,7 @@ a {
     
       .un {
         width: 73%;
-        font-size: 14px;
+        font-size: 11px;
         letter-spacing: 1px;
     
         padding: 10px 20px;
@@ -758,7 +759,7 @@ a {
     
       .pass {
         width: 73%;
-        font-size: 14px;
+        font-size: 11px;
     
         padding: 10px 20px;
     
@@ -768,7 +769,7 @@ a {
 
       .passwdag {
         width: 73%;
-        font-size: 14px;
+        font-size: 11px;
         letter-spacing: 1px;
     
         padding: 10px 20px;
@@ -780,7 +781,7 @@ a {
 
       .email {
         width: 73%;
-        font-size: 14px;
+        font-size: 11px;
         letter-spacing: 1px;
     
         padding: 10px 20px;
@@ -827,7 +828,7 @@ a {
         margin-top: 0px;
         margin-bottom: 0px;
         padding-top: 0px;
-    
+        padding-bottom: 60px;
         position: relative;
       }
     
@@ -836,7 +837,7 @@ a {
         max-width: 80vw;
         max-height: 90vh;
         margin-left:3.5rem;
-        margin-top: 100px;
+        margin-top: 9rem;
         margin-right: 0.2rem;
         border: 2px solid rgba(0, 0, 0, 0.02);
     
