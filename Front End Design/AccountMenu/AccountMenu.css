@@ -557,5 +557,7 @@ body{
         margin-bottom: 9vh;
     }
 
-
+    .main-class{
+        margin-right: 3rem;
+    }
 }
