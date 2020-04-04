@@ -511,8 +511,6 @@ body{
     border: none;
     outline: none;
     font-family: var(--text-font-header);
-    margin-top: 10vh;
-    margin-bottom: 10vh;
     margin-left: 1vw;
     margin-right: 1vw;
     font-size: 30px;
@@ -537,6 +535,8 @@ body{
 
     .change-button-image{
         float: inline-end;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
     }
 
 }
@@ -544,43 +544,18 @@ body{
 @media only screen and (max-width: 800px){
 
     #account_menu{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        background-color: var(--aux-color);
-        text-align: center;
-        background-color: var(--aux-color);
-        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.9);
-        margin: 10rem;
-        padding: 1rem;
-        border-radius: 30px;
-        align-items: center;
-        font-family: var(--text-font);
-        width: 60vw;
-        height: 180vh;
-        align-self: center;
+        height: 160vh;
     }
 
     .change-button-image{
-        cursor: pointer;
-        border-radius: 5em;
-        color: #fff;
-        background: linear-gradient(to right, var(--primary-color), var(--aux-color2));
-        border: 0;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        border: none;
-        outline: none;
-        font-family: var(--text-font-header);
-        margin-top: 10vh;
-        margin-bottom: 10vh;
-        margin-left: 1vw;
-        margin-right: 1vw;
-        font-size: 30px;
-        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-        float: inline-center;
+        margin-top: 1vh;
+        margin-bottom:9vh;
     }
+
+    .change-button{
+        margin-top: 1vh;
+        margin-bottom: 9vh;
+    }
+
 
 }
