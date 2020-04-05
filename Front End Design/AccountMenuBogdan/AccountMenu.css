@@ -496,7 +496,7 @@ body{
     color: var(--primary-color);
     background: rgba(255, 255, 255, 0.8);
     padding: 10px;
-
+    border-radius: 50%;
 }
 
 .change-button-image{
@@ -559,6 +559,8 @@ body{
     .change-button{
         margin-top: 1vh;
         margin-bottom: 9vh;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
 
     .main-class{
