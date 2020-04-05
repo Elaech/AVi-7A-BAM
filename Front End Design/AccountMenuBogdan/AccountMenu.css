@@ -559,6 +559,8 @@ body{
     .change-button{
         margin-top: 1vh;
         margin-bottom: 9vh;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
 
     .main-class{
