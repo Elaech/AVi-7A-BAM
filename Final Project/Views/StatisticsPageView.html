@@ -8,7 +8,7 @@
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="Styles/StatisticsPage.css">
-	<script type="text/javascript" src="Styles/FiltrationMenu.js"></script>
+    <script type="text/javascript" src="Styles/FiltrationMenu.js"></script>
     <meta lang="en-US">
     <title>Statistics</title>
 </head>
@@ -304,10 +304,11 @@
                 <div class="pick-columns-container">
                     <!--Entries-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictEntryItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictEntryItem')">
                             <p>Entries</p>
                         </div>
-                        <label for="SearchMaxNumberOfEntries" name="restrictEntryItem" class="pick-restrict-item">Number of Entries (max):
+                        <label for="SearchMaxNumberOfEntries" name="restrictEntryItem" class="pick-restrict-item">Number
+                            of Entries (max):
                             <input type="number" id="SearchMaxNumberOfEntries" class="restrictInput">
                         </label>
                         <label for="SearchMinID" name="restrictEntryItem" class="pick-restrict-item">ID (min):
@@ -319,7 +320,7 @@
                     </div>
                     <!--Event-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictEventItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictEventItem')">
                             <p>Event</p>
                         </div>
                         <label for="SearchMinTMC" name="restrictEventItem" class="pick-restrict-item">TMC (min):
@@ -328,10 +329,12 @@
                         <label for="SearchMaxTMC" name="restrictEventItem" class="pick-restrict-item">TMC (max):
                             <input type="number" id="SearchMaxTMC" class="restrictInput">
                         </label>
-                        <label for="SearchMinSeverity" name="restrictEventItem" class="pick-restrict-item">Severity (min):
+                        <label for="SearchMinSeverity" name="restrictEventItem" class="pick-restrict-item">Severity
+                            (min):
                             <input type="number" id="SearchMinSeverity" class="restrictInput">
                         </label>
-                        <label for="SearchMaxSeverity" name="restrictEventItem" class="pick-restrict-item">Severity (max):
+                        <label for="SearchMaxSeverity" name="restrictEventItem" class="pick-restrict-item">Severity
+                            (max):
                             <input type="number" id="SearchMaxSeverity" class="restrictInput">
                         </label>
                         <label for="SearchSource" name="restrictEventItem" class="pick-restrict-item">Source:
@@ -342,31 +345,37 @@
                                 <option value="Any">Any</option>
                             </select>
                         </label>
-                        <label for="SearchInDescription" name="restrictEventItem" class="pick-restrict-item">Keyword in Description:
+                        <label for="SearchInDescription" name="restrictEventItem" class="pick-restrict-item">Keyword in
+                            Description:
                             <input type="text" id="SearchInDescription" class="restrictInput">
                         </label>
                     </div>
                     <!--Time-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictTimeItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictTimeItem')">
                             <p>Time</p>
                         </div>
-                        <label for="SearchDateStartTime"  name="restrictTimeItem" class="pick-restrict-item">Started later than the Date:
+                        <label for="SearchDateStartTime" name="restrictTimeItem" class="pick-restrict-item">Started
+                            later than the Date:
                             <input type="date" id="SearchDateStartTime" class="restrictInput">
                         </label>
-                        <label for="SearchDateEndTime" name="restrictTimeItem" class="pick-restrict-item">Ended earlier than the Date:
+                        <label for="SearchDateEndTime" name="restrictTimeItem" class="pick-restrict-item">Ended earlier
+                            than the Date:
                             <input type="date" id="SearchDateEndTime" class="restrictInput">
                         </label>
-                        <label for="SearchHourStartTime" name="restrictTimeItem" class="pick-restrict-item">Started later than the Hour:
+                        <label for="SearchHourStartTime" name="restrictTimeItem" class="pick-restrict-item">Started
+                            later than the Hour:
                             <input type="time" id="SearchHourStartTime" class="restrictInput">
                         </label>
-                        <label for="SearchHourEndTime" name="restrictTimeItem" class="pick-restrict-item">Started earlier than the Hour:
+                        <label for="SearchHourEndTime" name="restrictTimeItem" class="pick-restrict-item">Started
+                            earlier than the Hour:
                             <input type="time" id="SearchHourEndTime" class="restrictInput">
                         </label>
                         <label for="SearchTimezone" name="restrictTimeItem" class="pick-restrict-item">Timezone:
                             <input type="text" id="SearchTimezone" class="restrictInput">
                         </label>
-                        <label for="SearchSunriseSunset" name="restrictTimeItem" class="pick-restrict-item">Sunrise-Sunset:
+                        <label for="SearchSunriseSunset" name="restrictTimeItem"
+                            class="pick-restrict-item">Sunrise-Sunset:
                             <select id="SearchSunriseSunset" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Day">Day</option>
@@ -376,10 +385,11 @@
                     </div>
                     <!--Details Primary-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictDetailsPItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictDetailsPItem')">
                             <p>Details Primary</p>
                         </div>
-                        <label for="SearchTrafficCalming" name="restrictDetailsPItem" class="pick-restrict-item">Traffic Calming:
+                        <label for="SearchTrafficCalming" name="restrictDetailsPItem" class="pick-restrict-item">Traffic
+                            Calming:
                             <select id="SearchTrafficCalming" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Yes">Yes</option>
@@ -431,17 +441,18 @@
                     </div>
                     <!--Details Secondary-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictDetailsSItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictDetailsSItem')">
                             <p>Details Secondary</p>
                         </div>
-                        <label for="SearchBump"  name="restrictDetailsSItem" class="pick-restrict-item">Bump:
+                        <label for="SearchBump" name="restrictDetailsSItem" class="pick-restrict-item">Bump:
                             <select id="SearchBump" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </label>
-                        <label for="SearchTurningLoop" name="restrictDetailsSItem" class="pick-restrict-item">Turning Loop:
+                        <label for="SearchTurningLoop" name="restrictDetailsSItem" class="pick-restrict-item">Turning
+                            Loop:
                             <select id="SearchTurningLoop" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Yes">Yes</option>
@@ -469,7 +480,8 @@
                                 <option value="No">No</option>
                             </select>
                         </label>
-                        <label for="SearchTrafficSignal" name="restrictDetailsSItem" class="pick-restrict-item">Traffic Signal:
+                        <label for="SearchTrafficSignal" name="restrictDetailsSItem" class="pick-restrict-item">Traffic
+                            Signal:
                             <select id="SearchTrafficSignal" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Yes">Yes</option>
@@ -479,149 +491,183 @@
                     </div>
                     <!--Location Primary-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictLocationPItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictLocationPItem')">
                             <p>Location Primary</p>
                         </div>
                         <label for="SearchState" name="restrictLocationPItem" class="pick-restrict-item">State:
                             <input type="text" id="SearchState" class="restrictInput">
                         </label>
-                        <label for="SearchCounty"  name="restrictLocationPItem" class="pick-restrict-item">County:
+                        <label for="SearchCounty" name="restrictLocationPItem" class="pick-restrict-item">County:
                             <input type="text" id="SearchCounty" class="restrictInput">
                         </label>
-                        <label for="SearchCity"  name="restrictLocationPItem" class="pick-restrict-item">City:
+                        <label for="SearchCity" name="restrictLocationPItem" class="pick-restrict-item">City:
                             <input type="text" id="SearchCity" class="restrictInput">
                         </label>
-                        <label for="SearchMinStreetNumber" name="restrictLocationPItem" class="pick-restrict-item">Street Number (min):
+                        <label for="SearchMinStreetNumber" name="restrictLocationPItem"
+                            class="pick-restrict-item">Street Number (min):
                             <input type="number" id="SearchMinStreetNumber" class="restrictInput">
                         </label>
-                        <label for="SearchMaxStreetNumber" name="restrictLocationPItem" class="pick-restrict-item">Street Number (max):
+                        <label for="SearchMaxStreetNumber" name="restrictLocationPItem"
+                            class="pick-restrict-item">Street Number (max):
                             <input type="number" id="SearchMaxStreetNumber" class="restrictInput">
                         </label>
-                        <label for="SearchStreetName" name="restrictLocationPItem" class="pick-restrict-item">Street Name:
+                        <label for="SearchStreetName" name="restrictLocationPItem" class="pick-restrict-item">Street
+                            Name:
                             <input type="text" id="SearchStreetName" class="restrictInput">
                         </label>
-                        <label for="SearchStreetSide" name="restrictLocationPItem" class="pick-restrict-item">Street Side:
+                        <label for="SearchStreetSide" name="restrictLocationPItem" class="pick-restrict-item">Street
+                            Side:
                             <select id="SearchStreetSide" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Left">Left</option>
                                 <option value="Right">Right</option>
                             </select>
                         </label>
-                        <label for="SearchAirportCode" name="restrictLocationPItem" class="pick-restrict-item">Airport Code:
+                        <label for="SearchAirportCode" name="restrictLocationPItem" class="pick-restrict-item">Airport
+                            Code:
                             <input type="text" id="SearchAirportCode" class="restrictInput">
                         </label>
                     </div>
                     <!--Location Secondary-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictLocationSItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictLocationSItem')">
                             <p>Location Secondary</p>
                         </div>
-                        <label for="ShowStartMinLatitude" name="restrictLocationSItem" class="pick-restrict-item">Started at minimum Latitude:
+                        <label for="ShowStartMinLatitude" name="restrictLocationSItem"
+                            class="pick-restrict-item">Started at minimum Latitude:
                             <input type="number" id="ShowStartMinLatitude" class="restrictInput">
                         </label>
-                        <label for="ShowStartMaxLatitude" name="restrictLocationSItem" class="pick-restrict-item">Started at maximum Latitude:
+                        <label for="ShowStartMaxLatitude" name="restrictLocationSItem"
+                            class="pick-restrict-item">Started at maximum Latitude:
                             <input type="number" id="ShowStartMaxLatitude" class="restrictInput">
                         </label>
-                        <label for="ShowStartMinLongitude" name="restrictLocationSItem" class="pick-restrict-item">Started at minimum Longitude:
+                        <label for="ShowStartMinLongitude" name="restrictLocationSItem"
+                            class="pick-restrict-item">Started at minimum Longitude:
                             <input type="number" id="ShowStartMinLongitude" class="restrictInput">
                         </label>
-                        <label for="ShowStartMaxLongitude" name="restrictLocationSItem" class="pick-restrict-item">Started at maximum Longitude:
+                        <label for="ShowStartMaxLongitude" name="restrictLocationSItem"
+                            class="pick-restrict-item">Started at maximum Longitude:
                             <input type="number" id="ShowStartMaxLongitude" class="restrictInput">
                         </label>
-                        <label for="ShowEndMinLatitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at minimum Latitude:
+                        <label for="ShowEndMinLatitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at
+                            minimum Latitude:
                             <input type="number" id="ShowEndMinLatitude" class="restrictInput">
                         </label>
-                        <label for="ShowEndMaxLatitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at maximum Latitude:
+                        <label for="ShowEndMaxLatitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at
+                            maximum Latitude:
                             <input type="number" id="ShowEndMaxLatitude" class="restrictInput">
                         </label>
-                        <label for="ShowEndMinLongitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at minimum Longitude:
+                        <label for="ShowEndMinLongitude" name="restrictLocationSItem" class="pick-restrict-item">Ended
+                            at minimum Longitude:
                             <input type="number" id="ShowEndMinLongitude" class="restrictInput">
                         </label>
-                        <label for="ShowEndMaxLongitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at maximum Longitude:
+                        <label for="ShowEndMaxLongitude" name="restrictLocationSItem" class="pick-restrict-item">Ended
+                            at maximum Longitude:
                             <input type="number" id="ShowEndMaxLongitude" class="restrictInput">
                         </label>
-                        <label for="SearchMinDistance" name="restrictLocationSItem" class="pick-restrict-item">Minimum Distance(miles):
+                        <label for="SearchMinDistance" name="restrictLocationSItem" class="pick-restrict-item">Minimum
+                            Distance(miles):
                             <input type="number" id="SearchMinDistance" class="restrictInput">
                         </label>
-                        <label for="SearchMaxDistance" name="restrictLocationSItem" class="pick-restrict-item">Maximum Distance(miles):
+                        <label for="SearchMaxDistance" name="restrictLocationSItem" class="pick-restrict-item">Maximum
+                            Distance(miles):
                             <input type="number" id="SearchMaxDistance" class="restrictInput">
                         </label>
                     </div>
                     <!--Weather Primary-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictWeatherPItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictWeatherPItem')">
                             <p>Weather Primary</p>
                         </div>
-                        <label for="SearchMinTemperature" name="restrictWeatherPItem" class="pick-restrict-item">Temperature F (min):
+                        <label for="SearchMinTemperature" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Temperature F (min):
                             <input type="number" id="SearchMinTemperature" class="restrictInput">
                         </label>
-                        <label for="SearchMaxTemperature" name="restrictWeatherPItem" class="pick-restrict-item">Temperature F (max):
+                        <label for="SearchMaxTemperature" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Temperature F (max):
                             <input type="number" id="SearchMaxTemperature" class="restrictInput">
                         </label>
-                        <label for="SearchMinHumidity" name="restrictWeatherPItem" class="pick-restrict-item">Humidity % (min):
+                        <label for="SearchMinHumidity" name="restrictWeatherPItem" class="pick-restrict-item">Humidity %
+                            (min):
                             <input type="number" id="SearchMinHumidity" class="restrictInput">
                         </label>
-                        <label for="SearchMaxHumidity" name="restrictWeatherPItem" class="pick-restrict-item">Humidity % (max):
+                        <label for="SearchMaxHumidity" name="restrictWeatherPItem" class="pick-restrict-item">Humidity %
+                            (max):
                             <input type="number" id="SearchMaxHumidity" class="restrictInput">
                         </label>
-                        <label for="SearchMinPressure" name="restrictWeatherPItem" class="pick-restrict-item">Pressure inches (min):
+                        <label for="SearchMinPressure" name="restrictWeatherPItem" class="pick-restrict-item">Pressure
+                            inches (min):
                             <input type="number" id="SearchMinPressure" class="restrictInput">
-                        </label>	
-                        <label for="SearchMaxPressure" name="restrictWeatherPItem" class="pick-restrict-item">Pressure inches (max):
+                        </label>
+                        <label for="SearchMaxPressure" name="restrictWeatherPItem" class="pick-restrict-item">Pressure
+                            inches (max):
                             <input type="number" id="SearchMaxPressure" class="restrictInput">
                         </label>
-                        <label for="SearchMinPrecipitation" name="restrictWeatherPItem" class="pick-restrict-item">Precipitation inches (min):
+                        <label for="SearchMinPrecipitation" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Precipitation inches (min):
                             <input type="number" id="SearchMinPrecipitation" class="restrictInput">
                         </label>
-                        <label for="SearchMaxPrecipitation" name="restrictWeatherPItem" class="pick-restrict-item">Precipitation inches (max):
+                        <label for="SearchMaxPrecipitation" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Precipitation inches (max):
                             <input type="number" id="SearchMaxPrecipitation" class="restrictInput">
                         </label>
-                        <label for="SearchMinVisibility" name="restrictWeatherPItem" class="pick-restrict-item">Visibility miles (min):
+                        <label for="SearchMinVisibility" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Visibility miles (min):
                             <input type="number" id="SearchMinVisibility" class="restrictInput">
                         </label>
-                        <label for="SearchMaxVisibility" name="restrictWeatherPItem" class="pick-restrict-item">Visibility miles (max):
+                        <label for="SearchMaxVisibility" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Visibility miles (max):
                             <input type="number" id="SearchMaxVisibility" class="restrictInput">
                         </label>
-                        <label for="SearchWeatherCondition" name="restrictWeatherPItem" class="pick-restrict-item">Weather Condition:
+                        <label for="SearchWeatherCondition" name="restrictWeatherPItem"
+                            class="pick-restrict-item">Weather Condition:
                             <input type="text" id="SearchWeatherCondition" class="restrictInput">
                         </label>
 
                     </div>
                     <!--Weather Secondary-->
                     <div class="pick-restrict-list">
-                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictWeatherSItem')" >
+                        <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictWeatherSItem')">
                             <p>Weather Secondary</p>
                         </div>
-                        <label for="SearchMinWindChill" name="restrictWeatherSItem" class="pick-restrict-item">Wind Chill F (min):
+                        <label for="SearchMinWindChill" name="restrictWeatherSItem" class="pick-restrict-item">Wind
+                            Chill F (min):
                             <input type="number" id="SearchMinWindChill" class="restrictInput">
                         </label>
-                        <label for="SearchMaxWindChill" name="restrictWeatherSItem" class="pick-restrict-item">Wind Chill F (max):
+                        <label for="SearchMaxWindChill" name="restrictWeatherSItem" class="pick-restrict-item">Wind
+                            Chill F (max):
                             <input type="number" id="SearchMaxWindChill" class="restrictInput">
                         </label>
-                        <label for="SearchWindDirection" name="restrictWeatherSItem" class="pick-restrict-item">Wind Direction:
+                        <label for="SearchWindDirection" name="restrictWeatherSItem" class="pick-restrict-item">Wind
+                            Direction:
                             <input type="text" id="SearchWindDirection" class="restrictInput">
                         </label>
-                        <label for="SearchMinWindSpeed" name="restrictWeatherSItem" class="pick-restrict-item">Wind Speed mph (min):
+                        <label for="SearchMinWindSpeed" name="restrictWeatherSItem" class="pick-restrict-item">Wind
+                            Speed mph (min):
                             <input type="number" id="SearchMinWindSpeed" class="restrictInput">
                         </label>
-                        <label for="SearchMaxWindSpeed" name="restrictWeatherSItem" class="pick-restrict-item">Wind Speed mph (max):
+                        <label for="SearchMaxWindSpeed" name="restrictWeatherSItem" class="pick-restrict-item">Wind
+                            Speed mph (max):
                             <input type="number" id="SearchMaxWindSpeed" class="restrictInput">
                         </label>
-                        <label for="SearchCivilTwilight" name="restrictWeatherSItem" class="pick-restrict-item">Civil Twilight:
+                        <label for="SearchCivilTwilight" name="restrictWeatherSItem" class="pick-restrict-item">Civil
+                            Twilight:
                             <select id="SearchCivilTwilight" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Day">Day</option>
                                 <option value="Night">Night</option>
                             </select>
                         </label>
-                        <label for="SearchNauticalTwilight" name="restrictWeatherSItem" class="pick-restrict-item">Nautical Twilight:
+                        <label for="SearchNauticalTwilight" name="restrictWeatherSItem"
+                            class="pick-restrict-item">Nautical Twilight:
                             <select id="SearchNauticalTwilight" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Day">Day</option>
                                 <option value="Night">Night</option>
                             </select>
                         </label>
-                        <label for="SearchAstronomicalTwilight" name="restrictWeatherSItem" class="pick-restrict-item">Astronomical Twilight:
+                        <label for="SearchAstronomicalTwilight" name="restrictWeatherSItem"
+                            class="pick-restrict-item">Astronomical Twilight:
                             <select id="SearchAstronomicalTwilight" class="restrictInput">
                                 <option value="Any">Any</option>
                                 <option value="Day">Day</option>
@@ -666,11 +712,42 @@
                     <option value="Weather Condition">Weather Condition</option>
                 </select>
             </div>
+            <div class=selectam>
+            <div class="show">
+                <label for="Show" class="show-title">Format Results</label>
+                <select id="Show" class="show-option">
+                    <option value="Map">Map</option>
+                    <option value="Table">Table</option>
+                    <option value="Text">Text</option>
+                    <option value="Chart">Chart</option>
+               
+                </select>
+            </div>
+
+            <div class="download">
+                <label for="download" class="download-title">Download As</label>
+                <div class="descarcare">
+                <select id="download" class="download-option">
+                    <option value="Png">PNG</option>
+                    <option value="json">JSON</option>
+                    <option value="xml">XML</option>
+                    <option value="etc">ETC..</option>
+               
+                </select>
+                <div class="download-button">
+                    <input type="submit" value="Download" class="download-commit-button">
+                </div>
+            </div>
+            </div>
+        </div>
             <!--Submit Button-->
             <div class="pick-button">
                 <input type="submit" value="Search" class="filtration-submit-button">
             </div>
         </form>
+        <div class="result">
+            <p class="result-format"> Empty Temporary<br> The results will be posted here <p>
+        </div>
     </main>
     <!-- Finished Section Done By Minut Mihai Dimitrie -->
     <footer>
@@ -720,7 +797,7 @@
                 <span class="link-text">Account Info</span>
             </a>
         </li>
-		<li class="navbar-item">
+        <li class="navbar-item">
             <a href="HomePageView.html" class="nav-link">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="car"
                     class="svg-inline--fa fa-car fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -743,7 +820,7 @@
                 </svg>
                 <span class="link-text">Contact</span>
             </a>
-        </li>    
+        </li>
     </ul>
 </nav>
 <!-- Finished Section Done By Cretu Bogdan Antonio -->
