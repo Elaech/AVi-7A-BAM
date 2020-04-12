@@ -894,6 +894,25 @@ p.filtration-menu-text {
   box-shadow: 0px 0px 18px 8px rgba(0, 0, 0, 0.8);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary-color); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--tertiary-color); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--aux-color); 
+}
+
 .result {
   background-color: var(--primary-color);
   padding: 15px;
@@ -933,7 +952,7 @@ p.filtration-menu-text {
   border-radius: 30px;
   border-radius: 1px;
   border-color:var(--primary-color);
-  color: var(--secondary-color);
+  color: var(--tertiary-color);
   font-weight: bold;
   font-size: 1.4rem;
 }
