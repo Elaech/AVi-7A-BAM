@@ -434,7 +434,7 @@ body{
     align-items: center;
     font-family: var(--text-font);
     width: 60vw;
-    height: 100vh;
+
     max-height: 75rem;
     align-self: center;
 }
@@ -445,16 +445,17 @@ body{
     color: #fff;
     background: linear-gradient(to right, var(--primary-color), var(--aux-color2));
     border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
     border: none;
     outline: none;
     font-family: var(--text-font-header);
     margin-top: 4vh;
-    font-size: 30px;
+    font-size: 20px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    font-family: var(--text-font);
 }
 
 
@@ -487,10 +488,11 @@ body{
     margin-left: 10px;
     text-align: center;
     margin-bottom: 5px;
-    font-family: var(--text-font-header);
+    font-family: var(--text-font);
 }
 
 .user-image-input{
+    font-family: var(--text-font);
     width: 240px;
     height:240px;
     color: var(--primary-color);
@@ -500,13 +502,14 @@ body{
 }
 
 .change-button-image{
+    font-family: var(--text-font);
     cursor: pointer;
     border-radius: 5em;
     color: #fff;
     background: linear-gradient(to right, var(--primary-color), var(--aux-color2));
     border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
     border: none;
@@ -514,7 +517,7 @@ body{
     font-family: var(--text-font-header);
     margin-left: 1vw;
     margin-right: 1vw;
-    font-size: 30px;
+    font-size: 20px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
@@ -541,13 +544,12 @@ body{
         margin-bottom: 100px;
     }
 
+
+
 }
 
 @media only screen and (max-width: 800px){
 
-    #account_menu{
-        height: 145vh;
-    }
 
     .change-button-image{
         margin-top: 1vh;
@@ -567,3 +569,4 @@ body{
         margin-right: 3rem;
     }
 }
+
