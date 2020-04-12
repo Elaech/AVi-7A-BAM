@@ -777,7 +777,7 @@ p.filtration-menu-text {
   padding: 10px;
   padding-bottom: 20px;
   margin: 15px;
-  width: 40vh;
+  width: 43vh;
   border-radius: 20px;
   flex-direction: column;
   justify-content: center;
@@ -838,7 +838,7 @@ p.filtration-menu-text {
   padding: 10px;
   padding-bottom: 20px;
   margin: 15px;
-  width: 40vh;
+  width: 43vh;
   border-radius: 20px;
   flex-direction: column;
   justify-content: center;
@@ -961,6 +961,7 @@ p.filtration-menu-text {
 .result-table tbody tr:nth-child(even){
   background-color: var(--secondary-color);
 }
+
 @media screen and (max-width: 900px) {
   .result {
     height: 60vh;
@@ -1236,7 +1237,7 @@ p.filtration-menu-text {
     padding-bottom: 15px;
     margin: 1px;
     margin-top: -18px;
-    width: 28vh;
+    width: 45vw;
 
     flex-direction: column;
   }
@@ -1261,7 +1262,7 @@ p.filtration-menu-text {
     padding-bottom: 15px;
     margin: 1px;
     margin-top: 10px;
-    width: 28vh;
+    width: 45vw;
     margin-bottom: -12px;
     flex-direction: column;
   }
@@ -1358,7 +1359,7 @@ p.filtration-menu-text {
         padding-bottom: 15px;
         margin: 1px;
         margin-top: -15px;
-        width: 30vh;
+        width: 40vw;
     
         flex-direction: column;
       }
@@ -1383,7 +1384,7 @@ p.filtration-menu-text {
         padding-bottom: 15px;
         margin: 1px;
         margin-top: 20px;
-        width: 30vh;
+        width: 40vw;
         margin-bottom: -12px;
         flex-direction: column;
       }
