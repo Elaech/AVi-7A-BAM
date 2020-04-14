@@ -3,15 +3,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel = "stylesheet" type="text/css" href="Styles/AccountMenu.css">
+  <link rel = "stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/AccountMenu.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="height=device-height, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="icon" href="Styles/logo-icon.png" type="image/gif">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="http://localhost/AVi-7A-BAM/public/stylesheet">
+  <link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
   <meta lang="en-US">
   <title>Account</title>
 </head>
@@ -23,7 +23,7 @@
   <header>
     <div class="header-item1">
         <h1> <a href="HomePageView.html">
-                <img class="logo-icon" src="../../Front End Design/Header/logo-iconalb.png">
+                <img class="logo-icon" src="http://localhost/AVi-7A-BAM/public/Styles/logo-iconalb.png">
             </a> </h1>
         <!--Insert Logo, everytime when you press logo you will access the home page-->
     </div>
@@ -44,7 +44,7 @@
     <div id = "account_menu">
         <div class = "account_info">
             <form>
-                <img class="user-image-input" src="Styles/user.png" width="40"height="40">
+                <img class="user-image-input" src="http://localhost/AVi-7A-BAM/public/Styles/user.png" width="40"height="40">
                 <output></output>
                 <input type="submit" name="search" value="Change" class="change-button-image">
             </form>
@@ -99,13 +99,13 @@
         <p>Powered By:</p>
         <div class="footer-icon-flex">
             <a href="https://github.com/" target="_blank">
-                <img class="footer-icon1" src="../../Front End Design/Footer/githubLogo.png">
+                <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/githubLogo.png">
             </a>
             <a href="https://trello.com/" target="_blank">
-                <img class="footer-icon2" src="../../Front End Design/Footer/trelloLogo.png">
+                <img class="footer-icon2" src="http://localhost/AVi-7A-BAM/public/Styles/trelloLogo.png">
             </a>
             <a href="https://www.info.uaic.ro/" target="_blank">
-                <img class="footer-icon1" src="../../Front End Design/Footer/fiiLogo.png">
+                <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/fiiLogo.png">
             </a>
         </div>
     </div>

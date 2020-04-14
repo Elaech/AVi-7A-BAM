@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<link rel="icon" href="Styles/logo-icon.png" type="image/gif">
-    <link rel="stylesheet" type="text/css" href="Styles/StatisticsPage.css">
-    <script type="text/javascript" src="Styles/FiltrationMenu.js"></script>
+	<link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
+    <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
     <meta lang="en-US">
     <title>Statistics</title>
 </head>
@@ -19,7 +19,7 @@
     <header>
         <div class="header-item1">
             <h1> <a href="HomePageView.html">
-                    <img class="logo-icon" src="Styles/logo-iconalb.png">
+                    <img class="logo-icon" src="http://localhost/AVi-7A-BAM/public/Styles/logo-iconalb.png">
                 </a> </h1>
             <!--Insert Logo, everytime when you press logo you will access the home page-->
         </div>
@@ -1303,13 +1303,13 @@
             <p>Powered By:</p>
             <div class="footer-icon-flex">
                 <a href="https://github.com/" target="_blank">
-                    <img class="footer-icon1" src="Styles/githubLogo.png">
+                    <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/githubLogo.png">
                 </a>
                 <a href="https://trello.com/" target="_blank">
-                    <img class="footer-icon2" src="Styles/trelloLogo.png">
+                    <img class="footer-icon2" src="http://localhost/AVi-7A-BAM/public/Styles/trelloLogo.png">
                 </a>
                 <a href="https://www.info.uaic.ro/" target="_blank">
-                    <img class="footer-icon1" src="Styles/fiiLogo.png">
+                    <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/fiiLogo.png">
                 </a>
             </div>
         </div>

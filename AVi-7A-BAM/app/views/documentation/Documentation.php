@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-	<link rel="icon" href="Styles/logo-icon.png" type="image/gif">
+	<link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <title>AVI Documentation</title>
 </head>
 

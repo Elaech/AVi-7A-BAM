@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="Styles/CreateAcc.css">
-	  <link rel="icon" href="Styles/logo-icon.png" type="image/gif">
+	<link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/HomePage.css">
     <meta lang="en-US">
-    <title>Create Account!</title>
+    <title>Home Page</title>
 </head>
 
 <body>
     <!-- Done by Andra Ionita -->
     <header>
         <div class="header-item1">
-            <h1> <a href="HomePageView.html">
-                    <img class="logo-icon" src="Styles/logo-iconalb.png">
+            <h1> <a href="HomePageViewNotLogged.html">
+                    <img class="logo-icon" src="http://localhost/AVi-7A-BAM/public/Styles/logo-iconalb.png">
                 </a> </h1>
             <!--Insert Logo, everytime when you press logo you will access the home page-->
         </div>
@@ -33,21 +33,40 @@
     <!-- Finished Section Done By Andra Ionita  -->
 
     <main class="main-class">
-        <div class="main">
-            <p class="create">Create Account</p>
-            <form class="form2">
-                <input class="un " type="text" placeholder="Enter Username">
-                <input class="pass" type="password" placeholder="Enter Password">
-                <input class="passwdag" type="password" placeholder="Enter Password Again">
-                <input class="email" type="email" placeholder="Enter E-mail">
-               <br>
-                <input class="submit" type="submit" value="Create!">
-                <p class="creacc"></p><a
-                        href="SignInView.html">Do you
-                        already have an account?<br>Sign In!</p></a>
-    
-    
-        </div>
+        <div class="Home">
+            <img src="http://localhost/AVi-7A-BAM/public/Styles/back.jpg" alt="back" class="imagine">
+            <div class="introd">Welcome to our site!</div> 
+          </div>
+      
+      
+      
+      
+          <div class="list"><br>
+      
+            <div class="scope1">
+              <img src="http://localhost/AVi-7A-BAM/public/Styles/scope1.png">
+              <h3>Scope</h3>
+              <p>A site like this exists because it's necesary to know the sad and massive statistic behind the car accidents
+                in our State.</p>
+            </div>
+      
+            <div class="scope2">
+              <img src="http://localhost/AVi-7A-BAM/public/Styles/scope2.png">
+              <h3>Purpose</h3>
+              <p>The purpose of this site is to inform the population about certain risk areas and to sound an alarm signal
+                regarding prudent driving.</p>
+            </div>
+      
+            <div class="scope3">
+              <img src="http://localhost/AVi-7A-BAM/public/Styles/scope3.png">
+              <h3>Why?</h3>
+              <p>You know the risk ares.<br>You can take precautionary measures.<br>Safety first, for you and your love ones.
+              </p>
+            </div>
+      
+      
+          </div>
+      
       </main>
       <footer>
 
@@ -70,18 +89,19 @@
             <p>Powered By:</p>
             <div class="footer-icon-flex">
                 <a href="https://github.com/" target="_blank">
-                    <img class="footer-icon1" src="Styles/githubLogo.png">
+                    <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/githubLogo.png">
                 </a>
                 <a href="https://trello.com/" target="_blank">
-                    <img class="footer-icon2" src="Styles/trelloLogo.png">
+                    <img class="footer-icon2" src="http://localhost/AVi-7A-BAM/public/Styles/trelloLogo.png">
                 </a>
                 <a href="https://www.info.uaic.ro/" target="_blank">
-                    <img class="footer-icon1" src="Styles/fiiLogo.png">
+                    <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/fiiLogo.png">
                 </a>
             </div>
         </div>
 
     </footer>
+
 
 </body>
 <!-- Done by Cretu Bogdan Antonio -->
@@ -96,9 +116,9 @@
             </a>
         </li>
 		<li class="navbar-item">
-            <a href="HomePageViewNotLogged.html" class="nav-link">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
-                <span class="link-text">HOME</span>
+            <a href="CreateAccView.html" class="nav-link">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>
+                <span class="link-text">Create Account</span>
             </a>
         </li>
         <li class="navbar-item">
@@ -109,7 +129,7 @@
         </li>
         <li class="navbar-item">
             <a href="StatisticsPageViewNotLogged.html" class="nav-link">
-               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chart-bar" class="svg-inline--fa fa-chart-bar fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chart-bar" class="svg-inline--fa fa-chart-bar fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
                 <span class="link-text">Statistics</span>
             </a>
         </li>

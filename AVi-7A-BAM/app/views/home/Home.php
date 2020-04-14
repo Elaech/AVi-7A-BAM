@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<link rel="icon" href="Styles/logo-icon.png" type="image/gif">
-    <link rel="stylesheet" type="text/css" href="Styles/HomePage.css">
+	<link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/HomePage.css">
     <meta lang="en-US">
     <title>Home Page</title>
 </head>
@@ -18,7 +18,7 @@
     <header>
         <div class="header-item1">
             <h1> <a href="HomePageView.html">
-                    <img class="logo-icon" src="Styles/logo-iconalb.png">
+                    <img class="logo-icon" src="http://localhost/AVi-7A-BAM/public/Styles/logo-iconalb.png">
                 </a> </h1>
             <!--Insert Logo, everytime when you press logo you will access the home page-->
         </div>
@@ -34,7 +34,7 @@
 
     <main class="main-class">
         <div class="Home">
-            <img src="Styles/back.jpg" alt="back" class="imagine">
+            <img src="http://localhost/AVi-7A-BAM/public/Styles/back.jpg" alt="back" class="imagine">
             <div class="introd">Welcome to our site!</div> 
           </div>
       
@@ -44,21 +44,21 @@
           <div class="list"><br>
       
             <div class="scope1">
-              <img src="Styles/scope1.png">
+              <img src="http://localhost/AVi-7A-BAM/public/Styles/scope1.png">
               <h3>Scope</h3>
               <p>A site like this exists because it's necesary to know the sad and massive statistic behind the car accidents
                 in our State.</p>
             </div>
       
             <div class="scope2">
-              <img src="Styles/scope2.png">
+              <img src="http://localhost/AVi-7A-BAM/public/Styles/scope2.png">
               <h3>Purpose</h3>
               <p>The purpose of this site is to inform the population about certain risk areas and to sound an alarm signal
                 regarding prudent driving.</p>
             </div>
       
             <div class="scope3">
-              <img src="Styles/scope3.png">
+              <img src="http://localhost/AVi-7A-BAM/public/Styles/scope3.png">
               <h3>Why?</h3>
               <p>You know the risk ares.<br>You can take precautionary measures.<br>Safety first, for you and your love ones.
               </p>
@@ -89,13 +89,13 @@
             <p>Powered By:</p>
             <div class="footer-icon-flex">
                 <a href="https://github.com/" target="_blank">
-                    <img class="footer-icon1" src="Styles/githubLogo.png">
+                    <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/githubLogo.png">
                 </a>
                 <a href="https://trello.com/" target="_blank">
-                    <img class="footer-icon2" src="Styles/trelloLogo.png">
+                    <img class="footer-icon2" src="http://localhost/AVi-7A-BAM/public/Styles/trelloLogo.png">
                 </a>
                 <a href="https://www.info.uaic.ro/" target="_blank">
-                    <img class="footer-icon1" src="Styles/fiiLogo.png">
+                    <img class="footer-icon1" src="http://localhost/AVi-7A-BAM/public/Styles/fiiLogo.png">
                 </a>
             </div>
         </div>
