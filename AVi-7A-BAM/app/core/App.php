@@ -1,5 +1,6 @@
 <?php
-
+//This resource taken from the youtube tutorial for mvc
+//https://www.youtube.com/watch?v=OsCTzGASImQ&list=PLfdtiltiRHWGXVHXX09fxXDi-DqInchFD
 class App{
 
     protected $controller = 'home';
