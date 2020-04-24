@@ -35,12 +35,12 @@
     <main class="main-class">
         <div class="main">
           <p class="sign">Sign In</p>
-          <form class="form1">
-            <input class="un " type="text" placeholder="Enter Username">
-            <input class="pass" type="password" placeholder="Enter Password">
+          <form class="form1" action="<?php echo "http://localhost/AVi-7A-BAM/public/signin/login"?>" method="POST">
+            <input class="un " type="text" placeholder="<?php echo $data["username_err"];?>" name="username">
+            <input class="pass" type="password" placeholder="<?php echo $data["password_err"];?>" name="password">
             <p class="keepme">
               <label>
-                <input type="checkbox" name="keepme" id="keepme">
+                <input type="checkbox" name="keepme" id="keepme" value="TRUE">
                 Keep me logged in!
               </label>
             </p>
@@ -48,7 +48,7 @@
             <p class="enter"><a
                 href="CreateAccView.html">Don't have an account yet?<br>Create one!</p>
             </a>
-      
+          </form>
         </div>
       </main>
       <footer>

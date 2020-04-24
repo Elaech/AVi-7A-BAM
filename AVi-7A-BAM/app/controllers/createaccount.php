@@ -2,6 +2,13 @@
 
 class CreateAccount extends Controller{
     public function index(){
-        $this->view('account/CreateAccount');
+        session_start();
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+            header(Constants::LOCATION_HOME);
+        }
+        else{
+            $this->view('account/CreateAccount');
+        }
+        
     }
 }
