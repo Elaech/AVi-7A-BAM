@@ -1,3 +1,8 @@
+<?php
+$connect = mysqli_connect("localhost", "root", "", "testing");
+$query = "SELECT name, accidente FROM testing";
+$result = mysqli_query($connect, $query);
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <!-- Page merged by Minut Mihai Dimitrie -->
@@ -9,31 +14,44 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
+
+    <!-- Script by Ionita Andra -->
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
     <meta lang="en-US">
     <title>Statistics</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            //document.getElementById("piechart").style.height = "50%";
+
+            var data = google.visualization.arrayToDataTable([
+                ['Name', 'Accident'],
+                <?php
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "['" . $row["name"] . "', " . $row["accidente"] . "],";
+                }
+                ?>
+            ]);
+            var options = {
+                title: 'Numbers of accidents in different country in this week:',
+                is3D: true,
+                height: 550,
+                colors: ['efe0bb', '#f3b49f', '#f6c7b6', '#af734a', '#3b271d']
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <!-- Script finished by Ionita Andra -->
 </head>
 
 <body>
-    <!-- Done by Andra Ionita -->
-    <header>
-        <div class="header-item1">
-            <h1>
-                <div onclick="document.location.href='http://localhost/AVi-7A-BAM/public/Home/index'">
-                    <img class="logo-icon" src="http://localhost/AVi-7A-BAM/public/Styles/logo-iconalb.png">
-                </div>
-            </h1>
-            <!--Insert Logo, everytime when you press logo you will access the home page-->
-        </div>
 
-        <div class="header-item2">
-            <div class="site-name">
-                <h1>Crash<span>Watch</span></h1>
-                <!--Insert Name of the Site, everytime when you press the name of the site you will access the home page-->
-            </div>
-        </div>
-    </header>
-    <!-- Finished Section Done By Andra Ionita  -->
 
     <!-- Done by Minut Mihai Dimitrie -->
     <main class="main-class">
@@ -697,6 +715,7 @@
                     <option value="Weather Condition">Weather Condition</option>
                 </select>
             </div>
+            <!-- Done by Ionita Andra -->
             <div class=selectam>
                 <div class="show">
                     <p class="show-title">Format Results</p>
@@ -708,8 +727,6 @@
 
                     </select>
                 </div>
-                <!-- Finished Section Done By Minut Mihai Dimitrie -->
-                <!--Section Done By Ionita Andra Paula -->
                 <div class="download">
                     <p class="download-title">Download As</p>
                     <div class="descarcare">
@@ -1263,9 +1280,38 @@
                 </tbody>
             </table>
         </div>
+        <!-- by Ionita Andra -->
+        <div class="result">
+            <div class="chart">
+                <div id="piechart"></div>
+            </div>
+        </div>
+        <!-- finished by Ionita Andra -->
+
+
+
         <!-- Finished Section Done By Minut Mihai Dimitrie -->
     </main>
 
+    <!-- Done by Andra Ionita -->
+    <header>
+        <div class="header-item1">
+            <h1>
+                <div onclick="document.location.href='http://localhost/AVi-7A-BAM/public/Home/index'">
+                    <img class="logo-icon" src="http://localhost/AVi-7A-BAM/public/Styles/logo-iconalb.png">
+                </div>
+            </h1>
+            <!--Insert Logo, everytime when you press logo you will access the home page-->
+        </div>
+
+        <div class="header-item2">
+            <div class="site-name">
+                <h1>Crash<span>Watch</span></h1>
+                <!--Insert Name of the Site, everytime when you press the name of the site you will access the home page-->
+            </div>
+        </div>
+    </header>
+    <!-- Finished Section Done By Andra Ionita  -->
     <footer>
 
         <div class="footer-item1">

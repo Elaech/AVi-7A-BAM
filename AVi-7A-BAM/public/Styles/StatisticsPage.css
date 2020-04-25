@@ -930,6 +930,11 @@ p.filtration-menu-text {
   box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.7);
 }
 
+.result .chart{
+  width:800px;
+  height: 1800px;
+
+}
 .result-table{
   display: block;
   width: 100%;
