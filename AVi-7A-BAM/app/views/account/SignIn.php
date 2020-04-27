@@ -37,7 +37,7 @@
     <main class="main-class">
         <div class="main">
             <p class="sign">Sign In</p>
-            <form class="form1" action="<?php echo "http://localhost/AVi-7A-BAM/public/signin/login" ?>" method="POST">
+            <form class="form1" action="<?php echo "http://localhost/AVi-7A-BAM/public/signin/login"; ?>" method="POST">
                 <input class="un " type="text" placeholder="<?php echo $data["username_err"]; ?>" name="username">
                 <input class="pass" type="password" placeholder="<?php echo $data["password_err"]; ?>" name="password">
                 <p class="keepme">

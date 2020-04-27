@@ -1,8 +1,3 @@
-<?php
-$connect = mysqli_connect("localhost", "root", "", "testing");
-$query = "SELECT name, accidente FROM testing";
-$result = mysqli_query($connect, $query);
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 <!-- Page merged by Minut Mihai Dimitrie -->
