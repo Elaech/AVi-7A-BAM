@@ -25,14 +25,45 @@ class UserDAO{
     //Cretu Bogdan
     public function setUserWithNamePasswordEmail($name,$password,$email){
         $prepared_statement = "insert into USERS(username, email, password)
-                                        values (:name, :email, :passwordValue);";
+                                        values (:name, :email, :passwordValue)";
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_bind_by_name($statement,':name',$name);
-        oci_bind_by_name($statement,':passwordValue',$password);
         oci_bind_by_name($statement,':email',$email);
+        oci_bind_by_name($statement,':passwordValue',$password);
         oci_execute($statement);
         oci_free_statement($statement);
     }
+    public function isUniqueUsername($name){
+        $prepared_statement = "SELECT * FROM USERS WHERE USERNAME = :username";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':username',$name);
+        oci_execute($statement);
+        $username = null;
+        if(oci_fetch($statement)){
+            $username = [
+                "username" => oci_result($statement,'USERNAME'),
+                ];
+        }
+        oci_free_statement($statement);
+        return $username;
+    }
+
+    public function isUniqueEmail($email){
+        $prepared_statement = "SELECT * FROM USERS WHERE EMAIL = :email";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':email',$email);
+        oci_execute($statement);
+        $emailVaue = null;
+        if(oci_fetch($statement)){
+            $emailVaue = [
+                "email" => oci_result($statement,'EMAIL'),
+                ];
+        }
+        oci_free_statement($statement);
+        return $emailVaue;
+    }
+
+
     //end Cretu Bogdan
 
     public function __construct()
