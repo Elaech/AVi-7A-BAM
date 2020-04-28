@@ -37,11 +37,11 @@
     <main class="main-class">
         <div class="main">
             <p class="create">Create Account</p>
-            <form class="form2">
-                <input class="un " type="text" placeholder="Enter Username">
-                <input class="pass" type="password" placeholder="Enter Password">
-                <input class="passwdag" type="password" placeholder="Enter Password Again">
-                <input class="email" type="email" placeholder="Enter E-mail">
+            <form class="form2" action="<?php echo "http://localhost/AVi-7A-BAM/public/createaccount/makeAccount"; ?>" method="POST">
+                <input class="un " type="text" placeholder="Enter Username" name="username">
+                <input class="pass" type="password" placeholder="Enter Password" name="password">
+                <input class="passwdag" type="password" placeholder="Enter Password Again" name="samePassword">
+                <input class="email" type="email" placeholder="Enter E-mail" name="email">
                 <br>
                 <input class="submit" type="submit" value="Create!">
                 <p class="creacc"></p><a href="SignInView.html">Do you

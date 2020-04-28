@@ -22,6 +22,19 @@ class UserDAO{
         return $user;
     }
 
+    //Cretu Bogdan
+    public function setUserWithNamePasswordEmail($name,$password,$email){
+        $prepared_statement = "insert into USERS(username, email, password)
+                                        values (:name, :email, :passwordValue);";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':name',$name);
+        oci_bind_by_name($statement,':passwordValue',$password);
+        oci_bind_by_name($statement,':email',$email);
+        oci_execute($statement);
+        oci_free_statement($statement);
+    }
+    //end Cretu Bogdan
+
     public function __construct()
     {
         $this->connection = DatabaseConnection::getInstance();

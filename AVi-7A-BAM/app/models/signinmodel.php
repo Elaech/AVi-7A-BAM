@@ -13,6 +13,11 @@ class SignInModel extends Model{
         $userdao = $this->daoservice("userdao");
         return $userdao->getUserByNameAndPassword($username,$password);
     }
+    //Cretu Bogdan
+    public function setUserWithNamePasswordEmail($username,$password,$email){
+        $userdao = $this->daoservice("userdao");
+        return $userdao->setUserWithNamePasswordEmail($username,$password,$email);
+    }
 
     public function getInvalidUserData(){
         return [
