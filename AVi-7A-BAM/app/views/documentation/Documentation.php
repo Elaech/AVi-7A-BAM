@@ -9,12 +9,13 @@
 
 <style>
     body{
-        background-color: lightcyan;
-        padding-left: 10%;
+        background-color: white;
+        padding-left: 20%;
+        padding-right: 20%;
         padding-top: 3rem;
     }
     p{
-        padding-left: 1rem;
+        padding-left: 0rem;
     }
 </style>
 
@@ -26,22 +27,33 @@
     
         <section>      
             <h2>Introduction</h2>
-            <p>Aceasta este documentatia pentru pagina web dedicata proiectului AVI la Tehnologii VVeb 2020.</p>
-            <p>Link Catre pagina cerintei:</p>
-            <a href="http://ns.science.ai/">SA vocabulary</a> 
-            <p>Link Catre pagina cursului:</p>
-            <a href="http://ns.science.ai/">SA vocabulary</a>
+                <p>Aceasta este documentatia pentru pagina web dedicata proiectului AVI la Tehnologii Web 2020.</p>
+                <p>Link Catre pagina cerintei:</p>
+                <a href="http://ns.science.ai/"><p>Cerinta Proiect</p></a> 
+                <p>Link Catre pagina cursului:</p>
+                <a href="http://ns.science.ai/"><p>Pagina Cursului</p></a>
         </section> 
 
         <section>      
-            <h2>Proiect</h2>
-            <p>Participanti, detalii abstracte</p>
-            
+            <h2>Proiect Avi Tehnologii Web 2020</h2>
+                <p>Proiectul Avi consta un site web destinat vizualizarii
+                statisticilor accidentelor rutiere din Statele Unite, conforme cu inragistrarile disponibile pe kaggle:</p>
+                <a href="http://ns.science.ai/"><p>Accidente Rutiere USA</p></a>
+                <p>Proiectul consta intr-un Server Web, construit dupa arhitectura MVC, folosind tehnoligii PHP, CSS, HTML, JAVASCRIPT
+                accesibil via web pentru inregistrare utilizatori si vizualizarea statisiticilor generate si informatiilor accidentelor.</p>
+
+
         </section> 
         
         <div role="contentinfo">
             <ol role = "directory">
-                <a>Aici Cuprinsul, alcatuit din Sectiunile principale</a>
+                <a>Sectiunile principale</a>
+                <li>Autori</li>
+                <li>Design general al aplicatiei</li>
+                <li>Pagini accesibile utilizatorului</li>
+                <li>MVC, arhitectura</li>
+                <li>Servicii web folosite si alte elemente externe folosite</li>
+                <li>Detalii Implemmentare, Dificultati</li>
             </ol>
             <dl>
                 <dt>Autori</dt>
@@ -54,17 +66,8 @@
         </div>
 
         <section>      
-            <h2>Informatii Implementare</h2>
+            <h2>Design general al aplicatiei</h2>
         
-            <section>
-                <h3>Membrii echipei BAM:</h3>
-                <ul>
-                    <li>Bogdan Cretu</li>
-                    <li>Andra Ionita</li>
-                    <li>Mihai Minut</li>
-                </ul>
-            </section>
-
             <section>
                 <h3>Tehnologii folosite</h3>
                 <ul>
@@ -72,243 +75,103 @@
                     <li>CSS</li>
                     <li>PHP</li>
                     <li>Javascript</li>
-                    <li>SQL</li>
+                    <li>Oracle SQL plus</li>
+                    <li>XML</li>
+                    <li>AJAX</li>
                 </ul>
             </section>
+            <section>
+                <h3>Prezentarea aplicatiei</h3>
+                    <p>Aplicatia Avi permite intregistrarea utilizatorului cu nume, parola si email precum si pastrarea unei imagini de profil
+                    alese de utilizator care sa va afisa in bara de navigare a site-ului.</p>
+                    <p>Comportamentul aplicatie difera in functie de statusul clientului, un utilizator 
+                    logat are acces complet la statisiticile si datele descarcabile disponibile in cadrul aplicatiei. Un utilizator nelogat
+                    are acces la documantatie , pagina Home si paginca cu date de contact, functionalitatile de logare si creere cont avand
+                    pagini proprii accesibile da catre ambele tipuri de utilizatori </p>
+                    <p>Informatiile despre sesiune sunt pastrate prin cookies pentru a permite pastrarea unui utilizator logat
+                    pentru o perioada mai lunga de timp. Parolele sunt criptate pentru a asigura o cat mai buna integritatea a conturilor utilizatorilor,
+                    a caror informatii sunt salvate intr-o baza de date de tip Oracle Sql plus.</p>
+                    <p>Informatiile despre accidente sunt disponibile sub forma de tabel sau diagrame, inclusiv dupa locatia pe garta,
+                    informatiile sunt transmise si salvate prin intermediul xml si ajax.</p>
+                    <p></p>
+            </section>
+
 
             <section>
-                <h3>Front End</h3>
-                <section>
-                    <h4>Abstract</h4>
-                    <p>AM implementat pagini in css si html, comunicand si integrand cu GitHub codul</p>
-                    <p>Elemente comune fiecarei pagini, cu cod html importat in pagini, sunt:</p>
-                    <ul>
-                        <li>Header</li>
-                        <li>Navbar</li>
-                        <li>Footer</li>
+                <h3>Pagini accesibile utilizatorului</h3>
+                    <p>Fiecare pagina are 3 elemnte comune, a caror design este pastrat de pe pagina pe pagina, Header-ul, Footer-ul,
+                    si bara de navigatie.</p>
+                    <h4>Header</h4>
+                        <p>Headerul contine logo-ul si numele site-ului, este situat deasupra orcarui alt continut randat in pagina
+                         exceptand bara de navigatie. Logo-ul are si functionalitate de link spre pagina home, pentru accesare rapida 
+                         in orice situatie</p>
                         
+                    <h4>Bara de Navigatie</h4>
+                        <p>Bara de navigatie este verticala, ocupa intreaga inaltime a ecranului, iar prin hover asupra ei apare 
+                        varianta extinsa, cu numele fiecarei pagini acesibile si avatar-ul color al utilizatorului. Linkurile disponibile 
+                        difera de la o pagina la alta si in functie de statusul utilizatorului: logat sau nelogat.</p>
 
-                    </ul>
-                    <p>Paginile realizate, cu cod html propriu fiecareia, sunt:</p>
-                    <ul>
-                        <li>11</li>
-                        <li>22</li>
-                        <li>33</li>
-                        <li>44</li>
-                        <li>55</li>
-                        <li>66</li>
-                        <li>77</li>
-                        <li>88</li>
-                        <li>99</li>
-                    </ul>
-                </section>
+                    <h4>Footer</h4>
+                        <p>Footer-ul contine informatii de contact, precizarea ca site-ul este un proiect "Web Tehnologies Faculty", 
+                        iar in partea dreapta Logo-urile GitHub, Trello, Fii, cu functionalitate de link spre paginile corespunzatoare.</p>
 
-                <section>
-                    <h4>Pagina 11</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-
-                </section>
-
-                <section>
-                    <h4>Pagina 22</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-
-                </section>
-
-                <section>
-                    <h4>Pagina 33</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 44</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 55</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 66</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 77</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
+                <h3>Pagini accesibile utilizatorului nelogat</h3>
+                    <p>Odata ajuns pe site un client va avea statutul de utilizator nelogat, cu acces la urmatoarele pagini, accesibile din 
+                    bara de navigatie.</p>
+                    <h4>Log In</h4>
+                        <p></p>
+                    <h4>Create Account</h4>
+                        <p></p>
+                    <h4>Contact</h4>
+                        <p></p>
+                    <h4>Documentation</h4>
+                        <p></p>
+                <h3>Pagini accesibile utilizatorului logat</h3>
+                    <p>Odata inregistrat si logat pe site un client va avea statutul de utilizator logat,
+                     cu acces la urmatoarele pagini, accesibile din bara de navigatie.</p>
+                    <h4>Log In</h4>
+                        <p></p>
+                    <h4>Create Account</h4>
+                        <p></p>
+                    <h4>Contact</h4>
+                        <p></p>
+                    <h4>Statistics Page</h4>
+                        <p></p>
+                    <h4>Documentation</h4>
+                        <p></p>
 
             </section>
+
+
 
             <section>
-                <h3>Back End</h3>
-                <section>
-                    <h4>Abstract</h4>
-                    <p>AM implementat IN PHP controlere cu SQL pentru baza de date, comunicand si integrand cu GitHub codul</p>
-                    <p>Elemente comune fiecarui controller, sunt:</p>
-                    <ul>
-                        <li>11</li>
-                        <li>22</li>
-                        <li>33</li>
-                        <li>44</li>
-                        <li>55</li>
-                        <li>66</li>
-                        <li>77</li>
-                        <li>88</li>
-                        <li>99</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h4>Pagina 11</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-
-                </section>
-
-                <section>
-                    <h4>Pagina 22</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-
-                </section>
-
-                <section>
-                    <h4>Pagina 33</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 44</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 55</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 66</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h4>Pagina 77</h4>
-                    <section>
-                        <h5>Utilizare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a modului de utilizare a paginii aici</p>
-                    </section>
-                    <section>
-                        <h5>Implementare</h5>
-                        <p>Descriere in paragrafe sau sectiuni a codului, cu highlight-uri daca e necesar, altfel doar text</p>
-                    </section>
-                </section>
-
+                <h4>MVC, arhitectura</h4>
+                    <h3>View-uri</h3>
+                    <h3>Controllere</h3>
+                    <h3>Modele</h3>
             </section>
+
+
+            <section>
+                <h4>Servicii web folosite si alte elemente externe folosite</h4>
+                    <h3>Servicii Google</h3>
+                    <h3>Baza de date cu accidente rutiere</h3>
+                    <h3>Resurse de studiu</h3>
+            </section>
+
+
+            <section>
+                <h4>Detalii Implemmentare, Dificultati, Metodologie de lucru</h4>
+                    <h3>Pregatire Set up de lucru</h3>
+                    <h3>Front-end</h3>
+                    <h3>Back-end</h3>
+                    <h3>Tehnologii, implementare</h3>
+            </section>
+            
 
         </section> 
             
         
-
-
-
-
 
 
 
