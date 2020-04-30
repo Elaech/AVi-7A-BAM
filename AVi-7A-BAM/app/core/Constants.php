@@ -3,7 +3,6 @@
 //Done By Minut Mihai Dimitrie
 class Constants{
     const HOME = "http://localhost/AVi-7A-BAM/public/home/index";
-    const SIGNIN_LOGOUT = "http://localhost/AVi-7A-BAM/public/SignIn/logout";
     const LOCATION_HOME = "location: http://localhost/AVi-7A-BAM/public/home/index";
     const LOCATION_SIGNIN = "location: http://localhost/AVi-7A-BAM/public/signin/index";
 

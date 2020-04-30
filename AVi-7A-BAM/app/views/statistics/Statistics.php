@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- Script by Ionita Andra -->
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
     <meta lang="en-US">
@@ -22,26 +23,34 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            //document.getElementById("piechart").style.height = "50%";
-
-            var data = google.visualization.arrayToDataTable([
-                ['Name', 'Accident'],
+            var data = google.visualization.arrayToDataTable(
                 <?php
-                while ($row = mysqli_fetch_array($result)) {
-                    echo "['" . $row["name"] . "', " . $row["accidente"] . "],";
+                echo "[";
+                echo "['Name', 'Accident'],";
+                foreach ($data as $row) {
+                    echo "['" . $row['name'] . "'," . $row['accidente'] . "],";
                 }
-                ?>
-            ]);
+                echo "]";
+
+                ?>);
+
+
             var options = {
                 title: 'Numbers of accidents in different country in this week:',
                 is3D: true,
-                height: 550,
-                colors: ['efe0bb', '#f3b49f', '#f6c7b6', '#af734a', '#3b271d']
+                height: 500,
+                width: 600,
+                pieHole: 0.4,
+                colors: ['#efe0bb', '#af734a','#3b271d', '#f3b49f', '#f6c7b6']
+
             };
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
+
         }
     </script>
+
+
     <!-- Script finished by Ionita Andra -->
 </head>
 
@@ -735,13 +744,32 @@
                         <div class="download-button">
                             <input type="submit" value="Download" class="download-commit-button">
                         </div>
+
                     </div>
                 </div>
             </div>
             <!--Submit Button-->
+
             <div class="pick-button">
-                <input type="submit" value="Search" class="filtration-submit-button">
+                <button type="submit" value="Search" class="filtration-submit-button">Search</button>
             </div>
+
+
+            <div class="pick-button">
+            <button type="button" class="filtration-submit-button" data-toggle="modal" data-target="#myModal">View Data</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div id="piechart"></div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- Finished Section Done By Ionita Andra Paula -->
         </form>
         <!--Section Done By Minut Mihai Dimitrie -->
@@ -1276,11 +1304,18 @@
             </table>
         </div>
         <!-- by Ionita Andra -->
-        <div class="result">
-            <div class="chart">
+        <!--  <div id="myModal" class="modal">
+
+            <!-- Modal content 
+            <div class="modal-content">
+                <span class="close">&times;</span>
                 <div id="piechart"></div>
             </div>
+
         </div>
+                        -->
+
+
         <!-- finished by Ionita Andra -->
 
 

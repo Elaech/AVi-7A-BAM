@@ -41,20 +41,8 @@ class SignIn extends Controller{
                 }
             }
             else{
-                header(Constants::LOCATION_SIGNIN);
+                header(Constants::LOCATION_HOME);
             }
-        }
-    }
-
-    public function logout(){
-        session_start();
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
-            session_unset();
-            session_destroy();
-            header(Constants::LOCATION_SIGNIN);
-        }
-        else{
-            header(Constants::LOCATION_HOME);
         }
     }
 }
