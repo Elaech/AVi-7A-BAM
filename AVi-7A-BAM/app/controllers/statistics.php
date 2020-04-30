@@ -13,28 +13,10 @@ class Statistics extends Controller
     }
 
 
-    public function data()
-    {
+    public function chart(){
         session_start();
-        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-
-            $model = $this->model("accidentsmodel");
-            $chart = $model->getFullTableData();
-            $this->view('statistics/Statistics', $chart);
-    
-            
-         /*  foreach($chart as $row)
-           {
-               foreach($row as $value)
-               {
-                   echo $value." ";
-               }
-               echo "<br>";
-           }
-           */
-           
-        } else {
-            header(Constants::LOCATION_SIGNIN);
-        }
+        $model = $this->model("chartmodel");
+        $chart = $model->showChart();
     }
+
 }
