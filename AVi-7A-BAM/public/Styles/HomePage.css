@@ -17,7 +17,6 @@
 }
 
 
-
 /* Done by Cretu Bogdan Antonio */
 body::-webkit-scrollbar{
   width: 0.5rem;
@@ -58,11 +57,9 @@ body::-webkit-scrollbar-thumb{
 
 .navbar-item{
   width: 100%;
-   cursor: pointer;
 }
 
 .nav-link{
-  cursor: pointer;
   display: flex;
   align-items: center;
   height: 5rem;
@@ -73,7 +70,6 @@ body::-webkit-scrollbar-thumb{
 }
 
 .nav-link:hover{
-  cursor: pointer;
   filter: grayscale(0%) opacity(1);
   background: var(--secondary-color);
   color: var(--aux-color2);
@@ -81,13 +77,11 @@ body::-webkit-scrollbar-thumb{
 
 
 .link-text{
-  cursor: pointer;
   display:none;
   margin-left: 1rem;
 }
 
 .nav-link svg{
-  cursor: pointer;
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem;

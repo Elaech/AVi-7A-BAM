@@ -1,3 +1,4 @@
+//Methods made by Minut Mihai Dimitrie
 function showHideItems(list,itemsName) {
     var items = document.getElementsByName(itemsName);
     if (items[0].style.display == 'none' || items[0].style.display == "") {
