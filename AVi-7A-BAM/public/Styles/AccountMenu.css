@@ -13,7 +13,6 @@
     --header-icon1-height: 30px;
     font-size: 16px;
   }
-  
   /* Done by Cretu Bogdan Antonio */
   body::-webkit-scrollbar {
     width: 0.5rem;
@@ -84,6 +83,7 @@
     min-width: 2rem;
     margin: 0 1.5rem;
     color: var(--aux-color);
+    
   }
   
   #userImage {

@@ -14,6 +14,24 @@ class SignInModel extends Model{
         return $userdao->getUserByNameAndPassword($username,$password);
     }
 
+
+    //Cretu Bogdan
+    public function setUserWithNamePasswordEmail($username,$password,$email){
+        $userdao = $this->daoservice("userdao");
+        return $userdao->setUserWithNamePasswordEmail($username,$password,$email);
+    }
+
+    public function isUniqueUsername($username){
+        $userdao = $this->daoservice("userdao");
+        return $userdao->isUniqueUsername($username);
+    }
+
+    public function isUniqueEmail($email){
+        $userdao = $this->daoservice("userdao");
+        return $userdao->isUniqueEmail($email);
+    }
+    //end Cretu Bogdan
+
     public function getInvalidUserData(){
         return [
             "username_err" => "Maybe Wrong Username",
