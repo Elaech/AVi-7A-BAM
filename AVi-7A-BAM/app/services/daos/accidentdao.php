@@ -1,17 +1,30 @@
 <?php
 //Done by Ionita Andra
-class  ChartDAO{
+class  AccidentDAO
+{
 
     private $connection;
 
-    public function showChart(){
+    public function getFullTableData()
+    {
         $prepared_statement = "SELECT * FROM TESTING";
+        $chart = [];
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_execute($statement);
-        while($row = mysqli_fetch_array(oci_execute($statement))){
-        echo "['".$row['name']."',".$row['accidente']."],";
+
+        while (oci_fetch($statement)) {
+             array_push(
+                $chart,
+                [
+                    "name" => oci_result($statement, 'NAME'),
+                    "accidente" => oci_result($statement, 'ACCIDENTE')
+                ]
+            );
+        
         }
+
         oci_free_statement($statement);
+        return $chart;
     }
 
     public function __construct()
@@ -23,5 +36,4 @@ class  ChartDAO{
     {
         oci_close($this->connection);
     }
-    
 }
