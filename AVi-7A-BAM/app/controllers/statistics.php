@@ -21,17 +21,6 @@ class Statistics extends Controller
             $model = $this->model("accidentsmodel");
             $chart = $model->getFullTableData();
             $this->view('statistics/Statistics', $chart);
-    
-            
-         /*  foreach($chart as $row)
-           {
-               foreach($row as $value)
-               {
-                   echo $value." ";
-               }
-               echo "<br>";
-           }
-           */
            
         } else {
             header(Constants::LOCATION_SIGNIN);

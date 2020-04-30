@@ -42,7 +42,7 @@
     <main class="main-class">
         <div id="account_menu">
             <div class="account_info">
-                <form>
+                <form >
                     <img class="user-image-input" src="<?php echo Constants::DEFAULT_USERICON; ?>" width="40" height="40">
                     <output></output>
                     <input type="submit" name="search" value="Change" class="change-button-image">
@@ -50,23 +50,23 @@
 
             </div>
             <div class="account_info">
-                <form>
-                    <input type="text" placeholder="NAME" class="change-input">
+                <form action="<?php echo Constants::ACCOUNT_MENU_USER; ?>" method="POST"> 
+                    <input type="text" placeholder="<?php echo $data["username_init"]; ?>" class="change-input">
                     <input type="submit" name="search" value="Change" class="change-button">
                     <output></output>
                 </form>
             </div>
             <div class="account_info">
-                <form>
-                    <input type="text" placeholder="PASSWORD" class="change-input">
+                <form action="<?php echo Constants::ACCOUNT_MENU_PASS; ?>" method="POST">
+                    <input type="text" placeholder="<?php echo $data["password_init"]; ?>" class="change-input">
                     <input type="submit" name="search" value="Change" class="change-button">
                     <output></output>
                 </form>
 
             </div>
             <div class="account_info">
-                <form>
-                    <input type="text" placeholder="EMAIL" class="change-input">
+                <form action="<?php echo Constants::ACCOUNT_MENU_EMAIL; ?>" method="POST">
+                    <input type="text" placeholder="<?php echo $data["email_init"]; ?>" class="change-input">
                     <input type="submit" name="search" value="Change" class="change-button">
                     <output></output>
                 </form>

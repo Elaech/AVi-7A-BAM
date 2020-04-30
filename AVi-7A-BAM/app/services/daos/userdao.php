@@ -66,6 +66,51 @@ class UserDAO{
 
     //end Cretu Bogdan
 
+    //Done by Andra Ionita
+    public function updatePassword($name){
+        $prepared_statement = "UPDATE USERS SET PASSWORD=password where USERNAME =:username";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,'password',$name);
+        oci_bind_by_name($statement,':username', $_SESSION["username"]);
+        oci_execute($statement);
+
+        if(!oci_fetch($statement)){
+            echo 'Eroare la update pass';
+        }
+        oci_free_statement($statement);
+   
+    }
+
+    public function updateMail($name){
+        $prepared_statement = "UPDATE USERS SET EMAIL=email where USERNAME=:username";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,'email',$name);
+        oci_bind_by_name($statement,':username', $_SESSION["username"]);
+        oci_execute($statement);
+      
+        if(!oci_fetch($statement)){
+            echo 'Eroare la update email';
+        }
+        oci_free_statement($statement);
+    }
+
+    public function updateUsername($name){
+     
+
+        $prepared_statement = "UPDATE USERS SET USERNAME=username where USERNAME =:email ";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':username',$name);
+        oci_bind_by_name($statement,':email', $_SESSION["email"]);
+        oci_execute($statement);
+        if(!oci_fetch($statement)){
+            echo 'Eroare la update username';
+        }
+        oci_free_statement($statement);
+    }
+    
+
+    //End Andra Ionita
+
     public function __construct()
     {
         $this->connection = DatabaseConnection::getInstance();
