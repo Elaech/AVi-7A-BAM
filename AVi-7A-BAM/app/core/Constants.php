@@ -7,15 +7,10 @@ class Constants{
     const SIGNIN_LOGOUT = "http://localhost/AVi-7A-BAM/public/SignIn/logout";
     const SIGNIN_LOGIN = "http://localhost/AVi-7A-BAM/public/SignIn/index";
     const SIGNIN_LOGIN_WPARAM = "http://localhost/AVi-7A-BAM/public/signin/login";
-    /*
+    
     const ACCOUNT_MENU_USER = "http://localhost/AVi-7A-BAM/public/accountmenu/changeUsername";
     const ACCOUNT_MENU_PASS = "http://localhost/AVi-7A-BAM/public/accountmenu/changePassword";
     const ACCOUNT_MENU_EMAIL = "http://localhost/AVi-7A-BAM/public/accountmenu/changeEmail";
-    */
-
-    const ACCOUNT_MENU_USER = "http://localhost/AVi-7A-BAM/public/accountmenu/index";
-    const ACCOUNT_MENU_PASS = "http://localhost/AVi-7A-BAM/public/accountmenu/index";
-    const ACCOUNT_MENU_EMAIL = "http://localhost/AVi-7A-BAM/public/accountmenu/index";
 
     const CREATEACCOUNT = "http://localhost/AVi-7A-BAM/public/createaccount/index";
     const STATISTICS = "http://localhost/AVi-7A-BAM/public/statistics/data";

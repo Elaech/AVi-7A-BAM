@@ -1,8 +1,10 @@
 <?php
 //Done by Ionita Andra
-class AccountModel extends Model{
+class AccountModel extends Model
+{
 
-    public function getInitialData(){
+    public function getInitialData()
+    {
         return [
             "username_init" =>   $_SESSION["username"],
             "password_init" =>   $_SESSION["password"],
@@ -10,51 +12,77 @@ class AccountModel extends Model{
         ];
     }
 
-    public function getUserByUsernameAndPassword($username,$password){
+    public function getUserByUsernameAndPassword($username, $password)
+    {
         $userdao = $this->daoservice("userdao");
-        return $userdao->getUserByNameAndPassword($username,$password);
+        return $userdao->getUserByNameAndPassword($username, $password);
     }
 
-//end Andra
-    //Cretu Bogdan
-    public function setUserWithNamePasswordEmail($username,$password,$email){
+
+    public function setUserWithNamePasswordEmail($username, $password, $email)
+    {
         $userdao = $this->daoservice("userdao");
-        return $userdao->setUserWithNamePasswordEmail($username,$password,$email);
+        return $userdao->setUserWithNamePasswordEmail($username, $password, $email);
     }
 
-    public function isUniqueUsername($username){
+    public function isUniqueUsername($username)
+    {
         $userdao = $this->daoservice("userdao");
         return $userdao->isUniqueUsername($username);
     }
 
-    public function isUniqueEmail($email){
+    public function isUniqueEmail($email)
+    {
         $userdao = $this->daoservice("userdao");
         return $userdao->isUniqueEmail($email);
     }
-    //end Cretu Bogdan
-
-   // Done by Ionita Andra
-    public function updatePassword($password){
+ 
+    public function updatePassword($password)
+    {
         $userdao = $this->daoservice("userdao");
         return $userdao->updatePassword($password);
     }
-    
-    public function updateMail($email){
+
+    public function updateMail($email)
+    {
         $userdao = $this->daoservice("userdao");
         return $userdao->updateMail($email);
     }
 
 
-    public function updateUsername($username){
+    public function updateUsername($username)
+    {
         $userdao = $this->daoservice("userdao");
         return $userdao->updateUsername($username);
     }
 
-    public function getInvalidUserData(){
+    public function getInvalidUsername()
+    {
         return [
-            "username_err" => "Already Used Username",
-            "password_err" => "Already Used Password",
-            "email_err" => "Already Used Email",
+            "username_init" => "Already Used Username",
+            "password_init" =>   $_SESSION["password"],
+            "email_init" =>   $_SESSION["email"],
+        ];
+    }
+
+
+
+    public function getInvalidEmail()
+    {
+        return [
+            "username_init" =>   $_SESSION["username"],
+            "password_init" =>   $_SESSION["password"],
+            "email_init" => "Already Used Email",
+        ];
+    }
+
+    public function getInvalidPassword()
+    {
+        return [
+            "username_init" =>   $_SESSION["username"],
+            "email_init" =>   $_SESSION["email"],
+            "password_init" => "Already Used Password",
+
         ];
     }
     //end Andra

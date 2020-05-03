@@ -68,43 +68,32 @@ class UserDAO{
 
     //Done by Andra Ionita
     public function updatePassword($name){
-        $prepared_statement = "UPDATE USERS SET PASSWORD=password where USERNAME =:username";
+        $prepared_statement = "UPDATE USERS SET PASSWORD=:password1 where USERNAME =:username";
         $statement  = oci_parse($this->connection,$prepared_statement);
-        oci_bind_by_name($statement,'password',$name);
+        oci_bind_by_name($statement,':password1',$name);
         oci_bind_by_name($statement,':username', $_SESSION["username"]);
         oci_execute($statement);
-
-        if(!oci_fetch($statement)){
-            echo 'Eroare la update pass';
-        }
         oci_free_statement($statement);
    
     }
 
     public function updateMail($name){
-        $prepared_statement = "UPDATE USERS SET EMAIL=email where USERNAME=:username";
+        $prepared_statement = "UPDATE USERS SET EMAIL=:email where USERNAME=:username";
         $statement  = oci_parse($this->connection,$prepared_statement);
-        oci_bind_by_name($statement,'email',$name);
+        oci_bind_by_name($statement,':email',$name);
         oci_bind_by_name($statement,':username', $_SESSION["username"]);
         oci_execute($statement);
-      
-        if(!oci_fetch($statement)){
-            echo 'Eroare la update email';
-        }
         oci_free_statement($statement);
     }
 
     public function updateUsername($name){
      
 
-        $prepared_statement = "UPDATE USERS SET USERNAME=username where USERNAME =:email ";
+        $prepared_statement = "UPDATE USERS SET USERNAME=:username where USERNAME =:email ";
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_bind_by_name($statement,':username',$name);
         oci_bind_by_name($statement,':email', $_SESSION["email"]);
         oci_execute($statement);
-        if(!oci_fetch($statement)){
-            echo 'Eroare la update username';
-        }
         oci_free_statement($statement);
     }
     

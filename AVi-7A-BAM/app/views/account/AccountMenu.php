@@ -51,14 +51,14 @@
             </div>
             <div class="account_info">
                 <form action="<?php echo Constants::ACCOUNT_MENU_USER; ?>" method="POST"> 
-                    <input type="text" placeholder="<?php echo $data["username_init"]; ?>" class="change-input">
+                    <input type="text" name="username" placeholder="<?php echo $data["username_init"]; ?>" class="change-input">
                     <input type="submit" name="search" value="Change" class="change-button">
                     <output></output>
                 </form>
             </div>
             <div class="account_info">
                 <form action="<?php echo Constants::ACCOUNT_MENU_PASS; ?>" method="POST">
-                    <input type="text" placeholder="<?php echo $data["password_init"]; ?>" class="change-input">
+                    <input type="password" name="password" placeholder="<?php echo $data["password_init"]; ?>" class="change-input">
                     <input type="submit" name="search" value="Change" class="change-button">
                     <output></output>
                 </form>
@@ -66,7 +66,7 @@
             </div>
             <div class="account_info">
                 <form action="<?php echo Constants::ACCOUNT_MENU_EMAIL; ?>" method="POST">
-                    <input type="text" placeholder="<?php echo $data["email_init"]; ?>" class="change-input">
+                    <input type="email" name="email" placeholder="<?php echo $data["email_init"]; ?>" class="change-input">
                     <input type="submit" name="search" value="Change" class="change-button">
                     <output></output>
                 </form>
