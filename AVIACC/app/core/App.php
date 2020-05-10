@@ -20,10 +20,6 @@ class App
             case 'GET': {
                     $this->controller = 'verifydata';
                     if (!isset($_GET['token'])) {
-                        
-                        //$chartdao = $this->services("accidentdao");
-                        //return $chartdao->getFullTableData();
-
                         $_GET = json_decode(file_get_contents("php://input"), true);
                     }
                     break;

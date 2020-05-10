@@ -146,22 +146,37 @@
                          <p>Formularul de contact va contine 3 input-uri: adresa email a clientului,
                          Subiectul email-ului, si Mesajul propriu-zis</p>
                     <h4>Documentation</h4>
-                        <p></p>
+                        <p>Documantul vizualizat acum esta Documantation</p>
                 <h3>Pagini accesibile utilizatorului logat</h3>
                     <p>Odata inregistrat si logat pe site un client va avea statutul de utilizator logat,
                      cu acces la urmatoarele pagini, accesibile din bara de navigatie.</p>
                      <h4>Home</h4>
-                        <p></p>
+                     <p>Pagina Home contine inforatii de baza despre site, si ce se poate face cu acesta 
+                        iar prin bara de navigatie de aici se poate ajunge la : Log In, Create Account, Contact, Documentation.</p>
                     <h4>Log In</h4>
-                        <p></p>
+                    <p>Pagina de Log In, contine o casuta mare, cu titlul Sign In, 
+                        Are un formulra, cu doua casute copletabile: Username si Password, 
+                        o optiune de mentinere a utilizatorului logat, cu bifare, un link spre creerea 
+                        unui cont, si un buton de logare. Pagina de log in are in bara de navigatie 
+                        paginile : Home, Contact,Statistics, Create Account, Documentation</p>
+                        <p>Log In va redirectiona spre Home pentru un utilizator logat.</p>
                     <h4>Create Account</h4>
-                        <p></p>
+                        <p>Pagina pentru creerea contului, are un formular cu patru intrari,
+                         pentru nume, parolla, confirmare parola si email, un link spre pagina de logare si 
+                         un buton de creere a unui nou cont. Din aceasta pagina sunt accesibile prin bara de 
+                         navigatie : Account Menu, Home, Contact, Statistics, Documentation</p>
+                         <p>Log In va redirectiona spre Home pentru un utilizator logat.</p>
                     <h4>Contact</h4>
-                        <p></p>
+                        <p>Pagina de contact va contine 3 elemente: Locatia pe harta a sediului nostru,
+                         adresele la care poate fi contactata administratia site-ului, Si un form, "intitulat Write us!"
+                         prin intermediul caruia sa poate trimite un email diect din site spre noi.</p>
+                         <p>Formularul de contact va contine 3 input-uri: adresa email a clientului,
+                         Subiectul email-ului, si Mesajul propriu-zis</p>
                     <h4>Statistics Page</h4>
-                        <p></p>
+                        <p>Pagina de statistici are o interfata de selectie a informatiilor despre 
+                        accidente precum si optiuni pentru descarcarea sau schimbare metodei de vizualizare a informatiei.</p>
                     <h4>Documentation</h4>
-                        <p></p>
+                    <p>Documantul vizualizat acum esta Documantation</p>
 
             </section>
 
