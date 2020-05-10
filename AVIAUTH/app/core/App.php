@@ -54,5 +54,4 @@ class App{
             echo $this->response['body'];
         }
     }
-
 }

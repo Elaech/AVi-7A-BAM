@@ -107,13 +107,12 @@ class UserDAO{
 
     //Done by Andra Ionita
     public function updatePasswordById($password,$userid){
-        $prepared_statement = "UPDATE USERS SET PASSWORD=password where ID =:id";
+        $prepared_statement = "UPDATE USERS SET PASSWORD=:password where ID =:id";
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_bind_by_name($statement,':password',$password);
         oci_bind_by_name($statement,':id', $userid);
         oci_execute($statement);
         oci_free_statement($statement);
-   
     }
 
     public function updateMailById($email,$userid){
