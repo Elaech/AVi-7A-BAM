@@ -1,7 +1,7 @@
 <?php
 
 class RequestError extends Controller {
-    function default(){
+    function default($data){
         return $this->response;
     }
 }

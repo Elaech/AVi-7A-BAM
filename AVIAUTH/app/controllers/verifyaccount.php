@@ -3,14 +3,63 @@
 
 class VerifyAccount extends Controller {
  
-    function default(){
-        if(isset($_GET['token']) && $_GET['token']!=""){
-            $this->response['status'] = 200;
-            $this->body[$_SERVER['REQUEST_METHOD']] = 'success';
-            $this->response['body'] = json_encode($this->body);
+    function default($data){   
+        //Check ip field
+        if(!isset($data['ip']) || empty($data['ip']) || !filter_var($data['ip'],FILTER_VALIDATE_IP)){
+            $this->set_response(400, ['status'=>false,'ip_error' => "Invalid IP"]);
+            return $this->response;
+        }
+        $ip = $data['ip'];
+
+        //username and password variant
+        if(isset($data['username']) && !empty($data['username']) 
+        && isset($data['password']) && !empty($data['password'])
+        && isset($data['ip']) && !empty($data['ip'])){
+            $username = $this->sanitizeString($data['username']);
+            $password = $this->sanitizeString($data['password']);
+
+            $userdao =  $this->daoservice('userdao');
+            $username = CryptMaster::master_encrypt($username);
+            $user = $userdao->getUserByName($username);
+            if($user == null){
+                $this->set_response(400, 
+                ['status'=>false,
+                'username_error'=> 'Username and password do not match',
+                'password_error'=> 'Username and password do not match'
+                ]);
+                return $this->response;
+            }
+            //Already logged in
+            if($user['weight']!="0"){
+                $this->set_response(400, 
+                ['status'=>false,
+                'username_error'=> 'User already logged in',
+                'password_error'=> 'User already logged in'
+                ]);
+                return $this->response;
+            }
+            //Password not matching
+            if(!HashMaster::master_match_password_hash($password,$user['password'])){
+                $this->set_response(400, 
+                ['status'=>false,
+                'username_error'=> 'Username and password do not match',
+                'password_error'=> 'Username and password do not match'
+                ]);
+                return $this->response;
+            }
+
+            //Returning a new token
+            $token = $this->generateNewToken($user['id'],$ip);
+            $body['status'] = true;
+            $body['token'] = $token;
+            $this->set_response(200, $body);
+        }
+        //token variant
+        else if(isset($data['token']) && !empty($data['token'])){
+            $this->verifyTokenAndGenerateResponse($data['token'],$ip);
         }
         else{
-            $this->response['status'] = 400;
+            $this->set_response(400, ['status'=>false]);
         }
         return $this->response;
     }

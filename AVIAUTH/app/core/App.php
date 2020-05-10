@@ -1,5 +1,10 @@
 <?php
 //Created by Minut Mihai Dimitrie
+//This REST API treats the cases:
+//GET with 'token' set in header to validate and return user data
+//POST with body username and password and email to create an account
+//PUT with 'token' set in header and optionally in body:username and password and email to update the user account
+//DELETE with token set in header to delete the account
 class App{
 
     protected $controller;
@@ -8,24 +13,25 @@ class App{
 
     public function __construct()
     {   
-    
+        new CryptMaster;
+        new UserToken;
         $this->request_method = $_SERVER['REQUEST_METHOD'];
-        $url = $this->parseUrl();
-        if($url){
-            $this->params = array_values($url);
-        }
-
         switch($this->request_method){
             case 'GET':{
                 $this->controller = 'verifyaccount';
-                if(!isset($_GET['token']))
-                    $_GET = json_decode(file_get_contents("php://input"),true);
                 break;     
             }
             case 'POST':{
                 $this->controller = 'createaccount';   
-                $_POST = json_decode(file_get_contents("php://input"),true);
                 break;     
+            }
+            case 'PUT':{
+                $this->controller = 'updateaccount';
+                break;
+            }
+            case 'DELETE':{
+                $this->controller = 'logoutaccount';
+                break;
             }
             default:{ 
                 $this->controller = 'requesterror';
@@ -33,18 +39,19 @@ class App{
             }
         }
 
+        $data = json_decode(file_get_contents("php://input"),true);
+        if($data == null){
+            http_response_code(400);
+            exit;
+        }
+
         require_once '../app/controllers/'. $this->controller .'.php';
         $this->controller = new $this->controller;
-        $this->response = $this->controller->default();
+        $this->response = $this->controller->default($data);
+        header('Content-Type: application/json');
         http_response_code($this->response['status']);
         if($this->response['body']){
             echo $this->response['body'];
-        }
-    }
-
-    protected function parseUrl(){
-        if(isset($_GET['url'])){
-            return $url = explode('/',filter_var(rtrim($_GET['url'],'/'),FILTER_SANITIZE_URL)); 
         }
     }
 

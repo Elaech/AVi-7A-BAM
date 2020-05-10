@@ -4,6 +4,47 @@ class UserDAO{
 
     private $connection;
 
+    public function updateUserTokenById($id,$token){
+        $prepared_statement = "UPDATE USERS SET TOKEN=:token where ID =:id";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':token',$token);
+        oci_bind_by_name($statement,':id', $id);
+        oci_execute($statement);
+        oci_free_statement($statement);
+    }
+
+    public function getWeightForId($id){
+        $prepared_statement = "SELECT TOKEN FROM USERS where ID =:id";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':id',$id);
+        oci_execute($statement);
+        $weight = null;
+        if(oci_fetch($statement)){
+            $weight = oci_result($statement,'TOKEN');
+        }
+        oci_free_statement($statement);
+        return $weight;
+    }
+
+
+    public function getUserByName($name){
+        $prepared_statement = "SELECT * FROM USERS WHERE USERNAME = :username";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':username',$name);
+        oci_execute($statement);
+        $user = null;
+        if(oci_fetch($statement)){
+            $user = [
+                "username" => oci_result($statement,'USERNAME'),
+                "password" => oci_result($statement,'PASSWORD'),
+                "email" => oci_result($statement,'EMAIL'),
+                "id" => oci_result($statement,'ID'),
+                "weight" => oci_result($statement,'TOKEN')
+                ];
+        }
+        oci_free_statement($statement);
+        return $user;
+    }
     public function getUserByNameAndPassword($name,$password){
         $prepared_statement = "SELECT * FROM USERS WHERE USERNAME = :username AND PASSWORD = :password";
         $statement  = oci_parse($this->connection,$prepared_statement);
@@ -15,7 +56,9 @@ class UserDAO{
             $user = [
                 "username" => oci_result($statement,'USERNAME'),
                 "password" => oci_result($statement,'PASSWORD'),
-                "email" => oci_result($statement,'EMAIL')
+                "email" => oci_result($statement,'EMAIL'),
+                "id" => oci_result($statement,'ID'),
+                "weight" => oci_result($statement,'TOKEN')
                 ];
         }
         oci_free_statement($statement);
@@ -23,13 +66,14 @@ class UserDAO{
     }
 
     //Cretu Bogdan
-    public function setUserWithNamePasswordEmail($name,$password,$email){
-        $prepared_statement = "insert into USERS(username, email, password)
-                                        values (:name, :email, :passwordValue)";
+    public function setUserWithNamePasswordEmailToken($name,$password,$email,$token){
+        $prepared_statement = "insert into USERS(username, email, password, token)
+                                        values (:name, :email, :password, :token)";
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_bind_by_name($statement,':name',$name);
         oci_bind_by_name($statement,':email',$email);
-        oci_bind_by_name($statement,':passwordValue',$password);
+        oci_bind_by_name($statement,':password',$password);
+        oci_bind_by_name($statement,':token',$token);
         oci_execute($statement);
         oci_free_statement($statement);
     }
@@ -38,14 +82,12 @@ class UserDAO{
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_bind_by_name($statement,':username',$name);
         oci_execute($statement);
-        $username = null;
         if(oci_fetch($statement)){
-            $username = [
-                "username" => oci_result($statement,'USERNAME'),
-                ];
+            oci_free_statement($statement);
+            return false;
         }
         oci_free_statement($statement);
-        return $username;
+        return true;
     }
 
     public function isUniqueEmail($email){
@@ -53,58 +95,42 @@ class UserDAO{
         $statement  = oci_parse($this->connection,$prepared_statement);
         oci_bind_by_name($statement,':email',$email);
         oci_execute($statement);
-        $emailVaue = null;
         if(oci_fetch($statement)){
-            $emailVaue = [
-                "email" => oci_result($statement,'EMAIL'),
-                ];
+            oci_free_statement($statement);
+            return false;
         }
         oci_free_statement($statement);
-        return $emailVaue;
+        return true;
     }
-
 
     //end Cretu Bogdan
 
     //Done by Andra Ionita
-    public function updatePassword($name){
-        $prepared_statement = "UPDATE USERS SET PASSWORD=password where USERNAME =:username";
+    public function updatePasswordById($password,$userid){
+        $prepared_statement = "UPDATE USERS SET PASSWORD=password where ID =:id";
         $statement  = oci_parse($this->connection,$prepared_statement);
-        oci_bind_by_name($statement,'password',$name);
-        oci_bind_by_name($statement,':username', $_SESSION["username"]);
+        oci_bind_by_name($statement,':password',$password);
+        oci_bind_by_name($statement,':id', $userid);
         oci_execute($statement);
-
-        if(!oci_fetch($statement)){
-            echo 'Eroare la update pass';
-        }
         oci_free_statement($statement);
    
     }
 
-    public function updateMail($name){
-        $prepared_statement = "UPDATE USERS SET EMAIL=email where USERNAME=:username";
+    public function updateMailById($email,$userid){
+        $prepared_statement = "UPDATE USERS SET EMAIL=:email where ID=:id";
         $statement  = oci_parse($this->connection,$prepared_statement);
-        oci_bind_by_name($statement,'email',$name);
-        oci_bind_by_name($statement,':username', $_SESSION["username"]);
+        oci_bind_by_name($statement,':email',$email);
+        oci_bind_by_name($statement,':id', $userid);
         oci_execute($statement);
-      
-        if(!oci_fetch($statement)){
-            echo 'Eroare la update email';
-        }
         oci_free_statement($statement);
     }
 
-    public function updateUsername($name){
-     
-
-        $prepared_statement = "UPDATE USERS SET USERNAME=username where USERNAME =:email ";
+    public function updateUsernameById($username,$userid){
+        $prepared_statement = "UPDATE USERS SET USERNAME=:username where ID =:id ";
         $statement  = oci_parse($this->connection,$prepared_statement);
-        oci_bind_by_name($statement,':username',$name);
-        oci_bind_by_name($statement,':email', $_SESSION["email"]);
+        oci_bind_by_name($statement,':username',$username);
+        oci_bind_by_name($statement,':id', $userid);
         oci_execute($statement);
-        if(!oci_fetch($statement)){
-            echo 'Eroare la update username';
-        }
         oci_free_statement($statement);
     }
     
