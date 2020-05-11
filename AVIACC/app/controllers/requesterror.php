@@ -3,5 +3,6 @@
 class RequestError extends Controller {
     function default(){
         return $this->response;
+        echo "requesterror.php Stuff";
     }
 }

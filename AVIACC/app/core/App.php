@@ -19,7 +19,7 @@ class App
         switch ($this->request_method) {
             case 'GET': {
                     $this->controller = 'verifydata';
-                    if (!isset($_GET['token'])) {
+                    if (!isset($_GET['id'])) {
                         $_GET = json_decode(file_get_contents("php://input"), true);
                     }
                     break;
