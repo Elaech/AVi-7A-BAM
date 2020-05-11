@@ -64,7 +64,7 @@ Class Post{
         $accident->atronomical_twilight = $data->astronomical_twilight;
         
         
-        if ($accident->create()) {
+        if ($accident->post()) {
             echo '{';
             echo '"message": "Accident was created."';
             echo '}';

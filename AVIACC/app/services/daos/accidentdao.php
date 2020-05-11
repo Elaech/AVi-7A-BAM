@@ -9,40 +9,39 @@ class  AccidentDAO
     {
         $prepared_statement = "SELECT * FROM TESTING";
         $chart = [];
-        $statement  = oci_parse($this->connection,$prepared_statement);
+        $statement  = oci_parse($this->connection, $prepared_statement);
         oci_execute($statement);
 
         while (oci_fetch($statement)) {
-             array_push(
+            array_push(
                 $chart,
                 [
                     "name" => oci_result($statement, 'NAME'),
                     "accidente" => oci_result($statement, 'ACCIDENTE')
                 ]
             );
-        
         }
 
         oci_free_statement($statement);
         return $chart;
     }
 
-    public function getSomeData($data){
-        
+    public function getSomeData($data)
+    {
+
         $prepared_statement = "SELECT :name FROM TESTING";
         $chart = [];
-        $statement  = oci_parse($this->connection,$prepared_statement);
-        oci_bind_by_name($statement,':name',$data[0]);
+        $statement  = oci_parse($this->connection, $prepared_statement);
+        oci_bind_by_name($statement, ':name', $data[0]);
         oci_execute($statement);
-        
+
         while (oci_fetch($statement)) {
-             array_push(
+            array_push(
                 $chart,
                 [
                     "name" => oci_result($statement, 'NAME'),
                 ]
             );
-        
         }
 
         oci_free_statement($statement);

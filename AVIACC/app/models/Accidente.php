@@ -3,11 +3,11 @@
 class Accidente  extends Model
 {
     private $conn;
-    private $table_name = "testing";
-    // private $table_name = "ACCIDENTS";
+    //private $table_name = "testing";
+    private $table_name = "ACCIDENTS";
 
-    public $name;
-    public $accidente;
+    //public $name;
+    //public $accidente;
 
 
     public $id;
@@ -78,18 +78,18 @@ class Accidente  extends Model
         return $data->get();
     }
 
-   /* public function put()
+    public function getSome($id)
     {
-        $data = $this->daoservice("put");
+        $data = $this->daoservice("get");
 
-        return $data->put();
+        return $data->getSome($id);
     }
 
-    public function delete()
-    {
-        $data = $this->daoservice("delete");
+/*public function getSome($data)
+{
+    $data = $this->daoservice("get");
 
-        return $data->delete();
-    }
-    */
+    return $data->getSome($data);
+}
+*/
 }
