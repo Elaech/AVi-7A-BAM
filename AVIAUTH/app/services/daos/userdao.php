@@ -45,6 +45,23 @@ class UserDAO{
         oci_free_statement($statement);
         return $user;
     }
+    public function getUserById($id){
+        $prepared_statement = "SELECT * FROM USERS WHERE ID = :id";
+        $statement  = oci_parse($this->connection,$prepared_statement);
+        oci_bind_by_name($statement,':id',$id);
+        oci_execute($statement);
+        $user = null;
+        if(oci_fetch($statement)){
+            $user = [
+                "username" => oci_result($statement,'USERNAME'),
+                "email" => oci_result($statement,'EMAIL'),
+                "id" => oci_result($statement,'ID'),
+                "weight" => oci_result($statement,'TOKEN')
+                ];
+        }
+        oci_free_statement($statement);
+        return $user;
+    }
     public function getUserByNameAndPassword($name,$password){
         $prepared_statement = "SELECT * FROM USERS WHERE USERNAME = :username AND PASSWORD = :password";
         $statement  = oci_parse($this->connection,$prepared_statement);
