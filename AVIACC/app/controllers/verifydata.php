@@ -24,7 +24,7 @@ class VerifyData extends Controller
             $this->response['body'] = json_encode($this->body);
             $model = $this->model("Accidente");
             $model->getSome($id);
-        } else if (isset($_GET['id']) && $_GET['id'] != "" && $_GET['id'] < 0) {
+        } else if (isset($_GET['id']) && $_GET['id'] != "" && $_GET['id'] <= 0) {
             $this->response['status'] = 400;
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Try again. BAD REQUEST';
             $this->response['body'] = json_encode($this->body);
