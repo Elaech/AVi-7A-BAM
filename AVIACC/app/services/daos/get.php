@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json; charset=UTF-8");
-//Done by Ionita Andra
+//Done by Ionita Andra and Cretu Bogdan
 
 class Get
 {
@@ -9,22 +9,48 @@ class Get
 
     public function get()
     {
+
+        $amount_of_entries_to_fetch = 121; // Asta o sa trebuiasa sa fie argumentul functiei
+        $starting_entry_to_fetch = 0; // SI asta
+
+
         $accident = new Accidente();
+        //echo "  Mayday get.php get entered        ";
+        //$stmt = $accident->get();
+        //$count = $stmt->rowCount();
+        $count = $amount_of_entries_to_fetch;
 
-        $stmt = $accident->read();
-        $count = $stmt->rowCount();
 
+        //nuj ce face if-ul asta dar l-am pastrat I guess
         if ($count > 0) {
 
-
+            //echo "  Mayday get.php count calculated         ";
             $accidents = array();
             $accidents["body"] = array();
+            $row_of_fetched_data_as_array = array();
             $accidents["count"] = $count;
+            $amount = 0;
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-                extract($row);
+            $prepared_statement = "Select * from ACCIDENTS where id < :amount_of_entries_to_fetch + :starting_entry_to_fetch and id > :starting_entry_to_fetch";
+            
+            $statement  = oci_parse($this->connection,$prepared_statement);
+            
+            oci_bind_by_name($statement,':amount_of_entries_to_fetch',$amount_of_entries_to_fetch);
+            oci_bind_by_name($statement,':starting_entry_to_fetch',$starting_entry_to_fetch);
 
+            oci_execute($statement);
+
+
+            //while (($row = $stmt->fetch(PDO::FETCH_ASSOC)) && $amount<110) {
+            while ($amount<$amount_of_entries_to_fetch) {
+                $amount = $amount+1;
+                //extract($row);
+                //echo "  Mayday get.php          ";
+                
+                oci_fetch($statement);
+
+                /*
                 $p  = array(
 
                     "id" => $id,
@@ -75,9 +101,15 @@ class Get
                     "sunrise_sunset" => $sunrise_sunset,
                     "civil_twilight" => $civil_twilight,
                     "atronomical_twilight" => $astronomical_twilight
-                );
+                );*/
+                //echo oci_result($statement, "ID");
 
-                array_push($accidents["body"], $p);
+                //O sa trebuiasca sa gasim o metoda sa facem array-ul asociativ si sa salvam si numele coloanelor in 
+                //JSON, stie misa sigur cum o sa trebuiasca sa vedem
+                array_push($row_of_fetched_data_as_array, oci_result($statement, "ID"));
+                array_push($row_of_fetched_data_as_array, oci_result($statement, "STREET"));
+                array_push($accidents["body"],$row_of_fetched_data_as_array);
+                $row_of_fetched_data_as_array = array();
             }
 
             echo json_encode($accidents);

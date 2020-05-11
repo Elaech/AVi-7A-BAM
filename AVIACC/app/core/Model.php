@@ -6,4 +6,5 @@ class Model{
         require_once '../app/services/daos/' . $dao . '.php';
         return new $dao;
     }
+    
 }

@@ -4,6 +4,14 @@ class Controller
 {   
     protected $response;
     protected $body;
+
+    protected function model($model)
+    {
+        require_once '../app/models/' . $model . '.php';
+        return new $model;
+    }
+
+    
     function __construct()
     {
         $this->response['status'] = 405;

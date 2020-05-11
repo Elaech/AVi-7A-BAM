@@ -9,6 +9,8 @@ class Accident extends Controller {
         }
         else{
             $this->response['status'] = 400;
+            echo "accident.php Stuff";
+
         }
         return $this->response;
     }
