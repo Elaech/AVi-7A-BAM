@@ -71,11 +71,11 @@ class Accidente  extends Model
         return $data->post();
     }
 
-    public function get()
+    public function get($starting_entry_to_fetch,$amount_of_entries_to_fetch)
     {
         $data = $this->daoservice("get");
 
-        return $data->get();
+        return $data->get($starting_entry_to_fetch,$amount_of_entries_to_fetch);
     }
 
     public function getSome($id)

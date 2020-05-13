@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "f7feef4f-e3a4-4b17-9f70-6aa78ba18014",
+		"name": "AVI ACC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/AViACC/api/?id=33&amount=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/AViACC/api/?id=33&amount=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"AViACC",
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "33"
+						},
+						{
+							"key": "amount",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/AViACC/api/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/AViACC/api/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"AViACC",
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "33",
+							"disabled": true
+						},
+						{
+							"key": "amount",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

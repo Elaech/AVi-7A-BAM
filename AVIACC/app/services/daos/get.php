@@ -7,11 +7,10 @@ class Get
 
     private $connection;
 
-    public function get()
+    public function get($starting_entry_to_fetch,$amount_of_entries_to_fetch)
     {
 
-        $amount_of_entries_to_fetch = 25; // Asta o sa trebuiasa sa fie argumentul functiei
-        $starting_entry_to_fetch = 0; // SI asta
+        
 
 
         $accident = new Accidente();
@@ -21,7 +20,7 @@ class Get
         $count = $amount_of_entries_to_fetch;
 
 
-        //nuj ce face if-ul asta dar l-am pastrat I guess
+        //nuj ce face if-ul asta dar l-am pastrat I guess, il scoti tu Andra daca nu iti mai trebe
         if ($count > 0) {
 
             //echo "  Mayday get.php count calculated         ";
@@ -33,7 +32,7 @@ class Get
             $amount = 0;
 
 
-            $prepared_statement = "Select * from ACCIDENTS where id < :amount_of_entries_to_fetch + :starting_entry_to_fetch and id > :starting_entry_to_fetch";
+            $prepared_statement = "Select * from ACCIDENTS where id <= :amount_of_entries_to_fetch + :starting_entry_to_fetch and id > :starting_entry_to_fetch";
 
             $statement  = oci_parse($this->connection, $prepared_statement);
 
@@ -123,7 +122,7 @@ class Get
     }
 
 
-    public function getSome($id)
+    public function getSome($id)//Andra, daca nu foloseste asta la ceva pls delete it
     {
 
 
