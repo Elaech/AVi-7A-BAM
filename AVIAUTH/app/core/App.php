@@ -16,25 +16,32 @@ class App
     {
         new CryptMaster;
         new UserToken;
+        $url = $this->parseUrl();
+        if(isset($url[0])){
+            $path = $url[0];
+        }
+        else{
+            $path = "";
+        }
         $this->request_method = $_SERVER['REQUEST_METHOD'];
-        switch ($this->request_method) {
-            case 'GET': {
+        switch ($this->request_method. '/' .$path) {
+            case 'POST/check': {
                     $this->controller = 'verifyaccount';
                     break;
                 }
-            case 'POST': {
+            case 'POST/create': {
                     $this->controller = 'createaccount';
                     break;
                 }
-            case 'PUT': {
+            case 'PUT/update': {
                     $this->controller = 'updateaccount';
                     break;
                 }
-            case 'DELETE': {
+            case 'PUT/logout': {
                     $this->controller = 'logoutaccount';
                     break;
                 }
-            case 'PATCH': {
+            case 'GET/details': {
                     $this->controller = 'dataaccount';
                     break;
                 }
@@ -57,6 +64,11 @@ class App
         http_response_code($this->response['status']);
         if ($this->response['body']) {
             echo $this->response['body'];
+        }
+    }
+    protected function parseUrl(){
+        if(isset($_GET['url'])){
+            return $url = explode('/',filter_var(rtrim($_GET['url'],'/'),FILTER_SANITIZE_URL)); 
         }
     }
 }
