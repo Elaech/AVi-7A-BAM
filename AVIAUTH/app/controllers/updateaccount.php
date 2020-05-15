@@ -12,6 +12,10 @@ class UpdateAccount extends Controller {
         if(isset($data['token']) && $data['token']!=""){
             $token = $data['token'];
             $payload = $this->verifyToken($token,$ip);
+            if($payload == null){
+                $this->set_response(400, ['status'=>false,'ip_error' => "Invalid IP"]);
+                return $this->response;
+            }
             $id = $payload['id'];
             $ip = $data['ip'];
             if($payload != null){
