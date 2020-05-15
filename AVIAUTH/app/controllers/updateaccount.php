@@ -13,7 +13,7 @@ class UpdateAccount extends Controller {
             $token = $data['token'];
             $payload = $this->verifyToken($token,$ip);
             if($payload == null){
-                $this->set_response(400, ['status'=>false,'ip_error' => "Invalid Token"]);
+                $this->set_response(400, ['status'=>false,'error' => "Invalid Token"]);
                 return $this->response;
             }
             $id = $payload['id'];
