@@ -34,7 +34,7 @@ class VerifyData extends Controller
             isset($_GET['amount']) && $_GET['amount']>0 && $_GET['amount']<201) {
             $id = $_GET['id'];
             $amount = $_GET['amount'];
-            $page = 1;
+            $page = 0;
             $data = [
                 "id" => $_GET['id'],
                 //"tmc"=>$_GET['tmc'],
@@ -70,7 +70,7 @@ class VerifyData extends Controller
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Success in getting FULL data';
             $this->response['body'] = json_encode($this->body);
             $model = $this->model("Accidente");
-            $model->get(1,25,1);
+            $model->get(1,25,0);
         }
         return $this->response;
     }
