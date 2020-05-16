@@ -7,14 +7,14 @@ class Get
 
     private $connection;
 
-    public function get($starting_entry_to_fetch,$amount_of_entries_to_fetch)
+    public function get($starting_entry_to_fetch,$amount_of_entries_to_fetch,$page_to_fetch)
     {
 
         
 
 
         $accident = new Accidente();
-        //echo "  Mayday get.php get entered        ";
+        //echo "  Mayday get.php get entered ";
         //$stmt = $accident->get();
         //$count = $stmt->rowCount();
         $count = $amount_of_entries_to_fetch;
@@ -32,12 +32,15 @@ class Get
             $amount = 0;
 
 
-            $prepared_statement = "Select * from ACCIDENTS where id <= :amount_of_entries_to_fetch + :starting_entry_to_fetch and id >= :starting_entry_to_fetch";
+            $prepared_statement = "Select * from ACCIDENTS where
+             id <= (:amount_of_entries_to_fetch + :starting_entry_to_fetch)* :page and
+              id > :starting_entry_to_fetch  * :page";
 
             $statement  = oci_parse($this->connection, $prepared_statement);
 
             oci_bind_by_name($statement, ':amount_of_entries_to_fetch', $amount_of_entries_to_fetch);
             oci_bind_by_name($statement, ':starting_entry_to_fetch', $starting_entry_to_fetch);
+            oci_bind_by_name($statement, ':page', $page_to_fetch);
 
             oci_execute($statement);
 
@@ -105,21 +108,16 @@ class Get
                         "atronomical_twilight" => oci_result($statement, "ASTRONOMICAL_TWILIGHT")
                     )
                 );
-                
-              
                 //echo oci_result($statement, "ID");
                 // array_push($row_of_fetched_data_as_array,array("id" => oci_result($statement, "ID")));
                 // array_push($row_of_fetched_data_as_array, oci_result($statement, "STREET"));
                 //  array_push($accidents["body"],$row_of_fetched_data_as_array);
                 // $row_of_fetched_data_as_array = array();
             }
-            if($starting_entry_to_fetch!=0)
-                    array_push(
-                        $accidents["valid"],"id");
+
             echo json_encode($accidents);
         } else {
 
-            
             echo json_encode(
                 array("body" => array(), "count" => 0, "valid" => array())
             );
