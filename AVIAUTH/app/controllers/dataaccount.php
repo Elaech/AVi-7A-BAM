@@ -3,7 +3,7 @@
 class DataAccount extends Controller{
     function default($data){
         if(!isset($data['ip']) || empty($data['ip']) || !filter_var($data['ip'],FILTER_VALIDATE_IP)){
-            $this->set_response(400, ['status'=>false,'ip_error' => "Invalid IP"]);
+            $this->set_response(200, ['status'=>false,'ip_error' => "Invalid IP"]);
             return $this->response;
         }
         $ip = $data['ip'];
@@ -12,7 +12,7 @@ class DataAccount extends Controller{
             $token = $data['token'];
             $payload = $this->verifyToken($token,$ip);
             if($payload == null){
-                $this->set_response(400, ['status'=>false,'error' => "Invalid Token"]);
+                $this->set_response(200, ['status'=>false,'error' => "Invalid Token"]);
                 return $this->response;
             }
 
@@ -32,7 +32,7 @@ class DataAccount extends Controller{
                 $this->set_response(200,$body);
             }
             else{
-                $this->set_response(400,['status'=>false,'token_error' => "Invalid Token"]);
+                $this->set_response(200,['status'=>false,'token_error' => "Invalid Token"]);
             }
         }
         else{

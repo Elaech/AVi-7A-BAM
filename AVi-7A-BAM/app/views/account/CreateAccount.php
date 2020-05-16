@@ -36,17 +36,23 @@
 
     <main class="main-class">
         <div class="main">
-            <p class="create">Create Account</p>
-            <form class="form2" action="<?php echo Constants::CREATEACCOUNT_MAKEACC; ?>" method="POST">
-                <input class="un " type="text" placeholder="Enter Username" name="username">
-                <input class="pass" type="password" placeholder="Enter Password" name="password">
-                <input class="passwdag" type="password" placeholder="Enter Password Again" name="samePassword">
-                <input class="email" type="email" placeholder="Enter E-mail" name="email">
-                <br>
-                <input class="submit" type="submit" value="Create!">
-                <p class="creacc"></p><a href="<?php echo Constants::SIGNIN_LOGIN; ?>">Do you
-                    already have an account?<br>Sign In!</p></a>
+        <?php
 
+        if(!$data['status']){
+            echo '<p class="create">Create Account</p>';
+            echo '<form class="form2" action="'. Constants::CREATEACCOUNT_MAKEACC .'" method="POST">';
+            echo '<input class="un " type="text" placeholder="' . $data['username_error'] .'" name="username" required>';
+            echo '<input class="pass" type="password" placeholder="' . $data['password_error'] .'" name="password" required>';
+            echo '<input class="email" type="email" placeholder="'.$data['email_error'].'" name="email" required>';
+            echo  '<br>';
+            echo  '<input class="submit" type="submit" value="Create!">';
+            echo '</form>';
+            echo '<p class="creacc"></p> <a href="'. Constants::SIGNIN_LOGIN .'">Do you already have an account?<br>Sign In!</p></a>';
+        }
+        else{
+            header(Constants::LOCATION_SIGNIN);
+        }
+        ?>
 
         </div>
     </main>

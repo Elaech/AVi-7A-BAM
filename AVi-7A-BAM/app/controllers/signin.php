@@ -3,41 +3,34 @@
 class SignIn extends Controller{
     public function index(){
         session_start();
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+        if(isset($_COOKIE["token"])){
             header(Constants::LOCATION_HOME);
         }
         else{
-            $model = $this->model("signinmodel");
-            $this->view('account/SignIn',$model->getInitialData());
+            $model = $this->model("authmodel");
+            $data = $model->signinAccountInitialData();
+            $this->view('account/SignIn',$data);
         }
     }
 
     public function login(){
         session_start();
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+        if(isset($_COOKIE["token"])){
             header(Constants::LOCATION_HOME);
         }
         else{
-            $model = $this->model("signinmodel");
             if(isset($_POST["username"]) && $_POST["username"]!="" && 
                 isset($_POST["password"]) && $_POST["password"]!=""){
-                $user = $model->getUserByUsernameAndPassword(
-                    $this->sanitizeString($_POST["username"]),
-                    $this->sanitizeString($_POST["password"]));
-                if($user){
-                    $_SESSION["loggedin"] = true;
-                    $_SESSION["username"] = $user["username"];
-                    $_SESSION["password"] = $user["password"];
-                    $_SESSION["email"] = $user["email"];
-
-                    // if(isset($_POST["keepme"]) && $_POST["keepme"] == "TRUE"){
-                        //intrare token baza de date pentru user
-                        //cookie cu token
-                    // }
-                    header(Constants::LOCATION_HOME);
+                $model = $this->model("authmodel");
+                $username = $this->sanitizeString($_POST["username"]);
+                $password = $this->sanitizeString($_POST["password"]);
+                $data = $model->login($username,$password,$this->getUserIP());
+                if($data['status']==true){
+                   setcookie("token",$data['token'],time()+1800,'/');
+                   header(Constants::LOCATION_HOME);
                 }
                 else{
-                    $this->view('account/SignIn',$model->getInvalidUserData());
+                    $this->view('account/SignIn',$data);
                 }
             }
             else{

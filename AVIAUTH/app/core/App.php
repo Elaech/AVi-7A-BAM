@@ -1,10 +1,5 @@
 <?php
 //Created by Minut Mihai Dimitrie
-//This REST API treats the cases:
-//GET with 'token' set in header to validate and return user data
-//POST with body username and password and email to create an account
-//PUT with 'token' set in header and optionally in body:username and password and email to update the user account
-//DELETE with token set in header to delete the account
 class App
 {
 

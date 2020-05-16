@@ -50,7 +50,7 @@ class Controller
             $payload = (array) UserToken::decode_payload($token);
             //testing the user ip
             if($ip!=$payload['ip']){
-                $this->set_response(400, ['status'=>false,'token_error'=>"Invalid token ip"]);
+                $this->set_response(200, ['status'=>false,'token_error'=>"Invalid token ip"]);
                 return;
             }
 
@@ -58,13 +58,13 @@ class Controller
             $weight = $userdao->getWeightForId($payload['id']);
             //testing the user token weight
             if($weight == null || $weight != $payload['weight']){
-                $this->set_response(400, ['status'=>false,'token_error'=>"Invalid token weight"]);
+                $this->set_response(200, ['status'=>false,'token_error'=>"Invalid token weight"]);
                 $userdao->updateUserTokenById($payload['id'],"0");
                 return;
             }
             //testing the time
             if(time() > $payload['time']){
-                $this->set_response(400, ['status'=>false,'token_error'=>"Token expired"]);
+                $this->set_response(200, ['status'=>false,'token_error'=>"Token expired"]);
                 $userdao->updateUserTokenById($payload['id'],"0");
                 return;
             }
@@ -77,7 +77,7 @@ class Controller
         }
         //cannot sign token
         catch (Exception $e) {
-            $this->set_response(400, ['status'=>false,'token_error'=>"Invalid token payload"]);
+            $this->set_response(200, ['status'=>false,'token_error'=>"Invalid token payload"]);
         }
     }
 

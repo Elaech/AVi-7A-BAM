@@ -22,7 +22,7 @@ class Constants{
     const LOCATION_HOME = "location: http://localhost/AVi-7A-BAM/public/home/index";
     const LOCATION_SIGNIN = "location: http://localhost/AVi-7A-BAM/public/signin/index";
     const LOCATION_ACCOUNTMENU = "location: http://localhost/AVi-7A-BAM/public/accountmenu/index";
-
+    const LOCATION_CREATEACCOUNT = "location: http://localhost/AVi-7A-BAM/public/createaccount/index";
     //OUTSIDER LOCATIONS
     const GITHUB = "https://github.com/";
     const TRELLO = "https://trello.com/";
@@ -60,4 +60,12 @@ class Constants{
     const TIME_ONE_DAY = 86400;
     const TIME_ONE_WEEK = 7 * 86400;
     const TIME_ONE_MONTH = 30 * 86400;
+
+
+    //AVIAUTH CONSTANTS
+    const AUTH_CREATE = ["method"=>"POST","url"=>"http://localhost/AVIAUTH/api/create"];
+    const AUTH_CHECK = ["method"=>"POST","url"=>"http://localhost/AVIAUTH/api/check"];
+    const AUTH_UPDATE = ["method"=>"PUT","url"=>"http://localhost/AVIAUTH/api/update"];
+    const AUTH_LOGOUT = ["method"=>"PUT","url"=>"http://localhost/AVIAUTH/api/logout"];
+    const AUTH_DETAILS = ["method"=>"GET","url"=>"http://localhost/AVIAUTH/api/details"];
 }

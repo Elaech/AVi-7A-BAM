@@ -38,14 +38,14 @@
         <div class="main">
             <p class="sign">Sign In</p>
             <form class="form1" action="<?php echo Constants::SIGNIN_LOGIN_WPARAM; ?>" method="POST">
-                <input class="un " type="text" placeholder="<?php echo $data["username_err"]; ?>" name="username">
-                <input class="pass" type="password" placeholder="<?php echo $data["password_err"]; ?>" name="password">
-                <p class="keepme">
+                <input class="un " type="text" placeholder="<?php echo $data["username_error"]; ?>" name="username">
+                <input class="pass" type="password" placeholder="<?php echo $data["password_error"]; ?>" name="password">
+                <!-- <p class="keepme">
                     <label>
                         <input type="checkbox" name="keepme" id="keepme" value="TRUE">
                         Keep me logged in!
                     </label>
-                </p>
+                </p> -->
                 <input class="submit" type="submit" value="Let's Go!">
                 <p class="enter"><a href="<?php echo Constants::CREATEACCOUNT; ?>">Don't have an account yet?<br>Create one!</p>
                 </a>

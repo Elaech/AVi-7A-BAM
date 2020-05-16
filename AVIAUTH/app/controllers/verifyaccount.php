@@ -6,7 +6,7 @@ class VerifyAccount extends Controller {
     function default($data){   
         //Check ip field
         if(!isset($data['ip']) || empty($data['ip']) || !filter_var($data['ip'],FILTER_VALIDATE_IP)){
-            $this->set_response(400, ['status'=>false,'ip_error' => "Invalid IP"]);
+            $this->set_response(200, ['status'=>false,'ip_error' => "Invalid IP"]);
             return $this->response;
         }
         $ip = $data['ip'];
@@ -22,7 +22,7 @@ class VerifyAccount extends Controller {
             $username = CryptMaster::master_encrypt($username);
             $user = $userdao->getUserByName($username);
             if($user == null){
-                $this->set_response(400, 
+                $this->set_response(200, 
                 ['status'=>false,
                 'username_error'=> 'Username and password do not match',
                 'password_error'=> 'Username and password do not match'
@@ -31,7 +31,7 @@ class VerifyAccount extends Controller {
             }
             //Already logged in
             if($user['weight']!="0"){
-                $this->set_response(400, 
+                $this->set_response(200, 
                 ['status'=>false,
                 'username_error'=> 'User already logged in',
                 'password_error'=> 'User already logged in'
@@ -40,7 +40,7 @@ class VerifyAccount extends Controller {
             }
             //Password not matching
             if(!HashMaster::master_match_password_hash($password,$user['password'])){
-                $this->set_response(400, 
+                $this->set_response(200, 
                 ['status'=>false,
                 'username_error'=> 'Username and password do not match',
                 'password_error'=> 'Username and password do not match'

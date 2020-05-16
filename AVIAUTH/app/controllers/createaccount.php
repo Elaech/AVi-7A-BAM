@@ -5,7 +5,7 @@ class CreateAccount extends Controller
     function default($data)
     {
         if(!isset($data['username']) || !isset($data['password']) || !isset($data['email'])){
-            $this->set_response(400,["status"=>false]);
+            $this->set_response(200,["status"=>false]);
             return $this->response;
         }
         
@@ -24,9 +24,9 @@ class CreateAccount extends Controller
             $email = CryptMaster::master_encrypt($email);
             $userdao = $this->daoservice('userdao');
             if (!$userdao->isUniqueUsername($username)) {
-                $body = ["status" => false, "username_error" => "Username is already taken"];
+                $body = ["status" => false, "username_error" => "Username is already taken", "password_error" => "Valid password", "email_error" => "Valid email"];
             } else if (!$userdao->isUniqueEmail($email)) {
-                $body = ["status" => false, "username_error" => "Email is already taken"];
+                $body = ["status" => false, "email_error" => "Email is already taken","username_error" => "Valid username","password_error" => "Valid password"];
             } else {
                 $userdao->setUserWithNamePasswordEmailToken($username, $password, $email,"0");
                 $body = ["status" => true];
@@ -35,8 +35,17 @@ class CreateAccount extends Controller
         }
         //Invalid Input Response
         else {
+            if(empty($username_err)){
+                $username_err = "Valid username";
+            }
+            if(empty($password_err)){
+                $password_err = "Valid password";
+            }
+            if(empty($email_err)){
+                $email_err = "Valid email";
+            }
             $this->set_response(
-                400,
+                200,
                 [
                     "status" => false,
                     "username_error" => $username_err,
@@ -65,7 +74,7 @@ class CreateAccount extends Controller
         if (!isset($password) || empty($password) || !is_string($password))
             return "Pasword cannot be empty";
         if (empty(preg_match('/[a-z]/', $password)) || empty(preg_match('/[A-Z]/', $password)) || empty(preg_match('/[0-9]/', $password)))
-            return "Password must contain at least a small and a big letter and a number";
+            return "At least a small and a big letter and a number";
         $len = strlen($password);
         if ($len < 8 || $len > 30)
             return "Password must be 8-30 characters long";

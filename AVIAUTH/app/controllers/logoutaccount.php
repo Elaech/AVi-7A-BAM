@@ -5,7 +5,7 @@ class LogoutAccount extends Controller {
     function default($data){
 
         if(!isset($data['ip']) || empty($data['ip']) || !filter_var($data['ip'],FILTER_VALIDATE_IP)){
-            $this->set_response(400, ['status'=>false,'ip_error' => "Invalid IP"]);
+            $this->set_response(200, ['status'=>false,'ip_error' => "Invalid IP"]);
             return $this->response;
         }
         $ip = $data['ip'];
@@ -19,7 +19,7 @@ class LogoutAccount extends Controller {
                 $this->set_response(200,['status'=>true]);
             }
             else{
-                $this->set_response(400,['status'=>false,'token_error' => "Invalid Token"]);
+                $this->set_response(200,['status'=>false,'token_error' => "Invalid Token"]);
             }
         }
         else{

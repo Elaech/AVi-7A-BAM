@@ -8,13 +8,33 @@ class Controller
         return new $model;
     }
 
-    protected function view($view,$data = [])
+    protected function view($view, $data = [])
     {
         require_once '../app/views/' . $view . '.php';
     }
 
-    protected function sanitizeString($string){
+    protected function service($service_name)
+    {
+        require_once '../app/services/' . $service_name . '.php';
+        return new $service_name;
+    }
+
+    protected function sanitizeString($string)
+    {
         return  htmlspecialchars(stripslashes(trim($string)));
     }
 
+    protected function getUserIP()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip_address = $_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else {
+            $ip_address = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip_address;
+    }
 }
