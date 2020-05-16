@@ -16,6 +16,8 @@ class App
             $this->params = array_values($url);
         }
 
+      
+
         switch ($this->request_method) {
             case 'GET': {
                     $this->controller = 'verifydata';
@@ -29,6 +31,7 @@ class App
                     $_POST = json_decode(file_get_contents("php://input"), true);
                     break;
                 }
+    
             default: {
                     $this->controller = 'requesterror';
                     break;

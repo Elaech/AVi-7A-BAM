@@ -70,7 +70,37 @@ class VerifyData extends Controller
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Success in getting FULL data';
             $this->response['body'] = json_encode($this->body);
             $model = $this->model("Accidente");
-            $model->get(1,25,0);
+
+            $model->get(1, 25, 0);
+
+            ///aici am testat command. nu am mai creat alta functie mi-e lene. 
+            //comentati linia 75 si decomentati asta si faceti-va de cap.
+            /*
+           ////ce se afiseaza
+           $var1=array();
+           array_push($var1,$model->ShowCommand("severity"), $model->ShowCommand("tmc"));
+           var_dump( $var1);
+
+           $var2=array();
+           array_push($var2,$model->BooleanCommand("amenity","TRUE"));
+           var_dump( $var2);
+
+           $var3=array();
+           array_push($var3,$model->BetweenCommand("tmc",637,">="),$model->BetweenCommand("id",5,"<"),$model->BetweenCommand("distance",1000,">"));
+           var_dump( $var3);
+
+           $var4=array();
+           array_push($var4,$model->EqualsCommand("numbers",53424), $model->EqualsCommand("distance",24));
+           var_dump( $var4);
+
+           //misa si bogdan, daca testati asta sa decomentati voi de aici ce vreti pups 
+         //  $var5=  $model->createString($var1,$var4,$var3,$var2);
+          // $var5=  $model->createString(0,$var4,$var3,$var2);
+          // $var5=  $model->createString($var1,0,$var3,$var2);
+          // $var5=  $model->createString($var1,0,0,0);
+           $var5=  $model->createString(0,0,0,0);
+           var_dump( $var5);
+           */
         }
         return $this->response;
     }

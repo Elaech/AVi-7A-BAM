@@ -3,7 +3,7 @@
 class Command
 {
 
-    private $valid_string_show = " id  Source TMC Severity start_time end_time start_lat start_lng end_lat end_lng 
+    private $valid_string_show = " id source tmc severity start_time end_time start_lat start_lng end_lat end_lng 
        distance description numbers street side city county state zipcode country timezone airport_code weather_timestamp 
      temperature wind_chill humidity pressure visibility wind_direction wind_speed precipitation weather_condition 
      amenity bump crossing give_way junction no_exit railway roundabout station stop traffic_calming traffic_signal 
@@ -12,19 +12,19 @@ class Command
     private $valid_string_boolean = " amenity bump crossing give_way junction no_exit railway roundabout station stop traffic_calming traffic_signal 
    turning_loop sunrise_sunset civil_twilight astronomical_twilight ";
 
-    private $valid_string_equals = " id  Source TMC Severity start_time end_time start_lat start_lng end_lat end_lng 
+    private $valid_string_equals = " id  source tmc severity start_time end_time start_lat start_lng end_lat end_lng 
    distance description numbers street side city county state zipcode country timezone airport_code weather_timestamp 
  temperature wind_chill humidity pressure visibility wind_direction wind_speed precipitation weather_condition 
  amenity bump crossing give_way junction no_exit railway roundabout station stop traffic_calming traffic_signal 
  turning_loop sunrise_sunset civil_twilight astronomical_twilight ";
 
-    private $valid_string_between = " id TMC Severity start_time end_time start_lat start_lng end_lat end_lng 
+    private $valid_string_between = " id tmc severity start_time end_time start_lat start_lng end_lat end_lng 
  distance  numbers  weather_timestamp temperature wind_chill humidity pressure visibility wind_direction wind_speed precipitation ";
 
-    public $accidentShow;
-    public $accidentBetween;
-    public $accidentBoolean;
-    public $accidentEquals;
+    public $accidentShow = array();
+    public $accidentBetween = array();
+    public $accidentBoolean = array();
+    public $accidentEquals = array();
 
 
     ///////////////////////////////show command
@@ -35,6 +35,8 @@ class Command
             array_push($this->accidentShow, $name);
         } else
             return "error";
+        //return "show succes";
+       return $this->accidentShow;
     }
 
     function getAccidentShow()
@@ -55,6 +57,8 @@ class Command
             ]);
         } else
             return "error";
+       // return "between succes";
+       return $this->accidentBetween;
     }
 
     function getBetweenFilter()
@@ -74,6 +78,8 @@ class Command
             ]);
         } else
             return "error";
+        //return "boolean succes";
+        return $this->accidentBoolean;
     }
 
 
@@ -94,6 +100,8 @@ class Command
             ]);
         } else
             return "error";
+        //return "equals succes";
+        return $this->accidentEquals;
     }
 
     function getEqualsFilter()
@@ -104,53 +112,66 @@ class Command
 
 
     ///////////////////create select
-    function createString()
+    function createString($accidentShow, $accidentEquals, $accidentBetween,$accidentBoolean)
     {
         $sql_string = "SELECT ";
 
 
-        foreach ($this->accidentShow as $command) {
-            $sql_string .= (string) $command . ",";
+        if (empty($accidentShow))
+            $sql_string .=  " * ";
+        else {
+            foreach ($accidentShow as $command) {
+                foreach ($command as $temp) {
+                $sql_string .= (string) $temp . ",";
+            }
         }
-
-        $sql_string =rtrim( $sql_string,',');
+    }
+        $sql_string = rtrim($sql_string, ',');
         $sql_string .= " FROM ACCIDENTS";
 
-        if (!empty($this->accidentBetween) || !empty($this->accidentBoolean) || !empty($this->accidentEquals)) {
+        if (!empty($accidentBetween) || !empty($accidentBoolean) || !empty($accidentEquals)) {
 
             $sql_string .= " WHERE ";
 
-            if (!empty($this->accidentBetween)) {
+           if (!empty($accidentBetween)) {
                 $command = "";
 
-                foreach ($this->accidentBetween as $row) {
+                foreach ($accidentBetween as $temp) {
+                    foreach ($temp as $row) {
                     $command = $row['name'] . $row['operator'] . $row['value'];
                     $sql_string .= (string) $command . " AND ";
-                    $command = "";
+                    }
+                
                 }
-            } else if (!empty($accidentBoolean)) {
+            } 
+             if (!empty($accidentBoolean)) {
 
                 $command = "";
 
-                foreach ($this->accidentBoolean as $row) {
+                foreach ($accidentBoolean as $temp) {
+                    foreach ($temp as $row) {
                     $command = $row['name'] . "=" . $row['value'];
                     $sql_string .= (string) $command . " AND ";
                     $command = "";
+                    }
                 }
-            } else  if (!empty($accidentEquals)) {
+            } 
+             if (!empty($accidentEquals)) {
 
                 $command = "";
 
-                foreach ($this->accidentEquals as $row) {
+                foreach ($accidentEquals as $temp) {
+                    foreach ($temp as $row) {
                     $command = $row['name'] . "=" . $row['value'];
                     $sql_string .= (string) $command . " AND ";
                     $command = "";
+                    }
                 }
             }
         }
 
-    
-        $sql_string =rtrim( $sql_string,"AND");
+
+        $sql_string = rtrim($sql_string, 'AND ');
         return $sql_string;
     }
 }
