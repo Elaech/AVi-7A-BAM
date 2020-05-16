@@ -33,8 +33,8 @@ class Get
 
 
             $prepared_statement = "Select * from ACCIDENTS where
-             id <= (:amount_of_entries_to_fetch + :starting_entry_to_fetch)* :page and
-              id > :starting_entry_to_fetch  * :page";
+            id <= (:amount_of_entries_to_fetch * (:page+1)  + :starting_entry_to_fetch) and
+             id >= (:amount_of_entries_to_fetch  * :page + :starting_entry_to_fetch) ";
 
             $statement  = oci_parse($this->connection, $prepared_statement);
 

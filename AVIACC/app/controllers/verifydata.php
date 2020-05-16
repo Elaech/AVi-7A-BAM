@@ -12,7 +12,7 @@ class VerifyData extends Controller
         // alte verificari nu cred ca ne trebuie
         if (isset($_GET['id']) && $_GET['id'] != "" && $_GET['id'] > 0 &&
             isset($_GET['amount']) && $_GET['amount']>0 && $_GET['amount']<201
-            && isset($_GET['page']) && $_GET['page']>0 && $_GET['page'] <30000) {
+            && isset($_GET['page']) && $_GET['page']>=0 && $_GET['page'] <30000) {
             $id = $_GET['id'];
             $amount = $_GET['amount'];
             $page = $_GET['page'];
@@ -59,7 +59,7 @@ class VerifyData extends Controller
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Success in getting SOME data';
             $this->response['body'] = json_encode($this->body);
             $model = $this->model("Accidente");
-            $model->get($id,1);
+            $model->get($id,1,1);
         } else if (isset($_GET['id']) && $_GET['id'] != "" && $_GET['id'] <= 0) {
             $this->response['status'] = 400;
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Try again. BAD REQUEST';
@@ -70,7 +70,7 @@ class VerifyData extends Controller
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Success in getting FULL data';
             $this->response['body'] = json_encode($this->body);
             $model = $this->model("Accidente");
-            $model->get(0,25,1);
+            $model->get(1,25,1);
         }
         return $this->response;
     }
