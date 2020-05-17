@@ -26,7 +26,7 @@ class SignIn extends Controller{
                 $password = $this->sanitizeString($_POST["password"]);
                 $data = $model->login($username,$password,$this->getUserIP());
                 if($data['status']==true){
-                   setcookie("token",$data['token'],time()+1800,'/');
+                   $this->setTokenCookie($data['token']);
                    header(Constants::LOCATION_HOME);
                 }
                 else{
@@ -41,10 +41,13 @@ class SignIn extends Controller{
 
     public function logout(){
         session_start();
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+        if(isset($_COOKIE['token'])){
+            $model =  $this->model("authmodel");
+            $model->logout($_COOKIE['token'],$this->getUserIP());
+            $this->deleteTokenCookie();
             session_unset();
             session_destroy();
-            header(Constants::LOCATION_SIGNIN);
+            header(Constants::LOCATION_HOME);
         }
         else{
             header(Constants::LOCATION_HOME);
