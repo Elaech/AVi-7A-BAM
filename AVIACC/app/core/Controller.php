@@ -11,6 +11,7 @@ class Controller
         return new $model;
     }
 
+
     
     function __construct()
     {
