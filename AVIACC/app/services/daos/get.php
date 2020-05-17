@@ -83,14 +83,13 @@ class Get
             // $row_of_fetched_data_as_array = array();
         }
 
-        $prepared_statement_select_count = "Select COUNT(*) from ACCIDENTS where
-        id <= (:amount_of_entries_to_fetch * (:page+1)  + :starting_entry_to_fetch) and
-            id >= (:amount_of_entries_to_fetch  * :page + :starting_entry_to_fetch) ";
+        $prepared_statement_select_count = "Select COUNT(*) from ( ";
+        $prepared_statement_select_count .= $prepared_statement_select_base;
+        $prepared_statement_select_count .= " )";
+        
 
         $statement_select_count = oci_parse($this->connection, $prepared_statement_select_count);
-        oci_bind_by_name($statement_select_count, ':amount_of_entries_to_fetch', $amount_of_entries_to_fetch);
-        oci_bind_by_name($statement_select_count, ':starting_entry_to_fetch', $starting_entry_to_fetch);
-        oci_bind_by_name($statement_select_count, ':page', $page_to_fetch);
+        
 
         oci_execute($statement_select_count);
         oci_fetch($statement_select_count);
