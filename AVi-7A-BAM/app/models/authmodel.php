@@ -1,5 +1,5 @@
 <?php
-
+//Done by Minut Mihai Dimitrie
 class AuthModel extends Model{
 
     private $auth_api;
@@ -19,6 +19,9 @@ class AuthModel extends Model{
     }
     public function check($token,$ip){
         $response = $this->auth_api->checkAccountTokenRequest($token,$ip);
+        if($response == null){
+            $response = $this->authServiceUnavailable();
+        }
         return $response;
     }
     public function create($username,$password,$email,$ip){
@@ -34,10 +37,16 @@ class AuthModel extends Model{
     }
     public function details($token,$ip){
         $response = $this->auth_api->getAccountDataRequest($token,$ip);
+        if($response == null){
+            $response = $this->authServiceUnavailable();
+        }
         return $response;
     }
     public function logout($token,$ip){
         $response = $this->auth_api->logoutAccountRequest($token,$ip);
+        if($response == null){
+            $response = $this->authServiceUnavailable();
+        }
         return $response;
     }
 

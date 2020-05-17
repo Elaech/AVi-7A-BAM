@@ -1,6 +1,6 @@
 <?php
 
-//Done By Minut Mihai Dimitrie
+//Refactoring Done By Minut Mihai Dimitrie
 class Constants{
     //CONTROLLERS
     const HOME = "http://localhost/AVi-7A-BAM/public/home/index";
@@ -13,7 +13,7 @@ class Constants{
     const ACCOUNT_MENU_EMAIL = "http://localhost/AVi-7A-BAM/public/accountmenu/changeEmail";
 
     const CREATEACCOUNT = "http://localhost/AVi-7A-BAM/public/createaccount/index";
-    const STATISTICS = "http://localhost/AVi-7A-BAM/public/statistics/data";
+    const STATISTICS = "http://localhost/AVi-7A-BAM/public/statistics/index";
     const CONTACT = "http://localhost/AVi-7A-BAM/public/contact/index";
     const DOCUMENTATION = "http://localhost/AVi-7A-BAM/public/Documentation";
     const CREATEACCOUNT_MAKEACC = "http://localhost/AVi-7A-BAM/public/createaccount/makeAccount";

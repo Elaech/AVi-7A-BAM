@@ -24,6 +24,14 @@ class Controller
         return  htmlspecialchars(stripslashes(trim($string)));
     }
 
+    protected function setTokenCookie($token){
+        setcookie("token",$token,time()+1800,'/AVi-7A-BAM');
+    }
+
+    protected function deleteTokenCookie(){
+        setcookie("token","",time()-3600,'/AVi-7A-BAM');
+    }
+
     protected function getUserIP()
     {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
