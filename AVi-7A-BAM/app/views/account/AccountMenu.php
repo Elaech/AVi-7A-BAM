@@ -39,7 +39,7 @@
                         now.setTime(time);
                         document.cookie =
                             "token=" + json.token +
-                            "; expires" + now.toUTCString() +
+                            "; expires=" + now.toUTCString() +
                             "; path=/AVi-7A-BAM";
                         //if the field updated
                         if (json.username == "Username updated!") {
@@ -59,7 +59,7 @@
                             now.setTime(time);
                             document.cookie =
                                 "token=" +
-                                "; expires" + now.toUTCString() +
+                                "; expires=" + now.toUTCString() +
                                 "; path=/AVi-7A-BAM";
                         document.location = "http://localhost/AVi-7A-BAM/public/home/index";
                     }
@@ -91,7 +91,7 @@
                         now.setTime(time);
                         document.cookie =
                             "token=" + json.token +
-                            "; expires" + now.toUTCString() +
+                            "; expires=" + now.toUTCString() +
                             "; path=/AVi-7A-BAM";
                         //if the field updated
                         if (json.email == "E-mail updated!") {
@@ -111,7 +111,7 @@
                             now.setTime(time);
                             document.cookie =
                                 "token=" +
-                                "; expires" + now.toUTCString() +
+                                "; expires=" + now.toUTCString() +
                                 "; path=/AVi-7A-BAM";
                         document.location = "http://localhost/AVi-7A-BAM/public/home/index";
                     }
@@ -143,7 +143,7 @@
                         now.setTime(time);
                         document.cookie =
                             "token=" + json.token +
-                            "; expires" + now.toUTCString() +
+                            "; expires=" + now.toUTCString() +
                             "; path=/AVi-7A-BAM";
                         //if the field updated
                         if (json.password == "Password updated!") {
@@ -163,7 +163,7 @@
                             now.setTime(time);
                             document.cookie =
                                 "token=" +
-                                "; expires" + now.toUTCString() +
+                                "; expires=" + now.toUTCString() +
                                 "; path=/AVi-7A-BAM";
                         document.location = "http://localhost/AVi-7A-BAM/public/home/index";
                     }
