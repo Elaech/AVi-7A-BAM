@@ -21,22 +21,28 @@ class Command
     private $valid_string_between = " id tmc severity start_time end_time start_lat start_lng end_lat end_lng 
  distance  numbers  weather_timestamp temperature wind_chill humidity pressure visibility wind_direction wind_speed precipitation ";
 
-    public $accidentShow = array();
+
     public $accidentBetween = array();
     public $accidentBoolean = array();
     public $accidentEquals = array();
 
+    public function __construct()
+    {
+        $this->conn = DatabaseConnection::getInstance();
+    }
 
     ///////////////////////////////show command
     function ShowCommand($name)
     {
+        $accidentShow = array();
         if (strpos($this->valid_string_show, $name)) {
 
-            array_push($this->accidentShow, $name);
+            array_push($accidentShow,  ["name" =>  $name]);
         } else
             return "error";
         //return "show succes";
-       return $this->accidentShow;
+
+        return $accidentShow;
     }
 
     function getAccidentShow()
@@ -57,8 +63,8 @@ class Command
             ]);
         } else
             return "error";
-       // return "between succes";
-       return $this->accidentBetween;
+        // return "between succes";
+        return $this->accidentBetween;
     }
 
     function getBetweenFilter()
@@ -70,7 +76,7 @@ class Command
     function BooleanCommand($name, $value)
     {
 
-        if (strpos($this->valid_string_boolean, $name)) {
+        if (strpos($this->valid_string_show, $name)) {
 
             array_push($this->accidentBoolean, [
                 "name" => $name,
@@ -112,7 +118,7 @@ class Command
 
 
     ///////////////////create select
-    function createString($accidentShow, $accidentEquals, $accidentBetween,$accidentBoolean)
+    function createString($accidentShow, $accidentEquals, $accidentBetween, $accidentBoolean)
     {
         $sql_string = "SELECT ";
 
@@ -122,10 +128,11 @@ class Command
         else {
             foreach ($accidentShow as $command) {
                 foreach ($command as $temp) {
-                $sql_string .= (string) $temp . ",";
+
+                    $sql_string .= (string) $temp['name'] . ",";
+                }
             }
         }
-    }
         $sql_string = rtrim($sql_string, ',');
         $sql_string .= " FROM ACCIDENTS";
 
@@ -133,38 +140,37 @@ class Command
 
             $sql_string .= " WHERE ";
 
-           if (!empty($accidentBetween)) {
+            if (!empty($accidentBetween)) {
                 $command = "";
 
                 foreach ($accidentBetween as $temp) {
                     foreach ($temp as $row) {
-                    $command = $row['name'] . $row['operator'] . $row['value'];
-                    $sql_string .= (string) $command . " AND ";
+                        $command = $row['name'] . $row['operator'] . $row['value'];
+                        $sql_string .= (string) $command . " AND ";
                     }
-                
                 }
-            } 
-             if (!empty($accidentBoolean)) {
+            }
+            if (!empty($accidentBoolean)) {
 
                 $command = "";
 
                 foreach ($accidentBoolean as $temp) {
                     foreach ($temp as $row) {
-                    $command = $row['name'] . "=" . $row['value'];
-                    $sql_string .= (string) $command . " AND ";
-                    $command = "";
+                        $command = $row['name'] . "='" . $row['value'] . "'";
+                        $sql_string .= (string) $command . " AND ";
+                        $command = "";
                     }
                 }
-            } 
-             if (!empty($accidentEquals)) {
+            }
+            if (!empty($accidentEquals)) {
 
                 $command = "";
 
                 foreach ($accidentEquals as $temp) {
                     foreach ($temp as $row) {
-                    $command = $row['name'] . "=" . $row['value'];
-                    $sql_string .= (string) $command . " AND ";
-                    $command = "";
+                        $command = $row['name'] . "=" . $row['value'];
+                        $sql_string .= (string) $command . " AND ";
+                        $command = "";
                     }
                 }
             }
