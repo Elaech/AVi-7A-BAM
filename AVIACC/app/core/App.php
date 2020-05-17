@@ -16,14 +16,12 @@ class App
             $this->params = array_values($url);
         }
 
-      
+
 
         switch ($this->request_method) {
             case 'GET': {
-                    $this->controller = 'verifydata';
-                    if (!isset($_GET['id'])) {
-                        $_GET = json_decode(file_get_contents("php://input"), true);
-                    }
+                $this->controller = 'verifydata';
+                    $_GET = json_decode(file_get_contents("php://input"), true);
                     break;
                 }
             case 'POST': {
@@ -31,12 +29,14 @@ class App
                     $_POST = json_decode(file_get_contents("php://input"), true);
                     break;
                 }
-    
+
             default: {
                     $this->controller = 'requesterror';
                     break;
                 }
         }
+
+
 
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;

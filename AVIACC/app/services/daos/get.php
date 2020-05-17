@@ -12,26 +12,14 @@ class Get
     {
 
 
-
-
-        $accident = new Accidente();
-        //echo "  Mayday get.php get entered ";
-        //$stmt = $accident->get();
-        //$count = $stmt->rowCount();
         $count = $amount_of_entries_to_fetch;
-
-
-
-        //echo "  Mayday get.php count calculated         ";
+        $amount_of_entries_to_fetch=3;
         $accidents = array();
         $accidents["body"] = array();
         $row_of_fetched_data_as_array = array();
         $accidents["count"] = $count;
         $accidents["valid"] = array();
         $amount = 0;
-
-
-        //  $prepared_statement_select_base = "SELECT  *  FROM ACCIDENTS WHERE id<5";
 
 
         $command = new Command();
@@ -43,23 +31,23 @@ class Get
 
         //  array_push($var1, $command->ShowCommand("id"));
         array_push($var1, $command->ShowCommand("id"), $command->ShowCommand("severity"), $command->ShowCommand("county"), $command->ShowCommand("amenity"));
-        array_push($var2, $command->BooleanCommand("country", "US"));
-        array_push($var3, $command->BetweenCommand("id", "5", "<"));
+        array_push($var2, $command->BooleanCommand("country", "US"), $command->BooleanCommand("county", "Montgomery"));
+        array_push($var3, $command->BetweenCommand("id", "40", "<"));
         array_push($var4, $command->EqualsCommand("numbers", 53424));
-        $prepared_statement_select_base = $command->createString($var1, 0, 0, $var2);
-
-        var_dump($prepared_statement_select_base);
-        //return  $prepared_statement_select_base;
+        $prepared_statement_select_base = $command->createString(0, 0, 0, 0);
+        $prepared_statement_bazat = $prepared_statement_select_base ;
+        $prepared_statement_select_base.= "  WHERE rownum < :page ";
+        
         $statement_select_base  = oci_parse($this->connection, $prepared_statement_select_base);
-
-        /*oci_bind_by_name($statement_select_base, ':amount_of_entries_to_fetch', $amount_of_entries_to_fetch);
-        oci_bind_by_name($statement_select_base, ':starting_entry_to_fetch', $starting_entry_to_fetch);
-        oci_bind_by_name($statement_select_base, ':page', $page_to_fetch);
-*/
+        var_dump($prepared_statement_select_base);
+     
+        oci_bind_by_name($statement_select_base, ':page',$amount_of_entries_to_fetch);
+    
+        
         oci_execute($statement_select_base);
 
 
-        while ($amount < $amount_of_entries_to_fetch) {
+        while ($amount < $amount_of_entries_to_fetch-1) {
             $amount = $amount + 1;
             $temporar = array();
             oci_fetch($statement_select_base);
@@ -72,26 +60,14 @@ class Get
                 }
             }
             array_push($accidents["body"], $temporar);
-            //   array_push( $accidents["body"],$temporar);
-
-
-
-            //echo oci_result($statement_select_base, "ID");
-            // array_push($row_of_fetched_data_as_array,array("id" => oci_result($statement_select_base, "ID")));
-            // array_push($row_of_fetched_data_as_array, oci_result($statement_select_base, "STREET"));
-            //  array_push($accidents["body"],$row_of_fetched_data_as_array);
-            // $row_of_fetched_data_as_array = array();
         }
 
-        $prepared_statement_select_count = "Select COUNT(*) from ( ";
-        $prepared_statement_select_count .= $prepared_statement_select_base;
-        $prepared_statement_select_count .= " )";
-        
-
+        $prepared_statement_select_count = "SELECT COUNT(*) from ( ";
+        $prepared_statement_select_count .= $prepared_statement_bazat;
+        $prepared_statement_select_count .= " ) ";
         $statement_select_count = oci_parse($this->connection, $prepared_statement_select_count);
-        
-
         oci_execute($statement_select_count);
+
         oci_fetch($statement_select_count);
         $accidents["count"] = oci_result($statement_select_count, "COUNT(*)");
         echo json_encode($accidents);

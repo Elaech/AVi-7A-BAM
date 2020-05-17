@@ -53,10 +53,10 @@ class Command
     //////////////////////////filter between
     function BetweenCommand($name, $value, $operator)
     {
-
+        $accidentBetween = array();
         if (strpos($this->valid_string_between, $name)) {
 
-            array_push($this->accidentBetween, [
+            array_push($accidentBetween, [
                 "name" => $name,
                 "value" => $value,
                 "operator" => $operator
@@ -64,7 +64,7 @@ class Command
         } else
             return "error";
         // return "between succes";
-        return $this->accidentBetween;
+        return $accidentBetween;
     }
 
     function getBetweenFilter()
@@ -75,17 +75,17 @@ class Command
     //////////////////////////filter boolean
     function BooleanCommand($name, $value)
     {
-
+        $accidentBoolean = array();
         if (strpos($this->valid_string_show, $name)) {
 
-            array_push($this->accidentBoolean, [
+            array_push($accidentBoolean, [
                 "name" => $name,
                 "value" => $value
             ]);
         } else
             return "error";
         //return "boolean succes";
-        return $this->accidentBoolean;
+        return $accidentBoolean;
     }
 
 
@@ -97,17 +97,17 @@ class Command
     ///////////////////////filter equals
     function EqualsCommand($name, $value)
     {
-
+        $accidentEquals = array();
         if (strpos($this->valid_string_equals, $name)) {
 
-            array_push($this->accidentEquals, [
+            array_push($accidentEquals, [
                 "name" => $name,
                 "value" => $value
             ]);
         } else
             return "error";
         //return "equals succes";
-        return $this->accidentEquals;
+        return $accidentEquals;
     }
 
     function getEqualsFilter()
@@ -180,4 +180,6 @@ class Command
         $sql_string = rtrim($sql_string, 'AND ');
         return $sql_string;
     }
+
+   
 }
