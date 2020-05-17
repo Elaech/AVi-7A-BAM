@@ -13,6 +13,7 @@ class AccountMenu extends Controller
             $data = $model->details($_COOKIE['token'],$this->getUserIP());
             if($data['status'] == true){
                 $this->setTokenCookie($data['token']);
+                $data['ip'] = $this->getUserIP();
                 $this->view('account/AccountMenu', $data);
             }
             else{
@@ -24,7 +25,9 @@ class AccountMenu extends Controller
             header(Constants::LOCATION_SIGNIN);
         }
     }
-
+    
+    
+    //Done by Ionita Andra
     //we will move those to ajax in javascript
     // public function changeUsername()
     // {
