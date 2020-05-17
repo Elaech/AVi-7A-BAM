@@ -8,11 +8,7 @@ class VerifyData extends Controller
     default()
     {
 
-        // if-ul asta o sa trebuiasca scos complet, nu avem token in aplicatie
-        // trebuie doar verificat daca requestul de la utilizator are : pozitie de start, cantitate de date ceruta, metoda get,
-        // alte verificari nu cred ca ne trebuie
-        if (
-            isset($_GET['id']) && $_GET['id'] != "" && $_GET['id'] > 0 &&
+        if ( isset($_GET['id']) && $_GET['id'] != "" && $_GET['id'] > 0 &&
             isset($_GET['amount']) && $_GET['amount'] > 0 && $_GET['amount'] < 201
             && isset($_GET['page']) && $_GET['page'] >= 0 && $_GET['page'] < 30000
         ) {
@@ -30,7 +26,7 @@ class VerifyData extends Controller
         ) {
             $id = $_GET['id'];
             $amount = $_GET['amount'];
-            $page = 0;
+            $page = 1;
             $this->response['status'] = 200;
             $this->body[$_SERVER['REQUEST_METHOD']] = 'Success in getting SOME data';
             $this->response['body'] = json_encode($this->body);
@@ -54,7 +50,7 @@ class VerifyData extends Controller
             $this->response['body'] = json_encode($this->body);
             $model = $this->model("Accidente");
 
-            $model->get(1, 25, 0);
+            $model->get(1, 25, 1);
         }
         return $this->response;
     }
