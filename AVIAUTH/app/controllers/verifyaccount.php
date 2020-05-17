@@ -29,16 +29,6 @@ class VerifyAccount extends Controller {
                 ]);
                 return $this->response;
             }
-            //Already logged in
-            if($user['weight']!="0"){
-                $this->set_response(200, 
-                ['status'=>false,
-                'username_error'=> 'User already logged in',
-                'password_error'=> 'User already logged in'
-                ]);
-                return $this->response;
-            }
-            //Password not matching
             if(!HashMaster::master_match_password_hash($password,$user['password'])){
                 $this->set_response(200, 
                 ['status'=>false,

@@ -51,7 +51,7 @@ class UpdateAccount extends Controller {
                     if($email_err==null){
                         $email = CryptMaster::master_encrypt($this->sanitizeString($data['email']));
                         if($userdao->isUniqueEmail($email)){
-                            $userdao->updatePasswordById($email,$id);
+                            $userdao->updateMailById($email,$id);
                             $email_err = "E-mail updated!";
                         }
                         else{

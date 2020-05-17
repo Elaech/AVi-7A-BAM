@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- Script by Ionita Andra -->
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
+    <!-- Script by Ionita Andra -->
     <meta lang="en-US">
     <title>Statistics</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

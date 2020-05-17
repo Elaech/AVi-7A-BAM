@@ -9,6 +9,178 @@
     <link href="<?php echo Constants::TEXT_FONT; ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo Constants::CSS_ACCOUNTMENU; ?>">
     <link rel="icon" href="<?php echo Constants::FAVICON; ?>" type="image/gif">
+    <!-- Script Done by Minut Mihai Dimitrie -->
+    <script type="text/javascript">
+        var IP = "<?php echo $data['ip']; ?>";
+
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(";");
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
+                if (name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+
+        function updateUsername() {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("PUT", "http://localhost/AVIAUTH/api/update", true);
+            xmlhttp.setRequestHeader("Content-type", "application / json");
+            xmlhttp.onreadystatechange = function() {
+                //when the response is ready
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    var json = JSON.parse(xmlhttp.responseText);
+                    //if it did not fail
+                    if (json.status == true) {
+                        var now = new Date(); 
+                        var time = now.getTime() + 1800 * 1000;
+                        now.setTime(time);
+                        document.cookie =
+                            "token=" + json.token +
+                            "; expires=" + now.toUTCString() +
+                            "; path=/AVi-7A-BAM";
+                        //if the field updated
+                        if (json.username == "Username updated!") {
+                            var username = localStorage.getItem("new-username");
+                            document.getElementById("change-username").placeholder = "Username: " + username;
+                            document.getElementById("change-username").value = "";
+                        //if it did not
+                        } else {
+                            document.getElementById("change-username").value = "";
+                            alert("Failed to update, reason:" + json.username);
+                        }
+                    }
+                    //if it failed we delete the cookie and change the page to home
+                    else{
+                        var now = new Date();
+                            var time = now.getTime() - 3600 * 1000;
+                            now.setTime(time);
+                            document.cookie =
+                                "token=" +
+                                "; expires=" + now.toUTCString() +
+                                "; path=/AVi-7A-BAM";
+                        document.location = "http://localhost/AVi-7A-BAM/public/home/index";
+                    }
+
+                }
+            };
+            var newUsername = document.getElementById("change-username").value;
+            localStorage.setItem("new-username",newUsername);
+            var token = getCookie("token");
+            var data = JSON.stringify({
+                "token": token,
+                "ip": IP,
+                "username": newUsername
+            });
+            xmlhttp.send(data);
+        }
+        function updateEmail() {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("PUT", "http://localhost/AVIAUTH/api/update", true);
+            xmlhttp.setRequestHeader("Content-type", "application / json");
+            xmlhttp.onreadystatechange = function() {
+                //when the response is ready
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    var json = JSON.parse(xmlhttp.responseText);
+                    //if it did not fail
+                    if (json.status == true) {
+                        var now = new Date(); 
+                        var time = now.getTime() + 1800 * 1000;
+                        now.setTime(time);
+                        document.cookie =
+                            "token=" + json.token +
+                            "; expires=" + now.toUTCString() +
+                            "; path=/AVi-7A-BAM";
+                        //if the field updated
+                        if (json.email == "E-mail updated!") {
+                            var email = localStorage.getItem("new-email");
+                            document.getElementById("change-email").placeholder = "Email: " + email;
+                            document.getElementById("change-email").value = "";
+                        //if it did not
+                        } else {
+                            document.getElementById("change-email").value = "";
+                            alert("Failed to update, reason:" + json.email);
+                        }
+                    }
+                    //if it failed we delete the cookie and change the page to home
+                    else{
+                        var now = new Date();
+                            var time = now.getTime() - 3600 * 1000;
+                            now.setTime(time);
+                            document.cookie =
+                                "token=" +
+                                "; expires=" + now.toUTCString() +
+                                "; path=/AVi-7A-BAM";
+                        document.location = "http://localhost/AVi-7A-BAM/public/home/index";
+                    }
+
+                }
+            };
+            var newEmail = document.getElementById("change-email").value;
+            localStorage.setItem("new-email",newEmail);
+            var token = getCookie("token");
+            var data = JSON.stringify({
+                "token": token,
+                "ip": IP,
+                "email": newEmail
+            });
+            xmlhttp.send(data);
+        }
+        function updatePassword() {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("PUT", "http://localhost/AVIAUTH/api/update", true);
+            xmlhttp.setRequestHeader("Content-type", "application / json");
+            xmlhttp.onreadystatechange = function() {
+                //when the response is ready
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    var json = JSON.parse(xmlhttp.responseText);
+                    //if it did not fail we reset the token cookie
+                    if (json.status == true) {
+                        var now = new Date(); 
+                        var time = now.getTime() + 1800 * 1000;
+                        now.setTime(time);
+                        document.cookie =
+                            "token=" + json.token +
+                            "; expires=" + now.toUTCString() +
+                            "; path=/AVi-7A-BAM";
+                        //if the field updated
+                        if (json.password == "Password updated!") {
+                            document.getElementById("change-password").placeholder = "Password Updated: ********";
+                            document.getElementById("change-password").value = "";
+                        //if it did not
+                        } else {
+                            document.getElementById("change-password").value = "";
+                            document.getElementById("change-password").placeholder = "Password: ********";
+                            alert("Failed to update, reason:" + json.password);
+                        }
+                    }
+                    //if it failed we delete the cookie and change the page to home
+                    else{
+                        var now = new Date();
+                            var time = now.getTime() - 3600 * 1000;
+                            now.setTime(time);
+                            document.cookie =
+                                "token=" +
+                                "; expires=" + now.toUTCString() +
+                                "; path=/AVi-7A-BAM";
+                        document.location = "http://localhost/AVi-7A-BAM/public/home/index";
+                    }
+
+                }
+            };
+            var newPassword = document.getElementById("change-password").value;
+            var token = getCookie("token");
+            var data = JSON.stringify({
+                "token": token,
+                "ip": IP,
+                "password": newPassword
+            });
+            xmlhttp.send(data);
+        }
+    </script>
+    <!-- End Script Done by Minut Mihai Dimitrie -->
     <meta lang="en-US">
     <title>Account</title>
 </head>
@@ -42,35 +214,34 @@
     <main class="main-class">
         <div id="account_menu">
             <div class="account_info">
-                <form >
+                <div>
                     <img class="user-image-input" src="<?php echo Constants::DEFAULT_USERICON; ?>" width="40" height="40">
                     <output></output>
-                    <input type="submit" name="search" value="Change" class="change-button-image">
-                </form>
+                    <button class="change-button-image">Change</button>
+                </div>
 
             </div>
             <div class="account_info">
-                <form action="<?php echo Constants::ACCOUNT_MENU_USER; ?>" method="POST"> 
-                    <input type="text" name="username" placeholder="<?php echo "Username: " .$data["username"]; ?>" class="change-input">
-                    <input type="submit" name="search" value="Change" class="change-button">
+                <div>
+                    <input id="change-username" type="text" placeholder="<?php echo "Username: " . $data["username"]; ?>" class="change-input" required>
+                    <button onclick="updateUsername()" class="change-button">Change</button>
                     <output></output>
-                </form>
+                </div>
             </div>
             <div class="account_info">
-                <form action="<?php echo Constants::ACCOUNT_MENU_PASS; ?>" method="POST">
-                    <input type="password" name="password" placeholder="Password: *************" class="change-input">
-                    <input type="submit" name="search" value="Change" class="change-button">
+                <div>
+                    <input id="change-password" type="password" placeholder="Password: *************" class="change-input" required>
+                    <button onclick="updatePassword()" class="change-button">Change</button>
                     <output></output>
-                </form>
+                </div>
 
             </div>
             <div class="account_info">
-                <form action="<?php echo Constants::ACCOUNT_MENU_EMAIL; ?>" method="POST">
-                    <input type="email" name="email" placeholder="<?php echo "Email: ". $data["email"]; ?>" class="change-input">
-                    <input type="submit" name="search" value="Change" class="change-button">
+                <div>
+                    <input id="change-email" type="email" placeholder="<?php echo "Email: " . $data["email"]; ?>" class="change-input" required>
+                    <button onclick="updateEmail()" class="change-button">Change</button>
                     <output></output>
-                </form>
-
+                </div>
             </div>
 
         </div>
