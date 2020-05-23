@@ -8,7 +8,7 @@ class Get
 
     private $connection;
 
-    public function get($starting_entry_to_fetch, $amount_of_entries_to_fetch, $page_to_fetch)
+    public function get($starting_entry_to_fetch, $amount_of_entries_to_fetch, $page_to_fetch, $data_requested)
     {
 
 
@@ -27,19 +27,32 @@ class Get
         $var3 = array();
         $var4 = array();
 
-        array_push($var1, $command->ShowCommand("severity"), $command->ShowCommand("county"), $command->ShowCommand("amenity"));
+        foreach ($data_requested as $data_piece){
+            if(!empty($data_requested['show'])){
+                foreach($data_piece as $show_element){
+                    echo $show_element;
+                    array_push($var1, $command->ShowCommand($show_element));
+                }
+            }
+        }
+
+
+        /*
+        array_push($var1, $command->ShowCommand("id"), $command->ShowCommand("county"), $command->ShowCommand("amenity"));
         array_push($var2, $command->BooleanCommand("country", "US"), $command->BooleanCommand("county", "Montgomery"));
         array_push($var3, $command->BetweenCommand("id", "40", "<"));
         array_push($var4, $command->EqualsCommand("numbers", 53424));
-        $prepared_statement_select_base = $command->createString(0, 0, 0, 0);
+        */
+        echo $var1;
+        $prepared_statement_select_base = $command->createString($var1, 0, 0, 0);
         $prepared_statement_bazat = $prepared_statement_select_base ;
 
         
         $page_end=$amount_of_entries_to_fetch*($page_to_fetch+1);
         $page_start=$amount_of_entries_to_fetch*$page_to_fetch;
-
-        var_dump($page_end);
-        var_dump($page_start);
+        //var_dump($data_requested);
+        //var_dump($page_start);
+        //var_dump($page_end);
                 
         $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( ".  $prepared_statement_bazat ." ORDER BY ID ) N WHERE ROWNUM<=" . $page_end .") WHERE RN>=" . $page_start;
         $statement_select_base = oci_parse($this->connection,$sqlstring);

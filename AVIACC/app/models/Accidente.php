@@ -134,11 +134,11 @@ distance  numbers  weather_timestamp temperature wind_chill humidity pressure vi
     }
 
 
-    public function get($starting_entry_to_fetch, $amount_of_entries_to_fetch, $page_to_fetch)
+    public function get($starting_entry_to_fetch, $amount_of_entries_to_fetch, $page_to_fetch, $data_requested)
     {
         $data = $this->daoservice("get");
 
-        return $data->get($starting_entry_to_fetch, $amount_of_entries_to_fetch, $page_to_fetch);
+        return $data->get($starting_entry_to_fetch, $amount_of_entries_to_fetch, $page_to_fetch, $data_requested);
     }
 
     public function getSome($id)
