@@ -27,14 +27,26 @@ class Get
         $var3 = array();
         $var4 = array();
 
-        foreach ($data_requested as $data_piece){
+        /*foreach ($data_requested as $data_piece){
             if(!empty($data_requested['show'])){
                 foreach($data_piece as $show_element){
                     echo $show_element;
                     array_push($var1, $command->ShowCommand($show_element));
                 }
             }
+        }*/
+
+
+        foreach ($data_requested['show'] as $data_piece){
+                echo $data_piece;
+                array_push($var1, $command->ShowCommand($data_piece));
         }
+
+        foreach ($data_requested['between'] as $data_piece){
+            echo $data_piece['name'];
+            array_push($var4, $command->BetweenCommand($data_piece['name'],$data_piece['value'],$data_piece['operator']));
+        }
+
 
 
         /*
@@ -44,7 +56,7 @@ class Get
         array_push($var4, $command->EqualsCommand("numbers", 53424));
         */
         echo $var1;
-        $prepared_statement_select_base = $command->createString($var1, 0, 0, 0);
+        $prepared_statement_select_base = $command->createString($var1, 0, 0, $var4);
         $prepared_statement_bazat = $prepared_statement_select_base ;
 
         
