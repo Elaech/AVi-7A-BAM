@@ -126,7 +126,7 @@ class Command
         if (empty($accidentShow))
             $sql_string .=  " * ";
         else {
-            $sql_string .=  " id, ";
+         //   $sql_string .=  " id, ";
             foreach ($accidentShow as $command) {
                 foreach ($command as $temp) {
 

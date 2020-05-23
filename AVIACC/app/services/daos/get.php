@@ -27,53 +27,48 @@ class Get
         $var3 = array();
         $var4 = array();
 
-        /*foreach ($data_requested as $data_piece){
-            if(!empty($data_requested['show'])){
-                foreach($data_piece as $show_element){
-                    echo $show_element;
-                    array_push($var1, $command->ShowCommand($show_element));
-                }
-            }
-        }*/
 
-
-        foreach ($data_requested['show'] as $data_piece){
+        if (!empty($data_requested['show'])) {
+            foreach ($data_requested['show'] as $data_piece) {
                 echo $data_piece;
                 array_push($var1, $command->ShowCommand($data_piece));
+            }
         }
 
-        foreach ($data_requested['between'] as $data_piece){
-            echo $data_piece['name'];
-            array_push($var4, $command->BetweenCommand($data_piece['name'],$data_piece['value'],$data_piece['operator']));
+        if (!empty($data_requested['between'])) {
+            foreach ($data_requested['between'] as $data_piece) {
+                echo $data_piece['name'];
+                array_push($var3, $command->BetweenCommand($data_piece['name'], $data_piece['value'], $data_piece['operator']));
+            }
+        }
+        if (!empty($data_requested['boolean'])) {
+            foreach ($data_requested['boolean'] as $data_piece) {
+                echo $data_piece['name'];
+                array_push($var4, $command->BooleanCommand($data_piece['name'], $data_piece['value']));
+            }
+        }
+        if (!empty($data_requested['equals'])) {
+            foreach ($data_requested['equals'] as $data_piece) {
+                echo $data_piece['name'];
+                array_push($var2, $command->EqualsCommand($data_piece['name'], $data_piece['value']));
+            }
         }
 
 
+        $prepared_statement_select_base = $command->createString($var1, $var2,  $var3, $var4);
+        $prepared_statement_bazat = $prepared_statement_select_base;
+        $page_end = $amount_of_entries_to_fetch * ($page_to_fetch + 1);
+        $page_start = $amount_of_entries_to_fetch * $page_to_fetch;
 
-        /*
-        array_push($var1, $command->ShowCommand("id"), $command->ShowCommand("county"), $command->ShowCommand("amenity"));
-        array_push($var2, $command->BooleanCommand("country", "US"), $command->BooleanCommand("county", "Montgomery"));
-        array_push($var3, $command->BetweenCommand("id", "40", "<"));
-        array_push($var4, $command->EqualsCommand("numbers", 53424));
-        */
-        echo $var1;
-        $prepared_statement_select_base = $command->createString($var1, 0, 0, $var4);
-        $prepared_statement_bazat = $prepared_statement_select_base ;
-
-        
-        $page_end=$amount_of_entries_to_fetch*($page_to_fetch+1);
-        $page_start=$amount_of_entries_to_fetch*$page_to_fetch;
-        //var_dump($data_requested);
-        //var_dump($page_start);
-        //var_dump($page_end);
-                
-        $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( ".  $prepared_statement_bazat ." ORDER BY ID ) N WHERE ROWNUM<=" . $page_end .") WHERE RN>=" . $page_start;
-        $statement_select_base = oci_parse($this->connection,$sqlstring);
+        $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( " .  $prepared_statement_bazat . " ORDER BY ID ) N WHERE ROWNUM<=" . $page_end . ") WHERE RN>=" . $page_start;
+        $statement_select_base = oci_parse($this->connection, $sqlstring);
         var_dump($sqlstring);
         oci_execute($statement_select_base);
-        while ($amount < $amount_of_entries_to_fetch-1) {
+        while ($amount < $amount_of_entries_to_fetch - 1) {
             $amount = $amount + 1;
             $temporar = array();
             oci_fetch($statement_select_base);
+
 
             foreach ($var1 as $row) {
 
@@ -84,6 +79,7 @@ class Get
             }
             array_push($accidents["body"], $temporar);
         }
+
 
 
         $prepared_statement_select_count = "SELECT COUNT(*) from ( ";
