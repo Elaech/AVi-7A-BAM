@@ -30,26 +30,26 @@ class Get
 
         if (!empty($data_requested['show'])) {
             foreach ($data_requested['show'] as $data_piece) {
-                echo $data_piece;
+                //echo $data_piece;
                 array_push($var1, $command->ShowCommand($data_piece));
             }
         }
 
         if (!empty($data_requested['between'])) {
             foreach ($data_requested['between'] as $data_piece) {
-                echo $data_piece['name'];
+                //echo $data_piece['name'];
                 array_push($var3, $command->BetweenCommand($data_piece['name'], $data_piece['value'], $data_piece['operator']));
             }
         }
         if (!empty($data_requested['boolean'])) {
             foreach ($data_requested['boolean'] as $data_piece) {
-                echo $data_piece['name'];
+                //echo $data_piece['name'];
                 array_push($var4, $command->BooleanCommand($data_piece['name'], $data_piece['value']));
             }
         }
         if (!empty($data_requested['equals'])) {
             foreach ($data_requested['equals'] as $data_piece) {
-                echo $data_piece['name'];
+                //echo $data_piece['name'];
                 array_push($var2, $command->EqualsCommand($data_piece['name'], $data_piece['value']));
             }
         }
@@ -62,7 +62,7 @@ class Get
 
         $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( " .  $prepared_statement_bazat . " ORDER BY ID ) N WHERE ROWNUM<=" . $page_end . ") WHERE RN>=" . $page_start;
         $statement_select_base = oci_parse($this->connection, $sqlstring);
-        var_dump($sqlstring);
+        //var_dump($sqlstring);
         oci_execute($statement_select_base);
         while ($amount < $amount_of_entries_to_fetch - 1) {
             $amount = $amount + 1;

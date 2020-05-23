@@ -9,12 +9,12 @@ class VerifyData extends Controller
     {
 
 
-        ini_set("allow_url_fopen", 1); // !!!!!!!!!!!!!!!!!! NOT GOOD, TO BE REVAMPED
-
         $actual_link = "php://input";
         $json_requested = file_get_contents($actual_link);
         $data_requested = json_decode($json_requested, true);
-        if ($data_requested == null) {
+        if ($data_requested == null || 
+        count($data_requested['show'])<1 ||
+        count($data_requested['show'])>10) {
             http_response_code(400);
             exit;
         }
