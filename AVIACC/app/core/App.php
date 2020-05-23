@@ -24,11 +24,6 @@ class App
                     $_GET = json_decode(file_get_contents("php://input"), true);
                     break;
                 }
-            case 'POST': {
-                    $this->controller = 'accident';
-                    $_POST = json_decode(file_get_contents("php://input"), true);
-                    break;
-                }
 
             default: {
                     $this->controller = 'requesterror';
