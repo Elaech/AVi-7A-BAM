@@ -17,7 +17,6 @@ class Get
         $accidents["body"] = array();
         $row_of_fetched_data_as_array = array();
         $accidents["count"] = $count;
-        $accidents["valid"] = array();
         $amount = 0;
 
 
@@ -90,7 +89,8 @@ class Get
 
         oci_fetch($statement_select_count);
         $accidents["count"] = oci_result($statement_select_count, "COUNT(*)");
-        echo json_encode($accidents);
+        return json_encode($accidents);
+
     }
 
     public function __construct()

@@ -34,10 +34,10 @@ class App
         }
 
         $data = json_decode(file_get_contents("php://input"), true);
-        if ($data == null) {
-            http_response_code(400);
-            exit;
-        }
+        // if ($data == null) {
+        //     http_response_code(400);
+        //     exit;
+        // }
 
 
         require_once '../app/controllers/' . $this->controller . '.php';
