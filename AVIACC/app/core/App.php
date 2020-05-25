@@ -25,10 +25,7 @@ class App
                 $this->controller = 'verifydata';
                     break;
                 }
-                case 'POST': {
-                    $this->controller = 'verifydata';
-                        break;
-                    }
+             
 
             default: {
                     $this->controller = 'requesterror';
