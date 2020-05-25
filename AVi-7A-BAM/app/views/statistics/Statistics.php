@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
+    <script src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
     <!-- Script by Ionita Andra -->
     <meta lang="en-US">
     <title>Statistics</title>
@@ -41,7 +41,7 @@
                 height: 500,
                 width: 600,
                 pieHole: 0.4,
-                colors: ['#efe0bb', '#af734a','#3b271d', '#f3b49f', '#f6c7b6']
+                colors: ['#efe0bb', '#af734a', '#3b271d', '#f3b49f', '#f6c7b6']
 
             };
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -49,9 +49,158 @@
 
         }
     </script>
-
-
     <!-- Script finished by Ionita Andra -->
+
+    <!-- Pagination Script -->
+    <script>
+        var show_map = {
+            ShowAirportCode: "airport_code",
+            ShowAmenity: "amenity",
+            ShowAstronomicalTwilight: "astronomical_twilight",
+            ShowBump: "bump",
+            ShowCity: "city",
+            ShowCivilTwilight: "civil_twilight",
+            ShowCounty: "country",
+            ShowCrossing: "county",
+            ShowDescription: "crossing",
+            ShowDistance: "description",
+            ShowEndLatitude: "distance",
+            ShowEndLongitude: "end_lat",
+            ShowEndTime: "end_lng",
+            ShowGiveWay: "end_time",
+            ShowHumidity: "give_way",
+            ShowID: "humidity",
+            ShowJunction: "id",
+            ShowNauticalTwilight: "junction",
+            ShowNoExit: "no_exit",
+            ShowPrecipitation: "numbers",
+            ShowPressure: "precipitation",
+            ShowRailway: "pressure",
+            ShowRoundabout: "railway",
+            ShowSeverity: "roundabout",
+            ShowSource: "severity",
+            ShowStartLatitude: "side",
+            ShowStartLongitude: "source",
+            ShowStartTime: "start_lat",
+            ShowState: "start_lng",
+            ShowStation: "start_time",
+            ShowStop: "state",
+            ShowStreetName: "station",
+            ShowStreetNumber: "stop",
+            ShowStreetSide: "street",
+            ShowSunriseSunset: "sunrise_sunset",
+            ShowTMC: "temperature",
+            ShowTemperature: "timezone",
+            ShowTimeZone: "tmc",
+            ShowTrafficCalming: "traffic_calming",
+            ShowTrafficSignal: "traffic_signal",
+            ShowTurningLoop: "turning_loop",
+            ShowVisibility: "visibility",
+            ShowWeatherCondition: "weather_condition",
+            ShowWeatherTimestamp: "weather_timestamp",
+            ShowWindChill: "wind_chill",
+            ShowWindDirection: "wind_direction",
+            ShowWindSpeed: "wind_speed",
+            ShowZipcode: "zipcode"
+        };
+        var show_unmap = {
+            airport_code: "ShowAirportCode",
+            amenity: "ShowAmenity",
+            astronomical_twilight: "ShowAstronomicalTwilight",
+            bump: "ShowBump",
+            city: "ShowCity",
+            civil_twilight: "ShowCivilTwilight",
+            country: "ShowCounty",
+            county: "ShowCrossing",
+            crossing: "ShowDescription",
+            description: "ShowDistance",
+            distance: "ShowEndLatitude",
+            end_lat: "ShowEndLongitude",
+            end_lng: "ShowEndTime",
+            end_time: "ShowGiveWay",
+            give_way: "ShowHumidity",
+            humidity: "ShowID",
+            id: "ShowJunction",
+            junction: "ShowNauticalTwilight",
+            no_exit: "ShowNoExit",
+            numbers: "ShowPrecipitation",
+            precipitation: "ShowPressure",
+            pressure: "ShowRailway",
+            railway: "ShowRoundabout",
+            roundabout: "ShowSeverity",
+            severity: "ShowSource",
+            side: "ShowStartLatitude",
+            source: "ShowStartLongitude",
+            start_lat: "ShowStartTime",
+            start_lng: "ShowState",
+            start_time: "ShowStation",
+            state: "ShowStop",
+            station: "ShowStreetName",
+            stop: "ShowStreetNumber",
+            street: "ShowStreetSide",
+            sunrise_sunset: "ShowSunriseSunset",
+            temperature: "ShowTMC",
+            timezone: "ShowTemperature",
+            tmc: "ShowTimeZone",
+            traffic_calming: "ShowTrafficCalming",
+            traffic_signal: "ShowTrafficSignal",
+            turning_loop: "ShowTurningLoop",
+            visibility: "ShowVisibility",
+            weather_condition: "ShowWeatherCondition",
+            weather_timestamp: "ShowWeatherTimestamp",
+            wind_chill: "ShowWindChill",
+            wind_direction: "ShowWindDirection",
+            wind_speed: "ShowWindSpeed",
+            zipcode: "ShowZipcode"
+        };
+
+        window.onload = function() {
+            var request_array = localStorage.getItem("filter_items");
+            if (request_array != null) {
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "http://localhost/AVIACC/api",true);
+                xmlhttp.setRequestHeader("Content-type", "application / json");
+                xmlhttp.onreadystatechange = function() {
+                    //when the response is ready
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        // var json = JSON.parse(xmlhttp.responseText);
+                        console.log(xmlhttp.responseText);
+                    }
+
+                };
+                xmlhttp.send(JSON.stringify(request_array));
+            }
+        }
+
+        function search_by_filters() {
+            var request_array = build_search_request_array();
+            localStorage.setItem("filter_items", JSON.stringify(request_array));
+        }
+
+        //Method done by Minut Mihai Dimitrie
+        function build_search_request_array() {
+            var request_array = {};
+            request_array['id'] = 1;
+            request_array['page'] = 1;
+            request_array['amount'] = 20;
+            request_array['show'] = {};
+            request_array['between'] = {};
+            request_array['equals'] = {};
+            request_array['boolean'] = {};
+            var show_filters = document.getElementsByClassName("showCheck");
+            for (var index = 0; index < show_filters.length; index++) {
+                if (show_filters[index].checked == true) {
+                    request_array['show'][show_map[show_filters[index].id]] = show_map[show_filters[index].id];
+                }
+            }
+            var restrict_filters = document.getElementsByClassName("restrictInput");
+            // for(var index = 0;index<restrict_filters.length;index++){
+            //     request_array['show'][]
+            // }
+            return request_array;
+        }
+    </script>
+    <!-- End of Pagination Script -->
 </head>
 
 <body>
@@ -59,7 +208,7 @@
 
     <!-- Done by Minut Mihai Dimitrie -->
     <main class="main-class">
-        <form class="filtration-menu-container">
+        <form class="filtration-menu-container" method="POST">
             <!--Pick Shown Files Division-->
             <div class="pick-show">
                 <div class="pick-title-show">
@@ -221,10 +370,6 @@
                             <input type="checkbox" id="ShowStreetSide" class="showCheck">
                             <span>Street Side</span>
                         </label>
-                        <label for="ShowAirportCode" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowAirportCode" class="showCheck">
-                            <span>Airport Code</span>
-                        </label>
 
                     </div>
                     <!--Location secondary-->
@@ -251,6 +396,10 @@
                         <label for="ShowDistance" class="pick-columns-item" name="showLocationSecondaryItems">
                             <input type="checkbox" id="ShowDistance" class="showCheck">
                             <span>Distance (miles)</span>
+                        </label>
+                        <label for="ShowAirportCode" class="pick-columns-item" name="showLocationSecondaryItems">
+                            <input type="checkbox" id="ShowAirportCode" class="showCheck">
+                            <span>Airport Code</span>
                         </label>
                     </div>
                     <!--Weather Primary-->
@@ -330,10 +479,6 @@
                         <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictEntryItem')">
                             <p>Entries</p>
                         </div>
-                        <label for="SearchMaxNumberOfEntries" name="restrictEntryItem" class="pick-restrict-item">Number
-                            of Entries (max):
-                            <input type="number" id="SearchMaxNumberOfEntries" class="restrictInput">
-                        </label>
                         <label for="SearchMinID" name="restrictEntryItem" class="pick-restrict-item">ID (min):
                             <input type="text" id="SearchMinID" class="restrictInput">
                         </label>
@@ -748,35 +893,34 @@
                     </div>
                 </div>
             </div>
-            <!--Submit Button-->
-
-            <div class="pick-button">
-                <button type="submit" value="Search" class="filtration-submit-button">Search</button>
-            </div>
-
-
-            <div class="pick-button">
-            <button type="button" class="filtration-submit-button" data-toggle="modal" data-target="#myModal">View Data</button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div id="piechart"></div>
-                    </div>
-
-                </div>
-            </div>
-
             <!-- Finished Section Done By Ionita Andra Paula -->
+            <!--Submit Button-->
+            <!-- Done by Minut Mihai Dimitrie -->
+            <div class="pick-button">
+                <button onclick="search_by_filters()" value="Search" class="filtration-submit-button">Search</button>
+            </div>
+            <!-- Finished Section Done By Minut Mihai Dimitrie -->
         </form>
-        <!--Section Done By Minut Mihai Dimitrie -->
+        <!-- Done by Ionita Andra -->
+        <div class="pick-button">
+            <button type="button" class="filtration-submit-button" data-toggle="modal" data-target="#myModal">View Data</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div id="piechart"></div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Finished Section Done By Ionita Andra Paula -->
         <div class="result">
             <table class="result-table">
                 <thead class="result-table-head">
-                    <tr>
+                    <!-- <tr>
                         <th class="result-table-head-element">ID</th>
                         <th class="result-table-head-element">Camp1</th>
                         <th class="result-table-head-element">Camp2</th>
@@ -793,10 +937,10 @@
                         <th class="result-table-head-element">Camp13</th>
                         <th class="result-table-head-element">Camp14</th>
                         <th class="result-table-head-element">Camp15</th>
-                    </tr>
+                    </tr> -->
                 </thead>
                 <tbody class="result-table-body">
-                    <tr>
+                    <!-- <tr>
                         <td class="result-table-row-cell">info</td>
                         <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
                         <td class="result-table-row-cell">A lot more info</td>
@@ -831,482 +975,14 @@
                         <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
                         <td class="result-table-row-cell">A lot more info</td>
                         <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
         <!-- by Ionita Andra -->
-        <!--  <div id="myModal" class="modal">
+        <!--  <div id="myModal" class="modal" -->
 
-            <!-- Modal content 
+        <!-- Modal content 
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div id="piechart"></div>
@@ -1318,7 +994,9 @@
 
         <!-- finished by Ionita Andra -->
 
+        <div>
 
+        </div>
 
         <!-- Finished Section Done By Minut Mihai Dimitrie -->
     </main>
@@ -1421,7 +1099,7 @@
         </li>
         <li class="navbar-item">
 
-            <div class="nav-link" onclick="document.location.href='http://localhost/AVi-7A-BAM/public/SignIn'">
+            <div class="nav-link" onclick="document.location.href='http://localhost/AVi-7A-BAM/public/SignIn/logout'">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt" class="svg-inline--fa fa-sign-out-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"></path>
                 </svg>

@@ -36,9 +36,10 @@ function restrictHideItems(list,itemsName){
 }
 function pickUnpickAllShowItems(){
     var showItems = document.getElementsByClassName("showCheck");
-        for(var index=0;index<showItems.length;index++){
-            showItems[index].checked = document.getElementById("ShowAll").checked;
-        }
-
-
+    for(var index=0;index<showItems.length;index++){
+        showItems[index].checked = document.getElementById("ShowAll").checked;
+    }
 }
+
+
+// End of methods done by Minut Mihai Dimitrie
