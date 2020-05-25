@@ -1,5 +1,6 @@
 <?php
 //Done by Ionita Andra
+
 class App
 {
 
@@ -10,6 +11,7 @@ class App
     public function __construct()
     {
 
+        header('Content-Type: application/json');
         $this->request_method = $_SERVER['REQUEST_METHOD'];
         $url = $this->parseUrl();
         if ($url) {
@@ -21,9 +23,12 @@ class App
         switch ($this->request_method) {
             case 'GET': {
                 $this->controller = 'verifydata';
-                    $_GET = json_decode(file_get_contents("php://input"), true);
                     break;
                 }
+                case 'POST': {
+                    $this->controller = 'verifydata';
+                        break;
+                    }
 
             default: {
                     $this->controller = 'requesterror';
@@ -31,11 +36,17 @@ class App
                 }
         }
 
+        $data = json_decode(file_get_contents("php://input"), true);
+        if ($data == null) {
+            http_response_code(400);
+            exit;
+        }
 
 
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
-        $this->response = $this->controller->default();
+        $this->response = $this->controller->default($data);
+     
         http_response_code($this->response['status']);
         if ($this->response['body']) {
             echo $this->response['body'];
