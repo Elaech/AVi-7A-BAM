@@ -9,8 +9,11 @@ class App
 
     public function __construct()
     {
+        
         new CryptMaster;
         new UserToken;
+        header("Access-Control-Allow-Origin:*");
+        header('Content-Type: text/plain');
         $url = $this->parseUrl();
         if(isset($url[0])){
             $path = $url[0];
@@ -19,6 +22,7 @@ class App
             $path = "";
         }
         $this->request_method = $_SERVER['REQUEST_METHOD'];
+
         switch ($this->request_method. '/' .$path) {
             case 'POST/check': {
                     $this->controller = 'verifyaccount';
@@ -55,7 +59,6 @@ class App
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
         $this->response = $this->controller->default($data);
-        header('Content-Type: application/json');
         http_response_code($this->response['status']);
         if ($this->response['body']) {
             echo $this->response['body'];
