@@ -10,23 +10,17 @@ class App
 
     public function __construct()
     {
-
-        header('Content-Type: application/json');
+        header("Access-Control-Allow-Origin:*");
+        header('Content-Type: text/plain');
+        
+        
         $this->request_method = $_SERVER['REQUEST_METHOD'];
-        $url = $this->parseUrl();
-        if ($url) {
-            $this->params = array_values($url);
-        }
-
-
 
         switch ($this->request_method) {
-            case 'GET': {
+            case 'POST': {
                 $this->controller = 'verifydata';
                     break;
                 }
-             
-
             default: {
                     $this->controller = 'requesterror';
                     break;
@@ -34,10 +28,10 @@ class App
         }
 
         $data = json_decode(file_get_contents("php://input"), true);
-        // if ($data == null) {
-        //     http_response_code(400);
-        //     exit;
-        // }
+        if ($data == null) {
+            http_response_code(400);
+            exit;
+        }
 
 
         require_once '../app/controllers/' . $this->controller . '.php';
@@ -47,13 +41,6 @@ class App
         http_response_code($this->response['status']);
         if ($this->response['body']) {
             echo $this->response['body'];
-        }
-    }
-
-    protected function parseUrl()
-    {
-        if (isset($_GET['url'])) {
-            return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
     }
 }

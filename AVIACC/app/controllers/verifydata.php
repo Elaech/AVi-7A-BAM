@@ -4,8 +4,7 @@
 class VerifyData extends Controller
 {
 
-    function
-    default($data_requested)
+    function default($data_requested)
     {
         header('Content-Type: application/json');
 

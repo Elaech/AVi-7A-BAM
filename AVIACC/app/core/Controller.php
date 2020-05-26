@@ -3,7 +3,6 @@
 class Controller
 {   
     protected $response;
-    protected $body;
 
     protected function model($model)
     {
