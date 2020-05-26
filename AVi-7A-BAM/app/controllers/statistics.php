@@ -11,6 +11,7 @@ class Statistics extends Controller
             $data = $model->check($_COOKIE['token'],$this->getUserIP());
             if($data['status'] == true){
                 $this->setTokenCookie($data['token']);
+//echo $_POST['json_filter'];
                 $this->view('statistics/Statistics');
             }
             else{
@@ -22,7 +23,7 @@ class Statistics extends Controller
         }
     }
 
-    //Done by
+    //Done by Ionita Andra
     public function data()
     {
         session_start();
@@ -31,7 +32,20 @@ class Statistics extends Controller
             $data = $authmodel->check($_COOKIE['token'],$this->getUserIP());
             if($data['status'] == true){
                 $this->setTokenCookie($data['token']);
-                $this->view('statistics/Statistics');
+
+                $id=1;
+                $amount=20;
+                $page=1;
+                $show=[];
+                $between=[];
+                $boolean=[];
+                $equals=[];
+                //verify if checkbox checked in php
+                //daca da facem array
+                //bagam ce e in array in $show
+                $accmodel = $this->model("accmodel");
+                $table_data = $accmodel->details($id,$page,$amount,$show, $boolean, $equals,$between);
+                $this->view('statistics/Statistics', $table_data);
             }
             else{
                 $this->deleteTokenCookie();

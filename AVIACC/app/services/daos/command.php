@@ -10,16 +10,14 @@ class Command
      turning_loop sunrise_sunset civil_twilight astronomical_twilight ";
 
     private $valid_string_boolean = " amenity bump crossing give_way junction no_exit railway roundabout station stop traffic_calming traffic_signal 
-   turning_loop sunrise_sunset civil_twilight astronomical_twilight ";
+    turning_loop sunrise_sunset civil_twilight  zipcode timezone wind_direction weather_condition  airport_code weather_timestamp  country 
+    astronomical_twilight  start_time end_time  end_lat end_lng  source description   street side city county state";
 
-    private $valid_string_equals = " id  source tmc severity start_time end_time start_lat start_lng end_lat end_lng 
-   distance description numbers street side city county state zipcode country timezone airport_code weather_timestamp 
- temperature wind_chill humidity pressure visibility wind_direction wind_speed precipitation weather_condition 
- amenity bump crossing give_way junction no_exit railway roundabout station stop traffic_calming traffic_signal 
- turning_loop sunrise_sunset civil_twilight astronomical_twilight ";
+    private $valid_string_equals = " id tmc severity  start_lat start_lng 
+    distance  numbers temperature wind_chill humidity pressure visibility  wind_speed precipitation ";
 
-    private $valid_string_between = " id tmc severity start_time end_time start_lat start_lng end_lat end_lng 
- distance  numbers  weather_timestamp temperature wind_chill humidity pressure visibility wind_direction wind_speed precipitation ";
+    private $valid_string_between = " id tmc severity  start_lat start_lng 
+    distance  numbers  temperature wind_chill humidity pressure visibility  wind_speed precipitation ";
 
 
     public $accidentBetween = array();
@@ -76,7 +74,7 @@ class Command
     function BooleanCommand($name, $value)
     {
         $accidentBoolean = array();
-        if (strpos($this->valid_string_show, $name)) {
+        if (strpos($this->valid_string_boolean, $name)) {
 
             array_push($accidentBoolean, [
                 "name" => $name,
@@ -126,7 +124,7 @@ class Command
         if (empty($accidentShow))
             $sql_string .=  " * ";
         else {
-         //   $sql_string .=  " id, ";
+            //   $sql_string .=  " id, ";
             foreach ($accidentShow as $command) {
                 foreach ($command as $temp) {
 
@@ -181,6 +179,4 @@ class Command
         $sql_string = rtrim($sql_string, 'AND ');
         return $sql_string;
     }
-
-   
 }

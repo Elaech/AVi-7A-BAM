@@ -4,7 +4,7 @@ class AVIACC
 {
 
 
-    function getAccidentsDataRequest1($id,$page,$amount,$show, $boolean, $equals,$between){
+    function getAccidentsDataRequest($id,$page,$amount,$show, $boolean, $equals,$between){
         header('Content-Type: text/plain');
         $url = Constants::ACC_DETAILS['url'];
         $data=array();

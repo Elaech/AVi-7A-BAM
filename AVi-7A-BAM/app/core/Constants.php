@@ -70,5 +70,5 @@ class Constants{
     const AUTH_DETAILS = ["method"=>"GET","url"=>"http://localhost/AVIAUTH/api/details"];
 
     //AVIACC CONSTANTS
-    const ACC_DETAILS = ["method"=>"GET","url"=>"http://localhost/AViACC/api/"];
+    const ACC_DETAILS = ["method"=>"POST","url"=>"http://localhost/AViACC/api/"];
 }
