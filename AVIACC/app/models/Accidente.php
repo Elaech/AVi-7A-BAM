@@ -3,13 +3,7 @@
 class Accidente  extends Model
 {
     private $conn;
-    //private $table_name = "testing";
     private $table_name = "ACCIDENTS";
-
-    //public $name;
-    //public $accidente;
-
-
     public $id;
     public $Source;
     public $TMC;

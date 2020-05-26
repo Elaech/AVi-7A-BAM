@@ -1,6 +1,6 @@
 Options -MultiViews
 RewriteEngine On
-RewriteBase /AVIAUTH/api
+RewriteBase /AVIACC/api
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
