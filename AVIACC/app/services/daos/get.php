@@ -63,7 +63,7 @@ class Get
         $statement_select_base = oci_parse($this->connection, $sqlstring);
         //var_dump($sqlstring);
         oci_execute($statement_select_base);
-        while ($amount < $amount_of_entries_to_fetch - 1) {
+        while ($amount < $amount_of_entries_to_fetch ) {
             $amount = $amount + 1;
             $temporar = array();
             oci_fetch($statement_select_base);
