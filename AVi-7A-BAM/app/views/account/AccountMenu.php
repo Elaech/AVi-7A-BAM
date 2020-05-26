@@ -27,7 +27,7 @@
         function updateUsername() {
             xmlhttp = new XMLHttpRequest();
             xmlhttp.open("PUT", "http://localhost/AVIAUTH/api/update", true);
-            xmlhttp.setRequestHeader("Content-type", "application / json");
+            xmlhttp.setRequestHeader("Content-type", "text/plain");
             xmlhttp.onreadystatechange = function() {
                 //when the response is ready
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -79,7 +79,7 @@
         function updateEmail() {
             xmlhttp = new XMLHttpRequest();
             xmlhttp.open("PUT", "http://localhost/AVIAUTH/api/update", true);
-            xmlhttp.setRequestHeader("Content-type", "application / json");
+            xmlhttp.setRequestHeader("Content-type", "text/plain");
             xmlhttp.onreadystatechange = function() {
                 //when the response is ready
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -131,7 +131,7 @@
         function updatePassword() {
             xmlhttp = new XMLHttpRequest();
             xmlhttp.open("PUT", "http://localhost/AVIAUTH/api/update", true);
-            xmlhttp.setRequestHeader("Content-type", "application / json");
+            xmlhttp.setRequestHeader("Content-type", "text/plain");
             xmlhttp.onreadystatechange = function() {
                 //when the response is ready
                 if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {

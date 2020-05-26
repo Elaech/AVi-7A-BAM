@@ -8,12 +8,12 @@ class VerifyData extends Controller
     {
         header('Content-Type: application/json');
 
-        if ($data_requested == null || 
-        count($data_requested['show'])<1 ||
-        count($data_requested['show'])>10) {
-            http_response_code(400);
-            exit;
-        }
+        // if ($data_requested == null || 
+        // count($data_requested['show'])<1 ||
+        // count($data_requested['show'])>10) {
+        //     http_response_code(400);
+        //     exit;
+        // }
     
         $this->response['status'] = 200;
         $model = $this->model("Accidente");

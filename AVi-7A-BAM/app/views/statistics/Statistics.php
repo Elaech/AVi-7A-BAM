@@ -155,16 +155,16 @@
         };
 
         window.onload = function() {
-            var request_array = localStorage.getItem("filter_items");
+            var request_array = JSON.parse(localStorage.getItem("filter_items"));
             if (request_array != null) {
                 xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "http://localhost/AVIACC/api",true);
-                xmlhttp.setRequestHeader("Content-type", "application / json");
+                xmlhttp.open("POST", "http://localhost/AVIACC/api/",true);
+                xmlhttp.setRequestHeader("Content-type", "text/plain");
                 xmlhttp.onreadystatechange = function() {
                     //when the response is ready
                     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                        // var json = JSON.parse(xmlhttp.responseText);
-                        console.log(xmlhttp.responseText);
+                        var json = JSON.parse(xmlhttp.responseText);
+                        console.log(json);
                     }
 
                 };
@@ -193,7 +193,7 @@
                     request_array['show'][show_map[show_filters[index].id]] = show_map[show_filters[index].id];
                 }
             }
-            var restrict_filters = document.getElementsByClassName("restrictInput");
+            // var restrict_filters = document.getElementsByClassName("restrictInput");
             // for(var index = 0;index<restrict_filters.length;index++){
             //     request_array['show'][]
             // }

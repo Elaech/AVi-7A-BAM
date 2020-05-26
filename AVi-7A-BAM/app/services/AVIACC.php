@@ -5,16 +5,16 @@ class AVIACC
 
 
     function getAccidentsDataRequest1($id,$page,$amount,$show, $boolean, $equals,$between){
-        header('Content-Type: application/json');
-        $url = ACC_DETAILS['url'];
+        header('Content-Type: text/plain');
+        $url = Constants::ACC_DETAILS['url'];
         $data=array();
 		$data=["id"=> $id, "page"=>$page,"amount"=>$amount,"show"=>$show,"boolean"=>$boolean,"equals"=>$equals,"between"=>$between];
 
 		var_dump(json_encode($data));
 		$data_json = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
-                'method'  => ACC_DETAILS['method'],
+                'header'  => "Content-Type: text/plain\r\n",
+                'method'  => Constants::ACC_DETAILS['method'],
                 'content' => json_encode($data)
             )
         );

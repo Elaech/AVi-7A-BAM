@@ -9,7 +9,7 @@ class AVIAUTH
         $data = ["username"=> $username, "password"=>$password,"email"=>$email, "ip"=>$ip];
         $options = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
+                'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::AUTH_CREATE['method'],
                 'content' => json_encode($data)
             )
@@ -32,7 +32,7 @@ class AVIAUTH
         $data = ["username"=>$username,"password"=>$password, "ip"=>$ip];
         $options = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
+                'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::AUTH_CHECK['method'],
                 'content' => json_encode($data)
             )
@@ -56,7 +56,7 @@ class AVIAUTH
         $data = ["token"=>$token, "ip"=>$ip];
         $options = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
+                'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::AUTH_CHECK['method'],
                 'content' => json_encode($data)
             )
@@ -79,7 +79,7 @@ class AVIAUTH
         $data = ["token"=>$token, "ip"=>$ip];
         $options = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
+                'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::AUTH_DETAILS['method'],
                 'content' => json_encode($data)
             )
@@ -102,7 +102,7 @@ class AVIAUTH
         $data = ["token"=>$token, "ip"=>$ip];
         $options = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
+                'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::AUTH_LOGOUT['method'],
                 'content' => json_encode($data)
             )
@@ -125,7 +125,7 @@ class AVIAUTH
         $data = ["token"=>$token, "ip"=>$ip, "username"=>$username,"password"=>$password, "email"=>$email];
         $options = array(
             'http' => array(
-                'header'  => "Content-Type: application/json\r\n",
+                'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::AUTH_UPDATE['method'],
                 'content' => json_encode($data)
             )

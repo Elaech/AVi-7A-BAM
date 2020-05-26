@@ -19,12 +19,12 @@ class App
         switch ($this->request_method) {
             case 'POST': {
                 $this->controller = 'verifydata';
-                    break;
-                }
+                break;
+            }
             default: {
-                    $this->controller = 'requesterror';
-                    break;
-                }
+                $this->controller = 'requesterror';
+                break;
+            }
         }
 
         $data = json_decode(file_get_contents("php://input"), true);

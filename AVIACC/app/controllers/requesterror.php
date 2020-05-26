@@ -1,8 +1,7 @@
 <?php
 //Done by Ionita Andra
 class RequestError extends Controller {
-    function default(){
+    function default($data){
         return $this->response;
-        echo "requesterror.php Stuff";
     }
 }
