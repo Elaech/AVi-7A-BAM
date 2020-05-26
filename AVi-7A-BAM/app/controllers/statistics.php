@@ -31,10 +31,7 @@ class Statistics extends Controller
             $data = $authmodel->check($_COOKIE['token'],$this->getUserIP());
             if($data['status'] == true){
                 $this->setTokenCookie($data['token']);
-
-                $accmodel = $this->model("accidentsmodel");
-                $table_data = $accmodel->getFullTableData();
-                $this->view('statistics/Statistics', $table_data);
+                $this->view('statistics/Statistics');
             }
             else{
                 $this->deleteTokenCookie();

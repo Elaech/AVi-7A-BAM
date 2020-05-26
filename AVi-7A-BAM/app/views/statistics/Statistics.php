@@ -53,107 +53,8 @@
 
     <!-- Pagination Script -->
     <script>
-        var show_map = {
-            ShowAirportCode: "airport_code",
-            ShowAmenity: "amenity",
-            ShowAstronomicalTwilight: "astronomical_twilight",
-            ShowBump: "bump",
-            ShowCity: "city",
-            ShowCivilTwilight: "civil_twilight",
-            ShowCounty: "country",
-            ShowCrossing: "county",
-            ShowDescription: "crossing",
-            ShowDistance: "description",
-            ShowEndLatitude: "distance",
-            ShowEndLongitude: "end_lat",
-            ShowEndTime: "end_lng",
-            ShowGiveWay: "end_time",
-            ShowHumidity: "give_way",
-            ShowID: "humidity",
-            ShowJunction: "id",
-            ShowNauticalTwilight: "junction",
-            ShowNoExit: "no_exit",
-            ShowPrecipitation: "numbers",
-            ShowPressure: "precipitation",
-            ShowRailway: "pressure",
-            ShowRoundabout: "railway",
-            ShowSeverity: "roundabout",
-            ShowSource: "severity",
-            ShowStartLatitude: "side",
-            ShowStartLongitude: "source",
-            ShowStartTime: "start_lat",
-            ShowState: "start_lng",
-            ShowStation: "start_time",
-            ShowStop: "state",
-            ShowStreetName: "station",
-            ShowStreetNumber: "stop",
-            ShowStreetSide: "street",
-            ShowSunriseSunset: "sunrise_sunset",
-            ShowTMC: "temperature",
-            ShowTemperature: "timezone",
-            ShowTimeZone: "tmc",
-            ShowTrafficCalming: "traffic_calming",
-            ShowTrafficSignal: "traffic_signal",
-            ShowTurningLoop: "turning_loop",
-            ShowVisibility: "visibility",
-            ShowWeatherCondition: "weather_condition",
-            ShowWeatherTimestamp: "weather_timestamp",
-            ShowWindChill: "wind_chill",
-            ShowWindDirection: "wind_direction",
-            ShowWindSpeed: "wind_speed",
-            ShowZipcode: "zipcode"
-        };
-        var show_unmap = {
-            airport_code: "ShowAirportCode",
-            amenity: "ShowAmenity",
-            astronomical_twilight: "ShowAstronomicalTwilight",
-            bump: "ShowBump",
-            city: "ShowCity",
-            civil_twilight: "ShowCivilTwilight",
-            country: "ShowCounty",
-            county: "ShowCrossing",
-            crossing: "ShowDescription",
-            description: "ShowDistance",
-            distance: "ShowEndLatitude",
-            end_lat: "ShowEndLongitude",
-            end_lng: "ShowEndTime",
-            end_time: "ShowGiveWay",
-            give_way: "ShowHumidity",
-            humidity: "ShowID",
-            id: "ShowJunction",
-            junction: "ShowNauticalTwilight",
-            no_exit: "ShowNoExit",
-            numbers: "ShowPrecipitation",
-            precipitation: "ShowPressure",
-            pressure: "ShowRailway",
-            railway: "ShowRoundabout",
-            roundabout: "ShowSeverity",
-            severity: "ShowSource",
-            side: "ShowStartLatitude",
-            source: "ShowStartLongitude",
-            start_lat: "ShowStartTime",
-            start_lng: "ShowState",
-            start_time: "ShowStation",
-            state: "ShowStop",
-            station: "ShowStreetName",
-            stop: "ShowStreetNumber",
-            street: "ShowStreetSide",
-            sunrise_sunset: "ShowSunriseSunset",
-            temperature: "ShowTMC",
-            timezone: "ShowTemperature",
-            tmc: "ShowTimeZone",
-            traffic_calming: "ShowTrafficCalming",
-            traffic_signal: "ShowTrafficSignal",
-            turning_loop: "ShowTurningLoop",
-            visibility: "ShowVisibility",
-            weather_condition: "ShowWeatherCondition",
-            weather_timestamp: "ShowWeatherTimestamp",
-            wind_chill: "ShowWindChill",
-            wind_direction: "ShowWindDirection",
-            wind_speed: "ShowWindSpeed",
-            zipcode: "ShowZipcode"
-        };
-
+        var show_map = {ShowAirportCode:"airport_code",ShowAmenity:"amenity",ShowAstronomicalTwilight:"astronomical_twilight",ShowBump:"bump",ShowCity:"city",ShowCivilTwilight:"civil_twilight",ShowCountry:"country",ShowCounty:"county",ShowCrossing:"crossing",ShowDescription:"description",ShowDistance:"distance",ShowEndLatitude:"end_lat",ShowEndLongitude:"end_lng",ShowEndTime:"end_time",ShowGiveWay:"give_way",ShowHumidity:"humidity",ShowID:"id",ShowJunction:"junction",ShowNoExit:"no_exit",ShowPrecipitation:"precipitation",ShowPressure:"pressure",ShowRailway:"railway",ShowRoundabout:"roundabout",ShowSeverity:"severity",ShowSource:"source",ShowStartLatitude:"start_lat",ShowStartLongitude:"start_lng",ShowStartTime:"start_time",ShowState:"state",ShowStop:"stop",ShowStreetName:"street",ShowStreetNumber:"numbers",ShowStreetSide:"side",ShowStation:"station",ShowSunriseSunset:"sunrise_sunset",ShowTMC:"tmc",ShowTemperature:"temperature",ShowTimeZone:"timezone",ShowTrafficCalming:"traffic_calming",ShowTrafficSignal:"traffic_signal",ShowTurningLoop:"turning_loop",ShowVisibility:"visibility",ShowWeatherCondition:"weather_condition",ShowWeatherTimestamp:"weather_timestamp",ShowWindChill:"wind_chill",ShowWindDirection:"wind_direction",ShowWindSpeed:"wind_speed",ShowZipcode:"zipcode"};
+        var show_unmap = {airport_code:"ShowAirportCode",amenity:"ShowAmenity",astronomical_twilight:"ShowAstronomicalTwilight",bump:"ShowBump",city:"ShowCity",civil_twilight:"ShowCivilTwilight",country:"ShowCountry",county:"ShowCounty",crossing:"ShowCrossing",description:"ShowDescription",distance:"ShowDistance",end_lat:"ShowEndLatitude",end_lng:"ShowEndLongitude",end_time:"ShowEndTime",give_way:"ShowGiveWay",humidity:"ShowHumidity",id:"ShowID",junction:"ShowJunction",no_exit:"ShowNoExit",precipitation:"ShowPrecipitation",pressure:"ShowPressure",railway:"ShowRailway",roundabout:"ShowRoundabout",severity:"ShowSeverity",source:"ShowSource",start_lat:"ShowStartLatitude",start_lng:"ShowStartLongitude",start_time:"ShowStartTime",state:"ShowState",stop:"ShowStop",street:"ShowStreetName",numbers:"ShowStreetNumber",side:"ShowStreetSide",station:"ShowStation",sunrise_sunset:"ShowSunriseSunset",tmc:"ShowTMC",temperature:"ShowTemperature",timezone:"ShowTimeZone",traffic_calming:"ShowTrafficCalming",traffic_signal:"ShowTrafficSignal",turning_loop:"ShowTurningLoop",visibility:"ShowVisibility",weather_condition:"ShowWeatherCondition",weather_timestamp:"ShowWeatherTimestamp",wind_chill:"ShowWindChill",wind_direction:"ShowWindDirection",wind_speed:"ShowWindSpeed",zipcode:"ShowZipcode"};
         window.onload = function() {
             var request_array = JSON.parse(localStorage.getItem("filter_items"));
             if (request_array != null) {
@@ -174,7 +75,11 @@
 
         function search_by_filters() {
             var request_array = build_search_request_array();
-            localStorage.setItem("filter_items", JSON.stringify(request_array));
+            var json_req_array = JSON.stringify(request_array);
+            localStorage.setItem("filter_items", json_req_array);
+            //document.getElementById("idul inputului cu display:none show:hidden").value =  JSON.stringify(request_array)
+            document.getElementById("json_filter").value = json_req_array;
+            document.getElementById("filtration-form").submit();
         }
 
         //Method done by Minut Mihai Dimitrie
@@ -208,7 +113,7 @@
 
     <!-- Done by Minut Mihai Dimitrie -->
     <main class="main-class">
-        <form class="filtration-menu-container" method="POST">
+        <form class="filtration-menu-container" id="filtration-form" method="POST">
             <!--Pick Shown Files Division-->
             <div class="pick-show">
                 <div class="pick-title-show">
@@ -343,6 +248,10 @@
                             <p>Location Primary</p>
                         </div>
                         <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
+                            <input type="checkbox" id="ShowCountry" class="showCountry">
+                            <span>Country</span>
+                        </label>
+                        <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
                             <input type="checkbox" id="ShowState" class="showCheck">
                             <span>State</span>
                         </label>
@@ -452,10 +361,6 @@
                         <label for="ShowWindSpeed" class="pick-columns-item" name="showWeatherSecondaryItems">
                             <input type="checkbox" id="ShowWindSpeed" class="showCheck">
                             <span>Wind Speed (mph)</span>
-                        </label>
-                        <label for="ShowNauticalTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowNauticalTwilight" class="showCheck">
-                            <span>Nautical Twilight</span>
                         </label>
                         <label for="ShowCivilTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
                             <input type="checkbox" id="ShowCivilTwilight" class="showCheck">
@@ -812,13 +717,6 @@
                                 <option value="Night">Night</option>
                             </select>
                         </label>
-                        <label for="SearchNauticalTwilight" name="restrictWeatherSItem" class="pick-restrict-item">Nautical Twilight:
-                            <select id="SearchNauticalTwilight" class="restrictInput">
-                                <option value="Any">Any</option>
-                                <option value="Day">Day</option>
-                                <option value="Night">Night</option>
-                            </select>
-                        </label>
                         <label for="SearchAstronomicalTwilight" name="restrictWeatherSItem" class="pick-restrict-item">Astronomical Twilight:
                             <select id="SearchAstronomicalTwilight" class="restrictInput">
                                 <option value="Any">Any</option>
@@ -893,15 +791,16 @@
                     </div>
                 </div>
             </div>
+            <input type="text" style="display:none" name="json_filter" id="json_filter">
             <!-- Finished Section Done By Ionita Andra Paula -->
             <!--Submit Button-->
             <!-- Done by Minut Mihai Dimitrie -->
-            <div class="pick-button">
-                <button onclick="search_by_filters()" value="Search" class="filtration-submit-button">Search</button>
-            </div>
             <!-- Finished Section Done By Minut Mihai Dimitrie -->
         </form>
         <!-- Done by Ionita Andra -->
+        <div class="pick-button">
+                <button onclick="search_by_filters()" value="Search" class="filtration-submit-button">Search</button>
+        </div>
         <div class="pick-button">
             <button type="button" class="filtration-submit-button" data-toggle="modal" data-target="#myModal">View Data</button>
         </div>
