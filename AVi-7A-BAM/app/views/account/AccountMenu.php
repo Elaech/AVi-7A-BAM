@@ -12,7 +12,6 @@
     <!-- Script Done by Minut Mihai Dimitrie -->
     <script type="text/javascript">
         var IP = "<?php echo $data['ip']; ?>";
-
         function getCookie(name) {
             var cookieArr = document.cookie.split(";");
             for (var i = 0; i < cookieArr.length; i++) {
