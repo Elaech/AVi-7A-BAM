@@ -57,6 +57,7 @@
         var show_unmap = {airport_code:"ShowAirportCode",amenity:"ShowAmenity",astronomical_twilight:"ShowAstronomicalTwilight",bump:"ShowBump",city:"ShowCity",civil_twilight:"ShowCivilTwilight",country:"ShowCountry",county:"ShowCounty",crossing:"ShowCrossing",description:"ShowDescription",distance:"ShowDistance",end_lat:"ShowEndLatitude",end_lng:"ShowEndLongitude",end_time:"ShowEndTime",give_way:"ShowGiveWay",humidity:"ShowHumidity",id:"ShowID",junction:"ShowJunction",no_exit:"ShowNoExit",precipitation:"ShowPrecipitation",pressure:"ShowPressure",railway:"ShowRailway",roundabout:"ShowRoundabout",severity:"ShowSeverity",source:"ShowSource",start_lat:"ShowStartLatitude",start_lng:"ShowStartLongitude",start_time:"ShowStartTime",state:"ShowState",stop:"ShowStop",street:"ShowStreetName",numbers:"ShowStreetNumber",side:"ShowStreetSide",station:"ShowStation",sunrise_sunset:"ShowSunriseSunset",tmc:"ShowTMC",temperature:"ShowTemperature",timezone:"ShowTimeZone",traffic_calming:"ShowTrafficCalming",traffic_signal:"ShowTrafficSignal",turning_loop:"ShowTurningLoop",visibility:"ShowVisibility",weather_condition:"ShowWeatherCondition",weather_timestamp:"ShowWeatherTimestamp",wind_chill:"ShowWindChill",wind_direction:"ShowWindDirection",wind_speed:"ShowWindSpeed",zipcode:"ShowZipcode"};
         window.onload = function() {
             var request_array = JSON.parse(localStorage.getItem("filter_items"));
+            remember_choices(request_array);
             if (request_array != null) {
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("POST", "http://localhost/AVIACC/api/",true);
@@ -65,14 +66,19 @@
                     //when the response is ready
                     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                         var json = JSON.parse(xmlhttp.responseText);
-                        console.log(json);
+                        
                     }
 
                 };
                 xmlhttp.send(JSON.stringify(request_array));
             }
         }
-
+        function remember_choices(request_array){
+            var show_fil = request_array['show'];
+            for (let value of Object.values(show_fil)) {
+                document.getElementById(show_unmap[value]).checked = true;
+            }
+        }
         function search_by_filters() {
             var request_array = build_search_request_array();
             var json_req_array = JSON.stringify(request_array);
@@ -98,10 +104,11 @@
                     request_array['show'][show_map[show_filters[index].id]] = show_map[show_filters[index].id];
                 }
             }
-            // var restrict_filters = document.getElementsByClassName("restrictInput");
-            // for(var index = 0;index<restrict_filters.length;index++){
-            //     request_array['show'][]
-            // }
+            var test_arr= [];
+            var restrict_filters = document.getElementsByClassName("restrictInput");
+            for(var index = 0;index<restrict_filters.length;index++){
+                test_arr.push(restrict_filters[index].id);
+            }
             return request_array;
         }
     </script>
@@ -385,10 +392,10 @@
                             <p>Entries</p>
                         </div>
                         <label for="SearchMinID" name="restrictEntryItem" class="pick-restrict-item">ID (min):
-                            <input type="text" id="SearchMinID" class="restrictInput">
+                            <input type="number" min="0" step="1" id="SearchMinID" class="restrictInput">
                         </label>
                         <label for="SearchMaxID" name="restrictEntryItem" class="pick-restrict-item">ID (max):
-                            <input type="text" id="SearchMaxID" class="restrictInput">
+                            <input type="number" min="0" step="1" id="SearchMaxID" class="restrictInput">
                         </label>
                     </div>
                     <!--Event-->
@@ -428,21 +435,11 @@
                         <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictTimeItem')">
                             <p>Time</p>
                         </div>
-                        <label for="SearchDateStartTime" name="restrictTimeItem" class="pick-restrict-item">Started
-                            later than the Date:
-                            <input type="date" id="SearchDateStartTime" class="restrictInput">
+                        <label for="SearchDate" name="restrictTimeItem" class="pick-restrict-item">Date:
+                            <input type="date" id="SearchDate" class="restrictInput">
                         </label>
-                        <label for="SearchDateEndTime" name="restrictTimeItem" class="pick-restrict-item">Ended earlier
-                            than the Date:
-                            <input type="date" id="SearchDateEndTime" class="restrictInput">
-                        </label>
-                        <label for="SearchHourStartTime" name="restrictTimeItem" class="pick-restrict-item">Started
-                            later than the Hour:
+                        <label for="SearchHour" name="restrictTimeItem" class="pick-restrict-item">Hour:
                             <input type="time" id="SearchHourStartTime" class="restrictInput">
-                        </label>
-                        <label for="SearchHourEndTime" name="restrictTimeItem" class="pick-restrict-item">Started
-                            earlier than the Hour:
-                            <input type="time" id="SearchHourEndTime" class="restrictInput">
                         </label>
                         <label for="SearchTimezone" name="restrictTimeItem" class="pick-restrict-item">Timezone:
                             <input type="text" id="SearchTimezone" class="restrictInput">
@@ -566,6 +563,9 @@
                         <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictLocationPItem')">
                             <p>Location Primary</p>
                         </div>
+                        <label for="SearchCountry" name="restrictLocationPItem" class="pick-restrict-item">Country:
+                            <input type="text" id="SearchCountry" class="restrictInput">
+                        </label>
                         <label for="SearchState" name="restrictLocationPItem" class="pick-restrict-item">State:
                             <input type="text" id="SearchState" class="restrictInput">
                         </label>
@@ -603,33 +603,17 @@
                         <div class="pick-restrict-list-title" onclick="restrictHideItems(this,'restrictLocationSItem')">
                             <p>Location Secondary</p>
                         </div>
-                        <label for="ShowStartMinLatitude" name="restrictLocationSItem" class="pick-restrict-item">Started at minimum Latitude:
-                            <input type="number" id="ShowStartMinLatitude" class="restrictInput">
+                        <label for="SearchStartMinLatitude" name="restrictLocationSItem" class="pick-restrict-item">Started at minimum Latitude:
+                            <input type="number" id="SearchStartMinLatitude" class="restrictInput">
                         </label>
-                        <label for="ShowStartMaxLatitude" name="restrictLocationSItem" class="pick-restrict-item">Started at maximum Latitude:
-                            <input type="number" id="ShowStartMaxLatitude" class="restrictInput">
+                        <label for="SearchStartMaxLatitude" name="restrictLocationSItem" class="pick-restrict-item">Started at maximum Latitude:
+                            <input type="number" id="SearchStartMaxLatitude" class="restrictInput">
                         </label>
-                        <label for="ShowStartMinLongitude" name="restrictLocationSItem" class="pick-restrict-item">Started at minimum Longitude:
-                            <input type="number" id="ShowStartMinLongitude" class="restrictInput">
+                        <label for="SearchStartMinLongitude" name="restrictLocationSItem" class="pick-restrict-item">Started at minimum Longitude:
+                            <input type="number" id="SearchStartMinLongitude" class="restrictInput">
                         </label>
-                        <label for="ShowStartMaxLongitude" name="restrictLocationSItem" class="pick-restrict-item">Started at maximum Longitude:
-                            <input type="number" id="ShowStartMaxLongitude" class="restrictInput">
-                        </label>
-                        <label for="ShowEndMinLatitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at
-                            minimum Latitude:
-                            <input type="number" id="ShowEndMinLatitude" class="restrictInput">
-                        </label>
-                        <label for="ShowEndMaxLatitude" name="restrictLocationSItem" class="pick-restrict-item">Ended at
-                            maximum Latitude:
-                            <input type="number" id="ShowEndMaxLatitude" class="restrictInput">
-                        </label>
-                        <label for="ShowEndMinLongitude" name="restrictLocationSItem" class="pick-restrict-item">Ended
-                            at minimum Longitude:
-                            <input type="number" id="ShowEndMinLongitude" class="restrictInput">
-                        </label>
-                        <label for="ShowEndMaxLongitude" name="restrictLocationSItem" class="pick-restrict-item">Ended
-                            at maximum Longitude:
-                            <input type="number" id="ShowEndMaxLongitude" class="restrictInput">
+                        <label for="SearchStartMaxLongitude" name="restrictLocationSItem" class="pick-restrict-item">Started at maximum Longitude:
+                            <input type="number" id="SearchStartMaxLongitude" class="restrictInput">
                         </label>
                         <label for="SearchMinDistance" name="restrictLocationSItem" class="pick-restrict-item">Minimum
                             Distance(miles):
