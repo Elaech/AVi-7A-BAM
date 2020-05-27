@@ -53,25 +53,242 @@
 
     <!-- Pagination Script -->
     <script>
-        var show_map = {ShowAirportCode:"airport_code",ShowAmenity:"amenity",ShowAstronomicalTwilight:"astronomical_twilight",ShowBump:"bump",ShowCity:"city",ShowCivilTwilight:"civil_twilight",ShowCountry:"country",ShowCounty:"county",ShowCrossing:"crossing",ShowDescription:"description",ShowDistance:"distance",ShowEndLatitude:"end_lat",ShowEndLongitude:"end_lng",ShowEndTime:"end_time",ShowGiveWay:"give_way",ShowHumidity:"humidity",ShowID:"id",ShowJunction:"junction",ShowNoExit:"no_exit",ShowPrecipitation:"precipitation",ShowPressure:"pressure",ShowRailway:"railway",ShowRoundabout:"roundabout",ShowSeverity:"severity",ShowSource:"source",ShowStartLatitude:"start_lat",ShowStartLongitude:"start_lng",ShowStartTime:"start_time",ShowState:"state",ShowStop:"stop",ShowStreetName:"street",ShowStreetNumber:"numbers",ShowStreetSide:"side",ShowStation:"station",ShowSunriseSunset:"sunrise_sunset",ShowTMC:"tmc",ShowTemperature:"temperature",ShowTimeZone:"timezone",ShowTrafficCalming:"traffic_calming",ShowTrafficSignal:"traffic_signal",ShowTurningLoop:"turning_loop",ShowVisibility:"visibility",ShowWeatherCondition:"weather_condition",ShowWeatherTimestamp:"weather_timestamp",ShowWindChill:"wind_chill",ShowWindDirection:"wind_direction",ShowWindSpeed:"wind_speed",ShowZipcode:"zipcode"};
-        var show_unmap = {airport_code:"ShowAirportCode",amenity:"ShowAmenity",astronomical_twilight:"ShowAstronomicalTwilight",bump:"ShowBump",city:"ShowCity",civil_twilight:"ShowCivilTwilight",country:"ShowCountry",county:"ShowCounty",crossing:"ShowCrossing",description:"ShowDescription",distance:"ShowDistance",end_lat:"ShowEndLatitude",end_lng:"ShowEndLongitude",end_time:"ShowEndTime",give_way:"ShowGiveWay",humidity:"ShowHumidity",id:"ShowID",junction:"ShowJunction",no_exit:"ShowNoExit",precipitation:"ShowPrecipitation",pressure:"ShowPressure",railway:"ShowRailway",roundabout:"ShowRoundabout",severity:"ShowSeverity",source:"ShowSource",start_lat:"ShowStartLatitude",start_lng:"ShowStartLongitude",start_time:"ShowStartTime",state:"ShowState",stop:"ShowStop",street:"ShowStreetName",numbers:"ShowStreetNumber",side:"ShowStreetSide",station:"ShowStation",sunrise_sunset:"ShowSunriseSunset",tmc:"ShowTMC",temperature:"ShowTemperature",timezone:"ShowTimeZone",traffic_calming:"ShowTrafficCalming",traffic_signal:"ShowTrafficSignal",turning_loop:"ShowTurningLoop",visibility:"ShowVisibility",weather_condition:"ShowWeatherCondition",weather_timestamp:"ShowWeatherTimestamp",wind_chill:"ShowWindChill",wind_direction:"ShowWindDirection",wind_speed:"ShowWindSpeed",zipcode:"ShowZipcode"};
-        var filter_between_min_map = {SearchMinDistance:"distance",SearchMinHumidity:"humidity",SearchMinID:"id",SearchMinStreetNumber:"numbers",SearchMinPrecipitation:"precipitation",SearchMinPressure:"pressure",SearchMinSeverity:"severity",SearchStartMinLatitude:"start_lat",SearchStartMinLongitude:"start_lng",SearchMinTemperature:"temperature",SearchMinTMC:"tmc",SearchMinVisibility:"visibility",SearchMinWindChill:"wind_chill",SearchMinWindSpeed:"wind_speed"};
-        var filter_between_min_unmap = {distance:"SearchMinDistance",humidity:"SearchMinHumidity",id:"SearchMinID",numbers:"SearchMinStreetNumber",precipitation:"SearchMinPrecipitation",pressure:"SearchMinPressure",severity:"SearchMinSeverity",start_lat:"SearchStartMinLatitude",start_lng:"SearchStartMinLongitude",temperature:"SearchMinTemperature",tmc:"SearchMinTMC",visibility:"SearchMinVisibility",wind_chill:"SearchMinWindChill",wind_speed:"SearchMinWindSpeed"};
-        var filter_between_max_map = {SearchMaxDistance:"distance",SearchMaxHumidity:"humidity",SearchMaxID:"id",SearchMaxStreetNumber:"numbers",SearchMaxPrecipitation:"precipitation",SearchMaxPressure:"pressure",SearchMaxSeverity:"severity",SearchStartMaxLatitude:"start_lat",SearchStartMaxLongitude:"start_lng",SearchMaxTemperature:"temperature",SearchMaxTMC:"tmc",SearchMaxVisibility:"visibility",SearchMaxWindChill:"wind_chill",SearchMaxWindSpeed:"wind_speed"};
-        var filter_between_max_unmap = {distance:"SearchMaxDistance",humidity:"SearchMaxHumidity",id:"SearchMaxID",numbers:"SearchMaxStreetNumber",precipitation:"SearchMaxPrecipitation",pressure:"SearchMaxPressure",severity:"SearchMaxSeverity",start_lat:"SearchStartMaxLatitude",start_lng:"SearchStartMaxLongitude",temperature:"SearchMaxTemperature",tmc:"SearchMaxTMC",visibility:"SearchMaxVisibility",wind_chill:"SearchMaxWindChill",wind_speed:"SearchMaxWindSpeed"};
-        var filter_boolean_map = {SearchAirportCode:"airport_code",SearchAmenity:"amenity",SearchAstronomicalTwilight:"astronomical_twilight",SearchBump:"bump",SearchCity:"city",SearchCivilTwilight:"civil_twilight",SearchCountry:"country",SearchCounty:"county",SearchCrossing:"crossing",SearchInDescription:"description",SearchGiveWay:"give_way",SearchJunction:"junction",SearchNoExit:"no_exit",SearchRailway:"railway",SearchRoundabout:"roundabout",SearchStreetSide:"side",SearchSource:"source",SearchState:"state",SearchStation:"station",SearchStop:"stop",SearchStreetName:"street",SearchSunriseSunset:"sunrise_sunset",SearchTimezone:"timezone",SearchTrafficCalming:"traffic_calming",SearchTrafficSignal:"traffic_signal",SearchTurningLoop:"turning_loop",SearchWeatherCondition:"weather_condition",SearchWindDirection:"wind_direction"};
-        var filter_boolean_unmap = {airport_code:"SearchAirportCode",amenity:"SearchAmenity",astronomical_twilight:"SearchAstronomicalTwilight",bump:"SearchBump",city:"SearchCity",civil_twilight:"SearchCivilTwilight",country:"SearchCountry",county:"SearchCounty",crossing:"SearchCrossing",description:"SearchInDescription",give_way:"SearchGiveWay",junction:"SearchJunction",no_exit:"SearchNoExit",railway:"SearchRailway",roundabout:"SearchRoundabout",side:"SearchStreetSide",source:"SearchSource",state:"SearchState",station:"SearchStation",stop:"SearchStop",street:"SearchStreetName",sunrise_sunset:"SearchSunriseSunset",timezone:"SearchTimezone",traffic_calming:"SearchTrafficCalming",traffic_signal:"SearchTrafficSignal",turning_loop:"SearchTurningLoop",weather_condition:"SearchWeatherCondition",wind_direction:"SearchWindDirection"};
+        var show_map = {
+            ShowAirportCode: "airport_code",
+            ShowAmenity: "amenity",
+            ShowAstronomicalTwilight: "astronomical_twilight",
+            ShowBump: "bump",
+            ShowCity: "city",
+            ShowCivilTwilight: "civil_twilight",
+            ShowCountry: "country",
+            ShowCounty: "county",
+            ShowCrossing: "crossing",
+            ShowDescription: "description",
+            ShowDistance: "distance",
+            ShowEndLatitude: "end_lat",
+            ShowEndLongitude: "end_lng",
+            ShowEndTime: "end_time",
+            ShowGiveWay: "give_way",
+            ShowHumidity: "humidity",
+            ShowID: "id",
+            ShowJunction: "junction",
+            ShowNoExit: "no_exit",
+            ShowPrecipitation: "precipitation",
+            ShowPressure: "pressure",
+            ShowRailway: "railway",
+            ShowRoundabout: "roundabout",
+            ShowSeverity: "severity",
+            ShowSource: "source",
+            ShowStartLatitude: "start_lat",
+            ShowStartLongitude: "start_lng",
+            ShowStartTime: "start_time",
+            ShowState: "state",
+            ShowStop: "stop",
+            ShowStreetName: "street",
+            ShowStreetNumber: "numbers",
+            ShowStreetSide: "side",
+            ShowStation: "station",
+            ShowSunriseSunset: "sunrise_sunset",
+            ShowTMC: "tmc",
+            ShowTemperature: "temperature",
+            ShowTimeZone: "timezone",
+            ShowTrafficCalming: "traffic_calming",
+            ShowTrafficSignal: "traffic_signal",
+            ShowTurningLoop: "turning_loop",
+            ShowVisibility: "visibility",
+            ShowWeatherCondition: "weather_condition",
+            ShowWeatherTimestamp: "weather_timestamp",
+            ShowWindChill: "wind_chill",
+            ShowWindDirection: "wind_direction",
+            ShowWindSpeed: "wind_speed",
+            ShowZipcode: "zipcode"
+        };
+        var show_unmap = {
+            airport_code: "ShowAirportCode",
+            amenity: "ShowAmenity",
+            astronomical_twilight: "ShowAstronomicalTwilight",
+            bump: "ShowBump",
+            city: "ShowCity",
+            civil_twilight: "ShowCivilTwilight",
+            country: "ShowCountry",
+            county: "ShowCounty",
+            crossing: "ShowCrossing",
+            description: "ShowDescription",
+            distance: "ShowDistance",
+            end_lat: "ShowEndLatitude",
+            end_lng: "ShowEndLongitude",
+            end_time: "ShowEndTime",
+            give_way: "ShowGiveWay",
+            humidity: "ShowHumidity",
+            id: "ShowID",
+            junction: "ShowJunction",
+            no_exit: "ShowNoExit",
+            precipitation: "ShowPrecipitation",
+            pressure: "ShowPressure",
+            railway: "ShowRailway",
+            roundabout: "ShowRoundabout",
+            severity: "ShowSeverity",
+            source: "ShowSource",
+            start_lat: "ShowStartLatitude",
+            start_lng: "ShowStartLongitude",
+            start_time: "ShowStartTime",
+            state: "ShowState",
+            stop: "ShowStop",
+            street: "ShowStreetName",
+            numbers: "ShowStreetNumber",
+            side: "ShowStreetSide",
+            station: "ShowStation",
+            sunrise_sunset: "ShowSunriseSunset",
+            tmc: "ShowTMC",
+            temperature: "ShowTemperature",
+            timezone: "ShowTimeZone",
+            traffic_calming: "ShowTrafficCalming",
+            traffic_signal: "ShowTrafficSignal",
+            turning_loop: "ShowTurningLoop",
+            visibility: "ShowVisibility",
+            weather_condition: "ShowWeatherCondition",
+            weather_timestamp: "ShowWeatherTimestamp",
+            wind_chill: "ShowWindChill",
+            wind_direction: "ShowWindDirection",
+            wind_speed: "ShowWindSpeed",
+            zipcode: "ShowZipcode"
+        };
+        var filter_between_min_map = {
+            SearchMinDistance: "distance",
+            SearchMinHumidity: "humidity",
+            SearchMinID: "id",
+            SearchMinStreetNumber: "numbers",
+            SearchMinPrecipitation: "precipitation",
+            SearchMinPressure: "pressure",
+            SearchMinSeverity: "severity",
+            SearchStartMinLatitude: "start_lat",
+            SearchStartMinLongitude: "start_lng",
+            SearchMinTemperature: "temperature",
+            SearchMinTMC: "tmc",
+            SearchMinVisibility: "visibility",
+            SearchMinWindChill: "wind_chill",
+            SearchMinWindSpeed: "wind_speed"
+        };
+        var filter_between_min_unmap = {
+            distance: "SearchMinDistance",
+            humidity: "SearchMinHumidity",
+            id: "SearchMinID",
+            numbers: "SearchMinStreetNumber",
+            precipitation: "SearchMinPrecipitation",
+            pressure: "SearchMinPressure",
+            severity: "SearchMinSeverity",
+            start_lat: "SearchStartMinLatitude",
+            start_lng: "SearchStartMinLongitude",
+            temperature: "SearchMinTemperature",
+            tmc: "SearchMinTMC",
+            visibility: "SearchMinVisibility",
+            wind_chill: "SearchMinWindChill",
+            wind_speed: "SearchMinWindSpeed"
+        };
+        var filter_between_max_map = {
+            SearchMaxDistance: "distance",
+            SearchMaxHumidity: "humidity",
+            SearchMaxID: "id",
+            SearchMaxStreetNumber: "numbers",
+            SearchMaxPrecipitation: "precipitation",
+            SearchMaxPressure: "pressure",
+            SearchMaxSeverity: "severity",
+            SearchStartMaxLatitude: "start_lat",
+            SearchStartMaxLongitude: "start_lng",
+            SearchMaxTemperature: "temperature",
+            SearchMaxTMC: "tmc",
+            SearchMaxVisibility: "visibility",
+            SearchMaxWindChill: "wind_chill",
+            SearchMaxWindSpeed: "wind_speed"
+        };
+        var filter_between_max_unmap = {
+            distance: "SearchMaxDistance",
+            humidity: "SearchMaxHumidity",
+            id: "SearchMaxID",
+            numbers: "SearchMaxStreetNumber",
+            precipitation: "SearchMaxPrecipitation",
+            pressure: "SearchMaxPressure",
+            severity: "SearchMaxSeverity",
+            start_lat: "SearchStartMaxLatitude",
+            start_lng: "SearchStartMaxLongitude",
+            temperature: "SearchMaxTemperature",
+            tmc: "SearchMaxTMC",
+            visibility: "SearchMaxVisibility",
+            wind_chill: "SearchMaxWindChill",
+            wind_speed: "SearchMaxWindSpeed"
+        };
+        var filter_boolean_map = {
+            SearchAirportCode: "airport_code",
+            SearchAmenity: "amenity",
+            SearchAstronomicalTwilight: "astronomical_twilight",
+            SearchBump: "bump",
+            SearchCity: "city",
+            SearchCivilTwilight: "civil_twilight",
+            SearchCountry: "country",
+            SearchCounty: "county",
+            SearchCrossing: "crossing",
+            SearchInDescription: "description",
+            SearchGiveWay: "give_way",
+            SearchJunction: "junction",
+            SearchNoExit: "no_exit",
+            SearchRailway: "railway",
+            SearchRoundabout: "roundabout",
+            SearchStreetSide: "side",
+            SearchSource: "source",
+            SearchState: "state",
+            SearchStation: "station",
+            SearchStop: "stop",
+            SearchStreetName: "street",
+            SearchSunriseSunset: "sunrise_sunset",
+            SearchTimezone: "timezone",
+            SearchTrafficCalming: "traffic_calming",
+            SearchTrafficSignal: "traffic_signal",
+            SearchTurningLoop: "turning_loop",
+            SearchWeatherCondition: "weather_condition",
+            SearchWindDirection: "wind_direction"
+        };
+        var filter_boolean_unmap = {
+            airport_code: "SearchAirportCode",
+            amenity: "SearchAmenity",
+            astronomical_twilight: "SearchAstronomicalTwilight",
+            bump: "SearchBump",
+            city: "SearchCity",
+            civil_twilight: "SearchCivilTwilight",
+            country: "SearchCountry",
+            county: "SearchCounty",
+            crossing: "SearchCrossing",
+            description: "SearchInDescription",
+            give_way: "SearchGiveWay",
+            junction: "SearchJunction",
+            no_exit: "SearchNoExit",
+            railway: "SearchRailway",
+            roundabout: "SearchRoundabout",
+            side: "SearchStreetSide",
+            source: "SearchSource",
+            state: "SearchState",
+            station: "SearchStation",
+            stop: "SearchStop",
+            street: "SearchStreetName",
+            sunrise_sunset: "SearchSunriseSunset",
+            timezone: "SearchTimezone",
+            traffic_calming: "SearchTrafficCalming",
+            traffic_signal: "SearchTrafficSignal",
+            turning_loop: "SearchTurningLoop",
+            weather_condition: "SearchWeatherCondition",
+            wind_direction: "SearchWindDirection"
+        };
         window.onload = function() {
             var request_array = JSON.parse(localStorage.getItem("filter_items"));
             remember_choices(request_array);
             if (request_array != null) {
                 xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("POST", "http://localhost/AVIACC/api/",true);
+                xmlhttp.open("POST", "http://localhost/AVIACC/api/", true);
                 xmlhttp.setRequestHeader("Content-type", "text/plain");
                 xmlhttp.onreadystatechange = function() {
                     //when the response is ready
                     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                         var json = JSON.parse(xmlhttp.responseText);
+                        console.log(json);
                         
                     }
 
@@ -79,17 +296,18 @@
                 xmlhttp.send(JSON.stringify(request_array));
             }
         }
-        function remember_choices(request_array){
+
+        function remember_choices(request_array) {
             var show_fil = request_array['show'];
             for (let value of Object.values(show_fil)) {
                 document.getElementById(show_unmap[value]).checked = true;
             }
         }
+
         function search_by_filters() {
             var request_array = build_search_request_array();
             var json_req_array = JSON.stringify(request_array);
             localStorage.setItem("filter_items", json_req_array);
-            //document.getElementById("idul inputului cu display:none show:hidden").value =  JSON.stringify(request_array)
             document.getElementById("json_filter").value = json_req_array;
             document.getElementById("filtration-form").submit();
         }
@@ -97,8 +315,8 @@
         //Method done by Minut Mihai Dimitrie
         function build_search_request_array() {
             var request_array = {};
-            request_array['id'] = 1;
-            request_array['page'] = 1;
+            request_array['id'] = 0;
+            request_array['page'] = 0;
             request_array['amount'] = 20;
             request_array['show'] = {};
             request_array['between'] = {};
@@ -109,10 +327,50 @@
                     request_array['show'][show_map[show_filters[index].id]] = show_map[show_filters[index].id];
                 }
             }
-            var test_arr= [];
             var restrict_filters = document.getElementsByClassName("restrictInput");
-            for(var index = 0;index<restrict_filters.length;index++){
-                test_arr.push(restrict_filters[index].id);
+            for (var index = 0; index < restrict_filters.length; index++) {
+                if (restrict_filters[index].value != null && restrict_filters[index].value != "") {
+
+                    if (filter_between_max_map.hasOwnProperty(restrict_filters[index].id)) {
+                        request_array['between']['i'+index] = {};
+                        request_array['between']['i'+index]['name'] = filter_between_max_map[restrict_filters[index].id];
+                        request_array['between']['i'+index]['value'] = restrict_filters[index].value;
+                        request_array['between']['i'+index]['operator'] = "<";
+                    } else if (filter_between_min_map.hasOwnProperty(restrict_filters[index].id)) {
+                        request_array['between']['i'+index] = {};
+                        request_array['between']['i'+index]['name'] = filter_between_min_map[restrict_filters[index].id];
+                        request_array['between']['i'+index]['value'] = restrict_filters[index].value;
+                        request_array['between']['i'+index]['operator'] = ">";
+                    } else if(restrict_filters[index].id == 'SearchDate'){
+                        request_array['boolean']['i'+index] = {};
+                        request_array['boolean']['i'+index]['name'] = "start_time";
+                        request_array['boolean']['i'+index]['value'] = restrict_filters[index].value;
+                    } else if(restrict_filters[index].id == 'SearchHour'){
+                        if(request_array['boolean']['i'+(index-1)]==null){
+                            request_array['boolean']['i'+index] = {};
+                            request_array['boolean']['i'+index]['name'] = "start_time";
+                            request_array['boolean']['i'+index]['value'] = restrict_filters[index].value+":00";
+                        }
+                        else{
+                            request_array['boolean']['i'+(index-1)]['value'] =
+                            request_array['boolean']['i'+(index-1)]['value'] +" "+ restrict_filters[index].value+":00";
+                        }
+                    }
+                    else if(restrict_filters[index].value != 'Any') {
+                        request_array['boolean']['i'+index] = {};
+                        request_array['boolean']['i'+index]['name'] = filter_boolean_map[restrict_filters[index].id];
+                        if(restrict_filters[index].value == 'Yes'){
+                            request_array['boolean']['i'+index]['value'] = "True";
+                        }
+                        else if(restrict_filters[index].value == 'No'){
+                            request_array['boolean']['i'+index]['value'] = "False";
+                        }
+                        else{
+                            request_array['boolean']['i'+index]['value'] = restrict_filters[index].value;
+                        }
+                        
+                    }
+                }
             }
             return request_array;
         }
@@ -424,10 +682,10 @@
                         </label>
                         <label for="SearchSource" name="restrictEventItem" class="pick-restrict-item">Source:
                             <select id="SearchSource" class="restrictInput">
+                                <option value="Any">Any</option>
                                 <option value="MapQuest">MapQuest</option>
                                 <option value="Bing">Bing</option>
                                 <option value="Other">Other</option>
-                                <option value="Any">Any</option>
                             </select>
                         </label>
                         <label for="SearchInDescription" name="restrictEventItem" class="pick-restrict-item">Keyword in
@@ -444,7 +702,7 @@
                             <input type="date" id="SearchDate" class="restrictInput">
                         </label>
                         <label for="SearchHour" name="restrictTimeItem" class="pick-restrict-item">Hour:
-                            <input type="time" id="SearchHourStartTime" class="restrictInput">
+                            <input type="time" id="SearchHour" class="restrictInput">
                         </label>
                         <label for="SearchTimezone" name="restrictTimeItem" class="pick-restrict-item">Timezone:
                             <input type="text" id="SearchTimezone" class="restrictInput">
@@ -788,7 +1046,7 @@
         </form>
         <!-- Done by Ionita Andra -->
         <div class="pick-button">
-                <button onclick="search_by_filters()" value="Search" class="filtration-submit-button">Search</button>
+            <button onclick="search_by_filters()" value="Search" class="filtration-submit-button">Search</button>
         </div>
         <div class="pick-button">
             <button type="button" class="filtration-submit-button" data-toggle="modal" data-target="#myModal">View Data</button>
