@@ -278,9 +278,11 @@
             wind_direction: "SearchWindDirection"
         };
         window.onload = function() {
-            var request_array = JSON.parse(localStorage.getItem("filter_items"));
-            remember_choices(request_array);
+            var request_array = localStorage.getItem("filter_items");
+            
             if (request_array != null) {
+                request_array = JSON.parse(request_array);
+                remember_choices(request_array);
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("POST", "http://localhost/AVIACC/api/", true);
                 xmlhttp.setRequestHeader("Content-type", "text/plain");
