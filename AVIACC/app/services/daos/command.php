@@ -155,7 +155,9 @@ class Command
 
                 foreach ($accidentBoolean as $temp) {
                     foreach ($temp as $row) {
-                        $command = $row['name'] . "='" . $row['value'] . "'";
+                        $command = $row['name'] . " like '%" . $row['value'] . "%'";
+
+                        // $command = $row['name'] . "='" . $row['value'] . "'";
                         $sql_string .= (string) $command . " AND ";
                         $command = "";
                     }
