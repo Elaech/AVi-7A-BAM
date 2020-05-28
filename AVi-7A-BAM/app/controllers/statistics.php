@@ -8,16 +8,20 @@ class Statistics extends Controller
         session_start();
         if (isset($_COOKIE["token"])) {
             $model = $this->model("authmodel");
-            $data = $model->check($_COOKIE['token'],$this->getUserIP());
-            if($data['status'] == true){
+            $data = $model->check($_COOKIE['token'], $this->getUserIP());
+            if ($data['status'] == true) {
                 $this->setTokenCookie($data['token']);
-//echo $_POST['json_filter'];
-                $this->view('statistics/Statistics');
-            }
-            else{
+                //echo $_POST['json_filter'];
+                $accmodel = $this->model("accmodel");
+                if (!empty($_POST['json_filter'])) {
+                    $table_data = $accmodel->getAccidentsDataRequest($_POST['json_filter']);
+                  //  var_dump($table_data[1]['severity']);
+                    $this->view('statistics/Statistics', json_decode($table_data));
+                } else  $this->view('statistics/Statistics');
+            } else {
                 $this->deleteTokenCookie();
                 header(Constants::LOCATION_SIGNIN);
-            }    
+            }
         } else {
             header(Constants::LOCATION_SIGNIN);
         }
@@ -29,31 +33,19 @@ class Statistics extends Controller
         session_start();
         if (isset($_COOKIE["token"])) {
             $authmodel = $this->model("authmodel");
-            $data = $authmodel->check($_COOKIE['token'],$this->getUserIP());
-            if($data['status'] == true){
+            $data = $authmodel->check($_COOKIE['token'], $this->getUserIP());
+            if ($data['status'] == true) {
                 $this->setTokenCookie($data['token']);
-
-                $id=1;
-                $amount=20;
-                $page=1;
-                $show=[];
-                $between=[];
-                $boolean=[];
-                $equals=[];
-                //verify if checkbox checked in php
-                //daca da facem array
-                //bagam ce e in array in $show
                 $accmodel = $this->model("accmodel");
-                $table_data = $accmodel->details($id,$page,$amount,$show, $boolean, $equals,$between);
-                $this->view('statistics/Statistics', $table_data);
-            }
-            else{
+                if (!empty($_POST['json_filter'])) {
+                    $table_data = $accmodel->getAccidentsDataRequest($_POST['json_filter']);
+                  //  var_dump($table_data[1]['severity']);
+                    $this->view('statistics/Statistics', json_decode($table_data));
+                } else  $this->view('statistics/Statistics');
+            } else {
                 $this->deleteTokenCookie();
                 header(Constants::LOCATION_SIGNIN);
-            } 
-
-            
-           
+            }
         } else {
             header(Constants::LOCATION_SIGNIN);
         }

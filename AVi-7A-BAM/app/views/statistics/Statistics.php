@@ -25,13 +25,23 @@
         function drawChart() {
             var data = google.visualization.arrayToDataTable(
                 <?php
+/*
                 echo "[";
                 echo "['Name', 'Accident'],";
                 foreach ($data as $row) {
-                    echo "['" . $row['name'] . "'," . $row['accidente'] . "],";
+                    
+                    echo "['" . $row['severity'] . "'," . 5 . "],";
                 }
                 echo "]";
-
+*/
+                echo "[";
+                echo "['Name', 'Accident'],";
+                    for($i=0;$i<20;$i++){
+                    for($j=0;$j<1;$j++){
+                        echo "['" . $data->body[$i][$j]->severity . "'," . 1 . "],";
+               // var_dump($data->body);}
+                    }}
+                    echo "]";
                 ?>);
 
 
@@ -303,11 +313,11 @@
                             draw_table(json);
                             draw_paginator(nr_of_pages);
                         }
-                    
+
                     }
                 }
                 xmlhttp.send(JSON.stringify(request_array));
-            }   
+            }
         }
 
         function draw_paginator(max_pages) {
@@ -318,56 +328,56 @@
                 switch (curr_page) {
                     case 0: {
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page + 1)+')">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page + 1) + ')">' + (curr_page + 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(max_pages)+')">' + max_pages + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page + 1)+')">></button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (max_pages) + ')">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (curr_page + 1) + ')">></button>\n';
                         break;
                     }
                     case 1: {
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (curr_page - 1) + ')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page + 1)+')">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (curr_page + 1) + ')">' + (curr_page + 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(max_pages)+')">' + max_pages + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page + 1)+')">></button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (max_pages) + ')">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (curr_page + 1) + ')">></button>\n';
                         break;
                     }
                     case (max_pages - 1): {
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')"><</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(0)+')">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page - 1) + ')"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (0) + ')">' + 0 + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page - 1) + ')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page +1)+')">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page + 1) + ')">' + (curr_page + 1) + '</button>\n';
                         break;
                     }
                     case max_pages: {
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')"><</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(0)+')">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page - 1) + ')"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (0) + ')">' + 0 + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page - 1) + ')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
                         break;
                     }
                     default: {
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page -1)+')"><</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(0)+')">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (curr_page - 1) + ')"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (0) + ')">' + 0 + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page - 1) + ')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page +1)+')">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (curr_page + 1) + ')">' + (curr_page + 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(max_pages)+')">' + max_pages + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page +1)+')">></button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (max_pages) + ')">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page(' + (curr_page + 1) + ')">></button>\n';
                         break;
                     }
                 }
             } else {
                 for (var index = 0; index < max_pages; index++) {
-                    if(index!=curr_page){
-                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(index)+')">' + index + '</button>\n';
-                    }else{
+                    if (index != curr_page) {
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page(' + (index) + ')">' + index + '</button>\n';
+                    } else {
                         paginator.innerHTML += '<button class="current-page-button">' + index + '</button>\n';
                     }
                 }
@@ -412,7 +422,7 @@
             }
         }
 
-        function jump_at_page(page_number){
+        function jump_at_page(page_number) {
             var request_array = localStorage.getItem("filter_items");
             if (request_array != null) {
                 localStorage.setItem("current_page", page_number);
@@ -440,11 +450,11 @@
                             draw_table(json);
                             draw_paginator(nr_of_pages);
                         }
-                    
+
                     }
                 }
                 xmlhttp.send(request_array);
-            }   
+            }
         }
 
         function search_by_filters() {
@@ -1219,20 +1229,7 @@
         </div>
         <div class="table-paginator" id="paginator">
         </div>
-        <!-- by Ionita Andra -->
-        <!--  <div id="myModal" class="modal" -->
 
-        <!-- Modal content 
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="piechart"></div>
-            </div>
-
-        </div>
-                        -->
-
-
-        <!-- finished by Ionita Andra -->
 
         <div>
 

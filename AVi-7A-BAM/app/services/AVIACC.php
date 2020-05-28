@@ -4,18 +4,19 @@ class AVIACC
 {
 
 
-    function getAccidentsDataRequest($id,$page,$amount,$show, $boolean, $equals,$between){
+    function getAccidentsDataRequest($data){
         header('Content-Type: text/plain');
         $url = Constants::ACC_DETAILS['url'];
-        $data=array();
-		$data=["id"=> $id, "page"=>$page,"amount"=>$amount,"show"=>$show,"boolean"=>$boolean,"equals"=>$equals,"between"=>$between];
+       // $data=array();
+		//$data=["id"=> $id, "page"=>$page,"amount"=>$amount,"show"=>$show,"boolean"=>$boolean,"equals"=>$equals,"between"=>$between];
 
-		var_dump(json_encode($data));
+		//var_dump(json_encode($data));
 		$data_json = array(
             'http' => array(
                 'header'  => "Content-Type: text/plain\r\n",
                 'method'  => Constants::ACC_DETAILS['method'],
-                'content' => json_encode($data)
+               // 'content' => json_encode($data)
+               'content' => $data
             )
         );
 

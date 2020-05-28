@@ -10,8 +10,9 @@ class AccModel extends Model{
     }
 
 
-    public function details($id,$page,$amount,$show, $boolean, $equals,$between){
-        $response = $this->acc_api-> getAccidentsDataRequest($id,$page,$amount,$show, $boolean, $equals,$between);
+    public function getAccidentsDataRequest($data){
+       // $response = $this->acc_api-> getAccidentsDataRequest($id,$page,$amount,$show, $boolean, $equals,$between);
+       $response = $this->acc_api-> getAccidentsDataRequest($data);
         if($response == null){
             $response = $this->accServiceUnavailable();
         }
