@@ -306,9 +306,8 @@
                     
                     }
                 }
-
-            };
-            xmlhttp.send(JSON.stringify(request_array));
+                xmlhttp.send(JSON.stringify(request_array));
+            }   
         }
 
         function draw_paginator(max_pages) {
@@ -319,55 +318,55 @@
                 switch (curr_page) {
                     case 0: {
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page + 1)+')">' + (curr_page + 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + max_pages + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">></button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(max_pages)+')">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page + 1)+')">></button>\n';
                         break;
                     }
                     case 1: {
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page + 1)+')">' + (curr_page + 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + max_pages + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">></button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(max_pages)+')">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page + 1)+')">></button>\n';
                         break;
                     }
                     case (max_pages - 1): {
-                        paginator.innerHTML += '<button class="another-page-button"><</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(0)+')">' + 0 + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page +1)+')">' + (curr_page + 1) + '</button>\n';
                         break;
                     }
                     case max_pages: {
-                        paginator.innerHTML += '<button class="another-page-button"><</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(0)+')">' + 0 + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
                         break;
                     }
                     default: {
-                        paginator.innerHTML += '<button class="another-page-button"><</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page -1)+')"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(0)+')">' + 0 + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page -1)+')">' + (curr_page - 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(curr_page +1)+')">' + (curr_page + 1) + '</button>\n';
                         paginator.innerHTML += '<button class="current-page-button">...</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">' + max_pages + '</button>\n';
-                        paginator.innerHTML += '<button class="another-page-button">></button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(max_pages)+')">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button" onclick="jump_at_page('+(curr_page +1)+')">></button>\n';
                         break;
                     }
                 }
             } else {
                 for (var index = 0; index < max_pages; index++) {
                     if(index!=curr_page){
-                        paginator.innerHTML += '<button class="another-page-button">' + index + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button"  onclick="jump_at_page('+(index)+')">' + index + '</button>\n';
                     }else{
                         paginator.innerHTML += '<button class="current-page-button">' + index + '</button>\n';
                     }
@@ -399,6 +398,7 @@
             }
         }
 
+        //W3Schools function for making capital letters
         function toTitleCase(str) {
             return str.replace(/\w\S*/g, function(txt) {
                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -410,6 +410,41 @@
             for (let value of Object.values(show_fil)) {
                 document.getElementById(show_unmap[value]).checked = true;
             }
+        }
+
+        function jump_at_page(page_number){
+            var request_array = localStorage.getItem("filter_items");
+            if (request_array != null) {
+                localStorage.setItem("current_page", page_number);
+                request_array = JSON.parse(request_array);
+                request_array['page'] = page_number;
+                request_array = JSON.stringify(request_array);
+                localStorage.setItem("filter_items", request_array);
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "http://localhost/AVIACC/api/", true);
+                xmlhttp.setRequestHeader("Content-type", "text/plain");
+                xmlhttp.onreadystatechange = function() {
+                    //when the response is ready
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        var json = JSON.parse(xmlhttp.responseText);
+                        nr_of_entries = parseInt(json.count);
+                        if (json.count == 0) {
+                            document.getElementById("paginator").style.display = "none";
+                            document.getElementById("result").style.display = "none";
+                            alert("Search provided 0 entries");
+                        } else {
+                            nr_of_pages = Math.floor(nr_of_entries / 20);
+                            if (nr_of_entries % 20 != 0) {
+                                nr_of_pages++;
+                            }
+                            draw_table(json);
+                            draw_paginator(nr_of_pages);
+                        }
+                    
+                    }
+                }
+                xmlhttp.send(request_array);
+            }   
         }
 
         function search_by_filters() {
