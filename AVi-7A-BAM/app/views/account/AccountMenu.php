@@ -45,6 +45,7 @@
                             var username = localStorage.getItem("new-username");
                             document.getElementById("change-username").placeholder = "Username: " + username;
                             document.getElementById("change-username").value = "";
+                            
                         //if it did not
                         } else {
                             document.getElementById("change-username").value = "";
@@ -64,7 +65,7 @@
                     }
 
                 }
-                localStorage.setItem("new-username",null); 
+                localStorage.removeItem("new-username");
             };
             var newUsername = document.getElementById("change-username").value;
             localStorage.setItem("new-username",newUsername);
@@ -98,7 +99,6 @@
                             var email = localStorage.getItem("new-email");
                             document.getElementById("change-email").placeholder = "Email: " + email;
                             document.getElementById("change-email").value = "";
-                            localStorage.setItem("new-username",null); 
                         //if it did not
                         } else {
                             document.getElementById("change-email").value = "";
@@ -118,7 +118,7 @@
                     }
 
                 }
-                localStorage.setItem("new-email",null); 
+                localStorage.removeItem("new-username"); 
             };
             var newEmail = document.getElementById("change-email").value;
             localStorage.setItem("new-email",newEmail);

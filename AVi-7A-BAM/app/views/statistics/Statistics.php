@@ -51,6 +51,7 @@
     </script>
     <!-- Script finished by Ionita Andra -->
 
+    <!-- Script done by Minut Mihai Dimitrie -->
     <!-- Pagination Script -->
     <script>
         var show_map = {
@@ -279,7 +280,6 @@
         };
         window.onload = function() {
             var request_array = localStorage.getItem("filter_items");
-            
             if (request_array != null) {
                 request_array = JSON.parse(request_array);
                 remember_choices(request_array);
@@ -290,12 +290,31 @@
                     //when the response is ready
                     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                         var json = JSON.parse(xmlhttp.responseText);
-                        console.log(json);
-                        
+                        draw_table(json);
+
                     }
 
                 };
                 xmlhttp.send(JSON.stringify(request_array));
+            }
+        }
+
+        function draw_table(json) {
+            var t_head = document.getElementById("result-table-head");
+            t_head.innerHTML="";
+            for (var index = 0; index < json.body[0].length; index++) {
+                t_head.innerHTML+='<th class="result-table-head-element">'+Object.keys(json.body[0][index])[0]+'</th>\n';
+            }
+            var t_body = document.getElementById("result-table-body");
+            t_body.innerHTML = "";
+            var row_length = json.body[0].length;
+            var row_body = "";
+            for (var index = 0; index < json.body.length; index++) {
+                for(var index2=0; index2<row_length;index2++){
+                    row_body+= '<td class="result-table-row-cell">'+Object.values(json.body[index][index2])[0]+'</td>\n';
+                }
+                t_body.innerHTML+= row_body;
+                row_body = "";       
             }
         }
 
@@ -307,18 +326,22 @@
         }
 
         function search_by_filters() {
-            var request_array = build_search_request_array();
-            var json_req_array = JSON.stringify(request_array);
-            localStorage.setItem("filter_items", json_req_array);
-            document.getElementById("json_filter").value = json_req_array;
-            document.getElementById("filtration-form").submit();
+            var request_array = build_search_request_array(0);
+            if (Object.keys(request_array['show']).length === 0 && request_array['show'].constructor === Object) {
+                localStorage.removeItem("filter_items", null);
+                alert("You must select at least 1 show item");
+            } else {
+                var json_req_array = JSON.stringify(request_array);
+                localStorage.setItem("filter_items", json_req_array);
+                document.getElementById("json_filter").value = json_req_array;
+                document.getElementById("filtration-form").submit();
+            }
         }
 
-        //Method done by Minut Mihai Dimitrie
-        function build_search_request_array() {
+        function build_search_request_array(page) {
             var request_array = {};
             request_array['id'] = 0;
-            request_array['page'] = 0;
+            request_array['page'] = page;
             request_array['amount'] = 20;
             request_array['show'] = {};
             request_array['between'] = {};
@@ -334,43 +357,39 @@
                 if (restrict_filters[index].value != null && restrict_filters[index].value != "") {
 
                     if (filter_between_max_map.hasOwnProperty(restrict_filters[index].id)) {
-                        request_array['between']['i'+index] = {};
-                        request_array['between']['i'+index]['name'] = filter_between_max_map[restrict_filters[index].id];
-                        request_array['between']['i'+index]['value'] = restrict_filters[index].value;
-                        request_array['between']['i'+index]['operator'] = "<";
+                        request_array['between']['i' + index] = {};
+                        request_array['between']['i' + index]['name'] = filter_between_max_map[restrict_filters[index].id];
+                        request_array['between']['i' + index]['value'] = restrict_filters[index].value;
+                        request_array['between']['i' + index]['operator'] = "<=";
                     } else if (filter_between_min_map.hasOwnProperty(restrict_filters[index].id)) {
-                        request_array['between']['i'+index] = {};
-                        request_array['between']['i'+index]['name'] = filter_between_min_map[restrict_filters[index].id];
-                        request_array['between']['i'+index]['value'] = restrict_filters[index].value;
-                        request_array['between']['i'+index]['operator'] = ">";
-                    } else if(restrict_filters[index].id == 'SearchDate'){
-                        request_array['boolean']['i'+index] = {};
-                        request_array['boolean']['i'+index]['name'] = "start_time";
-                        request_array['boolean']['i'+index]['value'] = restrict_filters[index].value;
-                    } else if(restrict_filters[index].id == 'SearchHour'){
-                        if(request_array['boolean']['i'+(index-1)]==null){
-                            request_array['boolean']['i'+index] = {};
-                            request_array['boolean']['i'+index]['name'] = "start_time";
-                            request_array['boolean']['i'+index]['value'] = restrict_filters[index].value+":00";
+                        request_array['between']['i' + index] = {};
+                        request_array['between']['i' + index]['name'] = filter_between_min_map[restrict_filters[index].id];
+                        request_array['between']['i' + index]['value'] = restrict_filters[index].value;
+                        request_array['between']['i' + index]['operator'] = ">=";
+                    } else if (restrict_filters[index].id == 'SearchDate') {
+                        request_array['boolean']['i' + index] = {};
+                        request_array['boolean']['i' + index]['name'] = "start_time";
+                        request_array['boolean']['i' + index]['value'] = restrict_filters[index].value;
+                    } else if (restrict_filters[index].id == 'SearchHour') {
+                        if (request_array['boolean']['i' + (index - 1)] == null) {
+                            request_array['boolean']['i' + index] = {};
+                            request_array['boolean']['i' + index]['name'] = "start_time";
+                            request_array['boolean']['i' + index]['value'] = restrict_filters[index].value + ":00";
+                        } else {
+                            request_array['boolean']['i' + (index - 1)]['value'] =
+                                request_array['boolean']['i' + (index - 1)]['value'] + " " + restrict_filters[index].value + ":00";
                         }
-                        else{
-                            request_array['boolean']['i'+(index-1)]['value'] =
-                            request_array['boolean']['i'+(index-1)]['value'] +" "+ restrict_filters[index].value+":00";
+                    } else if (restrict_filters[index].value != 'Any') {
+                        request_array['boolean']['i' + index] = {};
+                        request_array['boolean']['i' + index]['name'] = filter_boolean_map[restrict_filters[index].id];
+                        if (restrict_filters[index].value == 'Yes') {
+                            request_array['boolean']['i' + index]['value'] = "True";
+                        } else if (restrict_filters[index].value == 'No') {
+                            request_array['boolean']['i' + index]['value'] = "False";
+                        } else {
+                            request_array['boolean']['i' + index]['value'] = restrict_filters[index].value;
                         }
-                    }
-                    else if(restrict_filters[index].value != 'Any') {
-                        request_array['boolean']['i'+index] = {};
-                        request_array['boolean']['i'+index]['name'] = filter_boolean_map[restrict_filters[index].id];
-                        if(restrict_filters[index].value == 'Yes'){
-                            request_array['boolean']['i'+index]['value'] = "True";
-                        }
-                        else if(restrict_filters[index].value == 'No'){
-                            request_array['boolean']['i'+index]['value'] = "False";
-                        }
-                        else{
-                            request_array['boolean']['i'+index]['value'] = restrict_filters[index].value;
-                        }
-                        
+
                     }
                 }
             }
@@ -1068,62 +1087,10 @@
         <div class="result">
             <table class="result-table">
                 <thead class="result-table-head">
-                    <!-- <tr>
-                        <th class="result-table-head-element">ID</th>
-                        <th class="result-table-head-element">Camp1</th>
-                        <th class="result-table-head-element">Camp2</th>
-                        <th class="result-table-head-element">Camp3</th>
-                        <th class="result-table-head-element">Camp4</th>
-                        <th class="result-table-head-element">Camp5</th>
-                        <th class="result-table-head-element">Camp6</th>
-                        <th class="result-table-head-element">Camp7</th>
-                        <th class="result-table-head-element">Camp8</th>
-                        <th class="result-table-head-element">Camp9</th>
-                        <th class="result-table-head-element">Camp10</th>
-                        <th class="result-table-head-element">Camp11</th>
-                        <th class="result-table-head-element">Camp12</th>
-                        <th class="result-table-head-element">Camp13</th>
-                        <th class="result-table-head-element">Camp14</th>
-                        <th class="result-table-head-element">Camp15</th>
-                    </tr> -->
-                </thead>
-                <tbody class="result-table-body">
-                    <!-- <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
+                    <tr id="result-table-head">
                     </tr>
-                    <tr>
-                        <td class="result-table-row-cell">info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more infoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                        <td class="result-table-row-cell">A lot more info</td>
-                    </tr> -->
+                </thead>
+                <tbody class="result-table-body" id="result-table-body">
                 </tbody>
             </table>
         </div>
