@@ -914,6 +914,8 @@ p.filtration-menu-text {
 }
 
 .result {
+  display: flex;
+  flex-direction: column;
   background-color: var(--primary-color);
   padding: 15px;
   margin: 15px;
@@ -929,7 +931,59 @@ p.filtration-menu-text {
   border: 2px solid rgba(var(--aux-color), 0.02);
   box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.7);
 }
+.table-paginator{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+  background-color: var(--aux-color);
+  margin: 1px;
+  margin-bottom: 5px;
+  padding: 4px;
+  border: 2px solid var(--primary-color) ;
+  border-radius: 20px;
+}
+.current-page-button{
+  margin: 1px;
+  background-color: var(--primary-color);
+  font-weight: bold;
+  color: var(--secondary-color);
+  border : 3px solid var(--primary-color);
+  border-radius: 20px;
+  font-size: 2rem ;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
+.another-page-button{
+  margin: 1px;
+  background-color: var(--secondary-color);
+  font-weight: bolder;
+  color: var(--primary-color);
+  border : 3px solid var(--primary-color);
+  border-radius: 20px;
+  font-size: 2rem ;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media screen and (max-width:900px){
+  .current-page-button{
+    font-size: 1rem ;
+    padding-left: 5px;
+    padding-right: 5px;
+    border : 1px solid var(--primary-color);
+  }
+  .another-page-button{
+    font-size: 1rem ;
+    padding-left: 5px;
+    padding-right: 5px;
+    border : 1px solid var(--primary-color);
+  }
+}
 .result .chart{
   width:800px;
   height: 1800px;

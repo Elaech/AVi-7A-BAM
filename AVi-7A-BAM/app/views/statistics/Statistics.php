@@ -52,7 +52,7 @@
     <!-- Script finished by Ionita Andra -->
 
     <!-- Script done by Minut Mihai Dimitrie -->
-    <!-- Pagination Script -->
+    <!-- Pagination & Table Ajax Script -->
     <script>
         var show_map = {
             ShowAirportCode: "airport_code",
@@ -290,32 +290,119 @@
                     //when the response is ready
                     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                         var json = JSON.parse(xmlhttp.responseText);
-                        draw_table(json);
-
+                        nr_of_entries = parseInt(json.count);
+                        if (json.count == 0) {
+                            document.getElementById("paginator").style.display = "none";
+                            document.getElementById("result").style.display = "none";
+                            alert("Search provided 0 entries");
+                        } else {
+                            nr_of_pages = Math.floor(nr_of_entries / 20);
+                            if (nr_of_entries % 20 != 0) {
+                                nr_of_pages++;
+                            }
+                            draw_table(json);
+                            draw_paginator(nr_of_pages);
+                        }
+                    
                     }
+                }
 
-                };
-                xmlhttp.send(JSON.stringify(request_array));
+            };
+            xmlhttp.send(JSON.stringify(request_array));
+        }
+
+        function draw_paginator(max_pages) {
+            var paginator = document.getElementById("paginator");
+            var curr_page = parseInt(localStorage.getItem("current_page"));
+            paginator.innerHTML = "";
+            if (max_pages > 4) {
+                switch (curr_page) {
+                    case 0: {
+                        paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">...</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">></button>\n';
+                        break;
+                    }
+                    case 1: {
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">...</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">></button>\n';
+                        break;
+                    }
+                    case (max_pages - 1): {
+                        paginator.innerHTML += '<button class="another-page-button"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">...</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        break;
+                    }
+                    case max_pages: {
+                        paginator.innerHTML += '<button class="another-page-button"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">...</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
+                        break;
+                    }
+                    default: {
+                        paginator.innerHTML += '<button class="another-page-button"><</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + 0 + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">...</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page - 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">' + curr_page + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + (curr_page + 1) + '</button>\n';
+                        paginator.innerHTML += '<button class="current-page-button">...</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">' + max_pages + '</button>\n';
+                        paginator.innerHTML += '<button class="another-page-button">></button>\n';
+                        break;
+                    }
+                }
+            } else {
+                for (var index = 0; index < max_pages; index++) {
+                    if(index!=curr_page){
+                        paginator.innerHTML += '<button class="another-page-button">' + index + '</button>\n';
+                    }else{
+                        paginator.innerHTML += '<button class="current-page-button">' + index + '</button>\n';
+                    }
+                }
             }
         }
 
         function draw_table(json) {
             var t_head = document.getElementById("result-table-head");
-            t_head.innerHTML="";
+            t_head.innerHTML = "";
             for (var index = 0; index < json.body[0].length; index++) {
-                t_head.innerHTML+='<th class="result-table-head-element">'+Object.keys(json.body[0][index])[0]+'</th>\n';
+                t_head.innerHTML += '<th class="result-table-head-element">' + toTitleCase((Object.keys(json.body[0][index])[0] + '').replace("_", " ")) + '</th>\n';
             }
             var t_body = document.getElementById("result-table-body");
             t_body.innerHTML = "";
             var row_length = json.body[0].length;
             var row_body = "";
+            var el = "";
             for (var index = 0; index < json.body.length; index++) {
-                for(var index2=0; index2<row_length;index2++){
-                    row_body+= '<td class="result-table-row-cell">'+Object.values(json.body[index][index2])[0]+'</td>\n';
+                for (var index2 = 0; index2 < row_length; index2++) {
+                    el = (Object.values(json.body[index][index2])[0] + '');
+                    if (el === "null") {
+                        el = "unavailable";
+                    }
+                    row_body += '<td class="result-table-row-cell">' + el + '</td>\n';
                 }
-                t_body.innerHTML+= row_body;
-                row_body = "";       
+                t_body.innerHTML += row_body;
+                row_body = "";
             }
+        }
+
+        function toTitleCase(str) {
+            return str.replace(/\w\S*/g, function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
         }
 
         function remember_choices(request_array) {
@@ -327,6 +414,7 @@
 
         function search_by_filters() {
             var request_array = build_search_request_array(0);
+            localStorage.setItem("current_page", 0);
             if (Object.keys(request_array['show']).length === 0 && request_array['show'].constructor === Object) {
                 localStorage.removeItem("filter_items", null);
                 alert("You must select at least 1 show item");
@@ -1084,7 +1172,7 @@
             </div>
         </div>
         <!-- Finished Section Done By Ionita Andra Paula -->
-        <div class="result">
+        <div class="result" id="result">
             <table class="result-table">
                 <thead class="result-table-head">
                     <tr id="result-table-head">
@@ -1093,6 +1181,8 @@
                 <tbody class="result-table-body" id="result-table-body">
                 </tbody>
             </table>
+        </div>
+        <div class="table-paginator" id="paginator">
         </div>
         <!-- by Ionita Andra -->
         <!--  <div id="myModal" class="modal" -->
