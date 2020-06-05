@@ -2,7 +2,7 @@
 
 class Statistics extends Controller
 {
-    //Done by Minut Mihai Dimitrie
+    //Done by Ionita Andra
     public function index()
     {
         session_start();
@@ -14,9 +14,12 @@ class Statistics extends Controller
                 //echo $_POST['json_filter'];
                 $accmodel = $this->model("accmodel");
                 if (!empty($_POST['json_filter'])) {
-                    $table_data = $accmodel->getAccidentsDataRequest($_POST['json_filter']);
-                  //  var_dump($table_data[1]['severity']);
-                    $this->view('statistics/Statistics', json_decode($table_data));
+                   $table_data = $accmodel->getAccidentsDataRequest($_POST['json_filter']);
+                   
+                    //var_dump(json_decode($table_data,true));
+                    
+                    $this->view('statistics/Statistics', json_decode($table_data,true));
+                    
                 } else  $this->view('statistics/Statistics');
             } else {
                 $this->deleteTokenCookie();
@@ -36,11 +39,12 @@ class Statistics extends Controller
             $data = $authmodel->check($_COOKIE['token'], $this->getUserIP());
             if ($data['status'] == true) {
                 $this->setTokenCookie($data['token']);
+                //echo $_POST['json_filter'];
                 $accmodel = $this->model("accmodel");
                 if (!empty($_POST['json_filter'])) {
                     $table_data = $accmodel->getAccidentsDataRequest($_POST['json_filter']);
                   //  var_dump($table_data[1]['severity']);
-                    $this->view('statistics/Statistics', json_decode($table_data));
+                    $this->view('statistics/Statistics');
                 } else  $this->view('statistics/Statistics');
             } else {
                 $this->deleteTokenCookie();
