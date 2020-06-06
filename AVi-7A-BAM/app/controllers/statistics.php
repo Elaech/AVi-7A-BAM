@@ -15,17 +15,49 @@ class Statistics extends Controller
                 $data = [];
                 if (!empty($_POST['json_filter'])) {
                    if($this->verify_statistics_input()){
-                        $table_data =  $accmodel->getAccidentsDataRequest($_POST['json_filter']);
-                         //var_dump(json_decode($table_data,true));
-                         //faceti o metoda care face switch pe $_POST['format']
-                         //modificati $_POST['json_filter'] sa aiba la sectiunea 'show' numai  $_POST['input-x'] SAU $_POST['input-x'] si $_POST['input-x']
-                         //faceti request cu noul show insa cu AMOUNT < 0 (aka luati toate datele nu numai o pagina)
-                         //rezultatul va fi un array cu o coloana sau doua ce trebuie returnate pe in view
-                        //nu stiu daca va fi tot decode
-                        $data['statistics_data'] = json_decode($table_data,true);
+                         $temp_var=json_decode($_POST['json_filter'],true);
+                         switch ($_POST['format'])
+                         {
+                             case "Map":
+                                $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x']);
+                                $temp_var=json_encode($temp_var);
+                               // var_dump($temp_var);
+                                $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
+                                //var_dump($table_data);
+                                break;
+    
+                            case "PieChart":    
+                                $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x']);
+                                $temp_var=json_encode($temp_var);
+                               // var_dump($temp_var);
+                                $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
+                                //var_dump($table_data);
+                                break;
+    
+                            case "BarChart":
+                                $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x'],
+                                (string)$_POST['input-y'] => (string)$_POST['input-y']);
+                                $temp_var=json_encode($temp_var);
+                               // var_dump($temp_var);
+                                $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
+                                //var_dump($table_data);
+                                break;
+    
+                            case "Graph":
+                                $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x'],
+                                (string)$_POST['input-y'] => (string)$_POST['input-y']);
+                                $temp_var=json_encode($temp_var);
+                                //var_dump($temp_var);
+                                $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
+                               // var_dump($table_data);
+                                break;
+    
+                         }
+                        $data['statistics_data'] =json_decode($table_data,true);
+                        //var_dump($data['statistics_data']);
                    }
                 }
-                $this->view('statistics/Statistics',$data);
+               $this->view('statistics/Statistics',$data);
             } else {
                 $this->deleteTokenCookie();
                 header(Constants::LOCATION_SIGNIN);
