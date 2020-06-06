@@ -858,7 +858,7 @@
                             <span>All</span>
                         </label>
                         <label for="ShowID" class="pick-columns-item" name="showEntryItems">
-                            <input type="checkbox" id="ShowID" class="showCheck">
+                            <input type="checkbox" id="ShowID" class="showCheck" onclick="update_fill_options()">
                             <span>ID</span>
                         </label>
                     </div>
@@ -868,19 +868,19 @@
                             <p>Event</p>
                         </div>
                         <label for="ShowSource" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowSource" class="showCheck">
+                            <input type="checkbox" id="ShowSource" class="showCheck" onclick="update_fill_options()">
                             <span>Source</span>
                         </label>
                         <label for="ShowTMC" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowTMC" class="showCheck">
+                            <input type="checkbox" id="ShowTMC" class="showCheck" onclick="update_fill_options()">
                             <span>TMC</span>
                         </label>
                         <label for="ShowSeverity" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowSeverity" class="showCheck">
+                            <input type="checkbox" id="ShowSeverity" class="showCheck" onclick="update_fill_options()">
                             <span>Severity</span>
                         </label>
                         <label for="ShowDescription" class="pick-columns-item" name="showEventItems">
-                            <input type="checkbox" id="ShowDescription" class="showCheck">
+                            <input type="checkbox" id="ShowDescription" class="showCheck" onclick="update_fill_options()">
                             <span>Description</span>
                         </label>
                     </div>
@@ -890,19 +890,19 @@
                             <p>Time</p>
                         </div>
                         <label for="ShowStartTime" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowStartTime" class="showCheck">
+                            <input type="checkbox" id="ShowStartTime" class="showCheck" onclick="update_fill_options()">
                             <span>Start Time</span>
                         </label>
                         <label for="ShowEndTime" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowEndTime" class="showCheck">
+                            <input type="checkbox" id="ShowEndTime" class="showCheck" onclick="update_fill_options()">
                             <span>End Time</span>
                         </label>
                         <label for="ShowSunriseSunset" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowSunriseSunset" class="showCheck">
+                            <input type="checkbox" id="ShowSunriseSunset" class="showCheck" onclick="update_fill_options()">
                             <span>Sunrise-Sunset</span>
                         </label>
                         <label for="ShowTimeZone" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowTimeZone" class="showCheck">
+                            <input type="checkbox" id="ShowTimeZone" class="showCheck" onclick="update_fill_options()"> 
                             <span>Time Zone</span>
                         </label>
                     </div>
@@ -912,31 +912,31 @@
                             <p>Details Primary</p>
                         </div>
                         <label for="ShowTrafficCalming" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowTrafficCalming" class="showCheck">
+                            <input type="checkbox" id="ShowTrafficCalming" class="showCheck" onclick="update_fill_options()">
                             <span>Traffic Calming</span>
                         </label>
                         <label for="ShowRailway" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowRailway" class="showCheck">
+                            <input type="checkbox" id="ShowRailway" class="showCheck" onclick="update_fill_options()">
                             <span>Railway</span>
                         </label>
                         <label for="ShowStation" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowStation" class="showCheck">
+                            <input type="checkbox" id="ShowStation" class="showCheck" onclick="update_fill_options()">
                             <span>Station</span>
                         </label>
                         <label for="ShowAmenity" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowAmenity" class="showCheck">
+                            <input type="checkbox" id="ShowAmenity" class="showCheck" onclick="update_fill_options()">
                             <span>Amenity</span>
                         </label>
                         <label for="ShowCrossing" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowCrossing" class="showCheck">
+                            <input type="checkbox" id="ShowCrossing" class="showCheck" onclick="update_fill_options()">
                             <span>Crossing</span>
                         </label>
                         <label for="ShowStop" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowStop" class="showCheck">
+                            <input type="checkbox" id="ShowStop" class="showCheck" onclick="update_fill_options()">
                             <span>Stop</span>
                         </label>
                         <label for="ShowNoExit" class="pick-columns-item" name="showDetailsPrimaryItems">
-                            <input type="checkbox" id="ShowNoExit" class="showCheck">
+                            <input type="checkbox" id="ShowNoExit" class="showCheck" onclick="update_fill_options()">
                             <span>No Exit</span>
                         </label>
                     </div>
@@ -946,27 +946,27 @@
                             <p>Details Secondary</p>
                         </div>
                         <label for="ShowBump" class="pick-columns-item" name="showDetailsSecondaryItems">
-                            <input type="checkbox" id="ShowBump" class="showCheck">
+                            <input type="checkbox" id="ShowBump" class="showCheck" onclick="update_fill_options()">
                             <span>Bump</span>
                         </label>
                         <label for="ShowTurningLoop" class="pick-columns-item" name="showDetailsSecondaryItems">
-                            <input type="checkbox" id="ShowTurningLoop" class="showCheck">
+                            <input type="checkbox" id="ShowTurningLoop" class="showCheck" onclick="update_fill_options()">
                             <span>Turning Loop</span>
                         </label>
                         <label for="ShowJunction" class="pick-columns-item" name="showDetailsSecondaryItems">
-                            <input type="checkbox" id="ShowJunction" class="showCheck">
+                            <input type="checkbox" id="ShowJunction" class="showCheck" onclick="update_fill_options()">
                             <span>Junction</span>
                         </label>
                         <label for="ShowGiveWay" class="pick-columns-item" name="showDetailsSecondaryItems">
-                            <input type="checkbox" id="ShowGiveWay" class="showCheck">
+                            <input type="checkbox" id="ShowGiveWay" class="showCheck" onclick="update_fill_options()">
                             <span>Give Way</span>
                         </label>
                         <label for="ShowRoundabout" class="pick-columns-item" name="showDetailsSecondaryItems">
-                            <input type="checkbox" id="ShowRoundabout" class="showCheck">
+                            <input type="checkbox" id="ShowRoundabout" class="showCheck" onclick="update_fill_options()">
                             <span>Roundabout</span>
                         </label>
                         <label for="ShowTrafficSignal" class="pick-columns-item" name="showDetailsSecondaryItems">
-                            <input type="checkbox" id="ShowTrafficSignal" class="showCheck">
+                            <input type="checkbox" id="ShowTrafficSignal" class="showCheck" onclick="update_fill_options()">
                             <span>Traffic Signal</span>
                         </label>
                     </div>
@@ -976,35 +976,35 @@
                             <p>Location Primary</p>
                         </div>
                         <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowCountry" class="showCountry">
+                            <input type="checkbox" id="ShowCountry" class="showCountry" onclick="update_fill_options()">
                             <span>Country</span>
                         </label>
                         <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowState" class="showCheck">
+                            <input type="checkbox" id="ShowState" class="showCheck" onclick="update_fill_options()">
                             <span>State</span>
                         </label>
                         <label for="ShowCounty" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowCounty" class="showCheck">
+                            <input type="checkbox" id="ShowCounty" class="showCheck" onclick="update_fill_options()">
                             <span>County</span>
                         </label>
                         <label for="ShowCity" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowCity" class="showCheck">
+                            <input type="checkbox" id="ShowCity" class="showCheck" onclick="update_fill_options()">
                             <span>City</span>
                         </label>
                         <label for="ShowZipcode" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowZipcode" class="showCheck">
+                            <input type="checkbox" id="ShowZipcode" class="showCheck" onclick="update_fill_options()">
                             <span>Zipcode</span>
                         </label>
                         <label for="ShowStreetNumber" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowStreetNumber" class="showCheck">
+                            <input type="checkbox" id="ShowStreetNumber" class="showCheck" onclick="update_fill_options()">
                             <span>Street Number</span>
                         </label>
                         <label for="ShowStreetName" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowStreetName" class="showCheck">
+                            <input type="checkbox" id="ShowStreetName" class="showCheck" onclick="update_fill_options()">
                             <span>Street Name</span>
                         </label>
                         <label for="ShowStreetSide" class="pick-columns-item" name="showLocationPrimaryItems">
-                            <input type="checkbox" id="ShowStreetSide" class="showCheck">
+                            <input type="checkbox" id="ShowStreetSide" class="showCheck" onclick="update_fill_options()">
                             <span>Street Side</span>
                         </label>
 
@@ -1015,27 +1015,27 @@
                             <p>Location Secondary</p>
                         </div>
                         <label for="ShowStartLatitude" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowStartLatitude" class="showCheck">
+                            <input type="checkbox" id="ShowStartLatitude" class="showCheck" onclick="update_fill_options()">
                             <span>Start Latitude</span>
                         </label>
                         <label for="ShowEndLatitude" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowEndLatitude" class="showCheck">
+                            <input type="checkbox" id="ShowEndLatitude" class="showCheck" onclick="update_fill_options()">
                             <span>End Latitude</span>
                         </label>
                         <label for="ShowStartLongitude" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowStartLongitude" class="showCheck">
+                            <input type="checkbox" id="ShowStartLongitude" class="showCheck" onclick="update_fill_options()">
                             <span>Start Longitude</span>
                         </label>
                         <label for="ShowEndLongitude" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowEndLongitude" class="showCheck">
+                            <input type="checkbox" id="ShowEndLongitude" class="showCheck" onclick="update_fill_options()">
                             <span>End Longitude</span>
                         </label>
                         <label for="ShowDistance" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowDistance" class="showCheck">
+                            <input type="checkbox" id="ShowDistance" class="showCheck" onclick="update_fill_options()">
                             <span>Distance (miles)</span>
                         </label>
                         <label for="ShowAirportCode" class="pick-columns-item" name="showLocationSecondaryItems">
-                            <input type="checkbox" id="ShowAirportCode" class="showCheck">
+                            <input type="checkbox" id="ShowAirportCode" class="showCheck" onclick="update_fill_options()">
                             <span>Airport Code</span>
                         </label>
                     </div>
@@ -1045,27 +1045,27 @@
                             <p>Weather Primary</p>
                         </div>
                         <label for="ShowTemperature" class="pick-columns-item" name="showWeatherPrimaryItems">
-                            <input type="checkbox" id="ShowTemperature" class="showCheck">
+                            <input type="checkbox" id="ShowTemperature" class="showCheck" onclick="update_fill_options()">
                             <span>Temperature (F)</span>
                         </label>
                         <label for="ShowHumidity" class="pick-columns-item" name="showWeatherPrimaryItems">
-                            <input type="checkbox" id="ShowHumidity" class="showCheck">
+                            <input type="checkbox" id="ShowHumidity" class="showCheck" onclick="update_fill_options()">
                             <span>Humidity (%)</span>
                         </label>
                         <label for="ShowPressure" class="pick-columns-item" name="showWeatherPrimaryItems">
-                            <input type="checkbox" id="ShowPressure" class="showCheck">
+                            <input type="checkbox" id="ShowPressure" class="showCheck" onclick="update_fill_options()">
                             <span>Pressure (inches)</span>
                         </label>
                         <label for="ShowPrecipitation" class="pick-columns-item" name="showWeatherPrimaryItems">
-                            <input type="checkbox" id="ShowPrecipitation" class="showCheck">
+                            <input type="checkbox" id="ShowPrecipitation" class="showCheck" onclick="update_fill_options()">
                             <span>Precipitation</span>
                         </label>
                         <label for="ShowVisibility" class="pick-columns-item" name="showWeatherPrimaryItems">
-                            <input type="checkbox" id="ShowVisibility" class="showCheck">
+                            <input type="checkbox" id="ShowVisibility" class="showCheck" onclick="update_fill_options()">
                             <span>Visibility (miles)</span>
                         </label>
                         <label for="ShowWeatherCondition" class="pick-columns-item" name="showWeatherPrimaryItems">
-                            <input type="checkbox" id="ShowWeatherCondition" class="showCheck">
+                            <input type="checkbox" id="ShowWeatherCondition" class="showCheck" onclick="update_fill_options()">
                             <span>Weather Condition</span>
                         </label>
                     </div>
@@ -1075,27 +1075,27 @@
                             <p>Weather Secondary</p>
                         </div>
                         <label for="ShowWeatherTimestamp" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowWeatherTimestamp" class="showCheck">
+                            <input type="checkbox" id="ShowWeatherTimestamp" class="showCheck" onclick="update_fill_options()">
                             <span>Weather Timestamp</span>
                         </label>
                         <label for="ShowWindChill" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowWindChill" class="showCheck">
+                            <input type="checkbox" id="ShowWindChill" class="showCheck" onclick="update_fill_options()">
                             <span>Wind Chill</span>
                         </label>
                         <label for="ShowWindDirection" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowWindDirection" class="showCheck">
+                            <input type="checkbox" id="ShowWindDirection" class="showCheck" onclick="update_fill_options()">
                             <span>Wind Direction</span>
                         </label>
                         <label for="ShowWindSpeed" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowWindSpeed" class="showCheck">
+                            <input type="checkbox" id="ShowWindSpeed" class="showCheck" onclick="update_fill_options()">
                             <span>Wind Speed (mph)</span>
                         </label>
                         <label for="ShowCivilTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowCivilTwilight" class="showCheck">
+                            <input type="checkbox" id="ShowCivilTwilight" class="showCheck" onclick="update_fill_options()">
                             <span>Civil Twilight</span>
                         </label>
                         <label for="ShowAstronomicalTwilight" class="pick-columns-item" name="showWeatherSecondaryItems">
-                            <input type="checkbox" id="ShowAstronomicalTwilight" class="showCheck">
+                            <input type="checkbox" id="ShowAstronomicalTwilight" class="showCheck" onclick="update_fill_options()">
                             <span>Astronomical Twilight</span>
                         </label>
                     </div>
