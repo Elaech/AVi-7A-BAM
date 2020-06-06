@@ -788,7 +788,27 @@
             }
         }
         function update_fill_options(){
-            alert(1);
+            var format = document.getElementById('results-format').value;
+            switch(format) {
+                case 'Map': {
+                    fill_options("second-option-statistics", true);
+                    break;
+                }
+                case 'Graph': {
+                    fill_options("second-option-statistics", true);
+                    fill_options("first-option-statistics", true);
+                    break;
+                }
+                case 'BarChart': {
+                    fill_options("second-option-statistics", false);
+                    fill_options("first-option-statistics", true);
+                    break;
+                }
+                case 'PieChart': {
+                    fill_options("second-option-statistics", false);
+                    break;
+                }
+            }
         }
         function fill_options(id_container, numeric) {
             document.getElementById(id_container).innerHTML = "";
@@ -853,8 +873,8 @@
                         <div onclick="showHideItems(this,'showEntryItems')" class="pick-columns-list-title">
                             <p>Entries</p>
                         </div>
-                        <label onclick="pickUnpickAllShowItems()" class="pick-columns-item" for="ShowAll" name="showEntryItems">
-                            <input type="checkbox" id="ShowAll" onclick="update_fill_options()">
+                        <label onclick="pickUnpickAllShowItems();update_fill_options();" class="pick-columns-item" for="ShowAll" name="showEntryItems">
+                            <input type="checkbox" id="ShowAll">
                             <span>All</span>
                         </label>
                         <label for="ShowID" class="pick-columns-item" name="showEntryItems">
