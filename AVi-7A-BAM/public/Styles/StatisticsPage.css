@@ -1068,10 +1068,23 @@ p.filtration-menu-text {
 /* Modal Content */
 .modalContent {
  
-  align-self:center; align-content:center; margin:0%; height:95%; overflow-y: scroll;
+  align-self:center; 
+  align-content:center; 
+  margin:0%; 
+  height:95%; 
+  overflow-y: scroll;
   overflow-x: scroll;
 }
 
+.pick-up-button{
+  align-self:right; 
+  margin-left:77vw;
+   width:3%; height:5%; 
+   color:white; 
+   font-weight:900; 
+   background-color: #3b271d;
+    border-radius: 20px;
+}
 
 .closeButton {
   background: none;
@@ -1419,9 +1432,9 @@ p.filtration-menu-text {
     padding: 2px;
     margin: 2px;
     border-width: 1.5px;
-
-    padding-right: 15px;
-    padding-left: 20px;
+    text-align: center;
+    /* padding-right: 15px;
+    padding-left: 20px; */
     font-family: var(--text-font-filtration-menu);
     font-size: 0.6rem;
   }
@@ -1439,16 +1452,6 @@ p.filtration-menu-text {
     font-weight: 900;
     border-width: 1.5px;
     margin-bottom: 4px;
-  }
-  .download-option {
-    padding: 2px;
-    margin: 2px;
-    border-width: 1.5px;
-
-    padding-right: 15px;
-    padding-left: 20px;
-    font-family: var(--text-font-filtration-menu);
-    font-size: 0.6rem;
   }
 
   .descarcare{

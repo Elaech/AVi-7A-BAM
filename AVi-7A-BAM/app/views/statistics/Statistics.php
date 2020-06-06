@@ -24,25 +24,27 @@
 
         //             var data = new google.visualization.DataTable();
         //             <?php
-        //             for ($i = 0; $i < count($data['body'][0]); $i++) {
-        //                 echo "data.addColumn('number', '" .  array_keys($data['body'][0][$i])[0] . "');";
-        //             }
-        //             ?>
+                        //             for ($i = 0; $i < count($data['body'][0]); $i++) {
+                        //                 echo "data.addColumn('number', '" .  array_keys($data['body'][0][$i])[0] . "');";
+                        //             }
+                        //             
+                        ?>
         //             <?php
-        //             echo "data.addRows([";
+                        //             echo "data.addRows([";
 
-        //             for ($i = 0; $i < 50; $i++) {
-        //                 echo "[";
-        //                 for ($j = 0; $j < count($data['body'][0]) - 1; $j++) {
-        //                     echo $j . ", ";
-        //                 }
-        //                 echo 7;
-        //                 echo "],";
-        //             }
+                        //             for ($i = 0; $i < 50; $i++) {
+                        //                 echo "[";
+                        //                 for ($j = 0; $j < count($data['body'][0]) - 1; $j++) {
+                        //                     echo $j . ", ";
+                        //                 }
+                        //                 echo 7;
+                        //                 echo "],";
+                        //             }
 
-        //             echo "[0,1,2,6]";
-        //             echo "]);";
-        //             ?>
+                        //             echo "[0,1,2,6]";
+                        //             echo "]);";
+                        //             
+                        ?>
         //             var options = {
         //                 chart: {
         //                     title: 'Box Office Earnings in First Two Weeks of Opening',
@@ -68,30 +70,31 @@
         //             var x = (
         //                 <?php
 
-        //                 echo "[" . "[";
-        //                 for ($i = 0; $i < 5; $i++) {
-        //                     $temp = array_keys(json_decode($data, true)['body'][0][$i]);
-        //                     if ($i == 4)
-        //                         echo ("'" . $temp[0]) . "'";
-        //                     else echo ("'" . $temp[0]) . "',";
-        //                 }
-        //                 echo "],";
+                            //                 echo "[" . "[";
+                            //                 for ($i = 0; $i < 5; $i++) {
+                            //                     $temp = array_keys(json_decode($data, true)['body'][0][$i]);
+                            //                     if ($i == 4)
+                            //                         echo ("'" . $temp[0]) . "'";
+                            //                     else echo ("'" . $temp[0]) . "',";
+                            //                 }
+                            //                 echo "],";
 
 
-        //                 foreach (json_decode($data, true)['body'] as $row) {
-        //                     echo "[";
-        //                     foreach ($row as $value) {
+                            //                 foreach (json_decode($data, true)['body'] as $row) {
+                            //                     echo "[";
+                            //                     foreach ($row as $value) {
 
-        //                         $temp = array_keys($value);
-        //                         $key = $temp[0];
+                            //                         $temp = array_keys($value);
+                            //                         $key = $temp[0];
 
-        //                         echo  "'" . $value[$key] . "',";
-        //                     }
-        //                     echo "],";
-        //                 }
-        //                 echo "]";
+                            //                         echo  "'" . $value[$key] . "',";
+                            //                     }
+                            //                     echo "],";
+                            //                 }
+                            //                 echo "]";
 
-        //                 ?>);
+                            //                 
+                            ?>);
         //             var data = google.visualization.arrayToDataTable(x);
 
         //             var options = {
@@ -116,39 +119,40 @@
 
         //             var data = google.visualization.arrayToDataTable(
         //                 <?php
-        //                 $WORK_FFS = json_decode($data, true);
-        //                 $frecventa = array();
-        //                 array_push($frecventa, 0);
-        //                 array_push($frecventa, 0);
-        //                 array_push($frecventa, 0);
-        //                 array_push($frecventa, 0);
-        //                 array_push($frecventa, 0);
-        //                 $valori = array();
-        //                 echo "[";
-        //                 echo "['Name', 'Accident'],";
+                            //                 $WORK_FFS = json_decode($data, true);
+                            //                 $frecventa = array();
+                            //                 array_push($frecventa, 0);
+                            //                 array_push($frecventa, 0);
+                            //                 array_push($frecventa, 0);
+                            //                 array_push($frecventa, 0);
+                            //                 array_push($frecventa, 0);
+                            //                 $valori = array();
+                            //                 echo "[";
+                            //                 echo "['Name', 'Accident'],";
 
-        //                 foreach ($WORK_FFS['body'] as $row) {
-        //                     foreach ($row as $value) {
+                            //                 foreach ($WORK_FFS['body'] as $row) {
+                            //                     foreach ($row as $value) {
 
-        //                         $temp = array_keys($value);
-        //                         $key = $temp[0];
+                            //                         $temp = array_keys($value);
+                            //                         $key = $temp[0];
 
-        //                         for ($i = 1; $i < 5; $i++) {
-        //                             if ((int) $value[(string) $key] == $i)
-        //                                 $frecventa[(string) $i] = $frecventa[(string) $i] + 1;
-        //                         }
+                            //                         for ($i = 1; $i < 5; $i++) {
+                            //                             if ((int) $value[(string) $key] == $i)
+                            //                                 $frecventa[(string) $i] = $frecventa[(string) $i] + 1;
+                            //                         }
 
 
-        //                         //echo "['" . $key . "'," . $value[(string) $key] . "],";
+                            //                         //echo "['" . $key . "'," . $value[(string) $key] . "],";
 
-        //                     }
-        //                 }
-        //                 echo "['" . "1" . "'," . $frecventa['1'] . "],";
-        //                 echo "['" . "2" . "'," . $frecventa['2'] . "],";
-        //                 echo "['" . "3" . "'," . $frecventa['3'] . "],";
-        //                 echo "['" . "4" . "'," . $frecventa['4'] . "],";
-        //                 echo "]";
-        //                 ?>);
+                            //                     }
+                            //                 }
+                            //                 echo "['" . "1" . "'," . $frecventa['1'] . "],";
+                            //                 echo "['" . "2" . "'," . $frecventa['2'] . "],";
+                            //                 echo "['" . "3" . "'," . $frecventa['3'] . "],";
+                            //                 echo "['" . "4" . "'," . $frecventa['4'] . "],";
+                            //                 echo "]";
+                            //                 
+                            ?>);
 
 
         //             var options = {
@@ -524,6 +528,7 @@
                 }
                 xmlhttp.send(JSON.stringify(request_array));
             }
+            fill_options("second-option-statistics", true);
         }
 
         function draw_paginator(max_pages) {
@@ -736,6 +741,91 @@
         }
     </script>
     <!-- End of Pagination Script -->
+    <!-- Statistics Input Script -->
+    <script>
+        var numeric_inputs = ["ShowWindSpeed", "ShowWindChill", "ShowID", "ShowTMC", "ShowSeverity", "ShowStartLatitude", "ShowStartLongitude", "ShowDistance", "ShowStreetNumber", "ShowTemperature", "ShowHumidity", "ShowPressure", "ShowVisibility", "ShowPrecipitation"];
+
+        function change_format() {
+            var format = document.getElementById('results-format').value;
+            var statisticInputContainer = document.getElementById('pick-statistics-elements');
+            switch (format) {
+                case 'Map': {
+                    statisticInputContainer.innerHTML = '<p class="show-title">Area Field</p> \
+                    <select id="second-option-statistics" class="show-option" name="input-x">\
+                    </select>';
+                    fill_options("second-option-statistics", true);
+                    break;
+                }
+                case 'Graph': {
+                    statisticInputContainer.innerHTML = '<p class="show-title">X axis</p> \
+                    <select id="first-option-statistics" class="show-option" name="input-x" > \
+                    </select> \
+                    <p class="show-title">Y axis</p> \
+                    <select id="second-option-statistics" class="show-option" name="input-y">\
+                    </select>';
+                    fill_options("second-option-statistics", true);
+                    fill_options("first-option-statistics", true);
+                    break;
+                }
+                case 'BarChart': {
+                    statisticInputContainer.innerHTML = '<p class="show-title">X axis</p> \
+                    <select id="second-option-statistics" class="show-option" name="input-x">\
+                    </select>\
+                    <p class="show-title">Y axis</p> \
+                    <select id="first-option-statistics" class="show-option" name="input-y">\
+                    </select>';
+                    fill_options("second-option-statistics", false);
+                    fill_options("first-option-statistics", true);
+                    break;
+                }
+                case 'PieChart': {
+                    statisticInputContainer.innerHTML = '<p class="show-title">Field</p> \
+                    <select id="second-option-statistics" class="show-option" name="input-x">\
+                    </select>';
+                    fill_options("second-option-statistics", false);
+                    break;
+                }
+            }
+        }
+        function update_fill_options(){
+            alert(1);
+        }
+        function fill_options(id_container, numeric) {
+            document.getElementById(id_container).innerHTML = "";
+            var ok = false;
+            if (numeric === true) {
+                 for (var index = 0; index < numeric_inputs.length; index++) {
+                     if (document.getElementById(numeric_inputs[index]).checked === true) {
+                        ok = true;
+                        var opt = document.createElement('OPTION');
+                        opt.text = (numeric_inputs[index]).replace('Show','');
+                        opt.value = show_map[numeric_inputs[index]];
+                        document.getElementById(id_container).options.add(opt);
+                    }
+                }
+            } else {
+
+                var show_filters = document.getElementsByClassName("showCheck");
+                for (var index = 0; index < show_filters.length; index++) {
+                    if (show_filters[index].checked === true) {
+                        ok = true;
+                        var opt = document.createElement('OPTION');
+                        opt.text = (show_filters[index].id).replace('Show','');
+                        opt.value = show_map[show_filters[index].id];
+                        document.getElementById(id_container).options.add(opt);
+                    }
+                }
+
+            }
+            if (ok === false) {
+                var opt = document.createElement('OPTION');
+                        opt.text = "None";
+                        opt.value = "None";
+                        document.getElementById(id_container).options.add(opt);
+            }
+        }
+    </script>
+    <!-- End of Statistics Input Script -->
 </head>
 
 <body>
@@ -745,22 +835,10 @@
     <main class="main-class">
 
 
-        <div id="dataModal" class="theModal" style=" position:-webkit-sticky; position:sticky;
-           top:10%; background-color:white; width:80vw; height:80vh;   border: 2px solid rgba(0, 0, 0, 0.02);
-  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
-  border-radius: 10px; align-items: center;
-  justify-items: center;
-  align-content: center;
-  justify-content: center;  ">
-            <button class="pick-up-button" onclick="closeModal()" style="align-self:right; margin-left:77vw; width:3%; height:5%; color:white; font-weight:900; background-color: #3b271d; border-radius: 20px; ">X</button>
-
-            <div class="modalContent" style=" align-self:center;  align-content:center; margin:0%; height:95%; overflow-y: scroll;
-  overflow-x: scroll;">
-                <!-- <div id="line_top_x"></div> -->
-                <!-- <div id="line_top_x"></div> -->
-                <!-- <div id="piechart"></div> -->
+        <div id="dataModal" class="theModal">
+            <button class="pick-up-button" onclick="closeModal()">X</button>
+            <div class="modalContent" id="modal">
             </div>
-
         </div>
 
         <form class="filtration-menu-container" id="filtration-form" method="POST">
@@ -776,7 +854,7 @@
                             <p>Entries</p>
                         </div>
                         <label onclick="pickUnpickAllShowItems()" class="pick-columns-item" for="ShowAll" name="showEntryItems">
-                            <input type="checkbox" id="ShowAll">
+                            <input type="checkbox" id="ShowAll" onclick="update_fill_options()">
                             <span>All</span>
                         </label>
                         <label for="ShowID" class="pick-columns-item" name="showEntryItems">
@@ -1355,7 +1433,7 @@
                 </div>
             </div>
             <!--Sorting Division-->
-            <div class="pick-sort">
+            <!-- <div class="pick-sort">
                 <label for="SortBy" class="sortby-title">Sort By</label>
                 <select id="SortBy" class="sort-select">
                     <option value="ID">ID</option>
@@ -1388,23 +1466,23 @@
                     <option value="Precipitation">Precipitation (inches)</option>
                     <option value="Weather Condition">Weather Condition</option>
                 </select>
-            </div>
+            </div> -->
             <!-- Done by Ionita Andra -->
             <div class="selectam">
                 <div class="show">
                     <p class="show-title">Format Results</p>
-                    <select id="Show" class="show-option">
+                    <select id="results-format" class="show-option" onchange="change_format()">
                         <option id="Map" value="Map">Map</option>
                         <option id="Graph" value="Graph">Graph</option>
-                        <option id="BarChart" value="BarChart">Bar Chart</option>
-                        <option id="PieChart" value="PieChart">Pie Chart</option>
+                        <option id="BarChart" value="BarChart">BarChart</option>
+                        <option id="PieChart" value="PieChart">PieChart</option>
 
                     </select>
                 </div>
                 <div class="download">
                     <p class="download-title">Download As</p>
                     <div class="descarcare">
-                        <select id="download" class="download-option">
+                        <select id="download" class="show-option">
                             <option value="Png">PNG</option>
                             <option value="json">JSON</option>
                             <option value="xml">XML</option>
@@ -1426,7 +1504,7 @@
 
 
             <!-- Elements for chart Done by Ionita Andra -->
-            <div class="pick-show">
+            <!-- <div class="pick-show">
                 <div class="pick-title-show">
                     <p class="filtration-menu-text">Choose what to show in the results</p>
                 </div>
@@ -1488,6 +1566,14 @@
                         </label>
                     </div>
                 </div>
+            </div> -->
+            <div class="selectam">
+                <div class="show" id="pick-statistics-elements">
+                    <p class="show-title">Area Field</p>
+                    <select id="second-option-statistics" class="show-option" name="input-x">
+                    </select>
+                </div>
+
             </div>
             <!-- Finished by Ionita Andra, elemnts for chart -->
         </form>
