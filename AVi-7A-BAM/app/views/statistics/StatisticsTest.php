@@ -16,7 +16,8 @@
     <title>Statistics</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- <script type="text/javascript">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -24,38 +25,38 @@
 
         var data = google.visualization.arrayToDataTable(
            <?php
-            // $WORK_FFS = json_decode($data, true);
-            // $frecventa=array();
-            // array_push($frecventa,0);
-            // array_push($frecventa,0);
-            // array_push($frecventa,0);
-            // array_push($frecventa,0);
-            // array_push($frecventa,0);
-            // $valori=array();
-            // echo "[";
-            // echo "['Name', 'Accident'],";
+            $WORK_FFS = json_decode($data, true);
+            $frecventa=array();
+            array_push($frecventa,0);
+            array_push($frecventa,0);
+            array_push($frecventa,0);
+            array_push($frecventa,0);
+            array_push($frecventa,0);
+            $valori=array();
+            echo "[";
+            echo "['Name', 'Accident'],";
 
-            // foreach ($WORK_FFS['body'] as $row) {
-            //     foreach ($row as $value) {
+            foreach ($WORK_FFS['body'] as $row) {
+                foreach ($row as $value) {
 
-            //         $temp = array_keys($value);
-            //         $key = $temp[0];
+                    $temp = array_keys($value);
+                    $key = $temp[0];
 
-            //          for($i=1;$i<5;$i++){
-            //             if((int)$value[(string) $key]==$i)
-            //                $frecventa[(string)$i]=$frecventa[(string)$i]+1;
-            //           }
+                     for($i=1;$i<5;$i++){
+                        if((int)$value[(string) $key]==$i)
+                           $frecventa[(string)$i]=$frecventa[(string)$i]+1;
+                      }
 
 
-            //         //echo "['" . $key . "'," . $value[(string) $key] . "],";
+                    //echo "['" . $key . "'," . $value[(string) $key] . "],";
 
-            //     }
-            // }
-            // echo "['" . "1" . "'," . $frecventa['1'] . "],";
-            // echo "['" . "2" . "'," . $frecventa['2'] . "],";
-            // echo "['" . "3" . "'," . $frecventa['3'] . "],";
-            // echo "['" . "4" . "'," . $frecventa['4'] . "],";
-            // echo "]";
+                }
+            }
+            echo "['" . "1" . "'," . $frecventa['1'] . "],";
+            echo "['" . "2" . "'," . $frecventa['2'] . "],";
+            echo "['" . "3" . "'," . $frecventa['3'] . "],";
+            echo "['" . "4" . "'," . $frecventa['4'] . "],";
+            echo "]";
             ?>);
 
     
@@ -73,9 +74,9 @@ var options = {
 
         chart.draw(data, options);
       }
-    </script> -->
+    </script> 
 
-    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChartBar);
@@ -127,7 +128,7 @@ var options = {
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
-    </script> -->
+    </script>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -142,38 +143,38 @@ var options = {
 
             <?php
 
-            for ($i = 0; $i < count($data['body'][0]); $i++) {
-                echo "data.addColumn('number', '" .  array_keys($data['body'][0][$i])[0] . "');";
-            }
+            // for ($i = 0; $i < count($data['body'][0]); $i++) {
+            //     echo "data.addColumn('number', '" .  array_keys($data['body'][0][$i])[0] . "');";
+            // }
 
 
 
-            ?>
+            // ?>
 
 
 
 
-            //    for($i=0; $i<5; $i++){
-            //     $temp=array_keys(json_decode($data,true)['body'][0][$i]);
-            //     if($i==4)
-            //          echo ("'" . $temp[0]) . "'";
-            //     else echo ("'" . $temp[0]) . "',";
+            // //    for($i=0; $i<5; $i++){
+            // //     $temp=array_keys(json_decode($data,true)['body'][0][$i]);
+            // //     if($i==4)
+            // //          echo ("'" . $temp[0]) . "'";
+            // //     else echo ("'" . $temp[0]) . "',";
+            // //     }
+            // //        echo "],"; 
+            // <?php
+            // echo "data.addRows([";
+
+            // for ($i = 0; $i < 50; $i++) {
+            //     echo "[";
+            //     for ($j = 0; $j < count($data['body'][0]) - 1; $j++) {
+            //         echo $j . ", ";
             //     }
-            //        echo "],"; 
-            <?php
-            echo "data.addRows([";
+            //     echo 7;
+            //     echo "],";
+            // }
 
-            for ($i = 0; $i < 50; $i++) {
-                echo "[";
-                for ($j = 0; $j < count($data['body'][0]) - 1; $j++) {
-                    echo $j . ", ";
-                }
-                echo 7;
-                echo "],";
-            }
-
-            echo "[0,1,2,6]";
-            echo "]);";
+            // echo "[0,1,2,6]";
+            // echo "]);";
             ?>
 
             var options = {
@@ -194,16 +195,16 @@ var options = {
             var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
             chart.draw(data, google.charts.Line.convertOptions(options));
-        }
+        } -->
 
-
+        <script type="text/javascript">
         function showModal() {
 
             var modal = document.getElementById('dataModal');
             modal.style.display = "block";
             modal.style.visibility = "visible";
             google.charts.load('current', {
-                'packages': ['line']
+                'packages': ['corechart']
             });
             google.charts.setOnLoadCallback(drawChart);
 
@@ -711,13 +712,13 @@ var options = {
 
             <div class="modalContent" style=" align-self:center; align-content:center; margin:0%; height:95%; overflow-y: scroll;
   overflow-x: scroll;">
-                <div id="line_top_x"></div>
                 <!-- <div id="line_top_x"></div> -->
-                <!-- <div id="piechart"></div> -->
+                <!-- <div id="line_top_x"></div> -->
+                <div id="piechart"></div>
             </div>
 
         </div>
-
+        <!-- <div id="piechart"></div> -->
         <form class="filtration-menu-container" id="filtration-form" method="POST">
             <!--Pick Shown Files Division-->
             <div class="pick-show">

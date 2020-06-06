@@ -10,10 +10,236 @@
     <link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <!-- Script by Ionita Andra -->
     <meta lang="en-US">
     <title>Statistics</title>
-    <script>
+    <script type="text/javascript">
+        // function drawChart() {
+        //     var choosen="Map";
+        //     switch (choosen) {
+        //         case "Graph":
+
+        //             var data = new google.visualization.DataTable();
+        //             <?php
+        //             for ($i = 0; $i < count($data['body'][0]); $i++) {
+        //                 echo "data.addColumn('number', '" .  array_keys($data['body'][0][$i])[0] . "');";
+        //             }
+        //             ?>
+        //             <?php
+        //             echo "data.addRows([";
+
+        //             for ($i = 0; $i < 50; $i++) {
+        //                 echo "[";
+        //                 for ($j = 0; $j < count($data['body'][0]) - 1; $j++) {
+        //                     echo $j . ", ";
+        //                 }
+        //                 echo 7;
+        //                 echo "],";
+        //             }
+
+        //             echo "[0,1,2,6]";
+        //             echo "]);";
+        //             ?>
+        //             var options = {
+        //                 chart: {
+        //                     title: 'Box Office Earnings in First Two Weeks of Opening',
+        //                     subtitle: 'in millions of dollars (USD)'
+        //                 },
+        //                 width: 900,
+        //                 height: 500,
+        //                 axes: {
+        //                     x: {
+        //                         0: {
+        //                             side: 'top'
+        //                         }
+        //                     }
+        //                 }
+        //             };
+        //             var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+        //             chart.draw(data, google.charts.Line.convertOptions(options));
+        //             break;
+
+        //         case "BarChart":
+
+        //             var x = (
+        //                 <?php
+
+        //                 echo "[" . "[";
+        //                 for ($i = 0; $i < 5; $i++) {
+        //                     $temp = array_keys(json_decode($data, true)['body'][0][$i]);
+        //                     if ($i == 4)
+        //                         echo ("'" . $temp[0]) . "'";
+        //                     else echo ("'" . $temp[0]) . "',";
+        //                 }
+        //                 echo "],";
+
+
+        //                 foreach (json_decode($data, true)['body'] as $row) {
+        //                     echo "[";
+        //                     foreach ($row as $value) {
+
+        //                         $temp = array_keys($value);
+        //                         $key = $temp[0];
+
+        //                         echo  "'" . $value[$key] . "',";
+        //                     }
+        //                     echo "],";
+        //                 }
+        //                 echo "]";
+
+        //                 ?>);
+        //             var data = google.visualization.arrayToDataTable(x);
+
+        //             var options = {
+        //                 title: 'Accidents Chart',
+        //                 height: 600,
+        //                 width: 800,
+        //                 is3D: true,
+        //                 bar: {
+        //                     groupWidth: "95%"
+        //                 },
+        //                 chart: {
+        //                     subtitle: 'Accidents Chart',
+        //                 }
+        //             };
+
+        //             var chart = new google.charts.Bar(document.getElementById('columnchart'));
+
+        //             chart.draw(data, google.charts.Bar.convertOptions(options));
+        //             break;
+
+        //         case "PieChart":
+
+        //             var data = google.visualization.arrayToDataTable(
+        //                 <?php
+        //                 $WORK_FFS = json_decode($data, true);
+        //                 $frecventa = array();
+        //                 array_push($frecventa, 0);
+        //                 array_push($frecventa, 0);
+        //                 array_push($frecventa, 0);
+        //                 array_push($frecventa, 0);
+        //                 array_push($frecventa, 0);
+        //                 $valori = array();
+        //                 echo "[";
+        //                 echo "['Name', 'Accident'],";
+
+        //                 foreach ($WORK_FFS['body'] as $row) {
+        //                     foreach ($row as $value) {
+
+        //                         $temp = array_keys($value);
+        //                         $key = $temp[0];
+
+        //                         for ($i = 1; $i < 5; $i++) {
+        //                             if ((int) $value[(string) $key] == $i)
+        //                                 $frecventa[(string) $i] = $frecventa[(string) $i] + 1;
+        //                         }
+
+
+        //                         //echo "['" . $key . "'," . $value[(string) $key] . "],";
+
+        //                     }
+        //                 }
+        //                 echo "['" . "1" . "'," . $frecventa['1'] . "],";
+        //                 echo "['" . "2" . "'," . $frecventa['2'] . "],";
+        //                 echo "['" . "3" . "'," . $frecventa['3'] . "],";
+        //                 echo "['" . "4" . "'," . $frecventa['4'] . "],";
+        //                 echo "]";
+        //                 ?>);
+
+
+        //             var options = {
+        //                 title: 'Numbers of accidents in different country in this week:',
+        //                 is3D: true,
+        //                 height: 500,
+        //                 width: 600,
+        //                 pieHole: 0.4 //,
+        //                 // colors: ['#efe0bb', '#af734a','#3b271d', '#f3b49f', '#f6c7b6']
+
+        //             };
+        //             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        //             chart.draw(data, options);
+        //             break;
+
+        //         default:
+
+        //             Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv', function(err, rows) {
+
+        //                 function unpack(rows, key) {
+        //                     return rows.map(function(row) {
+        //                         return row[key];
+        //                     });
+        //                 }
+
+        //                 var cityName = unpack(rows, 'name'),
+        //                     cityPop = unpack(rows, 'pop'),
+        //                     cityLat = unpack(rows, 'lat'),
+        //                     cityLon = unpack(rows, 'lon'),
+        //                     color = ["pink", "red", "pink", "lightgrey"],
+        //                     citySize = [],
+        //                     hoverText = [],
+        //                     scale = 50000;
+
+        //                 for (var i = 0; i < cityPop.length; i++) {
+        //                     var currentSize = cityPop[i] / scale;
+        //                     var currentText = cityName[i] + " pop: " + cityPop[i];
+        //                     citySize.push(currentSize);
+        //                     hoverText.push(currentText);
+        //                 }
+
+        //                 var data = [{
+        //                     type: 'scattergeo',
+        //                     locationmode: 'USA-states',
+        //                     lat: cityLat,
+        //                     lon: cityLon,
+        //                     hoverinfo: 'text',
+        //                     text: hoverText,
+        //                     marker: {
+        //                         size: citySize,
+        //                         line: {
+        //                             color: 'black',
+        //                             width: 2
+        //                         },
+        //                         color: 'pink'
+        //                     }
+        //                 }];
+
+        //                 var layout = {
+        //                     title: '2014 US City Populations',
+        //                     showlegend: false,
+        //                     width: 900,
+        //                     height: 900,
+        //                     geo: {
+        //                         scope: 'usa',
+        //                         projection: {
+        //                             type: 'albers usa'
+        //                         },
+        //                         showland: true,
+        //                         landcolor: 'lightgrey',
+        //                         subunitwidth: 1,
+        //                         countrywidth: 1,
+        //                         subunitcolor: 'black',
+        //                         countrycolor: 'pink',
+        //                         bubblecolor: 'pink'
+        //                     },
+        //                 };
+
+        //                 Plotly.newPlot("myDiv", data, layout, {
+        //                     showLink: false
+        //                 });
+
+        //             });
+
+
+
+        //     }
+
+
+        // }
+
         function showModal() {
 
             var modal = document.getElementById('dataModal');
@@ -21,6 +247,12 @@
             modal.style.visibility = "visible";
             google.charts.load('current', {
                 'packages': ['line']
+            });
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.load('current', {
+                'packages': ['bar']
             });
             google.charts.setOnLoadCallback(drawChart);
 
@@ -520,11 +752,11 @@
   justify-items: center;
   align-content: center;
   justify-content: center;  ">
-            <button class="pick-up-button" onclick="closeModal()" style="align-self:right; height:5%; ">X</button>
+            <button class="pick-up-button" onclick="closeModal()" style="align-self:right; margin-left:77vw; width:3%; height:5%; color:white; font-weight:900; background-color: #3b271d; border-radius: 20px; ">X</button>
 
-            <div class="modalContent" style=" align-self:center; align-content:center; margin:0%; height:95%; overflow-y: scroll;
+            <div class="modalContent" style=" align-self:center;  align-content:center; margin:0%; height:95%; overflow-y: scroll;
   overflow-x: scroll;">
-                <div id="line_top_x"></div>
+                <!-- <div id="line_top_x"></div> -->
                 <!-- <div id="line_top_x"></div> -->
                 <!-- <div id="piechart"></div> -->
             </div>
@@ -1162,10 +1394,10 @@
                 <div class="show">
                     <p class="show-title">Format Results</p>
                     <select id="Show" class="show-option">
-                        <option value="Map">Map</option>
-                        <option value="Table">Graph</option>
-                        <option value="Text">Bar Chart</option>
-                        <option value="Chart">Pie Chart</option>
+                        <option id="Map" value="Map">Map</option>
+                        <option id="Graph" value="Graph">Graph</option>
+                        <option id="BarChart" value="BarChart">Bar Chart</option>
+                        <option id="PieChart" value="PieChart">Pie Chart</option>
 
                     </select>
                 </div>
