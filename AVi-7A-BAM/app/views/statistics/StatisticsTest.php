@@ -700,11 +700,16 @@ var options = {
     <main class="main-class">
 
 
-        <div id="dataModal" class="main-class" style=" position:-webkit-sticky; position:sticky;
-           top:10%; background-color:white; width:80vw; height:80vh; ">
-            <button class="pick-button" onclick="closeModal()" style="align-self:right; height:5%;">X</button>
+        <div id="dataModal" class="theModal" style=" position:-webkit-sticky; position:sticky;
+           top:10%; background-color:white; width:80vw; height:80vh;   border: 2px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 10px; align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;  ">
+            <button class="pick-up-button" onclick="closeModal()" style="align-self:right; height:5%; ">X</button>
 
-            <div style=" align-self:center; align-content:center; margin:0%; height:95%; overflow-y: scroll;
+            <div class="modalContent" style=" align-self:center; align-content:center; margin:0%; height:95%; overflow-y: scroll;
   overflow-x: scroll;">
                 <div id="line_top_x"></div>
                 <!-- <div id="line_top_x"></div> -->
@@ -1373,6 +1378,73 @@ var options = {
             <!--Submit Button-->
             <!-- Done by Minut Mihai Dimitrie -->
             <!-- Finished Section Done By Minut Mihai Dimitrie -->
+
+
+            <!-- Elements for chart Done by Ionita Andra -->
+            <div class="pick-show">
+                <div class="pick-title-show">
+                    <p class="filtration-menu-text">Choose what to show in the results</p>
+                </div>
+                <div class="pick-columns-container">
+
+                    <div class="pick-columns-list">
+                        <div onclick="showHideItems(this,'chartCountItems')" class="pick-columns-list-title">
+                            <p>Choose what to be count in the chart</p>
+                        </div>
+
+                        <label for="chartID" class="pick-columns-item" name="chartCountItems">
+                            <input type="checkbox" id="chartID" class="chartCheck">
+                            <span>ID</span>
+                        </label>
+                        <label for="chartSource" class="pick-columns-item" name="chartCountItems">
+                            <input type="checkbox" id="chartSource" class="chartCheck">
+                            <span>Source</span>
+                        </label>
+                        <label for="chartTMC" class="pick-columns-item" name="chartCounttItems">
+                            <input type="checkbox" id="chartTMC" class="chartCheck">
+                            <span>TMC</span>
+                        </label>
+                        <label for="chartSeverity" class="pick-columns-item" name="chartCountItems">
+                            <input type="checkbox" id="chartSeverity" class="chartCheck">
+                            <span>Severity</span>
+                        </label>
+                        <label for="chartDescription" class="pick-columns-item" name="chartCountItems">
+                            <input type="checkbox" id="chartDescription" class="chartCheck">
+                            <span>Description</span>
+                        </label>
+                    </div>
+
+                    <div class="pick-columns-list">
+                        <div onclick="showHideItems(this,'chartXItems')" class="pick-columns-list-title">
+                            <p>Choose element for axe x</p>
+                        </div>
+                        <label for="XSource" class="pick-columns-item" name="chartXItems">
+                            <input type="checkbox" id="XSource" class="chartCheck">
+                            <span>Source</span>
+                        </label>
+                        <label for="XTMC" class="pick-columns-item" name="chartXItems">
+                            <input type="checkbox" id="XTMC" class="chartCheck">
+                            <span>TMC</span>
+                        </label>
+
+                    </div>
+
+                    <div class="pick-columns-list">
+                        <div onclick="showHideItems(this,'chartYItems')" class="pick-columns-list-title">
+                            <p>Choose element for axe y</p>
+                        </div>
+                        <label for="YSource" class="pick-columns-item" name="chartYItems">
+                            <input type="checkbox" id="YSource" class="chartCheck">
+                            <span>Source</span>
+                        </label>
+                        <label for="YTMC" class="pick-columns-item" name="chartYItems">
+                            <input type="checkbox" id="YTMC" class="chartCheck">
+                            <span>TMC</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Finished by Ionita Andra, elemnts for chart -->
         </form>
         <!-- Done by Ionita Andra -->
         <div class="pick-button">

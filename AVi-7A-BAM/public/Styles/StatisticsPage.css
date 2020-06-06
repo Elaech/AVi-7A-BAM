@@ -1041,43 +1041,94 @@ p.filtration-menu-text {
 }
 
 /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.theModal {
+
+  background-color: var(--tertiary-color);
+  height: 100%;
+  margin: 1rem;
+  margin-top: 6rem;
+  margin-right: 6rem;
+
+  margin-bottom: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  font-family: var(--text-font);
+  position:-webkit-sticky; position:sticky;
+           top:10%; background-color:white; width:80vw; height:80vh;
 }
 
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.modalContent {
+ 
+  align-self:center; align-content:center; margin:0%; height:95%; overflow-y: scroll;
+  overflow-x: scroll;
 }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
+.closeButton {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
   cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  left: 50%;
+  letter-spacing: 1.5px;
+  line-height: 90px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 0 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in;
+  width: 100px;
 }
+
+.closeButton::before,
+.closeButton::after {
+  background-color: white;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  transition: all 0.2s ease-in;
+  width: 141.4214px;
+  z-index: -1;
+}
+
+.closeButton::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.closeButton::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.closeButton:hover {
+  color: #8A2387;
+}
+
+.closeButton:hover::before,
+.closeButton:hover::after {
+  height: 50px;
+  transform: rotate(0deg);
+}
+
 
 @media screen and (max-width: 900px) {
   .result {
