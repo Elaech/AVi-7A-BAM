@@ -812,11 +812,13 @@
         }
         function fill_options(id_container, numeric) {
             document.getElementById(id_container).innerHTML = "";
-            var ok = false;
+            var opt = document.createElement('OPTION');
+            opt.text = "None";
+            opt.value = "None";
+            document.getElementById(id_container).options.add(opt);
             if (numeric === true) {
                  for (var index = 0; index < numeric_inputs.length; index++) {
                      if (document.getElementById(numeric_inputs[index]).checked === true) {
-                        ok = true;
                         var opt = document.createElement('OPTION');
                         opt.text = (numeric_inputs[index]).replace('Show','');
                         opt.value = show_map[numeric_inputs[index]];
@@ -828,20 +830,12 @@
                 var show_filters = document.getElementsByClassName("showCheck");
                 for (var index = 0; index < show_filters.length; index++) {
                     if (show_filters[index].checked === true) {
-                        ok = true;
                         var opt = document.createElement('OPTION');
                         opt.text = (show_filters[index].id).replace('Show','');
                         opt.value = show_map[show_filters[index].id];
                         document.getElementById(id_container).options.add(opt);
                     }
                 }
-
-            }
-            if (ok === false) {
-                var opt = document.createElement('OPTION');
-                        opt.text = "None";
-                        opt.value = "None";
-                        document.getElementById(id_container).options.add(opt);
             }
         }
     </script>
@@ -1491,7 +1485,7 @@
             <div class="selectam">
                 <div class="show">
                     <p class="show-title">Format Results</p>
-                    <select id="results-format" class="show-option" onchange="change_format()">
+                    <select id="results-format" class="show-option" name="format" onchange="change_format()">
                         <option id="Map" value="Map">Map</option>
                         <option id="Graph" value="Graph">Graph</option>
                         <option id="BarChart" value="BarChart">BarChart</option>
