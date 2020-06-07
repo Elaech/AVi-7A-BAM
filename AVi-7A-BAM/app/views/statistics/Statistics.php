@@ -10,255 +10,260 @@
     <link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
-    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- Script by Ionita Andra -->
+
+    <?php
+    if (isset($data['statistics_data']) && !empty($data['statistics_data'])) {
+        if ($data['type'] == 'map') {
+            echo "<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>";
+        } else {
+            echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';
+        }
+    }
+    ?>
+
+
     <meta lang="en-US">
     <title>Statistics</title>
+
+    <!-- Drawing the Chart Modal -->
     <script type="text/javascript">
-        // function drawChart() {
-        //     var choosen="Map";
-        //     switch (choosen) {
-        //         case "Graph":
+        function drawPie(){
+            google.charts.load('current', {'packages': ['corechart']});
+            var table_data = <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='pie'){
+                    $table_data = $data['statistics_data'];
+                    $frecventa = [];
+                    
+                    echo "[";
+                    echo "['Name', 'Accident'],";
 
-        //             var data = new google.visualization.DataTable();
-        //             <?php
-                        //             for ($i = 0; $i < count($data['body'][0]); $i++) {
-                        //                 echo "data.addColumn('number', '" .  array_keys($data['body'][0][$i])[0] . "');";
-                        //             }
-                        //             
-                        ?>
-        //             <?php
-                        //             echo "data.addRows([";
+                    foreach ($table_data['body'] as $row) {
+                            $key = array_keys($row[0])[0];
+                            $value = (string)($row[0][$key]);
+                            if(isset($frecventa[$value]) && !empty($frecventa[$value])){
+                                $frecventa[$value]++;
+                            }
+                            else{
+                                $frecventa[$value] = 1;
+                            }
+                    }
+                    foreach($frecventa as $key => $value) {
+                        echo "['" . $key . "'," . $value . "],";
+                    }
+                    echo "]";
+                }
+                else{
+                    echo '[]';
+                }
+                ?>;
+            var data = google.visualization.arrayToDataTable(table_data);
+                
+            var options = {
+                title: <?php 
+                    if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='pie'){
+                        echo  "'Pie of ' + (show_unmap['" . array_keys($table_data['body'][0][0])[0] . "']).replace('Show','')";
+                    }
+                    else echo '"None"';
+                    ?>,
+                height: 500,
+                width: 600
+            };
 
-                        //             for ($i = 0; $i < 50; $i++) {
-                        //                 echo "[";
-                        //                 for ($j = 0; $j < count($data['body'][0]) - 1; $j++) {
-                        //                     echo $j . ", ";
-                        //                 }
-                        //                 echo 7;
-                        //                 echo "],";
-                        //             }
+            var chart = new google.visualization.PieChart(document.getElementById('modal'));
 
-                        //             echo "[0,1,2,6]";
-                        //             echo "]);";
-                        //             
-                        ?>
-        //             var options = {
-        //                 chart: {
-        //                     title: 'Box Office Earnings in First Two Weeks of Opening',
-        //                     subtitle: 'in millions of dollars (USD)'
-        //                 },
-        //                 width: 900,
-        //                 height: 500,
-        //                 axes: {
-        //                     x: {
-        //                         0: {
-        //                             side: 'top'
-        //                         }
-        //                     }
-        //                 }
-        //             };
-        //             var chart = new google.charts.Line(document.getElementById('line_top_x'));
+            chart.draw(data, options);
+        }
 
-        //             chart.draw(data, google.charts.Line.convertOptions(options));
-        //             break;
+        function drawBar() {
+            var table_data=   
+           <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) &&$data['type']=='bar'){
+                    $table_data = $data['statistics_data'];
+                    $bar_avg_array=[];
+                    $freq = [];
+                    echo '[';
+                    echo '[(show_unmap["' . array_keys($table_data['body'][0][0])[0] . '"]).replace("Show",""),(show_unmap["' . array_keys($table_data['body'][0][1])[0]. '"]).replace("Show",""), { role: "style" }],';   
+                    foreach($table_data['body'] as $row){
+                        $x_key = array_keys($row[0])[0];
+                        $x_value = (string)($row[0][$x_key]);
+                        $y_key = array_keys($row[1])[0];
+                        $y_value = (float)($row[1][$y_key]);
+                        if(isset($bar_avg_array[$x_value]) && !empty($bar_avg_array[$x_value])){
+                            $bar_avg_array[$x_value] += $y_value;
+                            $freq[$x_value] ++;
+                        }
+                        else{
+                            $freq[$x_value]= 1;
+                            $bar_avg_array[$x_value] = $y_value;
+                        }
+                    }
+                    foreach($bar_avg_array as $key => $value) {
+                        echo "['" . $key . "'," . $value/$freq[$key] . ",'color:#af734a'], ";
+                    }
+                    echo ']';
+                }
+                else{
+                    echo '[]';
+                }
+            ?>;
+            var data = google.visualization.arrayToDataTable(table_data);
 
-        //         case "BarChart":
+            var options = {
+                title: <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='bar'){
+                    echo '"Average of "+ (show_unmap[\'' . array_keys($table_data['body'][0][1])[0] . '\']).replace("Show","") + " per " + (show_unmap[\''. array_keys($table_data['body'][0][0])[0] . '\']).replace("Show","")'; 
+                }
+                else echo '"None"';
+              ?>,
+                height: 600,
+                width: 800,
+                is3D:true,
+                bar: {groupWidth: "60%"}
+            };
 
-        //             var x = (
-        //                 <?php
+            var chart = new google.charts.Bar(document.getElementById('modal'));
 
-                            //                 echo "[" . "[";
-                            //                 for ($i = 0; $i < 5; $i++) {
-                            //                     $temp = array_keys(json_decode($data, true)['body'][0][$i]);
-                            //                     if ($i == 4)
-                            //                         echo ("'" . $temp[0]) . "'";
-                            //                     else echo ("'" . $temp[0]) . "',";
-                            //                 }
-                            //                 echo "],";
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
 
+        function drawGraph() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number',
+            <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='graph'){
+                    echo "(show_unmap['". array_keys($data['statistics_data']['body'][0][0])[0] ."']).replace('Show','')";
+                }
+                else echo '"None"';
+            ?>
+            );
+            data.addColumn('number', 
+            <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='graph'){
+                    echo "(show_unmap['". array_keys($data['statistics_data']['body'][0][1])[0] ."']).replace('Show','')";
+                }
+                else echo '"None"';
+            ?>
 
-                            //                 foreach (json_decode($data, true)['body'] as $row) {
-                            //                     echo "[";
-                            //                     foreach ($row as $value) {
+            );
+            var table_data=   
+           <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) &&$data['type']=='graph'){
+                    $table_data = $data['statistics_data'];
+                    $graph_avg_array=[];
+                    $freq = [];
+                    echo '[';
+                    foreach($table_data['body'] as $row){
+                        $x_key = array_keys($row[0])[0];
+                        $x_value = (string)($row[0][$x_key]);
+                        $y_key = array_keys($row[1])[0];
+                        $y_value = (float)($row[1][$y_key]);
+                        if(isset($graph_avg_array[$x_value]) && !empty($graph_avg_array[$x_value])){
+                            $graph_avg_array[$x_value] += $y_value;
+                            $freq[$x_value] ++;
+                        }
+                        else{
+                            $freq[$x_value]= 1;
+                            $graph_avg_array[$x_value] = $y_value;
+                        }
+                    }
+                    ksort($graph_avg_array);
+                    foreach($graph_avg_array as $key => $value) {
+                        echo "[" . $key . "," . $value/$freq[$key] . "], ";
+                    }
+                    echo ']';
+                }
+                else{
+                    echo '[]';
+                }
+            ?>;
+            data.addRows(table_data);
 
-                            //                         $temp = array_keys($value);
-                            //                         $key = $temp[0];
+            var options = {
+                chart: {
+                    title: <?php
+                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='graph'){
+                    echo '"Accidents "+ (show_unmap[\'' . array_keys($table_data['body'][0][1])[0] . '\']).replace("Show","") + " based on " + (show_unmap[\''. array_keys($table_data['body'][0][0])[0] . '\']).replace("Show","")'; 
+                }
+                else echo '"None"';
+              ?>
+                },
+                width: 900,
+                height: 500,
+                axes: {
+                    x: {
+                        0: {
+                            side: 'top'
+                        }
+                    }
+                }
+            };
 
-                            //                         echo  "'" . $value[$key] . "',";
-                            //                     }
-                            //                     echo "],";
-                            //                 }
-                            //                 echo "]";
+            var chart = new google.charts.Line(document.getElementById('modal'));
 
-                            //                 
-                            ?>);
-        //             var data = google.visualization.arrayToDataTable(x);
+            chart.draw(data, google.charts.Line.convertOptions(options));
+        }
 
-        //             var options = {
-        //                 title: 'Accidents Chart',
-        //                 height: 600,
-        //                 width: 800,
-        //                 is3D: true,
-        //                 bar: {
-        //                     groupWidth: "95%"
-        //                 },
-        //                 chart: {
-        //                     subtitle: 'Accidents Chart',
-        //                 }
-        //             };
+        function drawMap() {
 
-        //             var chart = new google.charts.Bar(document.getElementById('columnchart'));
-
-        //             chart.draw(data, google.charts.Bar.convertOptions(options));
-        //             break;
-
-        //         case "PieChart":
-
-        //             var data = google.visualization.arrayToDataTable(
-        //                 <?php
-                            //                 $WORK_FFS = json_decode($data, true);
-                            //                 $frecventa = array();
-                            //                 array_push($frecventa, 0);
-                            //                 array_push($frecventa, 0);
-                            //                 array_push($frecventa, 0);
-                            //                 array_push($frecventa, 0);
-                            //                 array_push($frecventa, 0);
-                            //                 $valori = array();
-                            //                 echo "[";
-                            //                 echo "['Name', 'Accident'],";
-
-                            //                 foreach ($WORK_FFS['body'] as $row) {
-                            //                     foreach ($row as $value) {
-
-                            //                         $temp = array_keys($value);
-                            //                         $key = $temp[0];
-
-                            //                         for ($i = 1; $i < 5; $i++) {
-                            //                             if ((int) $value[(string) $key] == $i)
-                            //                                 $frecventa[(string) $i] = $frecventa[(string) $i] + 1;
-                            //                         }
-
-
-                            //                         //echo "['" . $key . "'," . $value[(string) $key] . "],";
-
-                            //                     }
-                            //                 }
-                            //                 echo "['" . "1" . "'," . $frecventa['1'] . "],";
-                            //                 echo "['" . "2" . "'," . $frecventa['2'] . "],";
-                            //                 echo "['" . "3" . "'," . $frecventa['3'] . "],";
-                            //                 echo "['" . "4" . "'," . $frecventa['4'] . "],";
-                            //                 echo "]";
-                            //                 
-                            ?>);
-
-
-        //             var options = {
-        //                 title: 'Numbers of accidents in different country in this week:',
-        //                 is3D: true,
-        //                 height: 500,
-        //                 width: 600,
-        //                 pieHole: 0.4 //,
-        //                 // colors: ['#efe0bb', '#af734a','#3b271d', '#f3b49f', '#f6c7b6']
-
-        //             };
-        //             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        //             chart.draw(data, options);
-        //             break;
-
-        //         default:
-
-        //             Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_us_cities.csv', function(err, rows) {
-
-        //                 function unpack(rows, key) {
-        //                     return rows.map(function(row) {
-        //                         return row[key];
-        //                     });
-        //                 }
-
-        //                 var cityName = unpack(rows, 'name'),
-        //                     cityPop = unpack(rows, 'pop'),
-        //                     cityLat = unpack(rows, 'lat'),
-        //                     cityLon = unpack(rows, 'lon'),
-        //                     color = ["pink", "red", "pink", "lightgrey"],
-        //                     citySize = [],
-        //                     hoverText = [],
-        //                     scale = 50000;
-
-        //                 for (var i = 0; i < cityPop.length; i++) {
-        //                     var currentSize = cityPop[i] / scale;
-        //                     var currentText = cityName[i] + " pop: " + cityPop[i];
-        //                     citySize.push(currentSize);
-        //                     hoverText.push(currentText);
-        //                 }
-
-        //                 var data = [{
-        //                     type: 'scattergeo',
-        //                     locationmode: 'USA-states',
-        //                     lat: cityLat,
-        //                     lon: cityLon,
-        //                     hoverinfo: 'text',
-        //                     text: hoverText,
-        //                     marker: {
-        //                         size: citySize,
-        //                         line: {
-        //                             color: 'black',
-        //                             width: 2
-        //                         },
-        //                         color: 'pink'
-        //                     }
-        //                 }];
-
-        //                 var layout = {
-        //                     title: '2014 US City Populations',
-        //                     showlegend: false,
-        //                     width: 900,
-        //                     height: 900,
-        //                     geo: {
-        //                         scope: 'usa',
-        //                         projection: {
-        //                             type: 'albers usa'
-        //                         },
-        //                         showland: true,
-        //                         landcolor: 'lightgrey',
-        //                         subunitwidth: 1,
-        //                         countrywidth: 1,
-        //                         subunitcolor: 'black',
-        //                         countrycolor: 'pink',
-        //                         bubblecolor: 'pink'
-        //                     },
-        //                 };
-
-        //                 Plotly.newPlot("myDiv", data, layout, {
-        //                     showLink: false
-        //                 });
-
-        //             });
-
-
-
-        //     }
-
-
-        // }
-
+        }
+    </script>
+    <!-- End of Drawing the Chart Modal -->
+    <!-- Script by Ionita Andra -->
+    <script type="text/javascript">
         function showModal() {
 
             var modal = document.getElementById('dataModal');
             modal.style.display = "block";
             modal.style.visibility = "visible";
-            google.charts.load('current', {
-                'packages': ['line']
-            });
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
-            google.charts.load('current', {
-                'packages': ['bar']
-            });
-            google.charts.setOnLoadCallback(drawChart);
+
+
+            <?php
+            if($data)
+            switch ($data['type']) {
+                case 'map': {
+                        echo '';
+                    break;
+                    }
+                case 'none': {
+                    echo '';
+                break;
+                }
+                case 'graph': {
+                        echo "google.charts.load('current', {'packages': ['line']});";
+                    break;
+                    }
+                case 'pie': {
+                        echo "google.charts.load('current', {'packages': ['corechart']});";
+                    break;
+                    }
+                case 'bar': {
+                        echo "google.charts.load('current', {'packages': ['bar'] });";
+                    break;
+                    }
+            }
+            ?>
+            
+                <?php
+                switch ($data['type']) {
+                    case 'map': {
+                            echo 'google.charts.setOnLoadCallback(drawMap);';
+                    break;
+                        }
+                    case 'graph': {
+                            echo 'google.charts.setOnLoadCallback(drawGraph);';
+                        break;
+                        }
+                    case 'pie': {
+                            echo 'google.charts.setOnLoadCallback(drawPie);';
+                        break;
+                        }
+                    case 'bar': {
+                            echo 'google.charts.setOnLoadCallback(drawBar);';
+                        break;
+                        }
+                }
+                ?>
+            
 
         }
 
@@ -609,7 +614,7 @@
             for (var index = 0; index < json.body.length; index++) {
                 for (var index2 = 0; index2 < row_length; index2++) {
                     el = (Object.values(json.body[index][index2])[0] + '');
-                    if (el === "null") {
+                    if (el === "null" || el === "false") {
                         el = "unavailable";
                     }
                     row_body += '<td class="result-table-row-cell">' + el + '</td>\n';
@@ -787,9 +792,10 @@
                 }
             }
         }
-        function update_fill_options(){
+
+        function update_fill_options() {
             var format = document.getElementById('results-format').value;
-            switch(format) {
+            switch (format) {
                 case 'Map': {
                     fill_options("second-option-statistics", true);
                     break;
@@ -810,6 +816,7 @@
                 }
             }
         }
+
         function fill_options(id_container, numeric) {
             document.getElementById(id_container).innerHTML = "";
             var opt = document.createElement('OPTION');
@@ -817,10 +824,10 @@
             opt.value = "None";
             document.getElementById(id_container).options.add(opt);
             if (numeric === true) {
-                 for (var index = 0; index < numeric_inputs.length; index++) {
-                     if (document.getElementById(numeric_inputs[index]).checked === true) {
+                for (var index = 0; index < numeric_inputs.length; index++) {
+                    if (document.getElementById(numeric_inputs[index]).checked === true) {
                         var opt = document.createElement('OPTION');
-                        opt.text = (numeric_inputs[index]).replace('Show','');
+                        opt.text = (numeric_inputs[index]).replace('Show', '');
                         opt.value = show_map[numeric_inputs[index]];
                         document.getElementById(id_container).options.add(opt);
                     }
@@ -831,7 +838,7 @@
                 for (var index = 0; index < show_filters.length; index++) {
                     if (show_filters[index].checked === true) {
                         var opt = document.createElement('OPTION');
-                        opt.text = (show_filters[index].id).replace('Show','');
+                        opt.text = (show_filters[index].id).replace('Show', '');
                         opt.value = show_map[show_filters[index].id];
                         document.getElementById(id_container).options.add(opt);
                     }
@@ -916,7 +923,7 @@
                             <span>Sunrise-Sunset</span>
                         </label>
                         <label for="ShowTimeZone" class="pick-columns-item" name="showTimeItems">
-                            <input type="checkbox" id="ShowTimeZone" class="showCheck" onclick="update_fill_options()"> 
+                            <input type="checkbox" id="ShowTimeZone" class="showCheck" onclick="update_fill_options()">
                             <span>Time Zone</span>
                         </label>
                     </div>
@@ -1614,7 +1621,6 @@
         <div class="table-paginator" id="paginator">
         </div>
 
-        <div id="line_top_x"></div>
         <!-- Finished Section Done By Minut Mihai Dimitrie -->
     </main>
 

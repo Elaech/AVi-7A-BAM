@@ -13,48 +13,44 @@ class Statistics extends Controller
                 $this->setTokenCookie($data['token']);
                 $accmodel = $this->model("accmodel");
                 $data = [];
+                $data['type'] =  'none';
                 if (!empty($_POST['json_filter'])) {
                    if($this->verify_statistics_input()){
                          $temp_var=json_decode($_POST['json_filter'],true);
                          switch ($_POST['format'])
                          {
                              case "Map":
-                                $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x']);
+                                $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x'],
+                                "start_lat"=>"start_lat","start_lng"=>"start_lng","city"=>"city");
                                 $temp_var=json_encode($temp_var);
-                               // var_dump($temp_var);
                                 $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
-                                //var_dump($table_data);
+                                $data['type'] = 'map';
                                 break;
     
                             case "PieChart":    
                                 $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x']);
                                 $temp_var=json_encode($temp_var);
-                               // var_dump($temp_var);
                                 $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
-                                //var_dump($table_data);
+                                $data['type'] = 'pie';
                                 break;
-    
                             case "BarChart":
                                 $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x'],
                                 (string)$_POST['input-y'] => (string)$_POST['input-y']);
                                 $temp_var=json_encode($temp_var);
-                               // var_dump($temp_var);
                                 $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
-                                //var_dump($table_data);
+                                $data['type'] = 'bar';
                                 break;
     
                             case "Graph":
                                 $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x'],
                                 (string)$_POST['input-y'] => (string)$_POST['input-y']);
                                 $temp_var=json_encode($temp_var);
-                                //var_dump($temp_var);
                                 $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
-                               // var_dump($table_data);
+                                $data['type'] = 'graph';
                                 break;
     
-                         }
+                        }
                         $data['statistics_data'] =json_decode($table_data,true);
-                       // var_dump($data['statistics_data']);
                    }
                 }
                $this->view('statistics/Statistics',$data);
