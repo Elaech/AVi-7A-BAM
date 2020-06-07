@@ -54,7 +54,7 @@ class Statistics extends Controller
     
                          }
                         $data['statistics_data'] =json_decode($table_data,true);
-                        //var_dump($data['statistics_data']);
+                       // var_dump($data['statistics_data']);
                    }
                 }
                $this->view('statistics/Statistics',$data);

@@ -19,7 +19,12 @@ class VerifyData extends Controller
         $model = $this->model("Accidente");
 
         $id = $data_requested['id'];
-        $amount = $data_requested['amount'];
+
+        if($data_requested['amount']<0)
+             $amount =10000;
+        else
+            $amount = $data_requested['amount'];
+            
         $page = $data_requested['page'];
 
         $body=$model->get($id, $amount, $page, $data_requested);

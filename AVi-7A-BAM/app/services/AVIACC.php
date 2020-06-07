@@ -11,7 +11,7 @@ class AVIACC
 		//$data=["id"=> $id, "page"=>$page,"amount"=>$amount,"show"=>$show,"boolean"=>$boolean,"equals"=>$equals,"between"=>$between];
        
        $temp=json_decode($data,true);
-        $temp['amount']=1000;
+        $temp['amount']=-11;
 
         //var_dump($data);
 		$data_json = array(
