@@ -10,7 +10,8 @@
     <link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <link rel="stylesheet" type="text/css" href="http://localhost/AVi-7A-BAM/public/Styles/StatisticsPage.css">
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/FiltrationMenu.js"></script>
-
+    <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/html2canvas.js"></script>
+    <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/canvas2svg.js"></script>
     <?php
     if (isset($data['statistics_data']) && !empty($data['statistics_data'])) {
         if ($data['type'] == 'map') {
@@ -59,6 +60,10 @@
                                     echo '[]';
                                 }
                                 ?>;
+            localStorage.setItem('table_data', JSON.stringify({
+                'data': table_data,
+                'type': 'pie'
+            }));
             var data = google.visualization.arrayToDataTable(table_data);
 
             var options = {
@@ -106,6 +111,10 @@
                     echo '[]';
                 }
                 ?>;
+            localStorage.setItem('table_data', JSON.stringify({
+                'data': table_data,
+                'type': 'bar'
+            }));
             var data = google.visualization.arrayToDataTable(table_data);
 
             var options = {
@@ -173,6 +182,10 @@
                     echo '[]';
                 }
                 ?>;
+            localStorage.setItem('table_data', JSON.stringify({
+                'data': table_data,
+                'type': 'graph'
+            }));
             data.addRows(table_data);
 
             var options = {
@@ -253,6 +266,10 @@
                 }
                 ?>
             ];
+            localStorage.setItem('table_data', JSON.stringify({
+                'data': data,
+                'type': 'map'
+            }));
             polygonSeries.data = data;
 
             // Set up heat legend
@@ -966,9 +983,12 @@
         }
 
         function download_png() {
-            html5canvas(document.body).then(function(canvas) {
-                console.log(canvas);
-                simulateDownloadImageClick(canvas.toDataURL(), 'file-name.png');
+            var printContents = document.getElementById("modal").innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = "<div style='height:1000px;'>" + printContents + "</div>";
+            html2canvas(document.body).then(function(canvas) {
+                simulateDownloadImageClick(canvas.toDataURL(), 'data.png');
+                document.body.innerHTML = originalContents;
             });
         }
 
@@ -994,20 +1014,72 @@
             document.body.removeChild(link);
         }
 
-        function download_svg() {
-
-        }
-
-        function download_csv() {
-
-        }
-
         function print_to_pdf() {
             var printContents = document.getElementById("modal").innerHTML;
             var originalContents = document.body.innerHTML;
-            document.body.innerHTML = printContents;
+            document.body.innerHTML = "<div style='height:1000px;'>" + printContents + "</div>";
             window.print();
             document.body.innerHTML = originalContents;
+        }
+
+
+        function download_csv() {
+            var data = localStorage.getItem('table_data');
+            if (data) {
+                data = JSON.parse(data);
+                type = data.type;
+                data = data.data;
+                csv = "";
+                if (type === 'map') {
+                    data.forEach(row => {
+                        var values = Object.values(row);
+                        csv = csv + values[0] + ',' + values[1];
+                        csv = csv + '\n';
+                    });
+                } else {
+
+                    data.forEach(row => {
+                        row.forEach(el => {
+                            csv = csv + el + ',';
+                        })
+                        csv = csv + '\n';
+                    })
+                }
+                document.getElementById('csv-data').onclick = function(code) {
+                    this.href = 'data:text/plain;charset=utf-11,' + encodeURIComponent(csv);
+                };
+                document.getElementById('csv-data').click();
+            }
+
+        }
+
+        function download_svg() {
+            var printContents = document.getElementById("modal").innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = "<div style='height:1000px;'>" + printContents + "</div><a href='' id='svg-data' download='data.svg' style='visibility: hidden; display:none'></a>";
+            html2canvas(document.body).then(function(canvas) {
+                var cs = new C2S(canvas);
+                var svg_text = cs.getSerializedSvg(true);
+                // var xmlparse = new XMLSerializer();
+                // var source = cs.getSerializedSvg(true);
+                var source = svg_text;
+                console.log(source);
+                if (!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)) {
+                    source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+                }
+                if (!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)) {
+                    source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+                }
+                source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+                console.log("data:image/svg+xml;charset=utf-8," + encodeURIComponent(source));
+
+                document.getElementById('svg-data').onclick = function(code){
+                    this.href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
+                };
+                
+                document.getElementById('svg-data').click();
+                document.body.innerHTML = originalContents;
+            });
         }
     </script>
     <!-- End of Download Script -->
@@ -1773,7 +1845,8 @@
 
     </footer>
 
-
+    <a href="" id="csv-data" download="data.csv" style="visibility: hidden; display:none"></a>
+    
 </body>
 <!-- Done by Cretu Bogdan Antonio -->
 <nav class="navbar">
