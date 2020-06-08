@@ -234,7 +234,7 @@
                     $freq = [];
                     foreach ($table_data['body'] as $row) {
                         $x_key = array_keys($row[0])[0];
-                        $x_value = (int) ($row[0][$x_key]);
+                        $x_value =  ($row[0][$x_key]);
                         $y_key = array_keys($row[1])[0];
                         $y_value = (string) ($row[1][$y_key]);
                         if (isset($graph_avg_array[$y_value]) && !empty($graph_avg_array[$y_value])) {
@@ -246,7 +246,7 @@
                         }
                     }
                     foreach ($graph_avg_array as $key => $value) {
-                        echo "{id:'US-" . $key . "',value:" . (int) ($value / $freq[$key]) . "}, ";
+                        echo "{id:'US-" . $key . "',value:" . ($value / $freq[$key]) . "}, ";
                     }
                 } else {
                     echo '{}';
@@ -944,15 +944,70 @@
     <!-- Download Script -->
     <script>
         function download_statistics() {
+            var type = document.getElementById("download").value;
+            switch (type) {
+                case 'PDF': {
+                    print_to_pdf();
+                    break;
+                }
+                case 'PNG': {
+                    download_png();
+                    break;
+                }
+                case 'SVG': {
+                    download_svg();
+                    break;
+                }
+                case 'CSV': {
+                    download_csv();
+                    break;
+                }
+            }
+        }
+
+        function download_png() {
+            html5canvas(document.body).then(function(canvas) {
+                console.log(canvas);
+                simulateDownloadImageClick(canvas.toDataURL(), 'file-name.png');
+            });
+        }
+
+        function simulateDownloadImageClick(uri, filename) {
+            var link = document.createElement('a');
+            if (typeof link.download !== 'string') {
+                window.open(uri);
+            } else {
+                link.href = uri;
+                link.download = filename;
+                accountForFirefox(clickLink, link);
+            }
+        }
+
+        function clickLink(link) {
+            link.click();
+        }
+
+        function accountForFirefox(click) { // wrapper function
+            let link = arguments[1];
+            document.body.appendChild(link);
+            click(link);
+            document.body.removeChild(link);
+        }
+
+        function download_svg() {
+
+        }
+
+        function download_csv() {
+
+        }
+
+        function print_to_pdf() {
             var printContents = document.getElementById("modal").innerHTML;
-			var originalContents = document.body.innerHTML;
-
-			document.body.innerHTML = printContents;
-
-			window.print();
-
-			document.body.innerHTML = originalContents;
-
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
         }
     </script>
     <!-- End of Download Script -->
@@ -1613,14 +1668,13 @@
                     <p class="download-title">Download As</p>
                     <div class="descarcare">
                         <select id="download" class="show-option">
-                            <option value="Png">PNG</option>
-                            <option value="json">JSON</option>
-                            <option value="xml">XML</option>
-                            <option value="etc">ETC..</option>
-
+                            <option value="PNG">PNG</option>
+                            <option value="SVG">SVG</option>
+                            <option value="CSV">CSV</option>
+                            <option value="PDF">PDF</option>
                         </select>
                         <div class="download-button">
-                            <button onclick="download_statistics()" id="download_button" class="download-commit-button">Download</button>
+                            <button type="button" onclick="download_statistics()" id="download_button" class="download-commit-button">Download</button>
                         </div>
 
                     </div>
@@ -1630,73 +1684,6 @@
             <!-- Finished Section Done By Ionita Andra Paula -->
             <!--Submit Button-->
             <!-- Done by Minut Mihai Dimitrie -->
-            <!-- Finished Section Done By Minut Mihai Dimitrie -->
-
-
-            <!-- Elements for chart Done by Ionita Andra -->
-            <!-- <div class="pick-show">
-                <div class="pick-title-show">
-                    <p class="filtration-menu-text">Choose what to show in the results</p>
-                </div>
-                <div class="pick-columns-container">
-
-                    <div class="pick-columns-list">
-                        <div onclick="showHideItems(this,'chartCountItems')" class="pick-columns-list-title">
-                            <p>Choose what to be count in the chart</p>
-                        </div>
-
-                        <label for="chartID" class="pick-columns-item" name="chartCountItems">
-                            <input type="checkbox" id="chartID" class="chartCheck">
-                            <span>ID</span>
-                        </label>
-                        <label for="chartSource" class="pick-columns-item" name="chartCountItems">
-                            <input type="checkbox" id="chartSource" class="chartCheck">
-                            <span>Source</span>
-                        </label>
-                        <label for="chartTMC" class="pick-columns-item" name="chartCounttItems">
-                            <input type="checkbox" id="chartTMC" class="chartCheck">
-                            <span>TMC</span>
-                        </label>
-                        <label for="chartSeverity" class="pick-columns-item" name="chartCountItems">
-                            <input type="checkbox" id="chartSeverity" class="chartCheck">
-                            <span>Severity</span>
-                        </label>
-                        <label for="chartDescription" class="pick-columns-item" name="chartCountItems">
-                            <input type="checkbox" id="chartDescription" class="chartCheck">
-                            <span>Description</span>
-                        </label>
-                    </div>
-
-                    <div class="pick-columns-list">
-                        <div onclick="showHideItems(this,'chartXItems')" class="pick-columns-list-title">
-                            <p>Choose element for axe x</p>
-                        </div>
-                        <label for="XSource" class="pick-columns-item" name="chartXItems">
-                            <input type="checkbox" id="XSource" class="chartCheck">
-                            <span>Source</span>
-                        </label>
-                        <label for="XTMC" class="pick-columns-item" name="chartXItems">
-                            <input type="checkbox" id="XTMC" class="chartCheck">
-                            <span>TMC</span>
-                        </label>
-
-                    </div>
-
-                    <div class="pick-columns-list">
-                        <div onclick="showHideItems(this,'chartYItems')" class="pick-columns-list-title">
-                            <p>Choose element for axe y</p>
-                        </div>
-                        <label for="YSource" class="pick-columns-item" name="chartYItems">
-                            <input type="checkbox" id="YSource" class="chartCheck">
-                            <span>Source</span>
-                        </label>
-                        <label for="YTMC" class="pick-columns-item" name="chartYItems">
-                            <input type="checkbox" id="YTMC" class="chartCheck">
-                            <span>TMC</span>
-                        </label>
-                    </div>
-                </div>
-            </div> -->
             <div class="selectam">
                 <div class="show" id="pick-statistics-elements">
                     <p class="show-title">Area Field</p>

@@ -21,7 +21,7 @@ class VerifyData extends Controller
         $id = $data_requested['id'];
 
         if($data_requested['amount']<0)
-             $amount =10000;
+             $amount =200000;
         else
             $amount = $data_requested['amount'];
             
