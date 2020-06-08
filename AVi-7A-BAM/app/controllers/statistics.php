@@ -21,7 +21,7 @@ class Statistics extends Controller
                          {
                              case "Map":
                                 $temp_var['show']=array((string)$_POST['input-x'] => (string)$_POST['input-x'],
-                                "start_lat"=>"start_lat","start_lng"=>"start_lng","city"=>"city");
+                               "state"=>"state");
                                 $temp_var=json_encode($temp_var);
                                 $table_data =  $accmodel->getAccidentsDataRequest($temp_var);
                                 $data['type'] = 'map';

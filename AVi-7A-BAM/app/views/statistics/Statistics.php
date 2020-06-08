@@ -14,7 +14,10 @@
     <?php
     if (isset($data['statistics_data']) && !empty($data['statistics_data'])) {
         if ($data['type'] == 'map') {
-            echo "<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>";
+            echo '<script src="https://www.amcharts.com/lib/4/core.js"></script>';
+            echo '<script src="https://www.amcharts.com/lib/4/maps.js"></script>';
+            echo ' <script src="https://www.amcharts.com/lib/4/geodata/usaLow.js"></script>';
+            echo  '<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>';
         } else {
             echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';
         }
@@ -27,44 +30,43 @@
 
     <!-- Drawing the Chart Modal -->
     <script type="text/javascript">
-        function drawPie(){
-            google.charts.load('current', {'packages': ['corechart']});
+        function drawPie() {
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
             var table_data = <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='pie'){
-                    $table_data = $data['statistics_data'];
-                    $frecventa = [];
-                    
-                    echo "[";
-                    echo "['Name', 'Accident'],";
+                                if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'pie') {
+                                    $table_data = $data['statistics_data'];
+                                    $frecventa = [];
 
-                    foreach ($table_data['body'] as $row) {
-                            $key = array_keys($row[0])[0];
-                            $value = (string)($row[0][$key]);
-                            if(isset($frecventa[$value]) && !empty($frecventa[$value])){
-                                $frecventa[$value]++;
-                            }
-                            else{
-                                $frecventa[$value] = 1;
-                            }
-                    }
-                    foreach($frecventa as $key => $value) {
-                        echo "['" . $key . "'," . $value . "],";
-                    }
-                    echo "]";
-                }
-                else{
-                    echo '[]';
-                }
-                ?>;
+                                    echo "[";
+                                    echo "['Name', 'Accident'],";
+
+                                    foreach ($table_data['body'] as $row) {
+                                        $key = array_keys($row[0])[0];
+                                        $value = (string) ($row[0][$key]);
+                                        if (isset($frecventa[$value]) && !empty($frecventa[$value])) {
+                                            $frecventa[$value]++;
+                                        } else {
+                                            $frecventa[$value] = 1;
+                                        }
+                                    }
+                                    foreach ($frecventa as $key => $value) {
+                                        echo "['" . $key . "'," . $value . "],";
+                                    }
+                                    echo "]";
+                                } else {
+                                    echo '[]';
+                                }
+                                ?>;
             var data = google.visualization.arrayToDataTable(table_data);
-                
+
             var options = {
-                title: <?php 
-                    if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='pie'){
-                        echo  "'Pie of ' + (show_unmap['" . array_keys($table_data['body'][0][0])[0] . "']).replace('Show','')";
-                    }
-                    else echo '"None"';
-                    ?>,
+                title: <?php
+                        if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'pie') {
+                            echo  "'Pie of ' + (show_unmap['" . array_keys($table_data['body'][0][0])[0] . "']).replace('Show','')";
+                        } else echo '"None"';
+                        ?>,
                 height: 500,
                 width: 600
             };
@@ -75,50 +77,49 @@
         }
 
         function drawBar() {
-            var table_data=   
-           <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) &&$data['type']=='bar'){
+            var table_data =
+                <?php
+                if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'bar') {
                     $table_data = $data['statistics_data'];
-                    $bar_avg_array=[];
+                    $bar_avg_array = [];
                     $freq = [];
                     echo '[';
-                    echo '[(show_unmap["' . array_keys($table_data['body'][0][0])[0] . '"]).replace("Show",""),(show_unmap["' . array_keys($table_data['body'][0][1])[0]. '"]).replace("Show",""), { role: "style" }],';   
-                    foreach($table_data['body'] as $row){
+                    echo '[(show_unmap["' . array_keys($table_data['body'][0][0])[0] . '"]).replace("Show",""),(show_unmap["' . array_keys($table_data['body'][0][1])[0] . '"]).replace("Show",""), { role: "style" }],';
+                    foreach ($table_data['body'] as $row) {
                         $x_key = array_keys($row[0])[0];
-                        $x_value = (string)($row[0][$x_key]);
+                        $x_value = (string) ($row[0][$x_key]);
                         $y_key = array_keys($row[1])[0];
-                        $y_value = (float)($row[1][$y_key]);
-                        if(isset($bar_avg_array[$x_value]) && !empty($bar_avg_array[$x_value])){
+                        $y_value = (float) ($row[1][$y_key]);
+                        if (isset($bar_avg_array[$x_value]) && !empty($bar_avg_array[$x_value])) {
                             $bar_avg_array[$x_value] += $y_value;
-                            $freq[$x_value] ++;
-                        }
-                        else{
-                            $freq[$x_value]= 1;
+                            $freq[$x_value]++;
+                        } else {
+                            $freq[$x_value] = 1;
                             $bar_avg_array[$x_value] = $y_value;
                         }
                     }
-                    foreach($bar_avg_array as $key => $value) {
-                        echo "['" . $key . "'," . $value/$freq[$key] . ",'color:#af734a'], ";
+                    foreach ($bar_avg_array as $key => $value) {
+                        echo "['" . $key . "'," . $value / $freq[$key] . ",'color:#af734a'], ";
                     }
                     echo ']';
-                }
-                else{
+                } else {
                     echo '[]';
                 }
-            ?>;
+                ?>;
             var data = google.visualization.arrayToDataTable(table_data);
 
             var options = {
                 title: <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='bar'){
-                    echo '"Average of "+ (show_unmap[\'' . array_keys($table_data['body'][0][1])[0] . '\']).replace("Show","") + " per " + (show_unmap[\''. array_keys($table_data['body'][0][0])[0] . '\']).replace("Show","")'; 
-                }
-                else echo '"None"';
-              ?>,
+                        if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'bar') {
+                            echo '"Average of "+ (show_unmap[\'' . array_keys($table_data['body'][0][1])[0] . '\']).replace("Show","") + " per " + (show_unmap[\'' . array_keys($table_data['body'][0][0])[0] . '\']).replace("Show","")';
+                        } else echo '"None"';
+                        ?>,
                 height: 600,
                 width: 800,
-                is3D:true,
-                bar: {groupWidth: "60%"}
+                is3D: true,
+                bar: {
+                    groupWidth: "60%"
+                }
             };
 
             var chart = new google.charts.Bar(document.getElementById('modal'));
@@ -129,63 +130,58 @@
         function drawGraph() {
             var data = new google.visualization.DataTable();
             data.addColumn('number',
-            <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='graph'){
-                    echo "(show_unmap['". array_keys($data['statistics_data']['body'][0][0])[0] ."']).replace('Show','')";
-                }
-                else echo '"None"';
-            ?>
+                <?php
+                if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'graph') {
+                    echo "(show_unmap['" . array_keys($data['statistics_data']['body'][0][0])[0] . "']).replace('Show','')";
+                } else echo '"None"';
+                ?>
             );
-            data.addColumn('number', 
-            <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='graph'){
-                    echo "(show_unmap['". array_keys($data['statistics_data']['body'][0][1])[0] ."']).replace('Show','')";
-                }
-                else echo '"None"';
-            ?>
+            data.addColumn('number',
+                <?php
+                if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'graph') {
+                    echo "(show_unmap['" . array_keys($data['statistics_data']['body'][0][1])[0] . "']).replace('Show','')";
+                } else echo '"None"';
+                ?>
 
             );
-            var table_data=   
-           <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) &&$data['type']=='graph'){
+            var table_data =
+                <?php
+                if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'graph') {
                     $table_data = $data['statistics_data'];
-                    $graph_avg_array=[];
+                    $graph_avg_array = [];
                     $freq = [];
                     echo '[';
-                    foreach($table_data['body'] as $row){
+                    foreach ($table_data['body'] as $row) {
                         $x_key = array_keys($row[0])[0];
-                        $x_value = (string)($row[0][$x_key]);
+                        $x_value = (string) ($row[0][$x_key]);
                         $y_key = array_keys($row[1])[0];
-                        $y_value = (float)($row[1][$y_key]);
-                        if(isset($graph_avg_array[$x_value]) && !empty($graph_avg_array[$x_value])){
+                        $y_value = (float) ($row[1][$y_key]);
+                        if (isset($graph_avg_array[$x_value]) && !empty($graph_avg_array[$x_value])) {
                             $graph_avg_array[$x_value] += $y_value;
-                            $freq[$x_value] ++;
-                        }
-                        else{
-                            $freq[$x_value]= 1;
+                            $freq[$x_value]++;
+                        } else {
+                            $freq[$x_value] = 1;
                             $graph_avg_array[$x_value] = $y_value;
                         }
                     }
                     ksort($graph_avg_array);
-                    foreach($graph_avg_array as $key => $value) {
-                        echo "[" . $key . "," . $value/$freq[$key] . "], ";
+                    foreach ($graph_avg_array as $key => $value) {
+                        echo "[" . $key . "," . $value / $freq[$key] . "], ";
                     }
                     echo ']';
-                }
-                else{
+                } else {
                     echo '[]';
                 }
-            ?>;
+                ?>;
             data.addRows(table_data);
 
             var options = {
                 chart: {
                     title: <?php
-                if(isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type']=='graph'){
-                    echo '"Accidents "+ (show_unmap[\'' . array_keys($table_data['body'][0][1])[0] . '\']).replace("Show","") + " based on " + (show_unmap[\''. array_keys($table_data['body'][0][0])[0] . '\']).replace("Show","")'; 
-                }
-                else echo '"None"';
-              ?>
+                            if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'graph') {
+                                echo '"Accidents "+ (show_unmap[\'' . array_keys($table_data['body'][0][1])[0] . '\']).replace("Show","") + " based on " + (show_unmap[\'' . array_keys($table_data['body'][0][0])[0] . '\']).replace("Show","")';
+                            } else echo '"None"';
+                            ?>
                 },
                 width: 900,
                 height: 500,
@@ -204,7 +200,105 @@
         }
 
         function drawMap() {
+            am4core.useTheme(am4themes_animated);
 
+            // Create map instance
+            var chart = am4core.create("modal", am4maps.MapChart);
+
+            // Set map definition
+            chart.geodata = am4geodata_usaLow;
+
+            // Set projection
+            chart.projection = new am4maps.projections.AlbersUsa();
+            // Create map polygon series
+            var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+            //Set min/max fill color for each area
+            polygonSeries.heatRules.push({
+                property: "fill",
+                target: polygonSeries.mapPolygons.template,
+                min: chart.colors.getIndex(1).brighten(1),
+                max: chart.colors.getIndex(1).brighten(-0.3),
+                logarithmic: true
+            });
+
+            // Make map load polygon data (state shapes and names) from GeoJSON
+            polygonSeries.useGeodata = true;
+
+            // Set heatmap values for each state
+            var data = [
+                <?php
+                if (isset($data['statistics_data']) && !empty($data['statistics_data']) && $data['type'] == 'map') {
+                    $table_data = $data['statistics_data'];
+                    $graph_avg_array = [];
+                    $freq = [];
+                    foreach ($table_data['body'] as $row) {
+                        $x_key = array_keys($row[0])[0];
+                        $x_value = (int) ($row[0][$x_key]);
+                        $y_key = array_keys($row[1])[0];
+                        $y_value = (string) ($row[1][$y_key]);
+                        if (isset($graph_avg_array[$y_value]) && !empty($graph_avg_array[$y_value])) {
+                            $graph_avg_array[$y_value] += $x_value;
+                            $freq[$y_value]++;
+                        } else {
+                            $freq[$y_value] = 1;
+                            $graph_avg_array[$y_value] = $x_value;
+                        }
+                    }
+                    foreach ($graph_avg_array as $key => $value) {
+                        echo "{id:'US-" . $key . "',value:" . (int) ($value / $freq[$key]) . "}, ";
+                    }
+                } else {
+                    echo '{}';
+                }
+                ?>
+            ];
+            polygonSeries.data = data;
+
+            // Set up heat legend
+            let heatLegend = chart.createChild(am4maps.HeatLegend);
+            heatLegend.series = polygonSeries;
+            heatLegend.align = "right";
+            heatLegend.valign = "bottom";
+            heatLegend.height = am4core.percent(80);
+            heatLegend.orientation = "vertical";
+            heatLegend.valign = "middle";
+            heatLegend.marginRight = am4core.percent(4);
+            heatLegend.valueAxis.renderer.opposite = true;
+            heatLegend.valueAxis.renderer.dx = -25;
+            heatLegend.valueAxis.strictMinMax = false;
+            heatLegend.valueAxis.fontSize = 9;
+            heatLegend.valueAxis.logarithmic = true;
+
+            // Configure series tooltip
+            var polygonTemplate = polygonSeries.mapPolygons.template;
+            polygonTemplate.tooltipText = "{name}: {value}";
+            polygonTemplate.nonScalingStroke = true;
+            polygonTemplate.strokeWidth = 0.5;
+            var hs = polygonTemplate.states.create("hover");
+            hs.properties.fill = am4core.color("#3c5bdc");
+
+
+            // heat legend behavior
+            polygonSeries.mapPolygons.template.events.on("over", function(event) {
+                handleHover(event.target);
+            })
+
+            polygonSeries.mapPolygons.template.events.on("hit", function(event) {
+                handleHover(event.target);
+            })
+
+            function handleHover(column) {
+                if (!isNaN(column.dataItem.value)) {
+                    heatLegend.valueAxis.showTooltipAt(column.dataItem.value)
+                } else {
+                    heatLegend.valueAxis.hideTooltip();
+                }
+            }
+
+            polygonSeries.mapPolygons.template.events.on("out", function(event) {
+                heatLegend.valueAxis.hideTooltip();
+            })
         }
     </script>
     <!-- End of Drawing the Chart Modal -->
@@ -218,52 +312,52 @@
 
 
             <?php
-            if($data)
+            if ($data)
+                switch ($data['type']) {
+                    case 'map': {
+                            echo '';
+                            break;
+                        }
+                    case 'none': {
+                            echo '';
+                            break;
+                        }
+                    case 'graph': {
+                            echo "google.charts.load('current', {'packages': ['line']});";
+                            break;
+                        }
+                    case 'pie': {
+                            echo "google.charts.load('current', {'packages': ['corechart']});";
+                            break;
+                        }
+                    case 'bar': {
+                            echo "google.charts.load('current', {'packages': ['bar'] });";
+                            break;
+                        }
+                }
+            ?>
+
+            <?php
             switch ($data['type']) {
                 case 'map': {
-                        echo '';
-                    break;
+                        echo 'drawMap();';
+                        break;
                     }
-                case 'none': {
-                    echo '';
-                break;
-                }
                 case 'graph': {
-                        echo "google.charts.load('current', {'packages': ['line']});";
-                    break;
+                        echo 'google.charts.setOnLoadCallback(drawGraph);';
+                        break;
                     }
                 case 'pie': {
-                        echo "google.charts.load('current', {'packages': ['corechart']});";
-                    break;
+                        echo 'google.charts.setOnLoadCallback(drawPie);';
+                        break;
                     }
                 case 'bar': {
-                        echo "google.charts.load('current', {'packages': ['bar'] });";
-                    break;
+                        echo 'google.charts.setOnLoadCallback(drawBar);';
+                        break;
                     }
             }
             ?>
-            
-                <?php
-                switch ($data['type']) {
-                    case 'map': {
-                            echo 'google.charts.setOnLoadCallback(drawMap);';
-                    break;
-                        }
-                    case 'graph': {
-                            echo 'google.charts.setOnLoadCallback(drawGraph);';
-                        break;
-                        }
-                    case 'pie': {
-                            echo 'google.charts.setOnLoadCallback(drawPie);';
-                        break;
-                        }
-                    case 'bar': {
-                            echo 'google.charts.setOnLoadCallback(drawBar);';
-                        break;
-                        }
-                }
-                ?>
-            
+
 
         }
 
@@ -847,6 +941,21 @@
         }
     </script>
     <!-- End of Statistics Input Script -->
+    <!-- Download Script -->
+    <script>
+        function download_statistics() {
+            var printContents = document.getElementById("modal").innerHTML;
+			var originalContents = document.body.innerHTML;
+
+			document.body.innerHTML = printContents;
+
+			window.print();
+
+			document.body.innerHTML = originalContents;
+
+        }
+    </script>
+    <!-- End of Download Script -->
 </head>
 
 <body>
@@ -996,7 +1105,7 @@
                         <div onclick="showHideItems(this,'showLocationPrimaryItems')" class="pick-columns-list-title">
                             <p>Location Primary</p>
                         </div>
-                        <label for="ShowState" class="pick-columns-item" name="showLocationPrimaryItems">
+                        <label for="ShowCountry" class="pick-columns-item" name="showLocationPrimaryItems">
                             <input type="checkbox" id="ShowCountry" class="showCountry" onclick="update_fill_options()">
                             <span>Country</span>
                         </label>
@@ -1511,7 +1620,7 @@
 
                         </select>
                         <div class="download-button">
-                            <input type="submit" value="Download" class="download-commit-button">
+                            <button onclick="download_statistics()" id="download_button" class="download-commit-button">Download</button>
                         </div>
 
                     </div>
