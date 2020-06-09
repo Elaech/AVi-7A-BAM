@@ -20,6 +20,8 @@ class Get
         $amount = 0;
 
 
+
+
         $command = new Command();
         $var1 = array();
         $var2 = array();
@@ -54,43 +56,84 @@ class Get
         }
 
 
-        $prepared_statement_select_base = $command->createString($var1, $var2,  $var3, $var4);
-        $prepared_statement_bazat = $prepared_statement_select_base;
-        $page_end = $amount_of_entries_to_fetch * ($page_to_fetch + 1);
-        $page_start = $amount_of_entries_to_fetch * $page_to_fetch;
+        if ($amount_of_entries_to_fetch < 0) {
+            $prepared_statement_select_base = $command->createString($var1, $var2,  $var3, $var4);
+            $prepared_statement_bazat = $prepared_statement_select_base;
 
-        $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( " .  $prepared_statement_bazat . " ORDER BY ID ) N WHERE ROWNUM<=" . $page_end . ") WHERE RN>=" . $page_start;
-        $statement_select_base = oci_parse($this->connection, $sqlstring);
-        //var_dump($sqlstring);
-        oci_execute($statement_select_base);
-        while ($amount < $amount_of_entries_to_fetch ) {
-            $amount = $amount + 1;
-            $temporar = array();
-            oci_fetch($statement_select_base);
+            $prepared_statement_select_count = "SELECT COUNT(*) from ( ";
+            $prepared_statement_select_count .= $prepared_statement_bazat;
+            $prepared_statement_select_count .= " ) ";
+            $statement_select_count = oci_parse($this->connection, $prepared_statement_select_count);
+            oci_execute($statement_select_count);
+
+            oci_fetch($statement_select_count);
+            $accidents["count"] = oci_result($statement_select_count, "COUNT(*)");
+
+            $amount_of_entries_to_fetch = oci_result($statement_select_count, "COUNT(*)");
+            $page_end = $amount_of_entries_to_fetch * ($page_to_fetch + 1);
+            $page_start = $amount_of_entries_to_fetch * $page_to_fetch;
+
+            $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( " .  $prepared_statement_bazat . " ORDER BY ID ) N WHERE ROWNUM<=" . $page_end . ") WHERE RN>=" . $page_start;
+            $statement_select_base = oci_parse($this->connection, $sqlstring);
+            //var_dump($sqlstring);
+            oci_execute($statement_select_base);
+            while ($amount < $amount_of_entries_to_fetch) {
+                $amount = $amount + 1;
+                $temporar = array();
+                oci_fetch($statement_select_base);
 
 
-            foreach ($var1 as $row) {
+                foreach ($var1 as $row) {
 
-                foreach ($row as $temp) {
+                    foreach ($row as $temp) {
 
-                    array_push($temporar, [$temp['name'] =>  oci_result($statement_select_base, strtoupper($temp['name']))]);
+                        array_push($temporar, [$temp['name'] =>  oci_result($statement_select_base, strtoupper($temp['name']))]);
+                    }
                 }
+                array_push($accidents["body"], $temporar);
             }
-            array_push($accidents["body"], $temporar);
+
+
+
+            return json_encode($accidents);
+        } else {
+            $prepared_statement_select_base = $command->createString($var1, $var2,  $var3, $var4);
+            $prepared_statement_bazat = $prepared_statement_select_base;
+            $page_end = $amount_of_entries_to_fetch * ($page_to_fetch + 1);
+            $page_start = $amount_of_entries_to_fetch * $page_to_fetch;
+
+            $sqlstring = "SELECT * FROM (SELECT ROWNUM as RN,N.* FROM ( " .  $prepared_statement_bazat . " ORDER BY ID ) N WHERE ROWNUM<=" . $page_end . ") WHERE RN>=" . $page_start;
+            $statement_select_base = oci_parse($this->connection, $sqlstring);
+            //var_dump($sqlstring);
+            oci_execute($statement_select_base);
+            while ($amount < $amount_of_entries_to_fetch) {
+                $amount = $amount + 1;
+                $temporar = array();
+                oci_fetch($statement_select_base);
+
+
+                foreach ($var1 as $row) {
+
+                    foreach ($row as $temp) {
+
+                        array_push($temporar, [$temp['name'] =>  oci_result($statement_select_base, strtoupper($temp['name']))]);
+                    }
+                }
+                array_push($accidents["body"], $temporar);
+            }
+
+
+
+            $prepared_statement_select_count = "SELECT COUNT(*) from ( ";
+            $prepared_statement_select_count .= $prepared_statement_bazat;
+            $prepared_statement_select_count .= " ) ";
+            $statement_select_count = oci_parse($this->connection, $prepared_statement_select_count);
+            oci_execute($statement_select_count);
+
+            oci_fetch($statement_select_count);
+            $accidents["count"] = oci_result($statement_select_count, "COUNT(*)");
+            return json_encode($accidents);
         }
-
-
-
-        $prepared_statement_select_count = "SELECT COUNT(*) from ( ";
-        $prepared_statement_select_count .= $prepared_statement_bazat;
-        $prepared_statement_select_count .= " ) ";
-        $statement_select_count = oci_parse($this->connection, $prepared_statement_select_count);
-        oci_execute($statement_select_count);
-
-        oci_fetch($statement_select_count);
-        $accidents["count"] = oci_result($statement_select_count, "COUNT(*)");
-        return json_encode($accidents);
-
     }
 
     public function __construct()
