@@ -13,7 +13,6 @@
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/html2canvas.js"></script>
     <script type="text/javascript" src="http://localhost/AVi-7A-BAM/public/Styles/canvas2svg.js"></script>
     <?php
-    if (isset($data['statistics_data']) && !empty($data['statistics_data'])) {
         if ($data['type'] == 'map') {
             echo '<script src="https://www.amcharts.com/lib/4/core.js"></script>';
             echo '<script src="https://www.amcharts.com/lib/4/maps.js"></script>';
@@ -22,7 +21,6 @@
         } else {
             echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';
         }
-    }
     ?>
 
 
@@ -1071,7 +1069,7 @@
                     source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
                 }
                 source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
-                console.log("data:image/svg+xml;charset=utf-8," + encodeURIComponent(source));
+                // console.log("data:image/svg+xml;charset=utf-8," + encodeURIComponent(source));
 
                 document.getElementById('svg-data').onclick = function(code){
                     this.href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
