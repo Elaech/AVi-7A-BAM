@@ -156,10 +156,17 @@
 		<!-- Introducere -->
         <section id="id1">
 			<h2>1. Introducere</h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Crash Watch este o aplicatie Web care se ocupa de crearea unui mediu de observare a statsticilor bazate pe accidentele din Statele Unite ale Americii in scopul observarii, si de ce nu, constientizarii acestora. 
+				<br><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia noastra ajuta oamenii sa isi formeze o idee asupra numarului de accidente care se petrec in US, sa observe zonele periculoase unde se petrec cele mai multe accidente si nu numai, toate in scopul maturizarii in ceea ce priveste prudenta in trafic.
+				<br><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia Crash Watch vine cu un sistem de autentificare: creare cont si autentificare in aplicatie. Abia dupa autentificarea in aplicatie un client poate cauta statistici pe baza unor filtre alese de acesta si mai apoi poate vizualiza in 5 moduri diferite statisticile dorite: tabel, graf, harta, grafic de bare si grafic de proportii.
+			</p>
         </section> 
 		<!-- Motivatie -->
         <section id="id2"> 
-			<h2>2. Motivatie</h2>		
+			<h2>2. Motivatie</h2>	
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tot mai multe accidente se intampla in fiecare zi, ora sau minut. Ca sofer prudent ti-ar placea sa stii arterele de drum periculoase. Pentru asta exista o astfel de aplicatie. Aplicatia CrashWatch este un observator pentru tot ceea ce inseamna accidente in Statele Unite ale Americii. Cu ajutorul celor 5 moduri de vizualizare se poate realiza cea mai buna perspectiva in ceea ce priveste zonele sigure din Statele Unite ale Americii si, de ce nu, chiar importanta prudentei in ceea ce inseamna sofatul.
+				<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Am ales acest proiect dintre toate deoarece urma sa spuna un crud adevar care, speram noi, va trage un semnal de alarma in ceea ce priveste numarul de accidente pe care urmeaza sa il gestionam mai departe in aplicatie.
+			</p>	
         </section>
 		
 		
@@ -230,6 +237,7 @@
 				<h3>5.2 AVIACC</h3>
 				<section id="id5_2_1">
 					<h4>5.2.1 Introducere</h4>
+					<!-- <p>API-ul REST creat de noi, numit AVIACC, este o ... care se ocupa cu manipularea textuala a JSON-ului </p> -->
 				</section>
 				<!-- Motivatie -->
 				<section id="id5_2_2">
@@ -358,6 +366,14 @@
 		<!-- Diagrame Use Case -->
         <section id="id7">
 			<h2>7. Diagrame Use Case</h2>
+			<h4>Diagrama Use Case pentru Creare cont</h4>
+			<img src="http://localhost/AVi-7A-BAM/public/Styles/create.png">
+			<h4>Diagrama Use Case pentru Autentificare in cont</h4>
+			<img src="http://localhost/AVi-7A-BAM/public/Styles/login.png">
+			<h4>Diagrama Use Case pentru Cautare si vizualizare statistici</h4>
+			<img src="http://localhost/AVi-7A-BAM/public/Styles/statistics.png">
+			<h4>Diagrama Use Case pentru Download</h4>
+			<img src="http://localhost/AVi-7A-BAM/public/Styles/download.png">
         </section>
 		<!-- Metodologie de management a activitatii -->
         <section id="id8">
@@ -366,10 +382,25 @@
 		<!-- Posibile Imbunatatiri -->
         <section id="id9">
 			<h2>9. Posibile Imbunatatiri</h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ca orice alta aplicatie din ziua de azi, aplicatia noastra Web Crash Watch are in constanta nevoie de imbunatatiri. 
+				
+			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cateva imbunatatiri care ar fi putut fi avute in vedere in cazul in care permitea timpul alocat proiectului ar fi fost 
+				organizarea intr-o arhitectura mai bine definita a codului aplicatiei: Chiar daca respectam cu strictete o arhitectura MVC iar codul de pe 
+				Back-End este foarte bine structurat, in ceea ce priveste Clientul, in special pe pagina de statistici, se putea pune la punct o arhitectura mai bine definita
+				de organizare a functiilor de javascript care au fost scrise.
+			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O alta imbunatatire ar fi incercarea de economisire a spatiului: in local storage ocupam cateva zeci bune de kilobytes atunci cand apelam vizualizatorul de statistici.
+			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si nu in ultimul rand, pentru ca niciodata un site sau o aplicatie nu o sa arate 100% perfect, s-ar putea avea in vedere si cateva imbunatatiri pe partea de design al aplicatiei.
+			</p>
         </section>
 		<!-- Concluzii -->
         <section id="id10">
 			<h2>10. Concluzii</h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ajunsi la final de proiect ne dam seama de ce am reusit sa cream. Suntem multumiti de rezultatul final.
+				Chiar daca imbunatatirile sunt bine venite oricand, aplicatia este functionala din toate punctele de vedere. Ne-ar fi placut sa avem mai mult timp la dispozitie pentru a continua cu aceasta aplicatie, sa o imbunatatim.
+				<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consideram ca aceasta aplicatie este folositoare si speram sa isi atinga scopul, si anume acela de a trage un semnal de alarma in ceea ce priveste numarul ingrijorator de mare de accidente care s-au intamplat pe o perioada atat de scurta in Statele Unite ale Americii.
+				Asa cum scrie peste tot, viata are prioritate, iar in trafic prudenta, atentia si, de ce nu, cunoasterea zonelor cu risc ridicat de accidente din drumul cu masina poate salva vieti.
+				<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In concluzie, multumim Crash Watch pentru ca ne-a oferit oportunitatea de a lucra in echipa, de a invata unii de la altii si de a crea o aplicatie care speram noi sa fie folositoare.
+			</p>
         </section>
 		<!-- Bibliografie -->
         <section id="id11">
