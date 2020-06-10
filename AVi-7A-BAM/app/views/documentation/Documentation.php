@@ -62,8 +62,6 @@
 										<a href="#id5_1_4">5.1.4 Arhitectura</a>
 										<ol>
 											<li><a href="#id5_1_4_1">5.1.4.1 Controllere</a></li>
-											<li><a href="#id5_1_4_2">5.1.4.2 Modele</a></li>
-											<li><a href="#id5_1_4_3">5.1.4.3 View-uri</a></li>
 										</ol>
 									</li>
 									<li><a href="#id5_1_5">5.1.5 Functionalitati</a></li>
@@ -227,48 +225,123 @@
 				<!-- Introducere -->
 				<section id="id5_1_1">
 					<h4>5.1.1 Introducere</h4>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De la inceputul proiectului am decis ca restrictionarea accesului la datele despre accidente este un lucru bun deoarece reduce traficul pe server si ofera un control administrativ asupra
-					activitatii desfasurate de catre clienti. Solutia a fost creerea unei aplicatii ce ofera prin intermediul unui API rest servicii de gestionare a conturilor de utilizator.</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVIAUTH este aplicatia ce expune prin intermediul unui API REST servicii de inregistrare, autentificare si verificare/schimbare de date asupra diferitor
+					conturi de utilizator . Serviciile expuse sunt folosite de catre aplicatia pricipala AVIBAM petru a expune o interfata grafica de inregistrare/logare/schimbare data/verificare date pentru fiecare cont
+					de utilizator in parte</p>
 				</section>
 				<!-- Motivatie -->
 				<section id="id5_1_2">
 					<h4>5.1.2 Motivatie</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De la inceputul proiectului am decis ca restrictionarea accesului la datele despre accidente este un lucru bun deoarece reduce traficul pe server si ofera un control administrativ asupra
+					activitatii desfasurate de catre clienti. Solutia a fost creerea unei aplicatii ce ofera prin intermediul unui API rest servicii de gestionare a conturilor de utilizator.</p>
 				</section>
 				<!-- Diagrama Arhitecturala -->
 				<section id="id5_1_3">
 					<h4>5.1.3 Diagrama Arhitecturala</h4>
+					<img src="http://localhost/AVi-7A-BAM/public/Styles/AVIAUTHDiagram.png">
 				</section>
 				<!-- Arhitectura -->
 				<section id="id5_1_4">
 					<h4>5.1.4 Arhitectura</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arhitectura aplicatiei AVIAUTH este una bazata pe arhitectura clasica a unui API REST: un controller principal ce se ocupa cu pastrarea
+					requestului primit ce decide mai departe ce controller trebuie apelat pentru requestul specific. Fiecare request poate fi de maxim 6 tipuri: creare cont, logare & verificare token, delogare,
+					modificare date, obtinere date sau cazul de request invalid. Fiecare din aceste tipuri are cate un controller asociat ce poate apela la serviciile: userdao, cryptografice sau cele de generare/verificare de tokeni.
+					</p>
 					<!-- Controllere -->
 					<section id="id5_1_4_1">
 						<h5>5.1.4.1 Controllere</h5>
-					</section>
-					<!-- Modele -->
-					<section id="id5_1_4_2">
-						<h5>5.1.4.2 Modele</h5>
-					</section>
-					<!-- View-uri -->
-					<section id="id5_1_4_3">
-						<h5>5.1.4.3 View-uri</h5>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia are la baza un controller principal ce gestioneaza ce subcontroller este apelat pentru a gestiona requestul pe baza
+						informatiei primite din request. Tot acesta ,dupa procesarea requestului de catre subcontrollerul ales, returneaza un response valid(comform CORS)
+						catre solicitant.</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerul de creare cont ,la apelare, primeste datele din request si le valideaza avand in vedere ca acesta sa contina
+						un nume de cont, o parola, si o adresa de email. Toate cele trei campuri sunt validate comform standardelor: numele contine numai litere si cifre si are minim o lungime de 6 caractere,
+						parola trebuie sa contina o litera mare, o litera mica si un numar si sa fie de minim 8 caractere lungime, emailul se verifica de a fi sub forma valida a unui email. Pasul urmator
+						este de a cripta numele si email-ul si a hash-ui parola, iar pe urma se verifica unicitatea numelui si parolei in baza de date. Daca datele primite respecta toate
+						conditiile atunci se creeaza un cont in baza de date</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerul de logare are 2 interactiuni diferite: logarea contului si verificarea tokenului. Prima functionalitate necesita un
+							nume,un ip si o parola, acestea sunt criptate/hash-uite folosind serviciile corespunzatoare si se verifica in baza de date: daca sunt gasite atunci se genereaza un nou token ce va fi returnat
+							celui ce a facut requestul. Singurul camp validat este cel de IP. A doua functionalitate primeste un token si un IP(ce este validat precum la prima functionalitate), verifica ca tokenul sa fie corect
+							si sa contine niste date valide comform bazei de date: verifica ca IP-ul tokenului sa fie identic cu cel nou trimis, verifica ca id-ul de cont din token sa existe in baza de date
+							si daca toate verificarile sunt corecte atunci returneaza un token nou pentru acel cont, astfel verificand validitatea user-ului. Daca un token este valid dar nu are date corecte atunci se va trata acest caz
+							ca un furt de token si va intoarce un status de eroare celui ce a trimis requestul. Tokenul are datele spuse mai sus dar si un camp de expirare, daca timpul de expirare este depasit la urmatorul request contul in cauza este delogat. 
+							De la acest controller inainte orice request ce se face legat de contul logat trebuie sa contina tokenul curent si o adresa IP fie ipv4 sau ipv6.
+							pentru a fi validat si pentru a primi un nou token. Astfel se declanseaza un sistem ce permite logarea unui cont pe un singur device ce verifica si IP-ul userului sa fie la fel pe decursul unei sesiune de interactiune
+							cu contul.</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerul de preluare de date verifica tokenul ca la pasul anterior si cauta in baza de date informatiile userului (inafara de parola) , le decripteaza si i le trimite ca raspuns.</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerul de schimbare de date, la fel, verifica tokenul, si mai poate primi un nume sau/si o parola sau/si o adresa de email. Datele extra sunt verificate comform standardelor de creare de cont
+						mentionate mai sus, trateaza cazul de nevaliditate individual (parola schimbata poate fi buna si numele de utilizator poate fi invalid in raspunsul final) dupa care schimba datele de cont ce sunt valide in baza de date la acest cont, daca cele in cauza respecta
+						si conditia unicitatii (unde este cazul). </p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerul de logout verifica tokenul si trimite doar un mesaj de succes in cazul tokenului valid. In baza de date se marcheaza utilizatorul ca fiind delogat prin intermediului campului de salt generat pentru tokenul trecut. </p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerul ce trateaza requesturile eronate, sau ce nu respecate standardele API-ului sau ce nu contin datele necesare doar reda statusul 400. </p>
 					</section>
 				</section>
 				<!-- Functionalitati -->
 				<section id="id5_1_5">
 					<h4>5.1.5 Functionalitati</h4>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Functionalitatea principala a aplicatiei este de a mentine o legatura intre un utilizator si contul sau pe parcursul unei sesiuni de interactiuni fara a compromite datele acestuia sau a le expune si avand
+					in vedere autenticitatea celui ce trimite requestui asupra contului.  Acest lucru se realizeaza prin intermediul controllerului de verificare/logare a unui cont. Incheierea unei sesiuni se face prin a accesarea controllerului de logout.
+					</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O alta functionalitate importantanta este cea de creare a unui cont. Aceasta este cea mai bogata in verificari si validari de date, aici se verifica validitatea campurilor si a detaliilor contului pentru a obtine
+					ca rezultat un cont cat mai greu de accesat de utilizatori straini fata de acesta. Fara aceasta functionalitate nu se poate realiza nimic in cadrul aplicatiei.</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Functionalitati mai putin importante insa totusi foarte utile sunt cele prezentate de controllerele ce permit access la vizualizarea si updatarea datelor din cont, insa si aceste operatiuni
+					au incorporate validarea tokenului curent.</p>
 				</section>
 				<!-- API REST -->
 				<section id="id5_1_6">
 					<h4>5.1.6 API REST</h4>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Toate functionalitatile prezentate pot fi accesate prin requesturi la API-ul expus la domeniul "http://localhost/AVIAUTH/api/" ce contin headerul de continut plain/text si contin informatiile specifice sub forma de json.
+					</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentru a accesa functionalitatea de creare cont se va face request folosind metoda POST la "http://localhost/AVIAUTH/api/create" ce va avea in body un json cu numele, email-ul si parola utilizatorului (username,email,password). </p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentru a accesa functionalitatea de logare/verificare cont se va face un request folosind metoda POST la  "http://localhost/AVIAUTH/api/check" ce va avea in body un json cu o adresa api si fie un nume si o parola fie un token (ip,token,username,password).</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentru a accesa functionalitatea de delogare se va face un request folosind metoda PUT la "http://localhost/AVIAUTH/api/logout" ce va contine in body un json cu un token si o adresa ip (ip,token).</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentru a accesa functionalitatea de vizualizare date cont se va face un request folosind metoda GET la "http://localhost/AVIAUTH/api/details" ce va contine in body un json cu un token si o adresa ip (ip,token).</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentru a accesa functionalitatea de schimbare date cont se va face un request folosind metoda PUT la "http://localhost/AVIAUTH/api/update" ce va contine un json in body ce are un ip si un token dar poate avea un nume sau/si o parola sau/si un email pentru a putea schimba unul sau 
+					mai multe campuri asociate contului (ip,token,username,password,email).</p>
 				</section>
 				<!-- Tehnologii -->
 				<section id="id5_1_7">
 					<h4>5.1.7 Tehnologii</h4>
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tehnologiile de baza folosite de catre aplicatie sunt PHP7 (limbajul de programare folosit) ce ofera un mediu prietenos de dezvoltare si OracleDbms ce ofera
+						un mediu sigur de storare a datelor intr-un mod eficient peste care se poate aplica metodologia CRUD.
+					</p>
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pentru managementul lucrului cu librariile externe a fost folosit Composer, o tehnologie ce furnizeaza tehnologiile cu versiunile dorite direct intr-un folder al proiectului.
+					</p>
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pentru criptarea si decriptarea datelor s-a folosit criptarea AES-abc oferita de catre libraria OPENSSL ce asigura o criptare pe 512 biti folosind o cheie secreta. Datele obtinute 
+						prin acest tip de criptare vor fi valori alfanumerice pentru a fi usor de storat si in baza de date.
+					</p>
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Metoda de hash folosita in hash-uirea sigura a parolelor este metoda oferita de PHP7 pentru tratarea informatiilor sensibible ce aplica o metoda de HASH + SALT. Tot PHP7 ofera o metoda
+						simpla de a verifica daca un hash cu o parola obisnuita se potrivesc.
+					</p>
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pentru a generarea si validarea de tokeni s-a folosit libraria FirebaseJWT ce genereaza tokeni pe baza unei chei secrete ce pot contine diferite tipuri de informatii.
+						In cazul aplicatiei noastre un astfel de token contine o adresa IP asociata sesiunii de interactiuni asupra contului, id-ul contului din baza de date cat si un camp ce detine o data de expirare a tokenului ce este setata la 10 minute dupa generare.
+					</p>
 				</section>
 				<!-- Concluzii -->
 				<section id="id5_1_8">
 					<h4>5.1.8 Concluzii</h4>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lucrul la o aplicatiei ce expune un API ce gestioneaza conturi pentru utilizatori trebuie facut cu mare atentie la securitate si trebuie sa vina cu un sistem de verificare constanta a autenticitatii.
+					Aceste lucruri pot fi greu de gestionat din cauza vulnerabilitatilor aplicatiilor web actuale, ce pot proveni de la interceptarea de date, date sensibile criptate cu sisteme de criptare slabe, hash-uri ce nu folosesc metodologia HASH+SALT ce sunt usor
+					de spart din cauza rainbow tables dar si din cauza ca aplicatiile web trebuie sa emita putine informatii dar si intr-un mod rapid ceea ce face alegerea unor sisteme criptografice un lucru dificil.
+					</p>
+					<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In concluzie lucrul a fost dificil din cauza alegerilor ce au trebuit fi facute pe decursul dezvoltarii, iar lucrurile ce ar putea fi imbunatatite ar fi sistemele de criptare folosite pentru
+					a fi executate mai rapid, aceasta avand in vedere ca timpul actual maxim de procesare al unui request+response in cadrul aplicatiei este de 130ms.
+					</p>
 				</section>
 			</section>	
 			<!-- AVIACC -->
