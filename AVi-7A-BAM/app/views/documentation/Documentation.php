@@ -214,7 +214,12 @@
 		
 		<!-- API Servicii -->
         <section id="id5">
-			<h2>5. API Servicii</h2>	
+			<h2>5. API Servicii</h2>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In cadrul proiectului am separat serviciile de autentificare si date despre accidente in doua aplicatii separate ce expun fiecare cate un API REST.
+			Acest lucru permite scrierea mai ingrijita si mententanta mai usoara a codului in aplicatia principala, ce utilizeaza aceste servicii expuse de cele doua API-uri.
+			Arhitectura bazata pe servicii este una din metodele principale de dezvoltare a aplicatiilor web. In continuare vom prezenta in detaliu cele doua servicii dezvoltate in cadrul proiectului.
+			</p>
 			<!-- AVIAUTH -->
 			<section id="id5_1">
 				<h3>5.1 AVIAUTH</h3>
