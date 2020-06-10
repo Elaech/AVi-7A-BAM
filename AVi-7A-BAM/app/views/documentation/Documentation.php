@@ -198,6 +198,12 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AM4MAPS este un API construit de AMCHARTS ce permite construirea si readarea datelor sub forma de statistici cartografice interactive. Clientul aplicatiei principale apeleaza
 			la acest serviciu pentru afisarea statisticilor sub forma unei mape geografice.
 			</p>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVIBAM este aplicatia principala a proiectului; ea gestioneaza logica din spatele interactiunii cu utilizatorul si apelurile facute catre servicii.
+			Serverul aplicatiei se ocupa cu servirea de pagini web, stiluri, imagini si date catre client, insa face si verificari de authenticitate si procura si date despre accidente cand este nevoie.
+			Clientul, folosind diferite tehnologii si servicii, reda datele expuse de catre server intr-un mod interactiv ce este insotit de un design simplu si curat. Tot acesta se ocupa si gestioneaza actiunile
+			rezultate din urma actiunii cu utilizatorul.
+			</p>
         </section>
 
 		<!-- Diagrama Arhitecturala -->
