@@ -226,6 +226,8 @@
 				<!-- Introducere -->
 				<section id="id5_1_1">
 					<h4>5.1.1 Introducere</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De la inceputul proiectului am decis ca restrictionarea accesului la datele despre accidente este un lucru bun deoarece reduce traficul pe server si ofera un control administrativ asupra
+					activitatii desfasurate de catre clienti. Solutia a fost creerea unei aplicatii ce ofera prin intermediul unui API rest servicii de gestionare a conturilor de utilizator.</p>
 				</section>
 				<!-- Motivatie -->
 				<section id="id5_1_2">
