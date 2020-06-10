@@ -173,12 +173,43 @@
         
         <!-- Arhitectura -->
         <section id="id3">
-			<h2>3. Arhitectura</h2>		
+			<h2>3. Arhitectura</h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arhitectura aplicatiei AVI este formata din mai multe servicii la care apeleaza o aplicatie principala ce construieste pe baza acestora
+				 si a unei logici interne un client ce reda o interfata grafica pentru lucrul cu utilizatorul uman. Cu ajutorul acestei interfete utilizatorul
+				 poate sa isi creeze si gestioneze propriul cont in aplicatiei, iar cu ajutorul contului acesta poate accesa tot prin intermediul interfetei
+				 datele despre accidente in diferite formate sau poate creea anumite statistici asupra datelor.
+			</p>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVIAUTH este o aplicatie dezvoltata in timpul proiectului. Aceasta ofera o modalitate de autentificare a utilizatorilor
+			conferita cu ajutorul unui API REST. Functionalitatile oferite sunt cele de creare cont, autentificare, schimbare date, verificare date si delogare. Toate acestea
+			pot fi accesate prin intermediul unui token ce este obtinut in urma apelului de logare al API-ului. In urma oricarei interactiuni cu userul aplicatia principala apeleaza la acest
+			serviciul pentru a verifica autenticitatea userului ce interactioneaza.
+			</p>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVIACC, la fel, reprezinta o aplicatie dezvoltata in timpul proiectului. Aceasta ofera o modalitate simpla de a obtine datele despre accidente in diferite formate
+			permitand construirea usoara de statistici asupra lor. Functionalitatile acestei aplicatii sunt expuse printr-un API REST si sunt in mare parte folosite de catre aplicatia principala
+			pentru a expune datele intr-un mod interactiv.
+			</p>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Google Charts este un API construit de Google ce permite construirea si readarea datelor sub forma de statistici interactive. Clientul aplicatiei principale apeleaza
+			la acest serviciu pentru afisarea mai interactiva a statisticilor.
+			</p>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AM4MAPS este un API construit de AMCHARTS ce permite construirea si readarea datelor sub forma de statistici cartografice interactive. Clientul aplicatiei principale apeleaza
+			la acest serviciu pentru afisarea statisticilor sub forma unei mape geografice.
+			</p>
+			<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVIBAM este aplicatia principala a proiectului; ea gestioneaza logica din spatele interactiunii cu utilizatorul si apelurile facute catre servicii.
+			Serverul aplicatiei se ocupa cu servirea de pagini web, stiluri, imagini si date catre client, insa face si verificari de authenticitate si procura si date despre accidente cand este nevoie.
+			Clientul, folosind diferite tehnologii si servicii, reda datele expuse de catre server intr-un mod interactiv ce este insotit de un design simplu si curat. Tot acesta se ocupa si gestioneaza actiunile
+			rezultate din urma actiunii cu utilizatorul.
+			</p>
         </section>
 
 		<!-- Diagrama Arhitecturala -->
         <section id="id4">
 			<h2>4. Diagrama Arhitecturala</h2>
+			<img src="http://localhost/AVi-7A-BAM/public/Styles/Diagrama%20Arhitecturala.png">
         </section>
 		
 		<!-- API Servicii -->
