@@ -275,19 +275,35 @@
 				<h3>5.2 AVIACC</h3>
 				<section id="id5_2_1">
 					<h4>5.2.1 Introducere</h4>
-					<!-- <p>API-ul REST creat de noi, numit AVIACC, este o ... care se ocupa cu manipularea textuala a JSON-ului </p> -->
+					 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVIACC este un API care se ocupa cu managementul datelor in ceea ce priveste manipularea bazei de date cu accidente.
+						Cu ajutorul acestui API manipularea datelor practic devine o joaca. Pe langa faptu ca API-ul se ocupa cu interogarea bazei de date si compunerea raspsului in formatul cerut (json),
+						acesta se ocupa si cu crearea interogarii printr-o metoda inovativa care in functie de request-ul trimis trateaza cazurile si compune singur interogarea care urmeaza sa fie folosita pe baza de date.
+						
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API-ul AVIACC, construit ca un API REST, este usor de folosit si modul in care ofera rezultatele, anume repede si intr-un format usor de manipulat mai departe, pot face aplicatia mai eficienta.
+					  </p> 
 				</section>
 				<!-- Motivatie -->
 				<section id="id5_2_2">
 					<h4>5.2.2 Motivatie</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avantajul principal al API-ului AVIACC
+					 este acela că oferă mai multă flexibilitate. Prin urmare, se pot efectua mai 
+					 multe tipuri de apeluri si se pot returna diferite formate de date in functie de request-ul dat.
+					 Motivul implementarii acestuia a venit din pricina celor 50 coloane ale bazei da date cu 3 milioane de linii care trebuiau gestionate.
+					 Din cauza ca este inuman scrierea a cate unui caz pentru fiecare coloana si caz de filtrare, a aparut API-ul nostru care destul de putin cod in comparatie cu ce putea sa fie, manipuleaza repede si cum ne-am fi dorit baza de date. 
+					 </p>
 				</section>
-				<!-- Diagrama Arhitecturala -->
 				<section id="id5_2_3">
 					<h4>5.2.3 Diagrama Arhitecturala</h4>
 				</section>
 				<!-- Arhitectura -->
 				<section id="id5_2_4">
 					<h4>5.2.4 Arhitectura</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ca model arhitectural pentru AVIACC incercam sa folosim Model-view-controller,
+						 evident fara existenta view-ului. Avem zona de controllers unde tinem controllerele pentru metoda 
+						 de preluare a datelor si metoda de eroare, in core tinem conexiunea la baza de date iar in models 
+						 tinem entitatea accident cu toate coloanele si metodele sale. 
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia ca servicii dao o metoda care furnizeaza rezultatul in functie de request-ul primit si o metoda care creaza interogarea in functie de request-ul primit. 
+					</p>
 					<!-- Controllere -->
 					<section id="id5_2_4_1">
 						<h5>5.2.4.1 Controllere</h5>
@@ -304,18 +320,28 @@
 				<!-- Functionalitati -->
 				<section id="id5_2_5">
 					<h4>5.2.5 Functionalitati</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia AVIACC are ca functionalitate principala consumarea unui json primit de la client si furnizarea unui raspuns pe baza acestuia. Modul de functionare este simplu: se parseaza json-ul primit si se salveaza informatiile separate in vectori sau variabile separate; mai apoi aceste variabile sunt trimise la o metoda ce urmareste patternu command care compune string-ul de interogare a bazei de date; aceasta interogare este executata iar informatiile sunt salvate si trimise ca raspun in format json.</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comportamentul aplicatiei difera in functie de entitatea care a trimis request-ul: daca front-end a trimis request se vor furniza cate 20 date in functie de pagina pe care se afla clentul iar daca back-end a trimis requestul se furnizeaza tot numarul de intrari posibile deoarece acele intrari vor fi folosite in cadrul realizarii statisticilor.</p>
 				</section>
 				<!-- API REST -->
 				<section id="id5_2_6">
 					<h4>5.2.6 API REST</h4>
+					
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functionalitatile acestei aplicatii sunt expuse printr-un API REST. API-ul REST creat de noi, numit AVIACC, se referă la instrumente, servicii sau software care se bazează pe principiul arhitectural REST care ajuta la o mai buna creare a statisticilor si care creste eficienta aplicatiei mari.</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In cadrul aplicatiei avem metoda POST care consuma un json. In ciuda faptului ca este stabilita ca fiind POST, functioneaza ca un GET. 
+					Am ales acest lucru pentru ca json-ul atat trimis catre a fi consumat cat si primit ca raspuns puteau ajunge la dimensiuni foarte mari care nu erau suportate in orice caz de metoda GET.
+					Json-ul trimis la API are un doar un body in timp ce Json-ul primit are pe langa body si un count care spune numarul maxim de inregistrari pentru o mai buna manipulare a datelor in zona de statistici.
+				</p>
 				</section>
 				<!-- Tehnologii -->
 				<section id="id5_2_7">
 					<h4>5.2.7 Tehnologii</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ca tehnologii pentru crearea API-ului AVIACC am folosit limbajul de programare PHP pentru crearea codului aplicatiei, SQL pentru interogarea bazei de date, PostMan pentru testarea API-ului si verificarea functionalitatilor, Visual Studio ca editor de cod si desigur XAMPP ca web server.</p>
 				</section>
 				<!-- Concluzii -->
 				<section id="id5_2_8">
 					<h4>5.2.8 Concluzii</h4>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplicatia AVIACC este utila, necesara si foarte bine pusa la punct. Este usor de folosit iar rezultatele sunt pe masura. In cazul in care ar aparea nevoia de modificari acestea vor fi usor de facut din cauza arhitecturii foarte bine pusa la punct care urmeaza modelul MVC.  </p>
 				</section>
 			</section>	
         </section>
