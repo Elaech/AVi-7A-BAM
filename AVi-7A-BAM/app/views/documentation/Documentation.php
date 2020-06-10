@@ -437,7 +437,7 @@
 					<section id="id6_2_1_1">
 						<h5>6.2.1.1 Introducere</h5>
 						<p>Clientul aplicatiei AVIBAM este un site web care face prezentarea functionalitatilor aplicatiei, precum si legatura dintre client si
-						serverul aplicatiei, care ofara prin API-uri restul functionalitatilor.</p>
+						serverul aplicatiei, care ofera prin API-uri restul functionalitatilor.</p>
 						<p>Generarea chart-urilor se face din client cu informatiile primite de la server si trimise la API-uri specializate
 						in acest lucru.</p>
 						
@@ -515,10 +515,21 @@
 					<!-- Introducere -->
 					<section id="id6_2_2_1">
 						<h5>6.2.2.1 Introducere</h5>
+						<p>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serverul aplicatiei AVIBAM este componenta principala ce gestioneaza logica si interactiunea cu clientii. Acesta genereaza pagini interactive cu
+							continut html,css si javascript pentru a fi redate clientilor in functie de requesturile facute de acestia si starea in care acestia se afla.
+						</p>
 					</section>
 					<!-- Arhitectura -->
 					<section id="id6_2_2_2">
 						<h5>6.2.2.2 Arhitectura</h5>
+						<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arhitectura serverului urmareste standardul MVC ce are la baza un sistem de gestionare a serviciilor de care aplicatia are nevoie. 
+						Controllerele preiau requestul facut de catre client verifica starea de autentificare a clientului apeland la serviciul conferit de AVIAUTH si in functie de aceasta
+						si de eventualele date suplimentare ce sunt cerute de utilizator prin intermediul paginii de statistici, ce sunt procurate prin intermediul serviciului conferit de AVIACC,
+						construieste o pagina ce este trimisa ulterior clientului.
+						</p>
+						<img src="http://localhost/AVi-7A-BAM/public/Styles/AVIBAMDiagrama.png">
 						<!-- Controllere -->
 						<section id="id6_2_2_2_1">
 							<h6>6.2.2.2.1 Controllere</h6>
