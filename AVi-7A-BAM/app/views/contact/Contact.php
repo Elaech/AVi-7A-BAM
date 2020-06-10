@@ -81,7 +81,7 @@
                 <p class="contact-item-title">
                     Write Us!
                 </p>
-                <form class="contact-item-content-container" method="POST">
+                <form class="contact-item-content-container" method="POST" action="mailto:andra.ionita@info.uaic.ro" enctype="text/plain">
                     <input type="text" name="title" class="content-input" maxlength="30" placeholder="Subject">
                     <textarea class="message-input" name="message" maxlength="200" rows="5" cols="40" placeholder="Write a message..."></textarea>
                     <input type="submit" value="Send" class="send-button">

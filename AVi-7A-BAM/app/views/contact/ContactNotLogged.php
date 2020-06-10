@@ -79,7 +79,7 @@
                 <p class="contact-item-title">
                     Write Us!
                 </p>
-                <form class="contact-item-content-container" method="POST">
+                <form class="contact-item-content-container" method="POST" action="mailto:andra.ionita@info.uaic.ro" enctype="text/plain">
 
                     <input type="email" name="emailAdress" class="content-input" maxlength="30" placeholder="Your E-mail">
 
