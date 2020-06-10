@@ -299,26 +299,77 @@
 					<!-- Introducere -->
 					<section id="id6_2_1_1">
 						<h5>6.2.1.1 Introducere</h5>
+						<p>Clientul aplicatiei AVIBAM este un site web care face prezentarea functionalitatilor aplicatiei, precum si legatura dintre client si
+						serverul aplicatiei, care ofara prin API-uri restul functionalitatilor.</p>
+						<p>Generarea chart-urilor se face din client cu informatiile primite de la server si trimise la API-uri specializate
+						in acest lucru.</p>
+						
 					</section>
 					<!-- Functionalitati -->
 					<section id="id6_2_1_2">
 						<h5>6.2.1.2 Functionalitati</h5>
-					</section>
+						<p>Clientul asigura posibilitatea de vizualizare a statisticilor, precum si a datelor despre accidente prin intermediul paginii de statistici,
+						aceasta poate fi accesata pentru orice utilizator logat.</p>
+						<p>Clientul asigura functionalitatea de creare si accesare cont utilizator pentru client, prin apeluri la api-ul de AVIAUTH, unde se inregistraza cu 
+						nume de utilizator, parola, si email.</p>
+						<p>Deasemenea exista pagini pentru informatii generale (Home), si informatii de contact(Contact)</p>
+						<p>Comportamentul aplicatie difera in functie de statusul clientului, un utilizator 
+						logat are acces complet la statisiticile si datele descarcabile disponibile in cadrul aplicatiei. Un utilizator nelogat
+						are acces la documantatie , pagina Home si paginca cu date de contact, functionalitatile de logare si creere cont avand
+						pagini proprii accesibile da catre ambele tipuri de utilizatori </p>
+						<p>Informatiile despre sesiune sunt pastrate prin cookies pentru a permite pastrarea unui utilizator logat
+						pentru o perioada mai lunga de timp. Parolele sunt criptate pentru a asigura o cat mai buna integritatea a conturilor utilizatorilor,
+						a caror informatii sunt salvate intr-o baza de date de tip Oracle Sql plus.</p>
+						<p>Informatiile despre accidente sunt disponibile sub forma de tabel sau diagrame, inclusiv dupa locatia pe garta,
+						informatiile sunt transmise si salvate prin intermediul xml si ajax.</p>
+						</section>
 					<!-- Interfata Grafica -->
 					<section id="id6_2_1_3">
 						<h5>6.2.1.3 Interfata Grafica</h5>
+						<p>Fiecare pagina are 3 elemnte comune, a caror design este pastrat de pe pagina pe pagina, Header-ul, Footer-ul,
+						si bara de navigatie, a carei icon-uri au sursa: <a>https://fontawesome.com/icons?d=gallery</a></p>
+						<p>Bara de navigatie este verticala, ocupa intreaga inaltime a ecranului, iar prin hover asupra ei apare 
+						varianta extinsa, cu numele fiecarei pagini acesibile si avatar-ul color al utilizatorului. Linkurile disponibile 
+						difera de la o pagina la alta si in functie de statusul utilizatorului: logat sau nelogat.</p>
+						<p>Footer-ul contine informatii de contact, precizarea ca site-ul este un proiect "Web Tehnologies Faculty", 
+						iar in partea dreapta Logo-urile GitHub, Trello, Fii, cu functionalitate de link spre paginile corespunzatoare.</p>
+				 
+						<p>Pagina Home contine inforatii de baza despre site, si ce se poate face cu acesta 
+						iar prin bara de navigatie de aici se poate ajunge la : Log In, Create Account, Contact, Documentation.</p>
+						 <p>Pagina de Log In, contine o casuta mare, cu titlul Sign In, 
+						Are un formulra, cu doua casute copletabile: Username si Password, 
+						o optiune de mentinere a utilizatorului logat, cu bifare, un link spre creerea 
+						unui cont, si un buton de logare. Pagina de log in are in bara de navigatie 
+						paginile : Home, Contact,Statistics, Create Account, Documentation</p>
+						 <p>Pagina pentru creerea contului, are un formular cu patru intrari,
+						 pentru nume, parolla, confirmare parola si email, un link spre pagina de logare si 
+						 un buton de creere a unui nou cont. Din aceasta pagina sunt accesibile prin bara de 
+						 navigatie : Account Menu, Home, Contact, Statistics, Documentation</p>
+						<p>Pagina de contact va contine 3 elemente: Locatia pe harta a sediului nostru,
+						 adresele la care poate fi contactata administratia site-ului, Si un form, "intitulat Write us!"
+						 prin intermediul caruia sa poate trimite un email diect din site spre noi.</p>
+						 <p>Formularul de contact va contine 3 input-uri: adresa email a clientului,
+						 Subiectul email-ului, si Mesajul propriu-zis</p>
+						<p>Documantul vizualizat acum esta Documantation</p>
 					</section>
 					<!-- Servicii -->
 					<section id="id6_2_1_4">
 						<h5>6.2.1.4 Servicii</h5>
+						<p>Serviciile prorii folosite de client sunt Serverul AVIBAM, API-urile AVIACC pentru accidente, AVIAUTH pentru gestionarea conturilor de utilizator
+						si a logarii si delogarii utilizatorilor, Google Charts pentru desenarea graficelor statistice, am4map pentru harti.</p>
 					</section>
 					<!-- Tehnologii -->
 					<section id="id6_2_1_5">
 						<h5>6.2.1.5 Tehnologii</h5>
+						<p>Pentru realizarea clientului am folosit HTML, CSS, pentru formulare, elementele grafice, si aspectul general al paginilor, Javascript pentru 
+						functionalitati mai complexe cum este prezentarea datelor cu AJAX pe pagini. Deasemenea sunt folosite mici elemente de php pentru
+						imbunatatirea aspectului si responsivitatii site-ului</p>
 					</section>
 					<!-- Concluzii -->
 					<section id="id6_2_1_6">
 						<h5>6.2.1.6 Concluzii</h5>
+						<p>Clientul AVI este versatil, designul este colorat si vioi, iar functionalitatile si butoanele sunt usar de vazut si accesat.
+						Modificarile pot fi facute cu usurinta iar experienta utilizatorului este placuta.</p>
 					</section>
 				</section>
 				<!-- SERVER -->
