@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
 	<link rel="icon" href="http://localhost/AVi-7A-BAM/public/Styles/logo-icon.png" type="image/gif">
     <title>AVI Documentation</title>
+	<link rel="stylesheet" href="http://localhost/AVi-7A-BAM/public/Styles/documentation.css">
 </head>
 
 <style>
@@ -294,11 +295,12 @@
 				</section>
 				<section id="id5_2_3">
 					<h4>5.2.3 Diagrama Arhitecturala</h4>
+					<img src="http://localhost/AVi-7A-BAM/public/Styles/aviacc.png">
 				</section>
 				<!-- Arhitectura -->
 				<section id="id5_2_4">
 					<h4>5.2.4 Arhitectura</h4>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ca model arhitectural pentru AVIACC incercam sa folosim Model-view-controller,
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ca model arhitectural pentru AVIACC incercam sa respectam pe cat posibil Model-View-Controller,
 						 evident fara existenta view-ului. Avem zona de controllers unde tinem controllerele pentru metoda 
 						 de preluare a datelor si metoda de eroare, in core tinem conexiunea la baza de date iar in models 
 						 tinem entitatea accident cu toate coloanele si metodele sale. 
@@ -307,14 +309,12 @@
 					<!-- Controllere -->
 					<section id="id5_2_4_1">
 						<h5>5.2.4.1 Controllere</h5>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerele reprezinta nucleul aplicatiei. Acolo este lcul unde se face toata logica. Ele decid in ce cricumstante se aleg anumite modele si mentioneaza si ce serviciu ar trebui modelele sa apeleze mai departe. Acestea comunica si cu exteriorul aplciatiei. In AVIACC sunt doua controllere: unul care verifica existenta datelor si apeleaza metoda de GET si unul care manipuleaza erorile in cazul in care apar. In controller-ul pentru date</p>
 					</section>
 					<!-- Modele -->
 					<section id="id5_2_4_2">
 						<h5>5.2.4.2 Modele</h5>
-					</section>
-					<!-- View-uri -->
-					<section id="id5_2_4_3">
-						<h5>5.2.4.3 View-uri</h5>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modelele sunt unitati logice ale aplicatiei care sunt utilizate pentru a oferi datelor o forma si o utilite. Ele sunt utilizate de catre controllere pentru a interpreta datele. In alicatia noastra avem un model care defineste un accident si metodele sale. Acele metode vor apela niste servicii cu anumite inputuri stabilite de model sau impuse de controller. Serviciile pe care le foloseste modelul sunt: serviciul dao care creaza interogarea sub format SQL in functie de datele din json si serviciul dao care se ocupa cu interogarea bazei de date cu selectul creat anterior si crearea rezultatului in format json.</p>
 					</section>
 				</section>
 				<!-- Functionalitati -->

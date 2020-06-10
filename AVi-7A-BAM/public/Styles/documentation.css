@@ -1,0 +1,58 @@
+
+body {
+  max-width: 21cm;
+  margin: auto;
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+header > h1 {
+  margin: 0;
+  font-size: 3em;
+  padding-top: 4em;
+  letter-spacing: 2px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    letter-spacing: 2px;
+  }
+
+h1,
+h2 {
+  color:#af734a;
+  font-weight: 900;
+ 
+}
+h2 {
+  margin-top: 3em;
+  font-weight: 900;
+}
+h3 {
+  margin-top: 2.5em;
+  font-weight: 900;
+}
+h4 {
+  font-weight: 900;
+  font-size: 1.1em;
+  margin: 2em 0 0.5em;
+}
+
+h5{
+    font-weight: 500;
+  font-size: 1em;
+  margin: 2em 0 0.5em;
+}
+
+
+h6{
+    font-weight: 500;
+  font-size: 0.8em;
+  margin: 2em 0 0.5em;
+}
+
+
+@media screen and (max-width: 980px) {
+  body {
+    margin: 0 2em;
+  }
+}
