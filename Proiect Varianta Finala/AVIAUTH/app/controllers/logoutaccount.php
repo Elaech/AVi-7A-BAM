@@ -1,5 +1,5 @@
 <?php
-
+//Done by Minut Mihai Dimitrie
 class LogoutAccount extends Controller {
  
     function default($data){

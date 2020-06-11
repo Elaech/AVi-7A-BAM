@@ -609,6 +609,116 @@
 		<!-- Metodologie de management a activitatii -->
         <section id="id8">
 			<h2>8. Metodologie de management a activitatii</h2>
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proiectul a fost conceput avand initial in vedere designul si structura paginilor, codul de backend si cel de javascript fiind facute spre final. Mai jos vom descrie
+				fiecare etapa a proiectului si ce contributii au fost facute de fiecare membru pe parcurs in ele.
+			</p>
+			<section id="id8_1" role="directory">
+				<h3>Etapa de organizare de inceput</h3>
+				<p>Prima etapa a proiectului a constat in stabilirea mediului de lucru si a unei metode de organizare interna.</p>
+				<p>Am creat si facut initializarea unui repository pentru proiect. (Toti)</p>
+				<p>Am initializat un spatiu de trello pentru proiect avand ariile necesare pentru back-end, front-end etc. (Toti)</p>
+				<p>Am creat un canal de comunicare rapida pe Messenger si Discord. (Toti)</p>
+			</section>
+			<section id="id8_2"  role="directory">
+				<h3>Etapa de brainstorming pentru template-urile paginilor</h3>
+				<p>Aceasta etapa a inceput prin stabili anumite elemente comune ce ar trebui sa le aiba paginile si a continuat prin
+					creerea unor modele/concepte de pagini sau componente.(se regasesc in OLD/Front End Templates)
+				</p>
+				<p>
+					Template-uri/cocepte realizate de Ionita Andra Paula: Header, Create Account Panel, Sign In Panel, Home Page Panel, Contact Page
+				</p>
+				<p>
+					Template-uri/cocepte realizate de Minut Mihai Dimitrie: Navigation Menu, Account Menu/Info Panel
+				</p>
+				<p>
+					Template-uri/cocepte realizate de Cretu Bogdan-Antonio: Statistics Panel,Filtration Menu Panel, Footer Panel
+				</p>
+			</section>
+			<section id="id8_3"  role="directory">
+				<h3>Structura HTML5 a paginilor </h3>
+				<p>In aceasta etapa fiecare membru si-a ales din conceptele ulterior facute o multime din care sa creeze structura elementului sub 
+					forma de continut HTML5. (se regasesc in OLD/Front End Architecture)</p>
+				<p>Pagini/elemente de html facute Ionita Andra Paula: Header, Create Account Panel, Sign In Panel, Home Page Panel</p>
+				<p>Pagini/elemente de html facute de Minut Mihai Dimitrie: Filtration Menu Panel,  Contact Page , Footer, Navigation Menu </p>
+				<p>Pagini/elemente de html facute de Cretu Bogdan-Antonio: Statistics Page , Account Menu</p>
+			</section>
+			<section id="id8_4"  role="directory">
+				<h3>Etapa de stabilire si intocmire a designului folosind CSS3 si Javascript</h3>
+				<p>In aceasta etapa fiecare membru a ales anumite pagini facute ulterior in html si a adaugat fise de stil comform CSS3.(se regasesc in OLD/Front End Design)</p>
+				<p>Design creat de Ionita Andra Paula: Creare Logo, SignIn Panel, Create Account Panel, Contact Panel, Name for the site, Header</p>
+				<p>Design creat de Minut Mihai Dimitrie: Color Pallete, Statistics Panel, Contact Panel, Footer, Filtration Menu</p>
+				<p>Design creat de Cretu Bogdan Antonio: Navigation Bar, Account Info Panel, Alegere SVG </p>
+			</section>
+			<section  id="id8_5"  role="directory">
+				<h3>Etapa de integrare a tututor pieselor create pentru a forma paginile finale din aplicatia principala.</h3>
+				<p>In aceasta etapa am ales fiecare anumite pagini ce ar trebui imbinate din elementele create anterior si am inceput integrarea lor(Acestea se pot gasi in Proiect Final/AVIBAM/app/views)</p>
+				<p>Pagini imbinate de Ionita Andra Paula: Account Menu, Create Account, Sign In, Home</p>
+				<p>Pagini imbinate de Minut Mihai Dimitrie: Contact Page, Statistics Page</p>
+				<p>Pagini imbinate de Cretu Bogdan Antonio: Documentation, Account Menu , Manual</p>
+				<p>Pe decursul integrarii a fost nevoie la fiecare pagine de o refactorizare de html si css. Fiecare membru a facut aceasta la paginile lui (css-ul rezultat se regaseste
+					la Proiect Final/AVIBAM/public/Styles/*.css)
+				</p>
+			</section>
+			<section  id="id8_6"  role="directory">
+				<h3>Etapa de stabilire a arhitecturii serverului si a scrierii codului pentru acesta din AVIBAM</h3>
+				<p>Am stabilit arhitectura serverului comform MVC si am creat o prima varianta(ce nu este cea finala) de controllere, modele si viewuri folosind PHP (acestea se gasesc in proiectul final/AVIBAM/app/controllers | views | models).</p>
+				<p>Parti de cod facute de Ionita Andra Paula: <br> Controllere: Statistics + metoda de obtinere de date
+				<br> Modele: Accmodel
+				<br> Viewuri: Accmodel,Statistics </p>
+				<p>Parti de cod facute de Minut Mihai Dimitrie: <br> Controllere: Account Menu, Contact, Create Account, Sign In ,Metoda de Validare a Datelor pentru Statistici
+				<br> Modele: Authmodel
+				<br> Viewuri: Accountmenu, Statistics, SignIn, Create Account</p>
+				<p>Parti de cod facute de Cretu Bogdan Antonio: <br> Controllere: Documentatie,  Manual
+			    <br>Viewuri: Statistics</p>
+			</section>
+			<section  id="id8_7"  role="directory">
+				<h3>Etapa de fragmentare a codului in diferite servicii din AVIBAM</h3>
+				<p>Deoarece proiectul trebuie sa aiba o arhitectura bazata pe servicii am separat accidentele si conturile in doua servicii separate fata de aplicatia principala.
+					Acestea expun fiecare functionalitatile printr-un API REST.(Acestea se regasesc in Proiect Final/AVIAUTH | AVIACC) </p>
+				<p>Contributii aduse de Ionita Andra Paula: AVIACC: setup initial, portare date US-ACCIDENTS, pattern command, imbunatatiri ulterioare, metoda principala pentru fetch la date, prototipuri pentru anumite metode din AVIAUTH</p>
+				<p>Contributii aduse de Minut Mihai Dimitrie: AVIAUTH: stabilirea arhitecturii, construire sistem de tokeni utilizator, importarea/folosirea de librarii folosind composer, construirea de servicii criptografice, construirea api-ului REST folosind diferite rute, metode de interactiune cu conturile din BD ,prototipuri pentru anumite metode din AVIACC</p>
+				<p>Contributii aduse de Cretu Bogdan Antonio:AVIACC: imbunatari generale, refactorizare controller si participare la metoda ce da fetch la date, prototipuri pentru anumite metode din AVIAUTH</p>
+			</section>
+			<section id="id8_8"  role="directory">
+				<h3>Etapa de refactorizare a codului si adaptarea acestuia la noile servicii</h3>
+				<p>In aceasta etapa am creat layerul de API-SERVICE in aplicatia principala in care am abstractizat apelul la noile API-uri redate de serviciile create ulterior.(Se regaseste in Proiect Final/AVIBAM/app/ services | models)</p>
+				<p>Contributii Ionita Andra Paula: AVIACC-service, accmodel</p>
+				<p>Contributii Minut Mihai Dimitrie: AVIAUTH-service, authmodel</p>
+				<p>Contributii Cretu Bogdan Antonio: AVIACC</p>
+			</section>
+			<section id="id8_9"  role="directory">
+				<h3>Etapa de Integrare a serviciilor in aplicatia principala folosind PHP7 si Javascript</h3>
+				<p>In aceasta etapa am folosit modele ulterior create pentru a stabili interactiunea intre aplicatia principala si cele doua servicii folosind requesturi de pe server dar si din client.(acestea se regasesc in controllere si viewuri in aplicatia principala)</p>
+				<p>Contributii Ionita Andra Paula: integrare AVIACC: redare date in functie de tipul statisticii in controllerul de statistici,construire statistici pe datele primite in php</p>
+				<p>Contributii Minut Mihai Dimitrie: integrare AVIAUTH: toate controllerele aplicatiei principale inafara de documentation si manual, si in pagina de account menu folosind AJAX.
+					<br> integrare AVIACC: apel AJAX pentru realizarea paginarii tabelului din pagina de statistici, construire statistici pe datele primite in php </p>
+				<p>Contributii Cretu Bogdan:construire statistici pe datele primite in php </p>
+			</section>
+			<section id="id8_10"  role="directory">
+				<h3>Etapa de finalizare a clientului folosind Javascript</h3>
+				<p>A constat in construirea elementelor finale pentru redarea datelor despre accidente in pagina de statistici.(Acestea se regasesc in proiect final/avibam/app/view/statistics)</p>
+				<p>Scripturi facute de Ionita Andra Paula: script ce afiseaza modalul si datele din acesta,script ce apeleaza la un api pentru redarea interactiva a statisticilor, script ce formeaza linkurile de download ale statisticilor</p>
+				<p>Scripturi facute de Minut Mihai Dimitrie: paginare si construire tabel date, script ce isi aminteste ulterioara alegere de date, script ce afiseaza modalul si datele din acesta, script de initializare a paginii, script ce preia inputul utilizatorului, script ce apeleaza la un api pentru redarea interactiva a statisticilor, script ce formeaza linkurile de download ale statisticilor si formeaza requestul pentru date.  </p>
+				<p>Scripturi facute de Cretu Bogdan Antonio: script ce apeleaza la un api pentru redarea interactiva a statisticilor, script ce formeaza linkurile de download ale statisticilor</p>
+			</section>
+			<section id="id8_11"  role="directory">
+				<h3>Etapa de scriere a documentatiei si a manualului de utilizare pentru toata aplicatia</h3>
+				<p>Proiectul propriu-zis fiind terminat am inceput lucrul la documentatie si ghid de utilizare, ce au fost impartite pe bucati pentru fiecare membru. (se regasesc in views in documentation)</p>
+				<p>Contributii Ionita Andra Paula: Proiect-Introducere, Proiect-Motivatie, Documentatie AVIACC, Proiect-Diagrame Usecase, Proiect-Possible Improvements, Proiect-Concluzii </p>
+				<p>Contributii Minut Mihai Dimitrie: Table of Contents, Proiect-Arhitectura, Proiect-Diagrama_Arhitectura, Proiect-Introducere API Servicii, Documentatie AVIAUTH, Documentatie Server Aplicatie Principala, Proiect-Bibliografie</p>
+				<p>Contributii Cretu Bogdan Antonio: Table of Contents, Documentatie Aplicatie Principala Client, Ghid de Utilizare</p>
+			</section>
+			<section id="id8_12"  role="directory">
+				<h3>Etapa de testare si refactorizare finala</h3>
+				<p>In aceasta etapa am facut un utltim meeting in care am curatat si refactorizat anumite parti din proiect, am adaugat comentarii cu respectivii autori si am reparat eventualele bugg-uri ce au provenit
+					din curatare/refactorizare. Cu totii am participat intr-un mod egal.
+				</p>
+			</section>
+			<section  id="id8_13"  role="directory">
+				<h3>Crearea unui videoclip de prezentare</h3>
+				<p>Ultima etapa a constat in elaborarea unui videoclip de prezentare ce se poate gasi la: https://youtu.be/vTT9nTApHLs . In acest videoclip prezentam aplicatia web principala construita si interactiunile ce pot avea loc cu ea.</p>
+			</section>
         </section>
 		<!-- Posibile Imbunatatiri -->
         <section id="id9">
@@ -619,7 +729,7 @@
 				organizarea intr-o arhitectura mai bine definita a codului aplicatiei: Chiar daca respectam cu strictete o arhitectura MVC iar codul de pe 
 				Back-End este foarte bine structurat, in ceea ce priveste Clientul, in special pe pagina de statistici, se putea pune la punct o arhitectura mai bine definita
 				de organizare a functiilor de javascript care au fost scrise.
-			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O alta imbunatatire ar fi incercarea de economisire a spatiului: in local storage ocupam cateva zeci bune de kilobytes atunci cand apelam vizualizatorul de statistici.
+			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O alta imbunatatire ar fi incercarea de economisire a spatiului: in local storage ocupam cativa kilobytes atunci cand apelam vizualizatorul de statistici.
 			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si nu in ultimul rand, pentru ca niciodata un site sau o aplicatie nu o sa arate 100% perfect, s-ar putea avea in vedere si cateva imbunatatiri pe partea de design al aplicatiei.
 			</p>
         </section>
@@ -656,6 +766,9 @@
 			<p>AM4MAPS - https://www.amcharts.com/</p>
 			<p> OBS - https://obsproject.com/</p>
 			<p>Browser - https://www.google.com/intl/ro_ro/chrome/</p>
+			<p>Draw.io - https://app.diagrams.net/</p>
+			<p>Video Merging - https://www.onlineconverter.com/merge-video</p>
+			<p>Video Editing - https://online-video-cutter.com/</p>
         </section>
 	</article>
 </body>

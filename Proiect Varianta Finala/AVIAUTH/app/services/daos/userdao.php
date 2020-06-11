@@ -150,7 +150,6 @@ class UserDAO{
         oci_free_statement($statement);
     }
     
-
     //End Andra Ionita
 
     public function __construct()

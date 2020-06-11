@@ -1,6 +1,6 @@
 <?php
 
-
+//Done by Minut Mihai Dimitrie
 class VerifyAccount extends Controller {
  
     function default($data){   

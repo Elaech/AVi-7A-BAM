@@ -1,5 +1,5 @@
 <?php
-
+//Done by Minut Mihai Dimitrie
 class DataAccount extends Controller{
     function default($data){
         if(!isset($data['ip']) || empty($data['ip']) || !filter_var($data['ip'],FILTER_VALIDATE_IP)){

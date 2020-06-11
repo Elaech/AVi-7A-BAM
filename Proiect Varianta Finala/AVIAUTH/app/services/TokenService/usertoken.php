@@ -1,5 +1,5 @@
 <?php
-
+//Done by Minut Mihai Dimitrie
 require '../app/vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
