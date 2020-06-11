@@ -23,6 +23,7 @@ class Constants{
     const LOCATION_SIGNIN = "location: http://localhost/AVi-7A-BAM/public/signin/index";
     const LOCATION_ACCOUNTMENU = "location: http://localhost/AVi-7A-BAM/public/accountmenu/index";
     const LOCATION_CREATEACCOUNT = "location: http://localhost/AVi-7A-BAM/public/createaccount/index";
+    const LOCATION_MANUAL = "loacation:http://localhost/AVi-7A-BAM/public/Manual";
     //OUTSIDER LOCATIONS
     const GITHUB = "https://github.com/";
     const TRELLO = "https://trello.com/";
