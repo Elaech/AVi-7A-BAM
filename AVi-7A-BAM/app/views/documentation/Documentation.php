@@ -664,6 +664,26 @@
 		<!-- Bibliografie -->
         <section id="id11">
 			<h2>11. Bibliografie</h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pe parcursul dezvoltarii proiectului s-au folosit diferite resurse gratis, bucati de cod sau librarii gpl pentru scrierea codului; mai jos sunt listate toate acestea.</p>
+			<p>Documetatie PHP - https://www.php.net/docs.php </p>
+			<p>Oracle SGBD - https://www.oracle.com/database/</p>
+			<p>Tehnologii web - https://profs.info.uaic.ro/~busaco/teach/courses/web/</p>
+			<p>XAMPP - https://www.apachefriends.org/</p>
+			<p>Arhitectura - https://www.youtube.com/watch?v=OsCTzGASImQ&list=PLfdtiltiRHWGXVHXX09fxXDi-DqInchFD</p>
+			<p>Tokeni + Documentatie - https://jwt.io/</p>
+			<p>Composer - https://getcomposer.org/</p>
+			<p>Iconite - https://fontawesome.com/</p>
+			<p>Trello - https://trello.com/</p>
+			<p>Github - https://github.com/</p>
+			<p>OpenSSL - https://www.openssl.org/</p>
+			<p> JS Tutorials - https://www.w3schools.com/js/</p>
+			<p> HTML Tutorials - https://www.w3schools.com/html/</p>
+			<p> CSS Tutorials - https://www.w3schools.com/css/default.asp</p>
+			<p>Google Maps - https://www.google.com/maps</p>
+			<p>Google Charts - https://developers.google.com/chart</p>
+			<p>AM4MAPS - https://www.amcharts.com/</p>
+			<p> OBS - https://obsproject.com/</p>
+			<p>Browser - https://www.google.com/intl/ro_ro/chrome/</p>
         </section>
 	</article>
 </body>
