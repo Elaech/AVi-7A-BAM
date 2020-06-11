@@ -31,8 +31,10 @@
 		text-decoration:none;
 		list-style: none;
 	}
-	.id6_2_1 {
-	  text-indent: 3rem;
+	
+	#id6_2_1 p{
+	  text-indent: 2rem;
+	  
 	}
 
 </style>
