@@ -505,7 +505,7 @@
 					<!-- Concluzii -->
 					<section id="id6_2_1_6">
 						<h5>6.2.1.6 Concluzii</h5>
-						<p>Clientul AVI este versatil, designul este colorat si vioi, iar functionalitatile si butoanele sunt usar de vazut si accesat.
+						<p>Clientul AVI este versatil, designul este colorat si vioi, iar functionalitatile si butoanele sunt usor de vazut si accesat.
 						Modificarile pot fi facute cu usurinta iar experienta utilizatorului este placuta.</p>
 					</section>
 				</section>
@@ -533,14 +533,51 @@
 						<!-- Controllere -->
 						<section id="id6_2_2_2_1">
 							<h6>6.2.2.2.1 Controllere</h6>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Controllerele aplicatiei principale sunt cea mai importanta componenta a proiectului si a rezultatului final, ele rezolvand primii pasi din logica de care este nevoie pentru
+							interactiunea cu clientii. Ele constau intr-un controller principal ce primeste requestul clientului si din datele primite decide ce subcontroller trebuie invocat pentru a satiface
+							cererea primita prin a apela la diferite servicii si a construi o pagina web ce trebuie trimisa ca raspuns la client.
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controllerele principale sunt in total in numar de sapte, iar logica este ca fiecare controller controleaza ce se intampla pe propria lui pagina ce o are de controlat.
+							Paginile web ce pot fi redate sunt: 
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account Menu - reprezinta o pagina,ce nu poate fi accesata decat dupa logare, de gestiune a contului de utilizator iar controllerul acestuia interactioneaza cu inputul utilizatorului si modelul de utilizator pentru a 
+							reda sau modifica date.s
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact - reprezinta o pagina ce poate fi accesata de utilizatori autentificati dar si de cei neautentificati ce contine detalii despre cum se poate lua legatura cu developerii ce au lucrat la site pentru eventuale inconveniente. 
+							Diferenta intre cele doua variante ale paginii este la formularul de trimitere a unui mesaj catre developeri, mai exact campul email nu trebuie completat daca utilizatorul este logat.
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create Account - reprezinta o pagina accesibila numai utilizatorilor nelogati si ofera oportunitatea de creere a unui cont de utilizator nou. Controllerul acestei pagini este responsabil atat de redarea corecta a paginii
+							insa si de apelul la usermodel pentru a verifica date si a crea un eventual cont nou. Erorile , daca exista, atribuite unor campuri ce trebuie completate pentru a crea un cont sunt redate utilizatorului in acceasi pagina de catre controller.
+							Daca nu exista erori si contul a fost creat cu succes utilizatorul va fi redirectionat catre controllerul ce se ocupa de pagina de login.
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login - reprezinta pagina de pe care un utilizator neautentificat se poate loga folosind un cont deja existent. Controllerul se ocupa de gestiunea paginii, a erorilor de validare a inputurilor date de catre utilizator,
+							dar si de lucrul cu usermodel pentru a valida eventual contul pe care utilizatorul incearca sa il acceseze. Tot acest controller are atribuit metoda ce delogheaza userul si il promteaza la pagina de start.
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home - este pagina principala a aplicatiei in care se regasesc informatii, o introducere si un abstract despre functionalitatile dispuse de catre aplicatie. Aceasta pagina vine in cele doua variante pentru cele doua stari
+							ale unui client. Diferenta intre cele doua consta in ce functionalitati pot fi accesate cat si in elementele paginii trimise.
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Documentation - este controllerul ce permite ambelor tipuri de utilizatori sa acceseze pagina de documentatie a intregii aplicatii construite (pagina curenta).
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistics - este controllerul ce reda pagina de statistici doar pentru utilizatorii logati. Acesta este cel mai complex dintre controllere deoarece acceseaza ambele modele ale aplicatiei principale
+							pentru a verifica atat autenticitatea clientului cat si a reda datele de care acesta are nevoie pentru a forma diferite tipuri de statistici interactive. Pagina redata de acesta este foarte dinamica din punct de vedere a continutului deoarece
+							diferite tipuri de statistici cer diferite legaturi in pagina si/sau legaturi catre API-uri externe.
+							</p>
 						</section>
 						<!-- Modele -->
 						<section id="id6_2_2_2_2">
 							<h6>6.2.2.2.2 Modele</h6>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modelele sunt folosite de catre controllere pentru a obtine, a valida sau a schimba diferite date ce au legatura cu bunul demers al aplicatiei.</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Modelul authmodel se ocupa cu gestionea conturilor de utilizator si apeleaza in layerul de API SERVICE la serviciul AVIAUTH pentru a reusi sa satisfaca toate cererile legate de conturi.
+							</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Modelul accmodel se ocupa de gestiunea datelor despre accidente si interactioneaza in layerul de API SERVICE cu serviciul AVIACC pentru a obtine datele propriuzise cerute de catre controller.
+							</p>
 						</section>
 						<!-- View-uri -->
 						<section id="id6_2_2_2_3">
 							<h6>6.2.2.2.3 View-uri</h6>
+							<p>View-urile contin in mare parte cod ce trebuie redat clientului pentru a fi interpretat (html,css,javascript) insa contin si bucati de php ce nu se ocupa de logica ci de redarea anumitor
+							informatii primite ulterior din cadrul controllerului. Aceste date pot fi date ce specifica formatul paginii sau ce scripturi ar trebui apelate sau trateaza si pun in pagina mesaje despre erorile sau reusitele
+							din cadrul interactiunii cu clientul. Tot aceste bucati de cod de php se ocupa cu linkarea de resurse intre client si server prin intermediul diferitlor URI-uri ce directioneaza catre directorul public din server ce contine diferite resurses</p>
 						</section>
 					</section>
 					<!-- Functionalitati -->
