@@ -1,0 +1,944 @@
+:root {
+  /*Brown theme*/
+  --primary-color: #000000;
+  --secondary-color: #fffaf1;
+  --tertiary-color: #efe0bb;
+  --aux-color: #af734a;
+  --aux-color2: #3b271d;
+
+  --transition-speed: 200ms;
+  --text-font-header: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  --text-font: "Ubuntu", Sans-Serif;
+  --header-icon1-width: 30px;
+  --header-icon1-height: 30px;
+  font-size: 16px;
+}
+
+/* Done by Cretu Bogdan Antonio */
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  padding: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--tertiary-color);
+}
+
+.navbar {
+  font-family: var(--text-font);
+  position: fixed;
+  background-color: var(--primary-color);
+  transition: width var(--transition-speed) ease;
+
+  border: 2px solid rgba(116, 108, 108, 0.02);
+
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-ul {
+  font-size: small;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-item {
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+  font-size: small;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--secondary-color);
+  color: var(--aux-color2);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+  color: var(--aux-color);
+}
+
+#userImage {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0.5rem;
+}
+
+@media only screen and (min-width: 800px) {
+   
+  .navbar {
+    font-size: small;
+    top: 0;
+    right: 0;
+    width: 5rem;
+    height: 200vh;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar:hover .link-text {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 200vh;
+    font-size: 12px;
+  }
+
+  .nav-link{
+    font-size: 12px;
+  }
+
+  .navbar:hover {
+    width: 10rem;
+  }
+
+  .navbar:hover .link-text {
+    display: block;
+  }
+
+  .nav-link svg {
+    width: 1rem;
+    min-width: 1rem;
+    margin: 0 0.5rem;
+    color: var(--aux-color);
+  }
+
+  #userImage {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 1px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .navbar:hover {
+    width: 100vw;
+    height: 80vh;
+  }
+
+  .navbar:hover .link-text {
+    display: block;
+  }
+
+  #userButton {
+    display: block;
+  }
+
+  #userButton:hover {
+    display: block;
+  }
+
+  .navbar-ul {
+    flex-direction: row;
+  }
+
+  .navbar-ul:hover {
+    flex-direction: column;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+}
+/*Finished Section Done By Cretu Bogdan Antonio*/
+
+/* Done by Ionita Andra */
+header {
+  position: fixed;
+  margin: 0;
+  left: 0;
+  top: 0;
+  height: 65px;
+  width: 100%;
+  background-color: var(--aux-color2);
+  display: block;
+
+  border: 2px solid rgba(0, 0, 0, 0.02);
+
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+}
+.header-item1 {
+  height: 100%;
+  display: table;
+  float: left;
+}
+.header-item1 h1 {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.logo-icon {
+  margin: 0;
+  display: grid;
+  margin-left: 15px;
+  vertical-align: middle;
+  top: 75%;
+  height: 65px;
+}
+
+.header-item2 {
+  margin: 0;
+  height: 100%;
+
+  display: block;
+
+  text-align: right;
+  margin-left: -90%;
+}
+
+.header-item2 h1 {
+  color: var(--secondary-color);
+  height: 100%;
+  margin: 0;
+
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-family: var(--text-font-header);
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.header-item2 h1 span {
+  font-weight: 900;
+}
+
+@media screen and (max-width: 650px) {
+  header {
+    height: 30px;
+    padding-bottom: 15px;
+    margin-right: -3rem;
+  }
+  .logo-icon {
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 2px;
+  }
+
+  .header-item2 h1 {
+    font-size: 20px;
+    margin-left: -5px;
+    margin-top: 2px;
+  }
+}
+/*Finished Section Done By Ionita Andra*/
+
+/* Done by Minut Mihai Dimitrie */
+/* Footer Start */
+footer {
+  font-family: var(--text-font);
+  position: absolute;
+  margin-bottom: 0px;
+  left: 0;
+  bottom: -50px;
+  height: 100px;
+  width: 100%;
+  background-color: var(--aux-color2);
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 50% 50%;
+  justify-content: space-around;
+  align-content: space-around;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.5);
+}
+.footer-item1 {
+  margin-left: -17px;
+  grid-row: 1/3;
+  grid-column: 1/1;
+}
+.footer-item2 {
+  margin-left: -20px;
+  grid-row: 1/2;
+  grid-column: 2/2;
+}
+.footer-item3 {
+  margin-left: -20px;
+  grid-row: 1/3;
+  grid-column: 3/3;
+}
+
+footer p {
+  font-family: var(--text-font);
+
+  color: var(--secondary-color);
+  font: 0.9rem bold;
+  text-align: center;
+  font-weight: 900;
+  font-size: 17px;
+}
+
+.footer-icon1 {
+  height: 30px;
+  flex-grow: 4;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.footer-icon2 {
+  height: 32px;
+  flex-grow: 5;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.footer-icon-flex {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  footer p {
+    font: 0.5rem bold;
+  }
+  footer {
+    bottom: -5px;
+    margin-bottom: 0px;
+    height: 50px;
+  }
+  .footer-icon1 {
+    height: 16px;
+    padding: 2px;
+  }
+  .footer-icon2 {
+    height: 16px;
+    padding: 2px;
+  }
+}
+@media screen and (max-width: 600px) {
+  footer p {
+    font-size: 0.15rem bold;
+  }
+  footer {
+    bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: -30px;
+    padding-top: -20px;
+    height: 55px;
+    font: 0.15rem bold;
+  }
+  .footer-icon1 {
+    height: 14px;
+    padding: 2px;
+  }
+  .footer-icon2 {
+    height: 14px;
+    padding: 2px;
+  }
+}
+/* Footer Finish */
+/* Done by Ionita Andra */
+/* Main Start */
+
+body {
+  background-color: var(--aux-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 60px;
+  position: relative;
+  /* margin-bottom: 20px; */
+}
+
+main.main-class {
+  background-color: var(--tertiary-color);
+  height: 100%;
+  margin: 3rem;
+  margin-top: 100px;
+  margin-right: 8rem;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.main {
+  background-color: var(--secondary-color);
+  margin: 16rem;
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+  box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 40px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.create {
+  text-align: center;
+  padding-top: 70px;
+  color: var(--aux-color2);
+  font-family: var(--text-font);
+  font-weight: bold;
+  font-size: 60px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+}
+
+.un {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+
+  text-align: center;
+  margin-bottom: 35px;
+  font-family: var(--text-font);
+}
+
+form.form1 {
+  padding-top: 40px;
+}
+
+.pass {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: var(--text-font);
+}
+
+.passwdag {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+
+  text-align: center;
+  margin-bottom: 35px;
+  font-family: var(--text-font);
+}
+.email {
+  width: 86%;
+  height: 8%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.08);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+
+  text-align: center;
+  margin-bottom: 35px;
+  font-family: var(--text-font);
+}
+
+
+.un:focus,
+.pass:focus, .passwdag:focus, .email:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+.submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, var(--aux-color), var(--aux-color2));
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  font-family: var(--text-font);
+
+  margin-top: 20px;
+  font-size: 30px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+
+input[type="submit"]:hover {
+  background: linear-gradient(90deg, var(--tertiary-color), var(--aux-color));
+
+  color: #fff;
+  border: none;
+  outline: none;
+  border: 1px solid #eee;
+  border-radius: 10em;
+  box-shadow: 5px 5px 5px #eee;
+  text-shadow: none;
+}
+.creacc {
+  text-align: center;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+
+  padding-top: 15px;
+}
+
+a {
+  text-align: center;
+  font-size: 25px;
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  color: var(--aux-color);
+  text-decoration: none;
+}
+
+@media screen and (min-width:400px) and (max-width: 600px) {
+  body {
+    background-color: var(--aux-color);
+    margin: 0;
+    padding: 0;
+
+    min-height: 90vh;
+    bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+
+    position: relative;
+  }
+
+  main.main-class {
+    background-color: var(--tertiary-color);
+    max-width: 80vw;
+    margin-left: 1.2rem;
+    margin-top: 5rem;
+    margin-right: 0.2rem;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+
+    padding-bottom: 4%;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
+
+  .main {
+    background-color: var(--secondary-color);
+    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+
+    padding: 1rem;
+  }
+
+  .create {
+    text-align: center;
+    padding-top: 10px;
+    
+    color: var(--aux-color2);
+    font-family: var(--text-font);
+    font-weight: bold;
+    font-size: 25px;
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    margin-bottom: -1px;
+  }
+
+  .un {
+    width: 73%;
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    padding: 10px 20px;
+
+    margin-left: 0px;
+
+    margin-bottom: 12px;
+  }
+
+  form.form1 {
+    padding-top: 20px;
+  }
+
+  .pass {
+    width: 73%;
+    font-size: 10px;
+
+    padding: 10px 20px;
+
+    margin-left: 0px;
+    margin-bottom: 12px;
+  }
+
+  .passwdag {
+    width: 73%;
+    font-size: 10px;
+
+    padding: 10px 20px;
+
+    margin-left: 0px;
+    margin-bottom: 12px;
+  }
+
+  .email {
+    width: 73%;
+    font-size: 10px;
+
+    padding: 10px 20px;
+
+    margin-left: 0px;
+    margin-bottom: 12px;
+  }
+
+  .submit {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    margin-top: 10px;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  }
+
+  input[type="submit"]:hover {
+    border: none;
+    outline: none;
+  }
+
+
+  .creacc {
+    padding-top: 10px;
+  }
+
+  a {
+    font-size: 10px;
+  }
+}
+
+
+@media screen and (min-width:300px) and (max-width: 400px) {
+  body {
+    background-color: var(--aux-color);
+    margin: 0;
+    padding: 0;
+
+    min-height: 90vh;
+    bottom: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+  padding-bottom: 60px;
+    position: relative;
+  }
+
+  main.main-class {
+    background-color: var(--tertiary-color);
+    max-width: 80vw;
+    margin-left: 0.9rem;
+    margin-top: 4rem;
+    margin-right: 0.2rem;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+
+    padding-bottom: 16%;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+  }
+
+  .main {
+    background-color: var(--secondary-color);
+    margin: 2rem;
+  
+    margin-bottom: 1rem;
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+
+    padding: 1rem;
+  }
+
+
+    
+      .create {
+        text-align: center;
+        padding-top: 10px;
+        
+        color: var(--aux-color2);
+        font-family: var(--text-font);
+        font-weight: bold;
+        font-size: 35px;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+        margin-bottom: -1px;
+      }
+    
+      .un {
+        width: 73%;
+        font-size: 11px;
+        letter-spacing: 1px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+    
+        margin-bottom: 25px;
+      }
+    
+      form.form1 {
+        padding-top: 20px;
+      }
+    
+      .pass {
+        width: 73%;
+        font-size: 11px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+        margin-bottom: 12px;
+      }
+
+      .passwdag {
+        width: 73%;
+        font-size: 11px;
+        letter-spacing: 1px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+    
+        margin-bottom: 25px;
+      }
+
+      .email {
+        width: 73%;
+        font-size: 11px;
+        letter-spacing: 1px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+    
+        margin-bottom: 25px;
+      }
+    
+      .submit {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    
+        margin-top: 10px;
+        font-size: 20px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+      }
+    
+      input[type="submit"]:hover {
+        border: none;
+        outline: none;
+      }
+    
+     
+      .creacc {
+        padding-top: 10px;
+      }
+    
+      a {
+        font-size: 13px;
+      }
+}
+
+@media screen and (min-width:500px) and (max-width: 1300px) {
+    body {
+        background-color: var(--aux-color);
+        margin: 0;
+        padding: 0;
+    
+        min-height: 90vh;
+        bottom: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 60px;
+        position: relative;
+      }
+    
+      main.main-class {
+        background-color: var(--tertiary-color);
+        max-width: 80vw;
+        max-height: 90vh;
+        margin-left:3.5rem;
+        margin-top: 9rem;
+        margin-right: 0.2rem;
+        border: 2px solid rgba(0, 0, 0, 0.02);
+    
+        padding-bottom: 9%;
+        box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+      }
+    
+      .main {
+        background-color: var(--secondary-color);
+        margin: 5rem;
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+        box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.5);
+        border-radius: 40px;
+    
+        padding: 1rem;
+      }
+    
+      .create {
+        text-align: center;
+        padding-top: 50px;
+        
+        color: var(--aux-color2);
+        font-family: var(--text-font);
+        font-weight: bold;
+        font-size: 45px;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+        margin-bottom: 40px;
+      }
+    
+      .un {
+        width: 73%;
+        font-size: 20px;
+        letter-spacing: 1px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+    
+        margin-bottom: 35px;
+      }
+    
+      form.form1 {
+        padding-top: 20px;
+      }
+    
+      .pass {
+        width: 73%;
+        font-size: 20px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+        margin-bottom: 20px;
+      }
+
+      .passwdag {
+        width: 73%;
+        font-size: 20px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+        margin-bottom: 20px;
+      }
+
+      .email {
+        width: 73%;
+        font-size: 20px;
+    
+        padding: 10px 20px;
+    
+        margin-left: 0px;
+        margin-bottom: 20px;
+      }
+    
+      .submit {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    
+        margin-top: 20px;
+        font-size: 20px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+        margin-bottom: 10px;
+      }
+    
+      input[type="submit"]:hover {
+        border: none;
+        outline: none;
+      }
+    
+     
+      .creacc {
+        padding-top: 10px;
+      }
+    
+      a {
+        font-size: 13px;
+      }
+}

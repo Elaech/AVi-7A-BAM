@@ -1,0 +1,87 @@
+/* Done by Cretu Bogdan */
+ body{
+  background-color: white;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 3rem;
+}
+a{
+text-decoration:none;
+}
+p{
+  padding-left: 0rem;
+}
+#toc_container {
+
+margin-bottom: 1em;
+padding: 20px;
+width: auto;
+}
+ol{
+text-decoration:none;
+list-style: none;
+}
+
+#id6_2_1 p{
+text-indent: 2rem;
+
+}
+
+/* Done by Ionita Andra */
+body {
+  max-width: 21cm;
+  margin: auto;
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+header > h1 {
+  margin: 0;
+  font-size: 3em;
+  padding-top: 4em;
+  letter-spacing: 2px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    letter-spacing: 2px;
+  }
+
+h1,
+h2 {
+  color:#af734a;
+  font-weight: 900;
+ 
+}
+h2 {
+  margin-top: 3em;
+  font-weight: 900;
+}
+h3 {
+  margin-top: 2.5em;
+  font-weight: 900;
+}
+h4 {
+  font-weight: 900;
+  font-size: 1.1em;
+  margin: 2em 0 0.5em;
+}
+
+h5{
+    font-weight: 500;
+  font-size: 1em;
+  margin: 2em 0 0.5em;
+}
+
+
+h6{
+    font-weight: 500;
+  font-size: 0.8em;
+  margin: 2em 0 0.5em;
+}
+
+
+@media screen and (max-width: 980px) {
+  body {
+    margin: 0 2em;
+  }
+}
