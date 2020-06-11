@@ -575,7 +575,7 @@
 						<!-- View-uri -->
 						<section id="id6_2_2_2_3">
 							<h6>6.2.2.2.3 View-uri</h6>
-							<p>View-urile contin in mare parte cod ce trebuie redat clientului pentru a fi interpretat (html,css,javascript) insa contin si bucati de php ce nu se ocupa de logica ci de redarea anumitor
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View-urile contin in mare parte cod ce trebuie redat clientului pentru a fi interpretat (html,css,javascript) insa contin si bucati de php ce nu se ocupa de logica ci de redarea anumitor
 							informatii primite ulterior din cadrul controllerului. Aceste date pot fi date ce specifica formatul paginii sau ce scripturi ar trebui apelate sau trateaza si pun in pagina mesaje despre erorile sau reusitele
 							din cadrul interactiunii cu clientul. Tot aceste bucati de cod de php se ocupa cu linkarea de resurse intre client si server prin intermediul diferitlor URI-uri ce directioneaza catre directorul public din server ce contine diferite resurses</p>
 						</section>
@@ -583,18 +583,39 @@
 					<!-- Functionalitati -->
 					<section id="id6_2_2_3">
 						<h5>6.2.2.3 Functionalitati</h5>
+						<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Functionalitatile ce sunt prezentate poti fi impartite in doua mari parti: gestiunea si interactiunea cu contul de utilizator si
+						obtinerea de date despre accidente si formatarea lor pentru a putea fi folosite in generarea de statistici interactive.
+						</p>
+						<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In contextul contului de utilizator clientul poate beneficia de functionalitati precum creerea unui cont nou, autentificare cu ajutorul
+						unui cont deja existent, modificarea unui cont existent, schimbarea datelor unui cont si deautentificare.
+						</p>
+						<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Obtinerea datelor despre accidente se poate face sub 4 forme diferite : cartografica,bar,pie,graph iar datele redate sunt formatate
+						in forme diferite in functie de fiecare tip de data.
+						</p>
 					</section>
 					<!-- Servicii -->
 					<section id="id6_2_2_4">
 						<h5>6.2.2.4 Servicii</h5>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serverul aplicatiei se foloseste de cele doua servicii AVIAUTH si AVIACC ce se regasesc la nivel de servicii in layerul de API SERVICE. Acestea ofera
+						aplicatiei oportunitatea de a crea o directa interactiune intre utilizator si sistemul de gestiune de conturi cat si o interactiune mai usoara cu datele despre accidente.</p>
 					</section>
 					<!-- Tehnologii -->
 					<section id="id6_2_2_5">
 						<h5>6.2.2.5 Tehnologii</h5>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Serverul aplicatiei AVIBAM este construit in pur PHP7 si se foloseste de functionalitatile provenite din utilizarea
+						unui server PHP APACHE pentru a crea o gestiune a fisierelor publice si private.</p>
 					</section>
 					<!-- Concluzii -->
 					<section id="id6_2_2_6">
 						<h5>6.2.2.6 Concluzii</h5>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Concluzia pentru aplicatia AVIBAM ce sta in centrul proiectului nostru este ca a fost construita intr-un mod eficient din punct de vedere al timpului
+						insa ineficient din punct de vedere al spatiului alocat pentru resurse publice. Un neajuns este si faptul ca in pagina de statistici nu se poate
+						estima cat de greu ajuns datele inapoi tinand cont ca acestea sunt intr-un numar foarte mare. O mai buna implementare ar fi fost sa facem obtinerea datelor asincron
+						in javascript din client. Posibil un alt neajuns insa netestat in totalitate sunt bresele de securitate ce pot aparea cand se lucreaza cu date ale utilizatorului.</p>
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Insa cu toate aceste neajunsuri suntem multumiti de rezultatul final al piesei centrale din proiectul nostru avand in vedere si limita de timp.</p>
 					</section>
 				</section>
 			</section>
