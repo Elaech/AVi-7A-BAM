@@ -16,6 +16,7 @@ class Constants{
     const STATISTICS = "http://localhost/AVi-7A-BAM/public/statistics/index";
     const CONTACT = "http://localhost/AVi-7A-BAM/public/contact/index";
     const DOCUMENTATION = "http://localhost/AVi-7A-BAM/public/Documentation";
+    const MANUAL = "http://localhost/AVi-7A-BAM/public/Manual";
     const CREATEACCOUNT_MAKEACC = "http://localhost/AVi-7A-BAM/public/createaccount/makeAccount";
     const ACCOUNTMENU = "http://localhost/AVi-7A-BAM/public/AccountMenu/index";
     //HEADER LOCATION
@@ -23,7 +24,7 @@ class Constants{
     const LOCATION_SIGNIN = "location: http://localhost/AVi-7A-BAM/public/signin/index";
     const LOCATION_ACCOUNTMENU = "location: http://localhost/AVi-7A-BAM/public/accountmenu/index";
     const LOCATION_CREATEACCOUNT = "location: http://localhost/AVi-7A-BAM/public/createaccount/index";
-    const LOCATION_MANUAL = "loacation:http://localhost/AVi-7A-BAM/public/Manual";
+    
     //OUTSIDER LOCATIONS
     const GITHUB = "https://github.com/";
     const TRELLO = "https://trello.com/";
